@@ -10,8 +10,8 @@
     "moduleLenguage": "FR",
     "moduleType": "Video",
     "baseURL": "https://vostfree.com/",
-    "moduleDeveloperSite": "https://mprotmod.github.io/Modules-KETSU/",
-    "UpdateSite": "https://raw.githubusercontent.com/mprotmod/Modules-KETSU/main/Module%20Parser%20KETSU/VostFree/moduleTemplate.json",
+    "moduleDeveloperSite": "https://bilna95.github.io/main/index",
+    "UpdateSite": "https://raw.githubusercontent.com/Bilna95/Ketsu-Modules/main/VostFree%20Ketsu/moduleTemplate.json",
     "preferedServer": "UQLOAD",
     "preferedDownloadServer": "UQLOAD",
     "blackListed": [
