@@ -11,7 +11,7 @@
     "moduleType": "Video",
     "baseURL": "https://neko-sama.fr/",
     "moduleDeveloperSite": "https://bilna95.github.io/main/index",
-    "UpdateSite": "",
+    "UpdateSite": "https://raw.githubusercontent.com/Bilna95/bilna95.github.io/main/Neko-Sama/moduleTemplate.json",
     "preferedServer": "",
     "preferedDownloadServer": "",
     "blackListed": [
