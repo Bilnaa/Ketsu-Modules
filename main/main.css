@@ -27,8 +27,6 @@ samp {
     display: none;
 }
 
-
-
 img {
     animation: colorize 2s cubic-bezier(0, 0, .78, .36) 1;
     background: transparent;
