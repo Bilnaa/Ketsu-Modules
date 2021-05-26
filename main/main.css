@@ -27,6 +27,13 @@ samp {
     display: none;
 }
 
+.text h1{
+    color: red;
+    text-align: center;
+    margin-top: 1em;
+}
+
+
 img {
     animation: colorize 2s cubic-bezier(0, 0, .78, .36) 1;
     background: transparent;
