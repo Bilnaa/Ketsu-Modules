@@ -86,7 +86,7 @@ var title = document.querySelector('div.col-mov-left > div img').alt;
 var image = baseURL + document.querySelector('div.col-mov-left > div img').src;
 image = new ModuleRequest(image,'get',emptyKeyValue,null);
 
-var grosTrucChiant = document.querySelector("#dle-content > article > div.tabsbox.filmlinks.ignore-select > div.tabs-sel.linkstab > div.eps").innerHTML.split(/\\d!/g);
+var grosTrucChiant = document.querySelector('#dle-content > article > div.tabsbox.filmlinks.ignore-select > div.tabs-sel.linkstab > div.eps').innerHTML.split(/\\d!/g);
 for(var i = 1; i < grosTrucChiant.length; i++) {
 	var episodeNumber = i;
     var fixedLink = parsedJson.request.url + '#' + episodeNumber;
