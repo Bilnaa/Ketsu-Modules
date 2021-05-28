@@ -66,9 +66,9 @@ var output = [];
 var savedData = document.getElementById('ketsu-final-data');
 var parsedJson = JSON.parse(savedData.innerHTML);
 var emptyKeyValue = [new KeyValue('', '')];
-var buttonBox = document.querySelector('#w-server').querySelectorAll('div');
+var buttonBox = document.querySelector('div.anime_muti_link').querySelectorAll('li');
 for(var x = 0; x < buttonBox.length; x++) {
-	var link = buttonBox[x].dataset.server;
+	var link = buttonBox[x].dataset.video;
 	if(!link.includes('asianload') && !link.includes('streamtape')) {
 		output.push(new NeedsResolver('', new ModuleRequest(link, 'get', emptyKeyValue, null)));
 	}
