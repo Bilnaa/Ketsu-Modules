@@ -6,7 +6,7 @@
     "developer": "ナビル",
     "moduleID": "2849626",
     "moduleImage": "https://yt3.ggpht.com/a-/AAuE7mAW2MBlo2Dg0vVQBmQTl8ex6dhwNZHmObqHwQ=s900-mo-c-c0xffffffff-rj-k-no",
-    "moduleVersion": 1.0,
+    "moduleVersion": 1.1,
     "moduleLenguage": "ENG",
     "moduleType": "Video",
     "baseURL": "https://www.dramacool9.co/",
@@ -164,7 +164,7 @@
         ],
         "httpBody": null
       },
-      "separator": "",
+      "separator": "%20",
       "extra": {
         "commands": [
           {
