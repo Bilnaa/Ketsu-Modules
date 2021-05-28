@@ -6,7 +6,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    color: #222;
+    color: rgb(0, 0, 0);
     font-weight: 600;
     line-height: 1.3;
 }
@@ -31,6 +31,16 @@ samp {
     color: red;
     text-align: center;
     margin-top: 1em;
+}
+
+.separator-french h2{
+    color : white;
+    text-align: center;
+}
+
+.separator-english h2{
+    color : white;
+    text-align: center;
 }
 
 
