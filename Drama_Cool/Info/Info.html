@@ -89,6 +89,8 @@
         let chapter = new Chapter('Episode ' + (i+1),new ModuleRequest(fixedLink,'get',emptyKeyValue,null),false);
         episodes.push(chapter);
     }
+
+    episodes.reverse();
     
     let infoPageObject = new Info(new ModuleRequest('', '', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(false, false, ''), new Output(image, title, parsedJson.request, desc, genres, lang, '', type, 'Eps: '  + episodes.length, episodes));
     var finalJson = JSON.stringify(infoPageObject);
