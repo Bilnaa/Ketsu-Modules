@@ -230,7 +230,7 @@ const DefaultLayouts = {
                 link = new ModuleRequest(link,'get',emptyKeyValue,null);
                 var image = list.querySelector('.post-thumbnail img').dataset.original;
                 image =  new ModuleRequest(image,'get',emptyKeyValue,null);
-                var type1 = list.querySelector('.post-info a').innerText;
+                var type1 = '';
                 var desc = list.querySelector('.post-details p').innerText;
                 var finalData = new Data(image,title,desc,type1,'Drama','unknown','unknown',false,link);
                 lastAddedArray.push(finalData);
