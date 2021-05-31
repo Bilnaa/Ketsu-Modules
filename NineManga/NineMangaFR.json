@@ -2,10 +2,10 @@
   "moduleInfo": {
     "moduleName": "NineManga",
     "moduleInitials": "NM",
-    "moduleDesc": "Ketsu module for Nine Manga website",
+    "moduleDesc": "Module Ketsu pour NineManga",
     "developer": "Frizrat",
     "moduleID": "23310521",
-    "moduleImage": "https://fr.ninemanga.com/favicon.png",
+    "moduleImage": "https://i.postimg.cc/6pvDJNKt/ninemanga.png",
     "moduleVersion": 1.0,
     "moduleLenguage": "FR",
     "moduleType": "Image",
