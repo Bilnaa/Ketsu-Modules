@@ -110,7 +110,7 @@
             var episodeListVf = document.querySelector('.epblocks > .blocfr > .eplist').querySelectorAll('li');
             for (var y = 0; y < episodeListVf.length; y++) {
             var link = parsedJson.request.url + '#vf' + (y + 1);
-            let chapter = new Chapter('Episode ' + (x + 1) + ' VF', new ModuleRequest(link, 'get', emptyKeyValue, null), false);
+            let chapter = new Chapter('Episode ' + (y + 1) + ' VF', new ModuleRequest(link, 'get', emptyKeyValue, null), false);
             episodes.push(chapter);
             }
         
