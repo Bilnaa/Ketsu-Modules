@@ -11,7 +11,7 @@
     "moduleType": "Video",
     "baseURL": "https://vostanimes.net/",
     "moduleDeveloperSite": "https://bilna95.github.io/main/index",
-    "UpdateSite": "https://raw.githubusercontent.com/Bilna95/bilna95.github.io/main/ScansMangas/ScansMangasKETSU.json",
+    "UpdateSite": "https://raw.githubusercontent.com/Bilna95/bilna95.github.io/main/VostAnimes/VostAnimesKETSU.json",
     "preferedServer": "",
     "preferedDownloadServer": "",
     "blackListed": [
