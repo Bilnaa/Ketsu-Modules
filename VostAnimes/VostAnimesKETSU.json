@@ -10,8 +10,8 @@
     "moduleLenguage": "Vf VostFr",
     "moduleType": "Video",
     "baseURL": "https://vostanimes.net/",
-    "moduleDeveloperSite": "",
-    "UpdateSite": "",
+    "moduleDeveloperSite": "https://bilna95.github.io/main/index",
+    "UpdateSite": "https://raw.githubusercontent.com/Bilna95/bilna95.github.io/main/ScansMangas/ScansMangasKETSU.json",
     "preferedServer": "",
     "preferedDownloadServer": "",
     "blackListed": [
