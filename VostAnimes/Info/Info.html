@@ -1,0 +1,131 @@
+<script type="text/javascript">
+
+    function Info(request, extra, javascriptConfig, output) {
+        this.request = request;
+        this.extra = extra;
+        this.javascriptConfig = javascriptConfig;
+        this.output = output;
+    }
+
+    function ModuleRequest(url, method, headers, httpBody) {
+        this.url = url;
+        this.method = method;
+        this.headers = headers;
+        this.httpBody = httpBody;
+    }
+
+    function Extra(commands, extraInfo) {
+        this.commands = commands;
+        this.extraInfo = extraInfo;
+    }
+
+    function Commands(commandName, params) {
+        this.commandName = commandName;
+        this.params = params;
+    }
+
+    function JavascriptConfig(removeJavascript, loadInWebView, javaScript) {
+        this.removeJavascript = removeJavascript;
+        this.loadInWebView = loadInWebView;
+        this.javaScript = javaScript;
+    }
+
+    function KeyValue(key, value) {
+        this.key = key;
+        this.value = value;
+    }
+
+    function Chapter(chapName, link,openInWebView) {
+        this.chapName = chapName;
+        this.link = link;
+        this.openInWebView = openInWebView;
+    }
+
+    function Output(image, title, link, description, genres, field1, field2, field3, field4, chapters) {
+        this.image = image;
+        this.link = link;
+        this.title = title;
+        this.description = description;
+        this.genres = genres;
+        this.field1 = field1;
+        this.field2 = field2;
+        this.field3 = field3;
+        this.field4 = field4;
+        this.chapters = chapters;
+    }
+
+    function getStuff(array,match) {
+            for (var x = 0 ; x< array.length;x++) {
+                let data = array[x].innerText;
+                if (data.includes(match)) {
+                    return data.replace(match,'').trim();
+                } 
+            }
+        }
+    function getHtmlStuff(array,match) {
+        for (var x = 0 ; x< array.length;x++) {
+        let data = array[x].innerText;
+        if (data.includes(match)) {
+            return array[x];
+        } 
+    }
+    }
+
+    var savedData = document.getElementById('ketsu-final-data');
+    var parsedJson = JSON.parse(savedData.innerHTML);
+    let emptyKeyValue = [new KeyValue('', '')];
+
+    var episodes = [];
+    
+    if (document.querySelector('.InfoList') != null) {
+      var infoList = document.querySelector('.InfoList').querySelectorAll('.AAIco-adjust');
+      for (var y = 0; y < infoList.length; y++) {
+          if (infoList[y].querySelector('strong').textContent.includes('Genre:')) {
+              var genres = [];
+              var genresList = infoList[y].querySelectorAll('a');
+              for (genreArray of genresList) {
+                  var genre = genreArray.textContent;
+                  genres.push(genre);
+              }
+          }
+      }
+    } else {
+      genres.push('');
+    }
+
+    if (parsedJson.request.url != parsedJson.request.url.split('/anime/')) {
+        var type = 'Anime';
+        var status = infoList[1].textContent;
+        var saisons = document.querySelector('.TpRwCont').querySelectorAll('.Wdgt.AABox > .TPTblCn');
+        for (var x = 0; x < saisons.length; x++) {
+            var content = saisons[x].querySelectorAll('tr');
+            for (var i = 0; i < content.length; i++) {
+                var link = content[i].querySelector('a').href;
+                episodes.push(new Chapter( 'Saison ' + (x + 1) + ' :' + ' Episode ' + (i + 1), new ModuleRequest(link, 'get', emptyKeyValue, null), false));                
+            }
+        }
+    } else if (parsedJson.request.url != parsedJson.request.url.split('/film')) {
+        var type = 'Film';
+        var status = '';
+        episodes.push(new Chapter('Film', new ModuleRequest(parsedJson.request.url, 'get', emptyKeyValue, null), false));
+    }
+
+    var desc = document.querySelector('meta[property=\"og:depion\"]');
+    if (desc != null) {
+        desc = desc.content;
+    } else {
+        desc = '';
+    }
+
+    var title = document.querySelector('meta[property=\"og:title\"]').content.split('Anime en')[0];
+    var image = document.querySelector('.TPost.Single > header > .Image > figure > img').src;
+    if (!image.includes('https:')) {
+      image = 'https:' + image;
+    }
+    image = new ModuleRequest(image,'get',emptyKeyValue,null);
+
+    let infoPageObject = new Info(new ModuleRequest('', '', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(false, false, ''), new Output(image, title, parsedJson.request, desc, genres, status, '', type, 'Eps: '  + episodes.length, episodes));
+    var finalJson = JSON.stringify(infoPageObject);
+    savedData.innerHTML = finalJson;
+
+</script>
