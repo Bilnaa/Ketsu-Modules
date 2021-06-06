@@ -96,11 +96,13 @@
     extraInfo[0].value = ''  + count;
 
     var episodeList = document.querySelector('.Content > .Container > .TpRwCont > main > article > header > .TPlayerCn.BgA > .EcBgA > .TPlayer').querySelectorAll('.TPlayerTb');
+    var resolverName = document.querySelector('.TPlayerNv').querySelectorAll('.Button');
     
     for (var x = 0; x < episodeList.length; x++) {
         var episode = episodeList[x];
+        var resName = resolverName[x].querySelector('span').textContent;
         var link = episode.innerHTML.split('src=\"')[1].split('\"')[0].replace(/&amp;/gi, '&').replace(/#038;/gi, '');
-        output.push(new NeedsResolver('VOSTANIMES', new ModuleRequest(link, 'get', emptyKeyValue, null)));
+        output.push(new NeedsResolver( 'VA : ' + resName, new ModuleRequest(link, 'get', emptyKeyValue, null)));
     }
         
     let emptyExtra = new Extra([new Commands('', emptyKeyValue)], extraInfo);
