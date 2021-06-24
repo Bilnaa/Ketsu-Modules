@@ -503,7 +503,7 @@
             "moduleID": "",
             "video": [
               {
-                "videoQuality": "720",
+                "videoQuality": "Error",
                 "videoLink": {
                   "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
                   "method": "get",
