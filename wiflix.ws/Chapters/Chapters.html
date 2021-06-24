@@ -1,106 +1,102 @@
-
-  <script type="text/javascript">    
-  function Chapters(request, extra, javascriptConfig, output) {
-	this.request = request;
-	this.extra = extra;
-	this.javascriptConfig = javascriptConfig;
-	this.output = output;
-}
-
-function ModuleRequest(url, method, headers, httpBody) {
-	this.url = url;
-	this.method = method;
-	this.headers = headers;
-	this.httpBody = httpBody;
-}
-
-function Extra(commands, extraInfo) {
-	this.commands = commands;
-	this.extraInfo = extraInfo;
-}
-
-function Commands(commandName, params) {
-	this.commandName = commandName;
-	this.params = params;
-}
-
-function JavascriptConfig(removeJavascript, loadInWebView, javaScript) {
-	this.removeJavascript = removeJavascript;
-	this.loadInWebView = loadInWebView;
-	this.javaScript = javaScript;
-}
-
-function KeyValue(key, value) {
-	this.key = key;
-	this.value = value;
-}
-
-function Output(videos, images, text) {
-	this.videos = videos;
-	this.images = images;
-	this.text = text;
-}
-
-function Videos(needsResolver, rawVideo) {
-	this.needsResolver = needsResolver;
-	this.rawVideo = rawVideo;
-}
-
-function NeedsResolver(resolverIdentifier, link) {
-	this.resolverIdentifier = resolverIdentifier;
-	this.link = link;
-}
-
-function RawVideo(video) {
-	this.video = video;
-}
-
-function Video(videoQuality, videoLink) {
-	this.videoQuality = videoQuality;
-	this.videoLink = videoLink;
-}
-
-function Text(text) {
-	this.text = text;
-}
-var output = [];
-var savedData = document.getElementById('ketsu-final-data');
-var parsedJson = JSON.parse(savedData.innerHTML);
-var emptyKeyValue = [new KeyValue('', '')];
-if(parsedJson.request.url.includes('serie-en-streaming') == true || parsedJson.request.url.includes('vf') == true || parsedJson.request.url.includes('vostfr') == true) {
-	var vostfr = document.querySelectorAll('div.epblocks > div.blocvostfr li');
-	if(vostfr.length == 0) {
-		let getEpisode = parsedJson.request.url.split('#')[1];
-		var episodes = document.querySelectorAll('#dle-content > article > div.tabsbox.ignore-select > div.hostsblock > div');
-		var match = document.querySelector('#dle-content > article > div.tabsbox.ignore-select > div.hostsblock').innerHTML.match(/ep+\\d+vf/g);
-		var vf = document.querySelectorAll('div.blocfr > ul li');
-		episode = match[getEpisode];
-		var test = '.' + episode + ' a';
-		AllLink = document.querySelectorAll(test);
-		for(var x = 0; x < AllLink.length; x++) {
-			element = AllLink[x].href;
-			link = element.replace('/vd.php?u=', '');
-			output.push(new NeedsResolver('', new ModuleRequest(link, 'get', emptyKeyValue, null)));
-		}
-	} else {
-		var getEpisode = parsedJson.request.url.split('#')[1];
-		var episodes = document.querySelectorAll('#dle-content > article > div.tabsbox.ignore-select > div.hostsblock > div');
-		var element = episodes[getEpisode].querySelectorAll('a');
-		for(var x = 0; x < element.length; x++) {
-			var link = element[x].href.replace('/vd.php?u=', '');
-			output.push(new NeedsResolver('', new ModuleRequest(link, 'get', emptyKeyValue, null)));
-		}
-	}
-} else {
-	embed = document.querySelectorAll('.tabs-sel.linkstab a');
-	for(var x = 0; x < embed.length; x++) {
-		var list = embed[x];
-		var link = list.href.replace('/vd.php?u=', '');
-		output.push(new NeedsResolver('', new ModuleRequest(link, 'get', emptyKeyValue, null)));
-	}
-}
-let emptyExtra = new Extra([new Commands('', emptyKeyValue)], emptyKeyValue);
-var chaptersObject = new Chapters(new ModuleRequest('', '', emptyKeyValue, null), emptyExtra, new JavascriptConfig(false, false, ''), new Output(new Videos(output, null), null, null));
-var finalJson = JSON.stringify(chaptersObject);
-savedData.innerHTML = finalJson;
-</script>
+<script type="text/javascript">    
+    function Chapters(request, extra, javascriptConfig, output) {
+        this.request = request;
+        this.extra = extra;
+        this.javascriptConfig = javascriptConfig;
+        this.output = output;
+    }
+    
+    function ModuleRequest(url, method, headers, httpBody) {
+        this.url = url;
+        this.method = method;
+        this.headers = headers;
+        this.httpBody = httpBody;
+    }
+    
+    function Extra(commands, extraInfo) {
+        this.commands = commands;
+        this.extraInfo = extraInfo;
+    }
+    
+    function Commands(commandName, params) {
+        this.commandName = commandName;
+        this.params = params;
+    }
+    
+    function JavascriptConfig(removeJavascript, loadInWebView, javaScript) {
+        this.removeJavascript = removeJavascript;
+        this.loadInWebView = loadInWebView;
+        this.javaScript = javaScript;
+    }
+    
+    function KeyValue(key, value) {
+        this.key = key;
+        this.value = value;
+    }
+    
+    function Output(videos, images, text) {
+        this.videos = videos;
+        this.images = images;
+        this.text = text;
+    }
+    
+    function Videos(needsResolver, rawVideo) {
+        this.needsResolver = needsResolver;
+        this.rawVideo = rawVideo;
+    }
+    
+    function NeedsResolver(resolverIdentifier, link) {
+        this.resolverIdentifier = resolverIdentifier;
+        this.link = link;
+    }
+    
+    function RawVideo(video) {
+        this.video = video;
+    }
+    
+    function Video(videoQuality, videoLink) {
+        this.videoQuality = videoQuality;
+        this.videoLink = videoLink;
+    }
+    
+    function Text(text) {
+        this.text = text;
+    }
+    var output = [];
+    var savedData = document.getElementById('ketsu-final-data');
+    var parsedJson = JSON.parse(savedData.innerHTML);
+    var emptyKeyValue = [new KeyValue('', '')];
+    if(parsedJson.request.url != parsedJson.request.url.split('film')) {
+        var lecteurs = document.querySelector('.tabsbox.filmlinks.ignore-select > .tabs-sel.linkstab').querySelectorAll('a');
+        for(lecteur of lecteurs) {
+            var link = lecteur.href.replace('/vd.php?u=', '');
+            output.push(new NeedsResolver('', new ModuleRequest(link, 'get', emptyKeyValue, null)));
+        }
+    } else {
+        var x = parsedJson.request.url.split('#vostfr')[1];
+        var epVo = '.ep' + x + 'vs';
+        var episodes = document.querySelector('.hostsblock').querySelectorAll(epVo);
+        for(episode of episodes) {
+            var lecteurs = episode.querySelectorAll('a');
+            for(lecteur of lecteurs) {
+                var link = lecteur.href.replace('/vd.php?u=', '');
+                output.push(new NeedsResolver('', new ModuleRequest(link, 'get', emptyKeyValue, null)));
+            }
+        }
+        var y = parsedJson.request.url.split('#vf')[1];
+        var epVf = '.ep' + y + 'vf';
+        var episodes = document.querySelector('.hostsblock').querySelectorAll(epVf);
+        for(episode of episodes) {
+            var lecteurs = episode.querySelectorAll('a');
+            for(lecteur of lecteurs) {
+                var link = lecteur.href.replace('/vd.php?u=', '');
+                output.push(new NeedsResolver('', new ModuleRequest(link, 'get', emptyKeyValue, null)));
+            }
+        }
+    }
+    let emptyExtra = new Extra([new Commands('', emptyKeyValue)], emptyKeyValue);
+    var chaptersObject = new Chapters(new ModuleRequest('', '', emptyKeyValue, null), emptyExtra, new JavascriptConfig(false, false, ''), new Output(new Videos(output, null), null, null));
+    var finalJson = JSON.stringify(chaptersObject);
+    savedData.innerHTML = finalJson;
+    </script>
+    
