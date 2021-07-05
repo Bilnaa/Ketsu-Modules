@@ -9,9 +9,9 @@
     "moduleVersion": 1.3,
     "moduleLenguage": "VF",
     "moduleType": "Video",
-    "baseURL": "https://vostanimes.net/",
-    "moduleDeveloperSite": "https://bilna95.github.io/main/index",
-    "UpdateSite": "https://raw.githubusercontent.com/Bilna95/bilna95.github.io/main/VostAnimes/VostAnimesKETSU.json",
+    "baseURL": "https://vostanimes.tv/",
+    "moduleDeveloperSite": "https://bilnaa.github.io/main/",
+    "UpdateSite": "https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/VostAnimes/VostAnimesKETSU.json",
     "preferedServer": "",
     "preferedDownloadServer": "",
     "blackListed": [
@@ -41,7 +41,7 @@
   "mainPage": [
     {
       "request": {
-        "url": "https://vostanimes.net/",
+        "url": "https://vostanimes.tv/",
         "method": "get",
         "headers": [
           {
@@ -154,7 +154,7 @@
   "search": [
     {
       "request": {
-        "url": "https://vostanimes.net/page/<page>/?s=<searched>",
+        "url": "https://vostanimes.tv/page/<page>/?s=<searched>",
         "method": "get",
         "headers": [
           {
