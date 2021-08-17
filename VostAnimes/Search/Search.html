@@ -1,4 +1,5 @@
-<script type="text/javascript">
+
+  <script type="text/javascript">
 
     const DefaultLayouts = {
          ultraWideFull : 'ultraWideFull',
@@ -161,7 +162,6 @@
         this.verticalSpacing = verticalSpacing;
     }
     
-    
         function Insets(top,bottom,left,right) {
             this.top = top;
             this.bottom = bottom;
@@ -195,7 +195,7 @@
         }
 
         function quickData(link,image,title,field1)  {
-                return new Data(image,title,'unknown',field1,'unknown','unknown','unknown',false,link);
+                return new Data(image,title,'',field1,'','','',false,link);
             }
 
         function shuffle(a) {
@@ -208,8 +208,6 @@
             }
             return a;
         }
-
-
 
     var savedData = document.getElementById('ketsu-final-data');
 
@@ -224,7 +222,7 @@
         var link = anime.href;
         link = new ModuleRequest(link, 'get', emptyKeyValue, null);
         var image = anime.querySelector('.Image > .Objf > img').src;
-        if (!image.includes('https:')) {
+        if (!image.includes('http')) {
             image = 'https:' + image;
         }
         image = new ModuleRequest(image, 'get', emptyKeyValue, null);
@@ -232,7 +230,7 @@
         var year = anime.querySelector('.Year').textContent;
         searchArray.push(new Data(image,title,'',year,'','','',false,link));
     }
-    output.push(new Output(CellDesings.wide6,Orientation.vertical,DefaultLayouts.doubletsFull,Paging.none,new Section('', true),null,searchArray));
+    output.push(new Output(CellDesings.normal1,Orientation.vertical,DefaultLayouts.longTripletsFullConstant,Paging.none,new Section('', true),null,searchArray));
 
     let searchPageObject = new Search(new ModuleRequest('','',emptyKeyValue,null),new Extra([new Commands('',emptyKeyValue)],emptyKeyValue),'',new JavascriptConfig(true,false,''),output);
 
@@ -240,3 +238,5 @@
     savedData.innerHTML = finalJson;
 
 </script>
+ </body>
+</html>
