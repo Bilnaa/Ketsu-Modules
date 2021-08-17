@@ -2,100 +2,96 @@
 
   <script type="text/javascript">
 function Info(request, extra, javascriptConfig, output) {
-    this.request = request;
-    this.extra = extra;
-    this.javascriptConfig = javascriptConfig;
-    this.output = output;
+	this.request = request;
+	this.extra = extra;
+	this.javascriptConfig = javascriptConfig;
+	this.output = output;
 }
 
 function ModuleRequest(url, method, headers, httpBody) {
-    this.url = url;
-    this.method = method;
-    this.headers = headers;
-    this.httpBody = httpBody;
+	this.url = url;
+	this.method = method;
+	this.headers = headers;
+	this.httpBody = httpBody;
 }
 
 function Extra(commands, extraInfo) {
-    this.commands = commands;
-    this.extraInfo = extraInfo;
+	this.commands = commands;
+	this.extraInfo = extraInfo;
 }
 
 function Commands(commandName, params) {
-    this.commandName = commandName;
-    this.params = params;
+	this.commandName = commandName;
+	this.params = params;
 }
 
 function JavascriptConfig(removeJavascript, loadInWebView, javaScript) {
-    this.removeJavascript = removeJavascript;
-    this.loadInWebView = loadInWebView;
-    this.javaScript = javaScript;
+	this.removeJavascript = removeJavascript;
+	this.loadInWebView = loadInWebView;
+	this.javaScript = javaScript;
 }
 
 function KeyValue(key, value) {
-    this.key = key;
-    this.value = value;
+	this.key = key;
+	this.value = value;
 }
 
-function Chapter(chapName, link,openInWebView) {
-    this.chapName = chapName;
-    this.link = link;
-    this.openInWebView = openInWebView;
+function Chapter(chapName, link, openInWebView) {
+	this.chapName = chapName;
+	this.link = link;
+	this.openInWebView = openInWebView;
 }
 
 function Output(image, title, link, description, genres, field1, field2, field3, field4, chapters) {
-    this.image = image;
-    this.link = link;
-    this.title = title;
-    this.description = description;
-    this.genres = genres;
-    this.field1 = field1;
-    this.field2 = field2;
-    this.field3 = field3;
-    this.field4 = field4;
-    this.chapters = chapters;
+	this.image = image;
+	this.link = link;
+	this.title = title;
+	this.description = description;
+	this.genres = genres;
+	this.field1 = field1;
+	this.field2 = field2;
+	this.field3 = field3;
+	this.field4 = field4;
+	this.chapters = chapters;
 }
 
-function getStuff(array,match) {
-        for (var x = 0 ; x< array.length;x++) {
-            let data = array[x].innerText;
-            if (data.includes(match)) {
-                return data.replace(match,'').trim();
-            } 
-        }
-      }
-function getHtmlStuff(array,match) {
-    for (var x = 0 ; x< array.length;x++) {
-    let data = array[x].innerText;
-    if (data.includes(match)) {
-        return array[x];
-    } 
-}
+function getStuff(array, match) {
+	for(var x = 0; x < array.length; x++) {
+		let data = array[x].innerText;
+		if(data.includes(match)) {
+			return data.replace(match, '').trim();
+		}
+	}
 }
 
+function getHtmlStuff(array, match) {
+	for(var x = 0; x < array.length; x++) {
+		let data = array[x].innerText;
+		if(data.includes(match)) {
+			return array[x];
+		}
+	}
+}
 var savedData = document.getElementById('ketsu-final-data');
 var parsedJson = JSON.parse(savedData.innerHTML);
 let emptyKeyValue = [new KeyValue('', '')];
-
-var baseURL = 'https://french-anime.com/';
 var episodes = [];
-var type = 'Anime';
-var status = '';
-var genres = Array.from(document.querySelector('#dle-content > article > div.cols-mov.clearfix.ignore-select > div.col-mov-right > ul > li:nth-child(3) > div.mov-desc span').innerText.split(','));
-var desc = document.querySelector('div.col-mov-right > ul > li:nth-child(7) > div.mov-desc > span').textContent.trim();
-var title = document.querySelector('div.col-mov-left > div img').alt;
-var image = baseURL + document.querySelector('div.col-mov-left > div img').src;
-image = new ModuleRequest(image,'get',emptyKeyValue,null);
-
-var grosTrucChiant = document.querySelector('#dle-content > article > div.tabsbox.filmlinks.ignore-select > div.tabs-sel.linkstab > div.eps').innerHTML.split(/\\d!/g);
-for(var i = 1; i < grosTrucChiant.length; i++) {
-	var episodeNumber = i;
-    var fixedLink = parsedJson.request.url + '#' + episodeNumber;
-    let chapter = new Chapter('Épisode ' + i,new ModuleRequest(fixedLink,'get',emptyKeyValue,null),false);
-	episodes.push(chapter);
+var version = document.querySelector('span[itemprop=\"inLanguage').textContent;
+var genres = Array.from(document.querySelector('div.mov-desc span').innerText.split(','));
+var desc = document.querySelector('span[itemprop=\"depion').textContent.trim();
+var title = document.querySelector('div img').alt;
+if(document.querySelector('div img').src.includes('https://french-anime.com')){
+    var image = document.querySelector('div img').src
+}else{
+    var image = 'https://french-anime.com' + document.querySelector('div img').src;
 }
-
-
-let infoPageObject = new Info(new ModuleRequest('', '', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(false, false, ''), new Output(image, title, parsedJson.request, desc, genres, status, '', type, 'Eps: '  + episodes.length, episodes));
+image = new ModuleRequest(image, 'get', emptyKeyValue, null);
+var grosTrucChiant = document.querySelector('.eps').innerHTML.split(/\\d!/g);
+for(var i = 1; i < grosTrucChiant.length; i++) {
+	var fixedLink = parsedJson.request.url + '#' + i;
+	episodes.push(new Chapter('Épisode ' + i, new ModuleRequest(fixedLink, 'get', emptyKeyValue, null), false));
+}
+let infoPageObject = new Info(new ModuleRequest('', '', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(false, false, ''), new Output(image, title, parsedJson.request, desc, genres, version, '', 'Anime', 'Eps: ' + episodes.length, episodes));
 var finalJson = JSON.stringify(infoPageObject);
 savedData.innerHTML = finalJson;
 
