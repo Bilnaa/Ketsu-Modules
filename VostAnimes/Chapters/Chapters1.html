@@ -52,21 +52,6 @@
         this.resolverIdentifier = resolverIdentifier;
         this.link = link;
     }
-    
-    function RawVideo(video) {
-        this.video = video;
-    }
-    
-    function Video(videoQuality, videoLink) {
-        this.videoQuality = videoQuality;
-        this.videoLink = videoLink;
-    }
-    
-
-    
-    function Text(text) {
-        this.text = text;
-    }
 
     function getValueFromKey(keys,key) {
         for (var x = 0; x < keys.length; x++) {
@@ -78,36 +63,39 @@
         return '';
     }
   
-    
-    var output = [];
-
     var savedData = document.getElementById('ketsu-final-data');
     var parsedJson = JSON.parse(savedData.innerHTML);
     
-    var emptyKeyValue = [new KeyValue('Referer','https://vostanimes.tv/')];
-        
+    var emptyKeyValue = [new KeyValue('Referer','https://vostanimes.tv/')];        
     var extraInfo = [new KeyValue('count','0')];
 
+    var output = [];
     var nextRequest = '';
 
     var httpBody = document.querySelector('.TPlayerTb').innerHTML.split('trid=')[1].split('&')[0];
     extraInfo.push(new KeyValue('httpBody',httpBody));
 
-    var embedList = document.querySelector('.TPlayer').querySelectorAll('.TPlayerTb');
-    var resolverName = document.querySelector('.TPlayerNv').querySelectorAll('.Button');
-    
+    var embedList = document.querySelector('.TPlayer').querySelectorAll('.TPlayerTb');    
     for (var x = 0; x < embedList.length; x++) {
-        var resName = resolverName[x].querySelector('span').textContent;
-        var link = embedList[x].innerHTML.split('src=\"')[1].split('\"')[0].replace(/&amp;/gi, '&').replace(/#038;/gi, '')+'?s='+resName;
-        if (x ==0) {
+        var link = embedList[x].innerHTML.split('src=\"')[1].split('\"')[0].replace(/&amp;/gi, '&').replace(/#038;/gi, '');
+        if (x == 0) {
           nextRequest = link;
         } else {
           extraInfo.push(new KeyValue('server'+ (x - 1), link));
         }
     }
+
+    try {
+      var downloads = document.querySelector('.TPTblCn > table > tbody').querySelectorAll('tr');
+      var splitLink = link.split('&trt')[1];
+      for (var y = 0; y < downloads.length; y++) {
+        var dLink = downloads[y].querySelector('td > form > input').value.replace('downloa','embe') + '&trt' + splitLink;
+        extraInfo.push(new KeyValue('server'+ (x + y - 1), dLink));
+      }
+    } catch{}
         
     let emptyExtra = new Extra([new Commands('', emptyKeyValue)], extraInfo);
-    var chaptersObject = new Chapters(new ModuleRequest(nextRequest, 'post', emptyKeyValue, httpBody), emptyExtra, new JavascriptConfig(false, false, ''), new Output( new Videos([], []), null, null));
+    var chaptersObject = new Chapters(new ModuleRequest(nextRequest, 'post', emptyKeyValue, httpBody), emptyExtra, new JavascriptConfig(false, false, ''), new Output(new Videos([], []), null, null));
     var finalJson = JSON.stringify(chaptersObject);
     savedData.innerHTML = finalJson;
 
