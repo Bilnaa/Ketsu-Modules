@@ -51,23 +51,6 @@
       this.resolverIdentifier = resolverIdentifier;
       this.link = link;
   }
-  
-  function RawVideo(video) {
-      this.video = video;
-  }
-  
-  function Video(videoQuality, videoLink) {
-      this.videoQuality = videoQuality;
-      this.videoLink = videoLink;
-  }
-  
-  function Images(images) {
-      this.images = images;
-  }
-  
-  function Text(text) {
-      this.text = text;
-  }
 
   function getValueFromKey(keys,key) {
       for (var x = 0; x < keys.length; x++) {
@@ -78,7 +61,6 @@
       }
   }
 
-
   var savedData = document.getElementById('ketsu-final-data');
   var parsedJson = JSON.parse(savedData.innerText.replace(/&amp;/gi, '&').replace(/#038;/gi, ''));
   var output = parsedJson.output.videos;
@@ -86,7 +68,6 @@
   var emptyKeyValue = [new KeyValue('', '')];
 
   var extraInfo = parsedJson.extra.extraInfo;
-  var server = parsedJson.request.url.split('?s=')[1];
   var actualCount = getValueFromKey(extraInfo,'count');
   if (actualCount == 0) {
       output = new Videos([],[]);
@@ -95,17 +76,16 @@
   var httpBody = getValueFromKey(extraInfo,'httpBody');
   var nextRequest = getValueFromKey(extraInfo,'server' + actualCount);
 
-
   var link = document.querySelector('iframe').src;  
   let videoHeaders = [new KeyValue('Referer','https://vostanimes.tv/'), new KeyValue('Accept','text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3'),new KeyValue('accept-language','en-us')];
-  output.needsResolver.push(new NeedsResolver(server, new ModuleRequest(encodeURIComponent(link), 'get', videoHeaders, null)));
+  output.needsResolver.push(new NeedsResolver('', new ModuleRequest(encodeURIComponent(link), 'get', videoHeaders, null)));
   extraInfo[0].value = ''  + (parseInt(actualCount) + 1);
   
   if (nextRequest == undefined) {
     nextRequest = '';
-    for (var x  = 0; x <  output.needsResolver.length; x++) {
+    for (var x  = 0; x < output.needsResolver.length; x++) {
       let vid = decodeURIComponent(output.needsResolver[x].link.url);
-      if (!vid.includes('https:')) {
+      if (!vid.includes('http')) {
         output.needsResolver[x].link.url = 'https:' + vid;
       } else {
         output.needsResolver[x].link.url = vid;
@@ -118,8 +98,5 @@
   var finalJson = JSON.stringify(chaptersObject);
   savedData.innerText = finalJson;
 
-  
-  
   </script>
-
 </body></html>
