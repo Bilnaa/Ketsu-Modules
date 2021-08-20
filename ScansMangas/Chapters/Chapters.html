@@ -1,8 +1,8 @@
-  
+
+
   <script type="text/javascript">
   
-  
-  function Chapters(request, extra, javascriptConfig, output) {
+    function Chapters(request, extra, javascriptConfig, output) {
         this.request = request;
         this.extra = extra;
         this.javascriptConfig = javascriptConfig;
@@ -42,31 +42,6 @@
         this.images = images;
         this.text = text;
     }
-    
-    function Videos(needsResolver, rawVideo) {
-        this.needsResolver = needsResolver;
-        this.rawVideo = rawVideo;
-    }
-    
-    function NeedsResolver(resolverIdentifier, link) {
-        this.resolverIdentifier = resolverIdentifier;
-        this.link = link;
-    }
-    
-    function RawVideo(video) {
-        this.video = video;
-    }
-    
-    function Video(videoQuality, videoLink) {
-        this.videoQuality = videoQuality;
-        this.videoLink = videoLink;
-    }
-    
-
-    
-    function Text(text) {
-        this.text = text;
-    }
 
     function getValueFromKey(keys,key) {
         for (var x = 0; x < keys.length; x++) {
@@ -77,9 +52,6 @@
         }
         return '';
     }
-  
-    
-    var output = [];
 
     var savedData = document.getElementById('ketsu-final-data');
     var parsedJson = JSON.parse(savedData.innerHTML);
@@ -92,13 +64,14 @@
     
     var emptyKeyValue = [new KeyValue('', '')];
     var imgsHeaders = [new KeyValue('Referer', parsedJson.request.url)];
+    var output = [];
 
     var newRequest = parsedJson.request.url.replace((count - 1) + '.html', count + '.html');
 
     extraInfo[0].value = ''  + count;
     var images = document.querySelector('.nav_apb').querySelectorAll('a');
     for (var x = 1; x < images.length - 1; x++) {
-        var img = document.querySelectorAll('div[align=center]')[1].querySelector('a > img').src.replace('1.jpg', x + '.jpg');
+        var img = document.querySelector('a[rel=\"nofollow\"] > img').src.replace('1.jpg', x + '.jpg');
         output.push(new ModuleRequest(img,'get',imgsHeaders,null));
     }
     
@@ -108,3 +81,5 @@
     savedData.innerHTML = finalJson;
   
   </script>
+ </body>
+</html>
