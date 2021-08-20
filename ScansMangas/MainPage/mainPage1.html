@@ -1,5 +1,6 @@
+
+
   <script type="text/javascript">
-    
     
     const DefaultLayouts = {
         ultraWideFull: 'ultraWideFull',
@@ -116,34 +117,6 @@
         this.sectionName = sectionName;
         this.separator = separator;
     }
-    function Layout(insets, visibleCellsWidthS, visibleCellsWidthM, visibleCellsWidthL, visibleCellsHeight, heightForVisibleCells, cellSize, ratio, constant, horizontalSpacing, verticalSpacing) {
-        this.insets = insets;
-        this.visibleCellsWidthS = visibleCellsWidthS;
-        this.visibleCellsWidthM = visibleCellsWidthM;
-        this.visibleCellsWidthL = visibleCellsWidthL;
-        this.visibleCellsHeight = visibleCellsHeight;
-        this.heightForVisibleCells = heightForVisibleCells;
-        this.cellSize = cellSize;
-        this.ratio = ratio;
-        this.constant = constant;
-        this.horizontalSpacing = horizontalSpacing;
-        this.verticalSpacing = verticalSpacing;
-    }
-    function Insets(top, bottom, left, right) {
-        this.top = top;
-        this.bottom = bottom;
-        this.left = left;
-        this.right = right;
-    }
-    function Size(width, height) {
-        this.width = width;
-        this.height = height;
-    }
-    function Ratio(inRelation, number1, number2) {
-        this.inRelation = inRelation;
-        this.number1 = number1;
-        this.number2 = number2;
-    }
     function Data(image, title, description, field1, field2, field3, field4, isChapter, link, openInWebView) {
         this.image = image;
         this.title = title;
@@ -156,69 +129,64 @@
         this.link = link;
         this.openInWebView = openInWebView;
     }
-    function quickData(link, image, title, field1) {
-        return new Data(image, title, 'desc', field1, 'field2', 'field3', 'field4', false, link);
-    }
-    function shuffle(a) {
-        var j, x, i;
-        for (i = a.length - 1; i > 0; i--) {
-            j = Math.floor(Math.random() * (i + 1));
-            x = a[i];
-            a[i] = a[j];
-            a[j] = x;
-        }
-        return a;
-    }
+    
     var savedData = document.getElementById('ketsu-final-data');
     var parsedJson = JSON.parse(savedData.innerHTML);
     let output = [];
     let emptyKeyValue = [new KeyValue('', '')];
-
     var dataArray = [];
-    var mangas1 = document.querySelector('.loop').querySelectorAll('.slide-item > .slide-content');
+
+    var mangas1 = document.querySelectorAll('.slide-item > .slide-content');
     for (var x = 0; x < mangas1.length; x++) {
         var manga1 = mangas1[x].querySelector('.info-left');
-        var image = mangas1[x].querySelector('.poster > a > img').src;
+        var image = mangas1[x].querySelector('img').src;
         image = new ModuleRequest(image, 'get', emptyKeyValue, null);
         var link = manga1.querySelector('a').href;
         link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-        var title = manga1.querySelector('.title .ellipsis').textContent;
-        var status = manga1.querySelector('.cast > .director').textContent;
-        dataArray.push(new Data(image, title, 'Manga', status, title, 'field3', 'field4', false, link));
+        var title = manga1.querySelector('.ellipsis').textContent;
+        var desc = manga1.querySelector('.excerpt').querySelectorAll('p')[2].textContent;
+        var status = manga1.querySelector('.director').textContent;
+        
+        var genre = '';
+        var genreArray = manga1.querySelector('.extras > .extra-category').querySelectorAll('a');
+        for (genreList of genreArray) {
+            var genres = genreList.textContent + ', ';
+            genre = genre + genres;
+        }
+        dataArray.push(new Data(image, title, desc, genre, status, '', '', false, link));
     }
-
     output.push(new Output(CellDesings.wide11, Orientation.horizontal, DefaultLayouts.wideFull, Paging.leading, new Section('A la une', true), null, dataArray));
 
     var dataArray = [];
-    var mangas = document.querySelector('.white').querySelectorAll('div')[1].querySelectorAll('div > div > div > div > div > a');
-    for (var x = 0; x < mangas.length; x++) {
-        if (x % 2 == 0) {
-            var manga = mangas[x];
-            var title = manga.title;
-            var image = manga.querySelector('img').src;
-            image = new ModuleRequest(image, 'get', emptyKeyValue, null);
-            var link = manga.href;
-            link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-            dataArray.push(new Data(image, title, 'description', '', 'field2', 'field3', 'field4', false, link));
-        }
+    var mangas = document.querySelectorAll('.uta');
+    for (manga of mangas) {
+        var title = manga.querySelector('a').title;
+        var image = manga.querySelector('img').src;
+        image = new ModuleRequest(image, 'get', emptyKeyValue, null);
+        var link = manga.querySelector('a').href;
+        link = new ModuleRequest(link, 'get', emptyKeyValue, null);
+        var scan = manga.querySelector('li > a').textContent.trim();
+        dataArray.push(new Data(image, title, '', scan, '', '', '', false, link));
     }
-    output.push(new Output(CellDesings.normal7, Orientation.vertical, DefaultLayouts.longTripletsFullConstant, Paging.leading, new Section('Derniers chapitres en ligne', true), null, dataArray));
+    output.push(new Output(CellDesings.normal1, Orientation.vertical, DefaultLayouts.longTripletsFullConstant, Paging.leading, new Section('Derniers chapitres en ligne', true), null, dataArray));
 
     var dataArray = [];
     var popList = document.querySelector('.serieslist.pop > ul').querySelectorAll('li');
-    for (manga of popList) {
-        var link = manga.querySelector('.imgseries > a').href;
+    for (pop of popList) {
+        var link = pop.querySelector('a').href;
         link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-        var image = manga.querySelector('.imgseries > a > img').src;
+        var image = pop.querySelector('img').src;
         image = new ModuleRequest(image, 'get', emptyKeyValue, null);
-        var title = manga.querySelector('.leftseries > h2 > a').textContent;
-        var genres = manga.querySelector('.leftseries > span').textContent;
-        dataArray.push(new Data(image, title, genres, '', title, 'field3', 'field4', false, link));
+        var title = pop.querySelector('.leftseries > h2 > a').textContent;
+        var genreArray = pop.querySelector('.leftseries > span').textContent;
+        dataArray.push(new Data(image, title, genreArray, '', title, '', '', false, link));
     }
     output.push(new Output(CellDesings.wide11, Orientation.horizontal, DefaultLayouts.wideFull, Paging.leading, new Section('Populaires', true), null, dataArray));
 
     let MainPageObject = new MainPage(new ModuleRequest('', 'get', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(true, false, ''), output);
+    
     var finalJson = JSON.stringify(MainPageObject);
     savedData.innerHTML = finalJson;
     
     </script>
+  </body></html>
