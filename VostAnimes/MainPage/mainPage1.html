@@ -163,71 +163,72 @@
             this.openInWebView = openInWebView;
         }
     
-    function quickData(link,image,title,field1)  {
-        return new Data(image,title,'',field1,'','','',false,link);
+    var savedData = document.getElementById('ketsu-final-data');    
+    var parsedJson = JSON.parse(savedData.innerHTML); 
+    
+    let output = [];
+    let emptyKeyValue = [new KeyValue('','')];
+
+    var sections = document.querySelector('main').querySelectorAll('section');        
+    for (var x = 0; x < sections.length; x++) {
+        var dataArray = [];
+        var sectionName = sections[x].querySelector('.Top > .Title').textContent.trim();
+        if (sectionName.includes('épisodes')) {
+            var lastEps = sections[x].querySelector('.MovieList').querySelectorAll('.TPostMv > .TPost > a');
+            for (lastEp of lastEps) {
+                var image = lastEp.querySelector('.Image > .Objf > img').src;
+                if (!image.includes('http')) {
+                    image = 'https:' + image;
+                }
+                image = new ModuleRequest(image, 'get', emptyKeyValue, null);
+                var info = lastEp.querySelector('.Image > .Objf > figcaption > .ClB').textContent;
+                var link = lastEp.href.split(info.replace(/ /gi,'-'))[0].replace('Episode', 'anime');
+                link = new ModuleRequest(link, 'get', emptyKeyValue, null);
+                var title = lastEp.querySelector('.Title').textContent;
+                dataArray.push(new Data(image, title, '', info, '', '', '', false, link));
+            }
+            output.push(new Output(CellDesings.wide6, Orientation.horizontal, DefaultLayouts.wide, Paging.leading, new Section(sectionName, true), null, dataArray));
+        } else if (sectionName.includes('Films')) {
+            var films = sections[x].querySelector('.MovieList').querySelectorAll('.TPostMv > .TPost > a');
+            for (film of films) {
+                var image = film.querySelector('img').src;
+                if (!image.includes('http')) {
+                    image = 'https:' + image;
+                }
+                image = new ModuleRequest(image, 'get', emptyKeyValue, null);
+                var link = film.href;
+                link = new ModuleRequest(link, 'get', emptyKeyValue, null);
+                var title = film.querySelector('.Title').textContent;
+                var year = film.querySelector('.Year').textContent;
+                dataArray.push(new Data(image, title, '', year, '', '', '', false, link));
+            }
+            output.push(new Output(CellDesings.normal1, Orientation.horizontal, DefaultLayouts.longDoublets, Paging.leading, new Section(sectionName, true), null, dataArray));
+        } else if (sectionName.includes('animes :')){
+            var animes = sections[x].querySelector('.MovieList').querySelectorAll('.TPostMv > .TPost > a');
+            for (anime of animes) {
+                var image = anime.querySelector('img').src;
+                if (!image.includes('http')) {
+                    image = 'https:' + image;
+                }
+                image = new ModuleRequest(image, 'get', emptyKeyValue, null);
+                var saisons = anime.querySelector('figcaption');
+                if (saisons != null) {
+                    var saison = saisons.textContent.trim();
+                } else {
+                    var saison = '';
+                }
+                var link = anime.href;
+                link = new ModuleRequest(link, 'get', emptyKeyValue, null);
+                var title = anime.querySelector('.Title').textContent;
+                dataArray.push(new Data(image, title, '', '', saison, '', '', false, link));
+            }
+            output.push(new Output(CellDesings.normal1, Orientation.vertical, DefaultLayouts.longTripletsFullConstant, Paging.leading, new Section(sectionName, true), null, dataArray));
+        }
     }
     
-        var savedData = document.getElementById('ketsu-final-data');    
-        var parsedJson = JSON.parse(savedData.innerHTML); 
-    
-        let output = [];
-        let emptyKeyValue = [new KeyValue('','')];
-
-        var sections = document.querySelector('main').querySelectorAll('section');        
-        for (var x = 0; x < sections.length; x++) {
-            var dataArray = [];
-            var sectionName = sections[x].querySelector('.Top > .Title').textContent.trim();
-            if (sectionName.includes('épisodes')) {
-                var lastEps = sections[x].querySelector('.MovieList').querySelectorAll('.TPostMv > .TPost > a');
-                for (lastEp of lastEps) {
-                    var image = lastEp.querySelector('.Image > .Objf > img').src;
-                    if (!image.includes('http')) {
-                        image = 'https:' + image;
-                    }
-                    image = new ModuleRequest(image, 'get', emptyKeyValue, null);
-                    var info = lastEp.querySelector('.Image > .Objf > figcaption > .ClB').textContent;
-                    var link = lastEp.href.split(info.replace(/ /gi,'-'))[0].replace('Episode', 'anime');
-                    link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-                    var title = lastEp.querySelector('.Title').textContent;
-                    dataArray.push(new Data(image, title, '', info, '', '', '', false, link));
-                }
-                output.push(new Output(CellDesings.wide6, Orientation.horizontal, DefaultLayouts.wide, Paging.leading, new Section(sectionName, true), null, dataArray));
-            } else if (sectionName.includes('Films')) {
-                var films = sections[x].querySelector('.MovieList').querySelectorAll('.TPostMv > .TPost > a');
-                for (film of films) {
-                    var image = film.querySelector('.Image > .Objf > img').src;
-                    if (!image.includes('http')) {
-                        image = 'https:' + image;
-                    }
-                    image = new ModuleRequest(image, 'get', emptyKeyValue, null);
-                    var link = film.href;
-                    link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-                    var title = film.querySelector('.Title').textContent;
-                    var year = film.querySelector('.Year').textContent;
-                    dataArray.push(new Data(image, title, '', year, '', '', '', false, link));
-                }
-                output.push(new Output(CellDesings.normal1, Orientation.horizontal, DefaultLayouts.longDoublets, Paging.leading, new Section(sectionName, true), null, dataArray));
-            } else if (sectionName.includes('animes :')){
-                var animes = sections[x].querySelector('.MovieList').querySelectorAll('.TPostMv > .TPost > a');
-                for (anime of animes) {
-                    var image = anime.querySelector('.Image > .Objf > img').src;
-                    if (!image.includes('http')) {
-                        image = 'https:' + image;
-                    }
-                    image = new ModuleRequest(image, 'get', emptyKeyValue, null);
-                    var saison = anime.querySelector('.Image > .Objf > figcaption').textContent.trim();
-                    var link = anime.href;
-                    link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-                    var title = anime.querySelector('.Title').textContent;
-                    dataArray.push(new Data(image, title, '', '', saison, '', '', false, link));
-                }
-                output.push(new Output(CellDesings.normal1, Orientation.vertical, DefaultLayouts.longTripletsFullConstant, Paging.leading, new Section(sectionName, true), null, dataArray));
-            }
-        }
-    
-        let MainPageObject = new MainPage(new ModuleRequest('','get',emptyKeyValue,null),new Extra([new Commands('',emptyKeyValue)],emptyKeyValue),new JavascriptConfig(true,false,''),output);    
-        var finalJson = JSON.stringify(MainPageObject);
-        savedData.innerHTML = finalJson;
+    let MainPageObject = new MainPage(new ModuleRequest('','get',emptyKeyValue,null),new Extra([new Commands('',emptyKeyValue)],emptyKeyValue),new JavascriptConfig(true,false,''),output);
+    var finalJson = JSON.stringify(MainPageObject);
+    savedData.innerHTML = finalJson;
 
 </script>
  </body>
