@@ -20,15 +20,7 @@ a {
     text-decoration: none;
     text-align: center;
 }
-ul{
-    display: inline;
-    padding: 0px;
-    font-size: 35px;
-    margin: 0px;
-}
-li{
-    display: inline;
-}
+
 b, strong {
     font-weight: 600;
 }
@@ -72,12 +64,4 @@ img {
         -webkit-filter: grayscale(0%);
         filter: grayscale(0%);
     }
-}
-
-@media screen and (max-width: 600px) {
-    ul, li{
-        margin-top: 5px;
-        display: block;
-    }
-    
 }
