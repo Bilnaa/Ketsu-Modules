@@ -21,6 +21,10 @@ a {
     text-align: center;
 }
 
+a.btn.btn-dark {
+    margin: 5px;
+}
+
 b, strong {
     font-weight: 600;
 }
@@ -65,3 +69,4 @@ img {
         filter: grayscale(0%);
     }
 }
+
