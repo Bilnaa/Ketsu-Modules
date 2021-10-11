@@ -77,6 +77,10 @@ if (link.includes('my.mail.ru')){
 	var fixedLink = link.replace('https://my.mail.ru/video/embed/', 'https://my.mail.ru/+/video/meta/');
 	output.push(new NeedsResolver('', new ModuleRequest(fixedLink, 'get', emptyKeyValue, null)));
 }
+if (link.includes('streamlare.com') || link.includes('videovard.sx')){
+	var fixedLink = link;
+	output.push(new NeedsResolver('', new ModuleRequest(fixedLink, 'get', emptyKeyValue, null)));
+}
  }
  
  let emptyExtra = new Extra(commands, emptyKeyValue);
