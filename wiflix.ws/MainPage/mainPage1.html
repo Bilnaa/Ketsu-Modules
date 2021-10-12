@@ -202,7 +202,7 @@ for(var x = 0; x < topList.length; x++) {
 	let title = list.querySelector('.title1').textContent.trim();
 	var link = list.querySelector('.item a').href;
 	link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-	var image = 'https://wiflix.site' + list.querySelector('img').src;
+	var image = 'https://wiflix.land/' + list.querySelector('img').src;
 	image = new ModuleRequest(image, 'get', emptyKeyValue, null);
 	var finalData = new Data(image, title, 'unknown', '', 'unknown', 'unknown', 'unknown', false, link);
 	dataArray.push(finalData);
@@ -214,7 +214,7 @@ for(var x = 0; x < series.length; x++) {
 	let title = list.querySelector('a').textContent;
 	var link = list.querySelector('.mov-t.nowrap').href;
 	link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-	var image = 'https://wiflix.site' + list.querySelector('img').src;
+	var image = 'https://wiflix.land/' + list.querySelector('img').src;
 	image = new ModuleRequest(image, 'get', emptyKeyValue, null);
 	var finalData = new Data(image, title, '', '', '', '', '', false, link);
 	dataArray2.push(finalData);
@@ -226,7 +226,7 @@ for(var x = 0; x < films.length; x++) {
 	let title = list.querySelector('a').textContent;
 	var link = list.querySelector('a').href;
 	link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-	var image = 'https://wiflix.site' + list.querySelector('img').src;
+	var image = 'https://wiflix.land/' + list.querySelector('img').src;
 	image = new ModuleRequest(image, 'get', emptyKeyValue, null);
 	var finalData = new Data(image, title, '', '', '', '', '', false, link);
 	dataArray3.push(finalData);
