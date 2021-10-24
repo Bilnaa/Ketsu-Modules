@@ -81,6 +81,9 @@ if (link.includes('streamlare.com') || link.includes('videovard.sx')){
 	var fixedLink = link;
 	output.push(new NeedsResolver('', new ModuleRequest(fixedLink, 'get', emptyKeyValue, null)));
 }
+if (link.includes('video.sibnet.ru/')){
+	output.push(new NeedsResolver('', new ModuleRequest(link, 'get', emptyKeyValue, null)));
+}
  }
  
  let emptyExtra = new Extra(commands, emptyKeyValue);
