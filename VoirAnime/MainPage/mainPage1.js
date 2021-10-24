@@ -163,7 +163,13 @@ for(list of anime) {
 	let title = list.querySelector('.h5 a').textContent;
 	var link = list.querySelector('a').href;
 	link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-	var image = list.querySelector('img').src;
+	var image = '';
+	try {
+		image = list.querySelector('.item-thumb img').srcset.split(' ')[4];
+	} catch {}
+	if (image == null) {
+		image = list.querySelector('.item-thumb img').src;
+	}
 	image = new ModuleRequest(image, 'get', emptyKeyValue, null);
 	var ep = 'Épisode ' + list.querySelector('.btn-link').textContent;
 	lastAnime.push(new Data(image, title, '', ep, '', '', '', false, link));
