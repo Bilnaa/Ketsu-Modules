@@ -1,5 +1,5 @@
-  <script type="text/javascript">
 
+  <script type="text/javascript">
 
         const DefaultLayouts = {
              ultraWideFull : 'ultraWideFull',
@@ -61,10 +61,10 @@
         
         const CellDesings = {
             Special1 : 'Special1',
-        Special2 : 'Special2',
-        Special3 : 'Special3',
-        CELLHelperText : 'CELLHelperText',
-            small1 : 'small1',
+            Special2 : 'Special2',
+            Special3 : 'Special3',
+            CELLHelperText : 'CELLHelperText',
+                small1 : 'small1',
             small2 : 'small2',
             normal1 : 'normal1',
             normal2 : 'normal2',
@@ -105,50 +105,50 @@
                 this.output  = output;
             }
         
-            function ModuleRequest(url,method,headers,httpBody) {
-                this.url = url;
-                this.method = method;
-                this.headers  = headers;
-                this.httpBody = httpBody;
-            }
-            
-            function Extra(commands,extraInfo) {
-                this.commands = commands;
-                this.extraInfo = extraInfo;
-            }
+        function ModuleRequest(url,method,headers,httpBody) {
+            this.url = url;
+            this.method = method;
+            this.headers  = headers;
+            this.httpBody = httpBody;
+        }
         
-            function Commands(commandName,params) {
-                this.commandName = commandName;
-                this.params = params;
-            }
+        function Extra(commands,extraInfo) {
+            this.commands = commands;
+            this.extraInfo = extraInfo;
+        }
+
+        function Commands(commandName,params) {
+            this.commandName = commandName;
+            this.params = params;
+        }
+    
+        function JavascriptConfig(removeJavascript,loadInWebView,javaScript) {
+            this.removeJavascript = removeJavascript;
+            this.loadInWebView = loadInWebView;
+            this.javaScript = javaScript;
+        }
         
-            function JavascriptConfig(removeJavascript,loadInWebView,javaScript) {
-                this.removeJavascript = removeJavascript;
-                this.loadInWebView = loadInWebView;
-                this.javaScript = javaScript;
-            }
+        function KeyValue(key,value) {
+            this.key = key;
+            this.value = value;
+        }
         
-            function KeyValue(key,value) {
-                this.key = key;
-                this.value = value;
-            }
+        function Output(cellDesing,orientation,defaultLayout,paging,section,layout,data) {
+            this.cellDesing = cellDesing;
+            this.orientation  = orientation;
+            this.defaultLayout = defaultLayout;
+            this.paging = paging;
+            this.section  = section;
+            this.layout = layout;
+            this.data = data;
+        }
         
-            function Output(cellDesing,orientation,defaultLayout,paging,section,layout,data) {
-                this.cellDesing = cellDesing;
-                this.orientation  = orientation;
-                this.defaultLayout = defaultLayout;
-                this.paging = paging;
-                this.section  = section;
-                this.layout = layout;
-                this.data = data;
-            }
+        function Section(sectionName,separator) {
+            this.sectionName  = sectionName;
+            this.separator = separator;
+        }
         
-            function Section(sectionName,separator) {
-                this.sectionName  = sectionName;
-                this.separator = separator;
-            }
-        
-            function Layout(insets, visibleCellsWidthS,visibleCellsWidthM,visibleCellsWidthL, visibleCellsHeight, heightForVisibleCells, cellSize, ratio, constant, horizontalSpacing, verticalSpacing) {
+        function Layout(insets, visibleCellsWidthS,visibleCellsWidthM,visibleCellsWidthL, visibleCellsHeight, heightForVisibleCells, cellSize, ratio, constant, horizontalSpacing, verticalSpacing) {
             this.insets = insets;
             this.visibleCellsWidthS = visibleCellsWidthS;
             this.visibleCellsWidthM = visibleCellsWidthM;
@@ -162,58 +162,39 @@
             this.verticalSpacing = verticalSpacing;
         }
         
-        
-            function Insets(top,bottom,left,right) {
-                this.top = top;
-                this.bottom = bottom;
-                this.left = left;
-                this.right = right;
-            }
-        
-            function Size(width,height) {
-                this.width = width;
-                this.height = height;
-            }
-        
-            function Ratio(inRelation,number1,number2) {
-                this.inRelation  = inRelation;
-                this.number1 = number1;
-                this.number2 = number2;
-        
-            } 
-        
-            function Data(image,title,description,field1,field2,field3,field4,isChapter,link,openInWebView) {
-                this.image = image;
-                this.title = title;
-                this.description = description;
-                this.field1 = field1;
-                this.field2 = field2;
-                this.field3 = field3;
-                this.field4 = field4;
-                this.isChapter  = isChapter;
-                this.link = link;
-                this.openInWebView = openInWebView;
-            }
+        function Insets(top,bottom,left,right) {
+            this.top = top;
+            this.bottom = bottom;
+            this.left = left;
+            this.right = right;
+        }
     
-            function quickData(link,image,title,field1)  {
-                    return new Data(image,title,field1,field1,'unknown','unknown','unknown',false,link);
-                }
+        function Size(width,height) {
+            this.width = width;
+            this.height = height;
+        }
     
-            function shuffle(a) {
-                var j, x, i;
-                for (i = a.length - 1; i > 0; i--) {
-                    j = Math.floor(Math.random() * (i + 1));
-                    x = a[i];
-                    a[i] = a[j];
-                    a[j] = x;
-                }
-                return a;
-            }
+        function Ratio(inRelation,number1,number2) {
+            this.inRelation  = inRelation;
+            this.number1 = number1;
+            this.number2 = number2;
     
-    
+        } 
+        
+        function Data(image,title,description,field1,field2,field3,field4,isChapter,link,openInWebView) {
+            this.image = image;
+            this.title = title;
+            this.description = description;
+            this.field1 = field1;
+            this.field2 = field2;
+            this.field3 = field3;
+            this.field4 = field4;
+            this.isChapter  = isChapter;
+            this.link = link;
+            this.openInWebView = openInWebView;
+        }
     
         var savedData = document.getElementById('ketsu-final-data');
-    
         var parsedJson = JSON.parse(savedData.innerHTML); 
     
         let output = [];
@@ -223,18 +204,18 @@
         let results = document.querySelectorAll('.row.c-tabs-item__content > .col-4 > .tab-thumb > a');
 
         for (result of results) {
-        let img = result.querySelector('img').getAttribute('data-src');
-        img = new ModuleRequest(img,'get',emptyKeyValue,null);
-        let link = result.href;
-        link = new ModuleRequest(link,'get',emptyKeyValue,null);
-        let title = result.title;
-        let field1 = 'Livre';
-        dataArray.push(quickData(link,img,title,field1));
+            var img = result.querySelector('img').src;
+            img = new ModuleRequest(img,'get',emptyKeyValue,null);
+            var link = result.href;
+            link = new ModuleRequest(link,'get',emptyKeyValue,null);
+            var title = result.title;
+            var field1 = 'Livre';
+            dataArray.push(new Data(img,title,field1,field1,'','','',false,link));
         }
         
         var testLayout = new Layout(new Insets(10,10,10,10),1,2,3,1,500,new Size(400,400),new Ratio('width',4,11),new Size(0,0),10,10);
 
-output.push(new Output(CellDesings.wide8, Orientation.vertical, DefaultLayouts.none, Paging.none, new Section('' , false), testLayout, dataArray));
+        output.push(new Output(CellDesings.wide8, Orientation.vertical, DefaultLayouts.none, Paging.none, new Section('' , false), testLayout, dataArray));
     
         let searchPageObject = new Search(new ModuleRequest('','',emptyKeyValue,null),new Extra([new Commands('',emptyKeyValue)],emptyKeyValue),'',new JavascriptConfig(true,false,''),output);
     
