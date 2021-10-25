@@ -146,24 +146,18 @@ var parsedJson = JSON.parse(savedData.innerHTML);
 let output = [];
 let emptyKeyValue = [new KeyValue('', '')];
 var lastAnime = [];
-anime = document.querySelectorAll('.col-12.col-md-6.badge-pos-1');
-for (list of anime) {
-	let title = list.querySelector('.h5 a').textContent;
-	var link = list.querySelector('a').href;
+anime = document.querySelectorAll('.row.c-tabs-item__content');
+for(list of anime) {
+	let title = list.querySelector('.h4 a').textContent;
+	var link = list.querySelector('.h4 a').href;
 	link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-	var image = '';
-	try {
-		image = list.querySelector('.item-thumb img').srcset.split(' ')[4];
-	} catch {}
-	if (image == null) {
-		image = list.querySelector('.item-thumb img').src;
-	}
+	var image = list.querySelector('img').src;
 	image = new ModuleRequest(image, 'get', emptyKeyValue, null);
-	var ep = 'Épisode ' + list.querySelector('.btn-link').textContent;
+	var ep = '';
 	lastAnime.push(new Data(image, title, '', ep, '', '', '', false, link));
 }
-output.push(new Output(CellDesings.normal1, Orientation.vertical, DefaultLayouts.longTripletsFullConstant, Paging.leading, new Section('Derniers épisodes VOSTFR', true), null, lastAnime));
-let extraInfo = [new KeyValue('count', '0'), new KeyValue('0', 'https://voiranime.com/?filter=dubbed')];
-let MainPageObject = new MainPage(new ModuleRequest('https://voiranime.com/?filter=dubbed', 'get', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], extraInfo), new JavascriptConfig(true, false, ''), output);
+output.push(new Output(CellDesings.wide6, Orientation.horizontal, DefaultLayouts.wide, Paging.leading, new Section('Derniers Films VOSTFR : ', true), null, lastAnime));
+let extraInfo = [new KeyValue('count', '1'), new KeyValue('0', 'https://voiranime.com/?filter=subbed',new KeyValue('1', 'https://voiranime.com/?filter=dubbed'))];
+let MainPageObject = new MainPage(new ModuleRequest('https://voiranime.com/?filter=subbed', 'get', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], extraInfo), new JavascriptConfig(true, false, ''), output);
 var finalJson = JSON.stringify(MainPageObject);
 savedData.innerHTML = finalJson;
