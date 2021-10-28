@@ -73,11 +73,14 @@ var savedData = document.getElementById('ketsu-final-data');
 var parsedJson = JSON.parse(savedData.innerHTML);
 let emptyKeyValue = [new KeyValue('', '')];
 var episodes = [];
-var type = document.querySelector('div.tsinfo > div:nth-child(2) a').innerText;
+var type = document.querySelector('div.tsinfo > div:nth-child(2) a').textContent;
 var status = document.querySelector('div.tsinfo > div:nth-child(1) i').textContent;
 var genres = [];
 genres = Array.from(document.querySelectorAll('.wd-full a')).map(g => g.textContent);
-var desc = document.querySelector('.infox div.wd-full').innerText;
+var desc;
+try {
+  desc = document.querySelector('[itemprop=\"depion\"]').textContent.replaceAll('\n','').trim();
+} catch{}
 var title = document.querySelector('.entry-title').textContent.trim();
 var image = document.querySelector('.thumb img').src;
 image = new ModuleRequest(image, 'get', emptyKeyValue, null);
@@ -91,6 +94,6 @@ for (var i = chapters.length - 1; i >= 0; i--) {
 }
 let infoPageObject = new Info(new ModuleRequest('', '', emptyKeyValue, null), new Extra([new Commands('',
     emptyKeyValue)], emptyKeyValue), new JavascriptConfig(false, false, ''), new Output(image, title,
-    parsedJson.request, desc, genres, status, '', type, 'Chapters : ' + episodes.length, episodes));
+    parsedJson.request, desc, genres, status, type, '', 'Chapters : ' + episodes.length, episodes));
 var finalJson = JSON.stringify(infoPageObject);
 savedData.innerHTML = finalJson;
