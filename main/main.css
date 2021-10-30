@@ -16,13 +16,24 @@ h2 {
 }
 
 a {
-    color: #0083e8;
+    color: #fdfdfd;
+    text-decoration: none;
+    text-align: center;
+}
+
+a.btn.btn-dark {
+    margin: 5px;
 }
 
 b, strong {
     font-weight: 600;
 }
 
+.category {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 samp {
     display: none;
 }
@@ -33,16 +44,10 @@ samp {
     margin-top: 1em;
 }
 
-.separator-french h2{
+.separator-videos h2,.separator-images h2{
     color : white;
     text-align: center;
 }
-
-.separator-english h2{
-    color : white;
-    text-align: center;
-}
-
 
 img {
     animation: colorize 2s cubic-bezier(0, 0, .78, .36) 1;
@@ -64,3 +69,4 @@ img {
         filter: grayscale(0%);
     }
 }
+

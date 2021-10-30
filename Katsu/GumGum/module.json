@@ -1,0 +1,158 @@
+{
+  "moduleName": "GumGum",
+  "moduleInitials": "ggfr",
+  "moduleDesc": "A module for gum gum",
+  "developer": "Anonymous",
+  "moduleID": "ggfr",
+  "moduleImage": "https://i2.wp.com/gum-gum-streaming.com/wp-content/uploads/2017/06/index.png",
+  "moduleVersion": "1.1",
+  "moduleLenguage": "fr",
+  "moduleHasVideos": "true",
+  "randomizeUserAgent": "false",
+  "baseURL": "https://gum-gum-streaming.com/",
+  "mainPageLeftTitle": "Last episodes",
+  "mainPageRightTitle": "Last animes",
+  "blackListed": [
+    ""
+  ],
+  "mainPage": [
+    {
+      "request": "https://gum-gum-streaming.com/",
+      "method": "get",
+      "headers": [
+        {
+          "key": "",
+          "value": ""
+        }
+      ],
+      "extraInfo": [
+        {
+          "value": ""
+        }
+      ],
+      "loadJavascript": "false",
+      "javaScript": "function Header(key,value) { this.key = key; this.value = value; } function ExtraInfo(value) { this.value = value; } function Output(lastEpisodes,lastAnimes) { this.lastEpisodes = lastEpisodes; this.lastAnimes = lastAnimes; } function LastAnimes(moduleID,image,link,title) { this.moduleID = moduleID; this.image = image; this.link = link; this.title = title; } function LastEpisodes(moduleID,image,link,title,episode) { this.moduleID = moduleID; this.image = image; this.link = link; this.title = title; this.episode = episode; } function MainPageObject(request,headers,method,extraInfo,loadJavascript,javaScript,output) { this.request = request; this.headers = headers; this.method = method; this.extraInfo = extraInfo; this.loadJavascript = loadJavascript; this.javaScript = javaScript; this.output = output; } var savedData = document.getElementById('katsu-final-data'); var parsedJson = JSON.parse(savedData.innerHTML); var moduleID = 'ggfr'; var headers = [new Header('','')]; var extraInfo = [new ExtraInfo('')]; var mainPageObject; var output; var lastAnimes = []; var lastEpisodes = []; var episodeList = document.querySelectorAll('.menublocks'); for (var x = 0; x < episodeList.length; x++){ var episode = episodeList[x]; var image = episode.querySelector('p').querySelector('a').querySelector('nop').querySelector('img').src; var link = episode.querySelector('h3 > a').href; var animeLink = episode.querySelector('p > a').href; var title = episode.querySelector('h2').innerText; var episodeNumber = episode.querySelectorAll('h3')[0].querySelector('a'); if (episodeNumber == null){ episodeNumber = 'Not defined'; } else{ episodeNumber = episodeNumber.innerText; } console.log(moduleID,image,link,title,episodeNumber); var animes = new LastAnimes(moduleID,image,animeLink,title); var episodes = new LastEpisodes(moduleID,image,link,title,episodeNumber); lastEpisodes.push(episodes); lastAnimes.push(animes); } while (lastEpisodes.length % 2 != 0) { lastEpisodes.push(lastEpisodes[0]); } while (lastAnimes.length % 3 != 0) { lastAnimes.push(lastAnimes[0]); } output = new Output(lastEpisodes,lastAnimes); mainPageObject = new MainPageObject('',headers,'',extraInfo,'','',output); var finalJson = JSON.stringify(mainPageObject); savedData.innerHTML = finalJson;",
+      "output": {
+        "lastEpisodes": [
+          {
+            "moduleID": "0",
+            "image": "",
+            "link": "",
+            "title": "",
+            "episode": ""
+          }
+        ],
+        "lastAnimes": [
+          {
+            "moduleID": "0",
+            "image": "",
+            "link": "",
+            "title": ""
+          }
+        ]
+      }
+    }
+  ],
+  "search": [
+    {
+      "request": "https://gum-gum-streaming.com/?s=<searched>&paged=<page>",
+      "method": "get",
+      "headers": [
+        {
+          "key": "",
+          "value": ""
+        }
+      ],
+      "separator": "+",
+      "extraInfo": [
+        {
+          "value": ""
+        }
+      ],
+      "loadJavascript": "false",
+      "javaScript": "function Header(key,value) { this.key = key; this.value = value; } function ExtraInfo(value) { this.value = value; } function Output(moduleID,image,link,title,type,voice,stars) { this.moduleID = moduleID; this.image = image; this.link = link; this.title = title; this.type = type; this.voice = voice; this.stars = stars; } function SearchObject(request,method,headers,separator,extraInfo,loadJavascript,javaScript,output) { this.request = request; this.method = method; this.headers = headers; this.separator = separator; this.extraInfo = extraInfo; this.loadJavascript = loadJavascript; this.javaScript = javaScript; this.output = output; } var savedData = document.getElementById('katsu-final-data'); var parsedJson = JSON.parse(savedData.innerHTML); var moduleID = 'ggfr'; var headers = [new Header('','')]; var extraInfo = [new ExtraInfo('')]; var searchPageObject; var output = []; var resultList = document.querySelectorAll('article'); var type = 'Anime'; var voice = 'DUB'; var stars = '★★★'; for (i = 0; i < resultList.length; i++){ var resultItem = resultList[i]; var image = 'https://i2.wp.com/gum-gum-streaming.com/wp-content/uploads/2017/06/index.png'; var link = resultItem.querySelector('header').querySelector('a').href; var title = resultItem.querySelector('header').querySelector('a').innerText; if (title.includes('VOSTFR:') || title.includes('VF:') || title.includes('OAV') || title.includes('Film') || title.includes('VOSTFR :') || title.includes('VF :')){ } else{ console.log(moduleID,image,link,title,type,voice,stars); var outputObject = new Output(moduleID,image,link,title,type,voice,stars); output.push(outputObject); } } searchPageObject = new SearchObject('','',headers,'+',extraInfo,'','',output); var finalJson = JSON.stringify(searchPageObject); savedData.innerHTML = finalJson;",
+      "output": [
+        {
+          "moduleID": "0",
+          "image": "",
+          "link": "",
+          "title": "",
+          "type": "",
+          "voice": "",
+          "stars": ""
+        }
+      ]
+    }
+  ],
+  "info": [
+    {
+      "request": "this Can be empty",
+      "method": "get",
+      "headers": [
+        {
+          "key": "",
+          "value": ""
+        }
+      ],
+      "extraInfo": [
+        {
+          "value": ""
+        }
+      ],
+      "loadJavascript": "false",
+      "javaScript": "function Header(key,value) { this.key = key; this.value = value; } function ExtraInfo(value) { this.value = value; } function Output(moduleID,image,link,title,description,genres,type,status,episodes) { this.moduleID = moduleID; this.image = image; this.link = link; this.title = title; this.description = description; this.genres = genres; this.type = type; this.status = status; this.episodes = episodes; } function Episodes(link,moduleID,isDecodable) { this.link = link; this.moduleID = moduleID; this.isDecodable = isDecodable; } function InfoObject(request,method,headers,extraInfo,loadJavascript,javaScript,output) { this.request = request; this.method = method; this.headers = headers; this.extraInfo = extraInfo; this.loadJavascript = loadJavascript; this.javaScript = javaScript; this.output = output; } var savedData = document.getElementById('katsu-final-data'); var parsedJson = JSON.parse(savedData.innerHTML); var moduleID = 'ggfr'; var headers = [new Header('', '')]; var extraInfo = [new ExtraInfo('')]; var infoObject; var output; var episodes = []; var type = 'Anime'; var status = 'Unknown'; var genres = []; var desc = ''; var image = ''; var title = ''; var content = document.querySelector('.entry-content').querySelectorAll('p'); for (var x = 0; x < content.length; x++){ var episodeList = content[x].querySelectorAll('a'); for (var i = 0; i < episodeList.length; i++) { var episode = episodeList[i]; desc = document.querySelector('h5').innerText.trim().split('Synopsis: ')[1]; image = document.querySelectorAll('.alignright')[1].src; title = document.querySelector('.entry-title').innerText; var link = episode.href; console.log(link,moduleID,'false',image,parsedJson.request,title,desc,genres,type,status,episodes); var episodeObject = new Episodes(link,moduleID,'false') ; episodes.push(episodeObject); } } output = new Output(moduleID,image,parsedJson.request,title,desc,genres,type,status,episodes); infoObject = new InfoObject('','get',headers,extraInfo,'', '',output); var finalJson = JSON.stringify(infoObject); savedData.innerHTML = finalJson;",
+      "output": {
+        "moduleID": "0",
+        "image": "",
+        "link": "",
+        "title": "",
+        "description": "",
+        "genres": [
+          ""
+        ],
+        "type": "",
+        "status": "",
+        "episodes": [
+          {
+            "link": "",
+            "moduleID": "",
+            "isDecodable": "false"
+          }
+        ]
+      }
+    }
+  ],
+  "episodes": [
+    {
+      "request": "This can be Empty",
+      "method": "get",
+      "headers": [
+        {
+          "key": "",
+          "value": ""
+        }
+      ],
+      "extraInfo": [
+        {
+          "value": ""
+        }
+      ],
+      "loadJavascript": "true",
+      "javaScript": " function Header(key,value) { this.key = key; this.value = value; } function ExtraInfo(value) { this.value = value; } function Output(link,linkIdentifier,moduleID,isDecodable,headers) { this.link = link; this.linkIdentifier = linkIdentifier; this.moduleID = moduleID; this.isDecodable = isDecodable; this.headers = headers; } function EpisodeObject(request,method,headers,extraInfo,loadJavascript,javaScript,output) { this.request = request; this.method = method; this.headers = headers; this.extraInfo = extraInfo; this.loadJavascript = loadJavascript; this.javaScript = javaScript; this.output = output; } var savedData = document.getElementById('katsu-final-data'); var parsedJson = JSON.parse(savedData.innerHTML); var moduleID = 'ggfr'; var headers = [new Header('','')]; var extraInfo = [new ExtraInfo('')]; var episodeObject; var output = []; var episodeList = document.querySelectorAll('.video-container'); for (var i = 0; i < episodeList.length; i++){ var episode = episodeList[i]; var link = episode.querySelector('noscript').innerText.split('src=\"')[1].split('\"')[0]; if (!link.includes('https:')) { link = 'https:' + link; } console.log(link); outputObject = new Output(link,'',moduleID,'false',headers); output.push(outputObject); } episodeObject = new EpisodeObject('','',headers,extraInfo,'','',output); var finalJson = JSON.stringify(episodeObject); savedData.innerHTML = finalJson;",
+      "output": [
+        {
+          "link": "",
+          "moduleID": "",
+          "linkIdentifier": "",
+          "isDecodable": "false",
+          "headers": [
+            {
+              "key": "key",
+              "value": "value"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

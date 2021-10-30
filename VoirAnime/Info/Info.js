@@ -1,6 +1,4 @@
-<script>
-    
-    function Info(request, extra, javascriptConfig, output) {
+function Info(request, extra, javascriptConfig, output) {
 	this.request = request;
 	this.extra = extra;
 	this.javascriptConfig = javascriptConfig;
@@ -74,42 +72,27 @@ function getHtmlStuff(array, match) {
 var savedData = document.getElementById('ketsu-final-data');
 var parsedJson = JSON.parse(savedData.innerHTML);
 let emptyKeyValue = [new KeyValue('', '')];
-var chapters = [];
+var episodes = [];
 var type = '';
-var status = '';
+var status = document.querySelector('div.post-content > div:nth-child(7) > div.summary-content').innerText;
 var genres = [];
-var desc = '';
-var image = '';
-var title = '';
-image = document.querySelector('.bookintro').querySelector('img').src;
+genres = Array.from(document.querySelectorAll('.genres-content a')).map(g => g.textContent);
+var desc = document.querySelector('.depion-summary').textContent.trim();
+var title = document.querySelector('.post-title h1').textContent.trim();
+if(title.includes('VF')) {
+	type = 'VF';
+} else {
+	type = 'VOSTFR'
+}
+var image = document.querySelector('.summary_image img').src;
 image = new ModuleRequest(image, 'get', emptyKeyValue, null);
-var data = document.querySelector('.message');
-title = data.querySelector('span').innerText;
-try {
-	var arrayOfGenres = data.querySelector('li[itemprop=\'genre\']').querySelectorAll('a');
-	if(arrayOfGenres.length == 0) {
-		genres = ['Uknown'];
-	}
-	for(var x = 0; x < arrayOfGenres.length; x++) {
-		var gen = arrayOfGenres[x].innerText;
-		genres.push(gen);
-	}
-} catch {
-	genres.push('Uknown');
+var chapters = document.querySelector('.main.version-chap').querySelectorAll('.wp-manga-chapter ');
+for(var i = chapters.length - 1; i >= 0; i--) {
+	var element = chapters[i];
+	var fixedLink = element.querySelector('a').href;
+	let chapter = new Chapter('Episode ' + (chapters.length - i), new ModuleRequest(fixedLink, 'get', emptyKeyValue, null), false);
+	episodes.push(chapter);
 }
-try {
-	desc = document.querySelector('p[itemprop=\'depion\']').innerText.replace('Resumen: ', '');
-	status = document.querySelector('.red').innerText;
-} catch {}
-var chaptersArray = document.querySelector('.silde').querySelectorAll('li');
-for(var x = 0; x < chaptersArray.length; x++) {
-	var chapLink = chaptersArray[x].querySelector('a').href.replace('.html', '-10-1.html');
-	let chapter = new Chapter('Chapter ' + (chaptersArray.length - x), new ModuleRequest(chapLink, 'get', emptyKeyValue, null), false);
-	chapters.push(chapter);
-}
-chapters.reverse();
-let infoPageObject = new Info(new ModuleRequest('', '', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(false, false, ''), new Output(image, title, parsedJson.request, desc, genres, status, 'Manga', type, 'Eps: ' + chapters.length, chapters));
+let infoPageObject = new Info(new ModuleRequest('', '', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(false, false, ''), new Output(image, title, parsedJson.request, desc, genres, status, 'Anime', type, 'Eps: ' + episodes.length, episodes));
 var finalJson = JSON.stringify(infoPageObject);
 savedData.innerHTML = finalJson;
-
-</script>
