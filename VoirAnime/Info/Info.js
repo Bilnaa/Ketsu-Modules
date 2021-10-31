@@ -53,18 +53,18 @@ function Output(image, title, link, description, genres, field1, field2, field3,
 }
 
 function getStuff(array, match) {
-	for(var x = 0; x < array.length; x++) {
+	for (var x = 0; x < array.length; x++) {
 		let data = array[x].innerText;
-		if(data.includes(match)) {
+		if (data.includes(match)) {
 			return data.replace(match, '').trim();
 		}
 	}
 }
 
 function getHtmlStuff(array, match) {
-	for(var x = 0; x < array.length; x++) {
+	for (var x = 0; x < array.length; x++) {
 		let data = array[x].innerText;
-		if(data.includes(match)) {
+		if (data.includes(match)) {
 			return array[x];
 		}
 	}
@@ -79,20 +79,24 @@ var genres = [];
 genres = Array.from(document.querySelectorAll('.genres-content a')).map(g => g.textContent);
 var desc = document.querySelector('.depion-summary').textContent.trim();
 var title = document.querySelector('.post-title h1').textContent.trim();
-if(title.includes('VF')) {
+if (title.includes('VF')) {
 	type = 'VF';
 } else {
 	type = 'VOSTFR'
 }
 var image = document.querySelector('.summary_image img').src;
 image = new ModuleRequest(image, 'get', emptyKeyValue, null);
-var chapters = document.querySelector('.main.version-chap').querySelectorAll('.wp-manga-chapter ');
-for(var i = chapters.length - 1; i >= 0; i--) {
+var chapters = document.querySelector('.listing-chapters_wrap .main.version-chap').querySelectorAll('li');
+for (var i = chapters.length - 1; i >= 0; i--) {
 	var element = chapters[i];
 	var fixedLink = element.querySelector('a').href;
-	let chapter = new Chapter('Episode ' + (chapters.length - i), new ModuleRequest(fixedLink, 'get', emptyKeyValue, null), false);
+  var episodeName = element.querySelector('a').textContent;
+	let chapter = new Chapter(episodeName, new ModuleRequest(fixedLink, 'get', emptyKeyValue,
+		null), false);
 	episodes.push(chapter);
 }
-let infoPageObject = new Info(new ModuleRequest('', '', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(false, false, ''), new Output(image, title, parsedJson.request, desc, genres, status, 'Anime', type, 'Eps: ' + episodes.length, episodes));
+let infoPageObject = new Info(new ModuleRequest('', '', emptyKeyValue, null), new Extra([new Commands('',
+	emptyKeyValue)], emptyKeyValue), new JavascriptConfig(false, false, ''), new Output(image, title,
+	parsedJson.request, desc, genres, status, 'Anime', type, 'Eps: ' + episodes.length, episodes));
 var finalJson = JSON.stringify(infoPageObject);
 savedData.innerHTML = finalJson;
