@@ -78,7 +78,7 @@
         var nbEp = 'Eps: ' + episodes.length;
     }
     try {
-        genres = Array.from(document.querySelector('div.col-mov-right').textContent.match(/GENRE:\n              \n              \n              .+/g)[0].replac('GENRE:\n              \n              \n              ', '').split(','));
+        genres = Array.from(document.querySelector('div.col-mov-right').textContent.match(/GENRE:\n              \n              \n              .+/g)[0].replace('GENRE:\n              \n              \n              ', '').split(','));
     } catch {}
     
     let infoPageObject = new Info(new ModuleRequest('', '', emptyKeyValue, null),new Extra([new Commands('', emptyKeyValue)], emptyKeyValue),new JavascriptConfig(false, false, ''),new Output(image, title, parsedJson.request, desc, genres, '', '', '', nbEp, episodes));
