@@ -74,10 +74,9 @@ for (var x = 0; x < buttonBox.length; x++) {
 		output.push(new NeedsResolver('', new ModuleRequest(link, 'get', emptyKeyValue, null)));
 	}
 	if (link.includes('sbplay1.com')) {
-		fixedLink = link.replace('https://sbplay1.com/e/', 'https://sbplay1.com/dl?op=download_orig&id=');
-		output.push(new NeedsResolver('', new ModuleRequest(fixedLink, 'get', emptyKeyValue, null)));
+		output.push(new NeedsResolver('', new ModuleRequest(link, 'get', emptyKeyValue, null)));
 	}
-	if (link.includes('asianload')) {
+	if (!link.includes('https:')) {
 		var fixedLink = 'https:' + link;
 		output.push(new NeedsResolver('', new ModuleRequest(fixedLink, 'get', emptyKeyValue, null)));
 	}
