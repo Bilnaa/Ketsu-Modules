@@ -76,6 +76,9 @@ for (var x = 0; x < buttonBox.length; x++) {
 	if (link.includes('sbplay1.com')) {
 		output.push(new NeedsResolver('', new ModuleRequest(link, 'get', emptyKeyValue, null)));
 	}
+	if (link.includes('https://mixdrop.co/e/')){
+		output.push(new NeedsResolver('', new ModuleRequest(link, 'get', emptyKeyValue, null)));
+	}
 	if (!link.includes('https:')) {
 		var fixedLink = 'https:' + link;
 		output.push(new NeedsResolver('', new ModuleRequest(fixedLink, 'get', emptyKeyValue, null)));
