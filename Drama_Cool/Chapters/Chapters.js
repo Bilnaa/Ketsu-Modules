@@ -79,9 +79,14 @@ for (var x = 0; x < buttonBox.length; x++) {
 	if (link.includes('https://mixdrop.co/e/')){
 		output.push(new NeedsResolver('', new ModuleRequest(link, 'get', emptyKeyValue, null)));
 	}
-	if (!link.includes('https:')) {
+	if (link.includes('fplayer.info')){
+		output.push(new NeedsResolver('', new ModuleRequest(link, 'get', emptyKeyValue, null)));
+	}
+	if (link.includes('asianembed.com')) {
+		if(!link.includes('streaming.php')){
 		var fixedLink = 'https:' + link;
 		output.push(new NeedsResolver('', new ModuleRequest(fixedLink, 'get', emptyKeyValue, null)));
+		}else{}
 	}
 }
 let emptyExtra = new Extra([new Commands('', emptyKeyValue)], emptyKeyValue);
