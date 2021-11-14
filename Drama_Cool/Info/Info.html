@@ -1,5 +1,5 @@
 <script type="text/javascript">
-      function Info(request, extra, javascriptConfig, output) {
+           function Info(request, extra, javascriptConfig, output) {
           this.request = request;
           this.extra = extra;
           this.javascriptConfig = javascriptConfig;
@@ -93,15 +93,33 @@
       }
       try {
           desc = document.querySelector('.info').textContent.match(/ Depion: \n \n .+/g)[0].replace(' Depion: \n \n ',
-              '');
+              '') + '3';
       } catch {}
       try {
-          desc = document.querySelector('.info').textContent.match(/Depion: \n.+/g)[0].replace('Depion: \n ', '');
+          desc = document.querySelector('.info p:nth-of-type(n+4)').textContent, document.querySelector(
+              '.info p:nth-of-type(n+5)').textContent;
       } catch {}
       try {
-          desc= document.querySelector('.info p:nth-of-type(n+4)').textContent,document.querySelector('.info p:nth-of-type(n+5)').textContent;}
-        catch {}
-      let infoPageObject = new Info(new ModuleRequest('', '', emptyKeyValue, null), new Extra([new Commands('',emptyKeyValue)], emptyKeyValue), new JavascriptConfig(false, false, ''), new Output(image, title,parsedJson.request, desc, genres, lang + ' | ' + status, '', type, 'Eps: ' + episodes.length, episodes));
+          desc = document.querySelector('.info').textContent.match(/Depion: \n.+/g)[0].replace('Depion: \n ', '')
+      .trim();
+      } catch {}
+      
+      try {
+          desc1 = document.querySelectorAll('.info p');
+          for (var i = 0; i < desc1.length; i++) {
+              if (desc1[i].textContent.includes('Depion:')) {
+                  desc = desc1[i + 1].textContent.trim();
+                  if (desc == '') {
+                      desc = desc1[i + 2].textContent.trim();
+                  }
+              }
+          }
+      } catch (e) {}
+
+      let infoPageObject = new Info(new ModuleRequest('', '', emptyKeyValue, null), new Extra([new Commands('',
+          emptyKeyValue)], emptyKeyValue), new JavascriptConfig(false, false, ''), new Output(image, title,
+          parsedJson.request, desc, genres, lang + ' | ' + status, '', type, 'Eps: ' + episodes.length, episodes
+          ));
       var finalJson = JSON.stringify(infoPageObject);
       savedData.innerHTML = finalJson;
     </script>
