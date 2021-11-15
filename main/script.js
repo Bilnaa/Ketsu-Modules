@@ -1,5 +1,5 @@
 var xhr=new XMLHttpRequest();
-xhr.open('GET','http://127.0.0.1:5500/allmodules.json');
+xhr.open('GET','https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/main/allmodules.json');
 xhr.onload=function(){
             var content = xhr.responseText;
             var parsedJson = JSON.parse(content);
