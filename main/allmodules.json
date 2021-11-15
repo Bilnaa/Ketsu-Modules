@@ -44,7 +44,7 @@
         {
             "name": "AnimeWorld | IT",
             "type": "video",
-            "image": "https://static.animeworld.tv/assets/images/favicon/android-icon-192x192.png",
+            "image": "https://i.postimg.cc/G2L3z1dv/Anime-World-logo.png",
             "info": "Watch Italian subbed and dubbed animes with the module of AnimeWorld",
             "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/AnimeWorld/AnimeWorld.json"
         }
