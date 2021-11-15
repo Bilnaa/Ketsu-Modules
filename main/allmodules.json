@@ -1,0 +1,96 @@
+{
+    "video": [
+        {
+            "name": "VostFree | FR",
+            "type": "video",
+            "image": "https://i.postimg.cc/brRJ6SW8/logo.png",
+            "info": "Regardez gratuitement des animes avec le module du site VostFree.",
+            "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilna95/bilna95.github.io/main/VostFree%20Ketsu/moduleTemplate.json"
+        },
+        {
+            "name": "VoirAnime | FR",
+            "type": "video",
+            "image": "https://i.postimg.cc/mg50q3sn/vato.png",
+            "info": "Regardez gratuitement des animes avec le module du site VoirAnime",
+            "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/VoirAnime/moduleTemplate.json"
+        },
+        {
+            "name": "Wiflix | FR",
+            "type": "video",
+            "image": "https://i.postimg.cc/HnG4D0fD/logo.png",
+            "info": "Regardez gratuitement des films et séries avec le module du site Wiflix",
+            "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilna95/bilna95.github.io/main/wiflix.ws/moduleTemplate.json"
+        },
+        {
+            "name": "French Anime | FR",
+            "type": "video",
+            "image": "https://i.postimg.cc/W1M8FtJk/frenchanime.png",
+            "info": "Regardez gratuitement des animes avec le module du site French Anime",
+            "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilna95/bilna95.github.io/main/FrenchAnime/moduleTemplate.json"
+        },{
+            "name": "VostAnimes | FR ",
+            "type": "video",
+            "image": "https://i.postimg.cc/dVSFCpyf/vostanimes-logo.png",
+            "info": "Regardez gratuitement des animes avec le module du site VostAnimes",
+            "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilna95/bilna95.github.io/main/VostAnimes/VostAnimesKETSU.json"
+        },
+        {
+            "name": "Drama Cool | ENG",
+            "type": "video",
+            "image": "https://i.postimg.cc/Sss25qmT/drama-cool.png",
+            "info": "Watch dramas from all Asia with the module of Drama Cool",
+            "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilna95/bilna95.github.io/main/Drama_Cool/moduleTemplate.json"
+        },
+        {
+            "name": "AnimeWorld | IT",
+            "type": "video",
+            "image": "https://static.animeworld.tv/assets/images/favicon/android-icon-192x192.png",
+            "info": "Watch Italian subbed and dubbed animes with the module of AnimeWorld",
+            "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/AnimeWorld/AnimeWorld.json"
+        }
+    ],
+    "images": [
+        {
+            "name": "Scans Mangas | FR",
+            "type": "Image",
+            "image": "https://i.postimg.cc/MTqkm3hx/Scans-Mangas.png",
+            "info": "Lisez gratuitement des mangas avec le module du site Scans Mangas.",
+            "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilna95/bilna95.github.io/main/ScansMangas/ScansMangasKETSU.json",
+            "Zetsu_link":"zetsuapp://?moduleData=https://raw.githubusercontent.com/Bilna95/bilna95.github.io/main/ScansMangas/ScansMangasKETSU.json"
+        },
+        {
+            "name": "Nine Manga | FR",
+            "type": "Image",
+            "image": "https://i.postimg.cc/6pvDJNKt/ninemanga.png",
+            "info": "Lisez gratuitement des mangas avec le module du site Nine Manga.",
+            "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilna95/bilna95.github.io/main/NineManga/NineMangaFR.json",
+            "Zetsu_link":"zetsuapp://?moduleData=https://raw.githubusercontent.com/Bilna95/bilna95.github.io/main/NineManga/NineMangaFR.json"
+        },
+        {
+            "name": "AsuraScans | ENG",
+            "type": "Image",
+            "image": "https://i.postimg.cc/MK0y10tY/asura-logo.png",
+            "info": "Read for free webtoons that are on the website of AsuraScans",
+            "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/Asura/asura.json",
+            "Zetsu_link":"zetsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/Asura/asura.json"
+        },
+        {
+            "name": "MangaWeeb | ENG",
+            "type": "Image",
+            "image": "https://i.postimg.cc/MTqkm3hx/Scans-Mangas.png",
+            "info": "Read for free webtoons that are on the website MangaWeeb",
+            "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/Manga%20Weeb/moduleTemplate.json",
+            "Zetsu_link":"zetsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/Manga%20Weeb/moduleTemplate.json"
+        }
+    ],
+    "text":[
+        {
+            "name": "Livre1 | FR",
+            "type": "Text",
+            "image": "https://i.postimg.cc/7h4JHNF6/livre1-logo.png",
+            "info": "Lisez gratuitement des livres avec le module du site Livre1.",
+            "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilna95/bilna95.github.io/main/Livre1/Livre1.json",
+            "Zetsu_link":"zetsuapp://?moduleData=https://raw.githubusercontent.com/Bilna95/bilna95.github.io/main/Livre1/Livre1.json"
+        }
+    ]
+}
