@@ -1,6 +1,13 @@
 {
     "video": [
         {
+            "name": "Nabil's Library",
+            "type": "video",
+            "image": "https://i.imgur.com/wLacJYr.png",
+            "info": "All the modules hosted by this website directly inside Ketsu.",
+            "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/Librairie/moduleTemplate.json"
+        },
+        {
             "name": "VostFree | FR",
             "type": "video",
             "image": "https://i.postimg.cc/brRJ6SW8/logo.png",
@@ -33,6 +40,13 @@
             "image": "https://i.postimg.cc/dVSFCpyf/vostanimes-logo.png",
             "info": "Regardez gratuitement des animes avec le module du site VostAnimes",
             "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilna95/bilna95.github.io/main/VostAnimes/VostAnimesKETSU.json"
+        },
+        {
+            "name": "French Stream | FR ",
+            "type": "video",
+            "image": "https://french-stream.run/favicon.ico",
+            "info": "Regardez gratuitement des films avec le module du site French Stream",
+            "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/FrenchStream/FrenchStream.json"
         },
         {
             "name": "Drama Cool | ENG",
