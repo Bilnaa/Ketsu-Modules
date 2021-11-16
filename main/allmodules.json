@@ -91,7 +91,7 @@
         {
             "name": "MangaWeeb | ENG",
             "type": "Image",
-            "image": "https://i.postimg.cc/MTqkm3hx/Scans-Mangas.png",
+            "image": "https://i.postimg.cc/rptLRW8s/mangaweeb-logo.png",
             "info": "Read for free webtoons that are on the website MangaWeeb",
             "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/Manga%20Weeb/moduleTemplate.json",
             "Zetsu_link":"zetsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/Manga%20Weeb/moduleTemplate.json"
