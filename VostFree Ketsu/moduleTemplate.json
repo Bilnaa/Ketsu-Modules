@@ -6,7 +6,7 @@
     "developer": "ナビル",
     "moduleID": "15151615165165",
     "moduleImage": "https://i.imgur.com/AYyMYiE.png",
-    "moduleVersion": 2.22,
+    "moduleVersion": 2.23,
     "moduleLenguage": "FR",
     "changelog": "La description dans la partie recherche est meilleure",
     "moduleType": "Video",
@@ -156,7 +156,7 @@
   "search": [
     {
       "request": {
-        "url": "https://vostfree.tv/index.php?do=search&subaction=search&story=<searched>&submit=Submit",
+        "url": "https://vostfree.tv/index.php?story=<searched>&do=search&search_start=<page>&subaction=search&submit=Submit",
         "method": "post",
         "headers": [
           {
