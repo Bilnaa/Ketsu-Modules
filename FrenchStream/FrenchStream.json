@@ -6,7 +6,7 @@
     "developer": "Frizrat",
     "moduleID": "12131121",
     "moduleImage": "https://french-stream.run/favicon.ico",
-    "moduleVersion": 1.0,
+    "moduleVersion": 1.01,
     "changelog": "",
     "moduleLenguage": "Fr",
     "moduleType": "Video",
@@ -156,7 +156,7 @@
   "search": [
     {
       "request": {
-        "url": "https://french-stream.run/index.php?story=<searched>&do=search&subaction=search",
+        "url": "https://french-stream.run/index.php?story=<searched>&do=search&search_start=<page>&subaction=search&submit=Submit",
         "method": "get",
         "headers": [
           {

@@ -6,7 +6,7 @@
     "developer": "ナビル",
     "moduleID": "08521515068",
     "moduleImage": "https://i.postimg.cc/W1M8FtJk/frenchanime.png",
-    "moduleVersion": 1.2,
+    "moduleVersion": 1.3,
     "moduleLenguage": "FR",
     "moduleType": "Video",
     "baseURL": "https://french-anime.com/",
@@ -155,7 +155,7 @@
   "search": [
     {
       "request": {
-        "url": "https://french-anime.com/index.php/search/?do=search&subaction=search&story=<searched>",
+        "url": "https://french-anime.com/index.php/search/?story=<searched>&do=search&search_start=<page>&subaction=search&submit=Submit",
         "method": "get",
         "headers": [
           {
