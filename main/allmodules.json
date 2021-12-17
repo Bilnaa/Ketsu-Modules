@@ -89,10 +89,10 @@
             "Zetsu_link":"zetsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/Asura/asura.json"
         },
         {
-            "name": "MangaWeeb | ENG",
+            "name": "MangaWeebs | ENG",
             "type": "Image",
             "image": "https://i.postimg.cc/rptLRW8s/mangaweeb-logo.png",
-            "info": "Read for free webtoons that are on the website MangaWeeb",
+            "info": "Read for free webtoons that are on the website MangaWeebs",
             "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/Manga%20Weeb/moduleTemplate.json",
             "Zetsu_link":"zetsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/Manga%20Weeb/moduleTemplate.json"
         }
