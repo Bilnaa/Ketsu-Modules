@@ -1,4 +1,4 @@
-    
+
     <script type="text/javascript">
     const DefaultLayouts = {
         ultraWideFull : 'ultraWideFull',
@@ -11,7 +11,7 @@
         wideStrechedDouble : 'wideStrechedDouble',
         wideStrechedFullList : 'wideStrechedFullList',
         wideStrechedList : 'wideStrechedList',
-        
+    
         doublets : 'doublets',
         doubletsDouble : 'doubletsDouble',
         doubletsFull : 'doubletsFull',
@@ -20,7 +20,7 @@
         doubletsDoubleConstant : 'doubletsDoubleConstant',
         doubletsFullConstant : 'doubletsFullConstant',
         doubletsFullDoubleConstant : 'doubletsFullDoubleConstant',
-            
+        
         longDoublets : 'longDoublets',
         longDoubletsDouble : 'longDoubletsDouble',
         longDoubletsFull : 'longDoubletsFull',
@@ -29,7 +29,7 @@
         longDoubletsDoubleConstant : 'longDoubletsDoubleConstant',
         longDoubletsFullConstant : 'longDoubletsFullConstant',
         longDoubletsFullDoubleConstant : 'longDoubletsFullDoubleConstant',
-        
+    
         triplets : 'triplets',
         tripletsDouble : 'tripletsDouble',
         tripletsFull : 'tripletsFull',
@@ -38,7 +38,7 @@
         tripletsDoubleConstant : 'tripletsDoubleConstant',
         tripletsFullConstant : 'tripletsFullConstant',
         tripletsFullDoubleConstant : 'tripletsFullDoubleConstant',
-        
+    
         longTriplets : 'longTriplets',
         longTripletsDouble : 'longTripletsDouble',
         longTripletsFull : 'longTripletsFull',
@@ -47,7 +47,7 @@
         longTripletsDoubleConstant : 'longTripletsDoubleConstant',
         longTripletsFullConstant : 'longTripletsFullConstant',
         longTripletsFullDoubleConstant : 'longTripletsFullDoubleConstant',
-        
+    
         none: ''
     };
     
@@ -56,6 +56,7 @@
         Special2 : 'Special2',
         Special3 : 'Special3',
         CELLHelperText : 'CELLHelperText',
+
         small1 : 'small1',
         small2 : 'small2',
         normal1 : 'normal1',
@@ -65,7 +66,7 @@
         normal5 : 'normal5',
         normal6 : 'normal6',
         normal7 : 'normal7',
-
+    
         wide1 : 'wide1',
         wide2 : 'wide2',
         wide3 : 'wide3',
@@ -88,52 +89,51 @@
         horizontal : 'horizontal',
         vertical : 'vertical'
     };
-
-    function Search(request,extra,separator,javascriptConfig,output) {
+    
+    function MainPage(request, extra, javascriptConfig, output) {
         this.request = request;
         this.extra = extra;
-        this.separator = separator;
         this.javascriptConfig = javascriptConfig;
-        this.output  = output;
+        this.output = output;
     }
-    function ModuleRequest(url,method,headers,httpBody) {
+    function ModuleRequest(url, method, headers, httpBody) {
         this.url = url;
         this.method = method;
-        this.headers  = headers;
+        this.headers = headers;
         this.httpBody = httpBody;
     }
-    function Extra(commands,extraInfo) {
+    function Extra(commands, extraInfo) {
         this.commands = commands;
         this.extraInfo = extraInfo;
     }
-    function Commands(commandName,params) {
+    function Commands(commandName, params) {
         this.commandName = commandName;
         this.params = params;
     }
-    function JavascriptConfig(removeJavascript,loadInWebView,javaScript) {
+    function JavascriptConfig(removeJavascript, loadInWebView, javaScript) {
         this.removeJavascript = removeJavascript;
         this.loadInWebView = loadInWebView;
         this.javaScript = javaScript;
     }
-    function KeyValue(key,value) {
+    function KeyValue(key, value) {
         this.key = key;
         this.value = value;
     }
-    function Output(cellDesing,orientation,defaultLayout,paging,section,layout,data) {
+    function Output(cellDesing, orientation, defaultLayout, paging, section, layout, data) {
         this.cellDesing = cellDesing;
-        this.orientation  = orientation;
+        this.orientation = orientation;
         this.defaultLayout = defaultLayout;
         this.paging = paging;
-        this.section  = section;
+        this.section = section;
         this.layout = layout;
         this.data = data;
     }
-    function Section(sectionName,separator) {
-        this.sectionName  = sectionName;
+    function Section(sectionName, separator) {
+        this.sectionName = sectionName;
         this.separator = separator;
     }
     
-    function Data(image,title,description,field1,field2,field3,field4,isChapter,link,openInWebView) {
+    function Data(image, title, description, field1, field2, field3, field4, isChapter, link,openInWebView) {
         this.image = image;
         this.title = title;
         this.description = description;
@@ -141,32 +141,58 @@
         this.field2 = field2;
         this.field3 = field3;
         this.field4 = field4;
-        this.isChapter  = isChapter;
+        this.isChapter = isChapter;
         this.link = link;
         this.openInWebView = openInWebView;
     }
-
+    
     var savedData = document.getElementById('ketsu-final-data');
     var parsedJson = JSON.parse(savedData.innerHTML); 
     let emptyKeyValue = [new KeyValue('','')];
-
+    
     let output = [];
-    let searchArray = [];
-    let results = document.querySelectorAll('.c-tabs-item__content');
-    for (result of results) {
-        var img = result.querySelector('img').src;
-        img = new ModuleRequest(img,'get',emptyKeyValue,null);
-        var title = result.querySelector('a').title;
-        var link = result.querySelector('a').href;
-        link = new ModuleRequest(link,'get',emptyKeyValue,null);
-        var author = result.querySelector('.summary-content > a').textContent;
-        var statut = result.querySelector('.mg_status > .summary-content').textContent.trim();
-        searchArray.push(new Data(img, title,'',author,statut,'','',false,link));
-    }
-    output.push(new Output(CellDesings.normal1, Orientation.vertical, DefaultLayouts.longDoubletsFullConstant, Paging.leading, new Section('', true), null, searchArray));
+    var dataArray = [];
 
-    let searchPageObject = new Search(new ModuleRequest('','',emptyKeyValue,null),new Extra([new Commands('',emptyKeyValue)],emptyKeyValue),'',new JavascriptConfig(true,false,''),output);
-    var finalJson = JSON.stringify(searchPageObject);
+    var slides = document.querySelectorAll('.item__wrap');
+    for (slide of slides) {
+        var image = slide.querySelector('img').getAttribute('data-src');
+        image =  new ModuleRequest(image,'get',emptyKeyValue,null);
+        var title = slide.querySelector('h4').textContent.trim();
+        var link = slide.querySelector('a').href;
+        link = new ModuleRequest(link,'get',emptyKeyValue,null);
+        dataArray.push(new Data(image,title,'','','','','',false,link));
+    }
+    output.push(new Output(CellDesings.normal1, Orientation.horizontal, DefaultLayouts.longDoubletsConstant, Paging.leading, new Section('Les plus évalués', true), null, dataArray));
+ 
+    var dataArray = [];
+    var majLivresList = document.querySelectorAll('.page-listing-item > .row');
+    for (majLivres of majLivresList) {
+        var majLivre = majLivres.querySelectorAll('.item-thumb > a');
+        for (livre of majLivre) {
+            var image = livre.querySelector('img').getAttribute('data-src');
+            image =  new ModuleRequest(image,'get',emptyKeyValue,null);
+            var title = livre.title;
+            var link = livre.href;
+            link = new ModuleRequest(link,'get',emptyKeyValue,null);
+            dataArray.push(new Data(image,title,'description','','','field3','field4',false,link))
+        }
+    }
+    output.push(new Output(CellDesings.normal1, Orientation.horizontal, DefaultLayouts.longDoubletsDoubleConstant, Paging.leading, new Section('Mis à jour', true), null, dataArray));
+
+    var dataArray = [];
+    var tendLivres = document.querySelector('#manga-recent-3').querySelectorAll('.popular-img > a');
+    for (tendLivre of tendLivres) {
+        var image = tendLivre.querySelector('img').getAttribute('data-src');
+        image =  new ModuleRequest(image,'get',emptyKeyValue,null);
+        var title = tendLivre.title;
+        var link = tendLivre.href;
+        link = new ModuleRequest(link,'get',emptyKeyValue,null);
+        dataArray.push(new Data(image,title,'description','','','field3','field4',false,link))
+    }
+    output.push(new Output(CellDesings.normal1, Orientation.horizontal, DefaultLayouts.longDoubletsConstant, Paging.leading, new Section('Tendance', true), null, dataArray));
+    
+    let MainPageObject = new MainPage(new ModuleRequest('','get',emptyKeyValue,null),new Extra([new Commands('',emptyKeyValue)],emptyKeyValue),new JavascriptConfig(true,false,''),output);
+    var finalJson = JSON.stringify(MainPageObject);
     savedData.innerHTML = finalJson;
 
     </script>
