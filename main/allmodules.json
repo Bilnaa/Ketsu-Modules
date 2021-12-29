@@ -61,6 +61,13 @@
             "image": "https://i.postimg.cc/Qtw77TXC/Anime-World-logo.png",
             "info": "Watch Italian subbed and dubbed animes with the module of AnimeWorld.",
             "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/AnimeWorld/AnimeWorld.json"
+        },
+        {
+            "name": "Streaming Community | IT",
+            "type": "video",
+            "image": "https://i.postimg.cc/ydYj9BrN/scom.png",
+            "info": "Watch movies and series for free with the module of StreamingCommunity.",
+            "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/StreamingCommunity/StreamingCommunity.json"
         }
     ],
     "images": [
