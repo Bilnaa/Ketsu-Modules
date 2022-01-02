@@ -1,7 +1,5 @@
 
-
   <script type="text/javascript">
-  
     function Chapters(request, extra, javascriptConfig, output) {
         this.request = request;
         this.extra = extra;
@@ -68,8 +66,15 @@
     var output = [];
 
     var images = document.querySelector('.nav_apb').querySelectorAll('a');
-    for (var x = 1; x < images.length - 1; x++) {
+    var xLen = images.length;
+
+    if ( images[images.length - 1].textContent.includes('>') && images[0].textContent.includes('<') ) { xLen -= 1; }
+    else if ( images[images.length - 1].textContent.includes('>') ^ images[0].textContent.includes('<') ) { xLen -= 0; }
+    else { xLen += 1 }
+    
+    for (var x = 1; x < xLen; x++) {
         var img = document.querySelector('a[rel=\"nofollow\"] > img').src.replace('1.jpg', x+'.jpg');
+        console.log(img);
         output.push(new ModuleRequest(img,'get',imgsHeaders,null));
     }
     
