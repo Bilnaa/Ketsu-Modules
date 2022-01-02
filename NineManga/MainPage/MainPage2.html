@@ -1,5 +1,5 @@
-  
-  <script type='text/javascript'>
+
+  <script type="text/javascript">
     const DefaultLayouts = {
         ultraWideFull : 'ultraWideFull',
         ultraWide : 'ultraWide',
@@ -137,40 +137,44 @@
         this.link = link;
         this.openInWebView = openInWebView;
     }
-
+    
+    function getValueFromKey(keys, key) {
+        for (var x = 0; x < keys.length; x++) {
+            let tKey = keys[x];
+            if (tKey.key == key) {
+                return tKey.value;
+            }
+        }
+        return '';
+    }
+    
     var savedData = document.getElementById('ketsu-final-data');
     var parsedJson = JSON.parse(savedData.innerHTML); 
     let emptyKeyValue = [new KeyValue('','')];
     
-    let output = [];
+    var extraInfo = parsedJson.extra.extraInfo;
+    var count = parseInt(getValueFromKey(extraInfo, 'count'));
+    var layouts = [ { title: 'Dernières mises à jour' },{ title: 'Nouveau' } ];
+
+    let output = parsedJson.output;
     var dataArray = [];
 
-    var updateList = document.querySelector('.pop_update').querySelectorAll('li');
-    for (update of updateList) {
-        var image = update.querySelector('img').src;
+    var mangas = document.querySelector('.leftbox').querySelectorAll('li');
+    for (manga of mangas) {
+        var image = manga.querySelector('img').src;
         image = new ModuleRequest(image, 'get', emptyKeyValue, null);
-        var title = update.querySelector('a').title;
-        var link = update.querySelector('a').href + '?waring=1';
+        var title = manga.querySelector('.bookname').innerHTML;
+        var link = manga.querySelector('a').href + '?waring=1';
         link = new ModuleRequest(link, 'get', emptyKeyValue, null);
         dataArray.push(new Data(image, title, '', '', '', '', '', false, link));
     }
-    output.push(new Output(CellDesings.normal1,Orientation.horizontal,DefaultLayouts.longDoubletsFullConstant,Paging.leading, new Section('', true), null, dataArray));
-    
-    dataArray = [];
-    var hotList = document.querySelector('.rightbox').querySelectorAll('li');
-    for (hot of hotList) {
-        var image = hot.querySelector('img').src;
-        image = new ModuleRequest(image, 'get', emptyKeyValue, null);
-        var title = hot.querySelector('.show_book_desc').textContent;
-        var link = hot.querySelector('a').href + '?waring=1';
-        link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-        dataArray.push(new Data(image, title, '', '', '', '', '', false, link));
-    }
-    output.push(new Output(CellDesings.normal1, Orientation.horizontal, DefaultLayouts.longTripletsDouble, Paging.leading, new Section('Hot Manga', true), null, dataArray));
+    output.push(new Output(CellDesings.normal1, Orientation.horizontal, DefaultLayouts.longTripletsDoubleConstant, Paging.leading, new Section(layouts[count].title, true), null, dataArray));
 
-    let extraInfo = [new KeyValue('count', '0'), new KeyValue('0', 'https://fr.ninemanga.com/list/New-Update/'), new KeyValue('1', 'https://fr.ninemanga.com/list/New-Book/')];
+    count++;
+    extraInfo[0].value = ''+count;
+    var nextRequest = getValueFromKey(extraInfo, ''+count);
+    let MainPageObject = new MainPage(new ModuleRequest(nextRequest, 'get', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], extraInfo), new JavascriptConfig(true, false, ''), output);
 
-    let MainPageObject = new MainPage(new ModuleRequest('https://fr.ninemanga.com/list/New-Update/', 'get', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], extraInfo), new JavascriptConfig(true, false, ''), output);
     var finalJson = JSON.stringify(MainPageObject);
     savedData.innerHTML = finalJson;
         
