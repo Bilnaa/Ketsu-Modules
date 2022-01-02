@@ -1,7 +1,5 @@
 
-
   <script type="text/javascript">
-  
     function Info(request, extra, javascriptConfig, output) {
         this.request = request;
         this.extra = extra;
@@ -31,7 +29,7 @@
         this.key = key;
         this.value = value;
     }
-    function Chapter(chapName, link, openInWebView) {
+    function Chapter(chapName, link,openInWebView) {
         this.chapName = chapName;
         this.link = link;
         this.openInWebView = openInWebView;
@@ -52,16 +50,15 @@
     var savedData = document.getElementById('ketsu-final-data');
     var parsedJson = JSON.parse(savedData.innerHTML);
     let emptyKeyValue = [new KeyValue('', '')];
-    var chapters = [];
-    var genres = [];
-
-    var status = '';
-    var sortie = '';
-    var desc = '';
-
+    
     var image = document.querySelector('.bigcover > .ime > img').src;
     image = new ModuleRequest(image, 'get', emptyKeyValue, null);
     var title = document.querySelector('.infox > h1').textContent;
+    var desc = '';
+    try { desc = document.querySelector('.entry-content-single').textContent.trim(); } catch{}
+    var genres = [];
+    var sortie = '';
+    var status = '';
 
     var infos = document.querySelector('.spe').querySelectorAll('span');
     for (info of infos) {
@@ -76,11 +73,8 @@
             }
         }
     }
-    
-    try {
-        desc = document.querySelector('.entry-content-single').textContent.trim();
-    } catch{}
 
+    var chapters = [];
     var chapArray = document.querySelectorAll('.lchx.mobile > a');
     for (chap of chapArray) {
         chapters.push(new Chapter(chap.textContent.trim(), new ModuleRequest(chap.href, 'get', emptyKeyValue, null), false));
@@ -88,7 +82,6 @@
     chapters.reverse();
 
     let infoPageObject = new Info(new ModuleRequest('', '', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(false, false, ''), new Output(image, title, parsedJson.request, desc, genres, sortie, status, 'Scans: ' + chapters.length, '', chapters));
-
     var finalJson = JSON.stringify(infoPageObject);
     savedData.innerHTML = finalJson;
   

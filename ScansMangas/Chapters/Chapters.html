@@ -55,23 +55,21 @@
 
     var savedData = document.getElementById('ketsu-final-data');
     var parsedJson = JSON.parse(savedData.innerHTML);
+    var emptyKeyValue = [new KeyValue('', '')];
+    var imgsHeaders = [new KeyValue('Referer', parsedJson.request.url)];
 
     var extraInfo = parsedJson.extra.extraInfo;
     var count = parseInt(getValueFromKey(extraInfo,'count')) + 1;
-    if (count > 2) {
-        output = parsedJson.output.images;
-    }
-    
-    var emptyKeyValue = [new KeyValue('', '')];
-    var imgsHeaders = [new KeyValue('Referer', parsedJson.request.url)];
+    if (count > 2) { output = parsedJson.output.images; }
+
+    var newRequest = parsedJson.request.url.replace((count - 1)+'.html', count+'.html');
+    extraInfo[0].value = ''+count;
+
     var output = [];
 
-    var newRequest = parsedJson.request.url.replace((count - 1) + '.html', count + '.html');
-
-    extraInfo[0].value = ''  + count;
     var images = document.querySelector('.nav_apb').querySelectorAll('a');
     for (var x = 1; x < images.length - 1; x++) {
-        var img = document.querySelector('a[rel=\"nofollow\"] > img').src.replace('1.jpg', x + '.jpg');
+        var img = document.querySelector('a[rel=\"nofollow\"] > img').src.replace('1.jpg', x+'.jpg');
         output.push(new ModuleRequest(img,'get',imgsHeaders,null));
     }
     

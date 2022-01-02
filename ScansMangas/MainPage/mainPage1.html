@@ -1,80 +1,94 @@
-
-
+  
   <script type="text/javascript">
-    
     const DefaultLayouts = {
-        ultraWideFull: 'ultraWideFull',
-        ultraWide: 'ultraWide',
-        wideFull: 'wideFull',
-        wide: 'wide',
-        wideStrechedFull: 'wideStrechedFull',
-        wideStrechedFullDouble: 'WideStrechedFullDouble',
-        wideStreched: 'wideStreched',
-        wideStrechedDouble: 'wideStrechedDouble',
-        wideStrechedFullList: 'wideStrechedFullList',
-        wideStrechedList: 'wideStrechedList',
-        doublets: 'doublets',
-        doubletsDouble: 'doubletsDouble',
-        doubletsFull: 'doubletsFull',
-        doubletsFullDouble: 'doubletsFullDouble',
-        doubletsConstant: 'doubletsConstant',
-        doubletsDoubleConstant: 'doubletsDoubleConstant',
-        doubletsFullConstant: 'doubletsFullConstant',
-        doubletsFullDoubleConstant: 'doubletsFullDoubleConstant',
-        longDoublets: 'longDoublets',
-        longDoubletsDouble: 'longDoubletsDouble',
-        longDoubletsFull: 'longDoubletsFull',
-        longDoubletsFullDouble: 'longDoubletsFullDouble',
-        longDoubletsConstant: 'longDoubletsConstant',
-        longDoubletsDoubleConstant: 'longDoubletsDoubleConstant',
-        longDoubletsFullConstant: 'longDoubletsFullConstant',
-        longDoubletsFullDoubleConstant: 'longDoubletsFullDoubleConstant',
-        triplets: 'triplets',
-        tripletsDouble: 'tripletsDouble',
-        tripletsFull: 'tripletsFull',
-        tripletsFullDouble: 'tripletsFullDouble',
-        tripletsConstant: 'tripletsConstant',
-        tripletsDoubleConstant: 'tripletsDoubleConstant',
-        tripletsFullConstant: 'tripletsFullConstant',
-        tripletsFullDoubleConstant: 'tripletsFullDoubleConstant',
-        longTriplets: 'longTriplets',
-        longTripletsDouble: 'longTripletsDouble',
-        longTripletsFull: 'longTripletsFull',
-        longTripletsFullDouble: 'longTripletsFullDouble',
-        longTripletsConstant: 'longTripletsConstant',
-        longTripletsDoubleConstant: 'longTripletsDoubleConstant',
-        longTripletsFullConstant: 'longTripletsFullConstant',
-        longTripletsFullDoubleConstant: 'longTripletsFullDoubleConstant',
-        none: '',
+        ultraWideFull : 'ultraWideFull',
+        ultraWide : 'ultraWide',
+        wideFull : 'wideFull',
+        wide : 'wide',
+        wideStrechedFull : 'wideStrechedFull',
+        wideStrechedFullDouble : 'WideStrechedFullDouble',
+        wideStreched : 'wideStreched',
+        wideStrechedDouble : 'wideStrechedDouble',
+        wideStrechedFullList : 'wideStrechedFullList',
+        wideStrechedList : 'wideStrechedList',
+    
+        doublets : 'doublets',
+        doubletsDouble : 'doubletsDouble',
+        doubletsFull : 'doubletsFull',
+        doubletsFullDouble : 'doubletsFullDouble',
+        doubletsConstant : 'doubletsConstant',
+        doubletsDoubleConstant : 'doubletsDoubleConstant',
+        doubletsFullConstant : 'doubletsFullConstant',
+        doubletsFullDoubleConstant : 'doubletsFullDoubleConstant',
+        
+        longDoublets : 'longDoublets',
+        longDoubletsDouble : 'longDoubletsDouble',
+        longDoubletsFull : 'longDoubletsFull',
+        longDoubletsFullDouble : 'longDoubletsFullDouble',
+        longDoubletsConstant : 'longDoubletsConstant',
+        longDoubletsDoubleConstant : 'longDoubletsDoubleConstant',
+        longDoubletsFullConstant : 'longDoubletsFullConstant',
+        longDoubletsFullDoubleConstant : 'longDoubletsFullDoubleConstant',
+    
+        triplets : 'triplets',
+        tripletsDouble : 'tripletsDouble',
+        tripletsFull : 'tripletsFull',
+        tripletsFullDouble : 'tripletsFullDouble',
+        tripletsConstant : 'tripletsConstant',
+        tripletsDoubleConstant : 'tripletsDoubleConstant',
+        tripletsFullConstant : 'tripletsFullConstant',
+        tripletsFullDoubleConstant : 'tripletsFullDoubleConstant',
+    
+        longTriplets : 'longTriplets',
+        longTripletsDouble : 'longTripletsDouble',
+        longTripletsFull : 'longTripletsFull',
+        longTripletsFullDouble : 'longTripletsFullDouble',
+        longTripletsConstant : 'longTripletsConstant',
+        longTripletsDoubleConstant : 'longTripletsDoubleConstant',
+        longTripletsFullConstant : 'longTripletsFullConstant',
+        longTripletsFullDoubleConstant : 'longTripletsFullDoubleConstant',
+    
+        none: ''
     };
+    
     const CellDesings = {
-        Special1: 'Special1',
-        Special2: 'Special2',
-        Special3: 'Special3',
-        CELLHelperText: 'CELLHelperText',
-        small1: 'small1',
-        small2: 'small2',
-        normal1: 'normal1',
-        normal2: 'normal2',
-        normal3: 'normal3',
-        normal4: 'normal4',
-        normal5: 'normal5',
-        normal6: 'normal6',
-        normal7: 'normal7',
-        wide1: 'wide1',
-        wide2: 'wide2',
-        wide3: 'wide3',
-        wide4: 'wide4',
-        wide5: 'wide5',
-        wide6: 'wide6',
-        wide7: 'wide7',
-        wide8: 'wide8',
-        wide9: 'wide9',
-        wide10: 'wide10',
-        wide11: 'wide11',
+        Special1 : 'Special1',
+        Special2 : 'Special2',
+        Special3 : 'Special3',
+        CELLHelperText : 'CELLHelperText',
+
+        small1 : 'small1',
+        small2 : 'small2',
+        normal1 : 'normal1',
+        normal2 : 'normal2',
+        normal3 : 'normal3',
+        normal4 : 'normal4',
+        normal5 : 'normal5',
+        normal7 : 'normal7',
+    
+        wide1 : 'wide1',
+        wide2 : 'wide2',
+        wide3 : 'wide3',
+        wide4 : 'wide4',
+        wide5 : 'wide5',
+        wide6 : 'wide6',
+        wide7 : 'wide7',
+        wide8 : 'wide8',
+        wide9 : 'wide9',
+        wide10 : 'wide10',
+        wide11 : 'wide11'
     };
-    const Paging = { leading: 'leading', centered: 'centered', none: '' };
-    const Orientation = { horizontal: 'horizontal', vertical: 'vertical' };
+    
+    const Paging = {
+        leading : 'leading',
+        centered : 'centered',
+        none : ''
+    };
+    const Orientation = {
+        horizontal : 'horizontal',
+        vertical : 'vertical'
+    };
+    
     function MainPage(request, extra, javascriptConfig, output) {
         this.request = request;
         this.extra = extra;
@@ -117,7 +131,8 @@
         this.sectionName = sectionName;
         this.separator = separator;
     }
-    function Data(image, title, description, field1, field2, field3, field4, isChapter, link, openInWebView) {
+    
+    function Data(image, title, description, field1, field2, field3, field4, isChapter, link,openInWebView) {
         this.image = image;
         this.title = title;
         this.description = description;
@@ -131,41 +146,35 @@
     }
     
     var savedData = document.getElementById('ketsu-final-data');
-    var parsedJson = JSON.parse(savedData.innerHTML);
+    var parsedJson = JSON.parse(savedData.innerHTML); 
+    let emptyKeyValue = [new KeyValue('','')];
+    
     let output = [];
-    let emptyKeyValue = [new KeyValue('', '')];
     var dataArray = [];
 
-    var mangas1 = document.querySelectorAll('.slide-item > .slide-content');
-    for (var x = 0; x < mangas1.length; x++) {
-        var manga1 = mangas1[x].querySelector('.info-left');
-        var image = mangas1[x].querySelector('img').src;
+    var slides = document.querySelectorAll('.slide-content');
+    for (slide of slides) {
+        var image = slide.querySelector('img').src;
         image = new ModuleRequest(image, 'get', emptyKeyValue, null);
-        var link = manga1.querySelector('a').href;
+        var title = slide.querySelector('.ellipsis').textContent;
+        var desc = slide.querySelector('.excerpt').querySelectorAll('p')[2].textContent;
+        var genres = slide.querySelector('.extra-category').textContent.trim().replace(/\\n/gi, '').replace(/  /gi, '').replace(/,/gi, ', ');
+        var statut = slide.querySelector('.director').textContent;
+        var link = slide.querySelector('a').href;
         link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-        var title = manga1.querySelector('.ellipsis').textContent;
-        var desc = manga1.querySelector('.excerpt').querySelectorAll('p')[2].textContent;
-        var status = manga1.querySelector('.director').textContent;
-        
-        var genre = '';
-        var genreArray = manga1.querySelector('.extras > .extra-category').querySelectorAll('a');
-        for (genreList of genreArray) {
-            var genres = genreList.textContent + ', ';
-            genre = genre + genres;
-        }
-        dataArray.push(new Data(image, title, desc, genre, status, '', '', false, link));
+        dataArray.push(new Data(image, title, desc, genres, statut, '', '', false, link));
     }
-    output.push(new Output(CellDesings.wide11, Orientation.horizontal, DefaultLayouts.wideFull, Paging.leading, new Section('A la une', true), null, dataArray));
+    output.push(new Output(CellDesings.wide11, Orientation.horizontal, DefaultLayouts.wideFull, Paging.leading, new Section('', true), null, dataArray));
 
     var dataArray = [];
     var mangas = document.querySelectorAll('.uta');
     for (manga of mangas) {
-        var title = manga.querySelector('a').title;
         var image = manga.querySelector('img').src;
         image = new ModuleRequest(image, 'get', emptyKeyValue, null);
+        var title = manga.querySelector('a').title;
+        var scan = manga.querySelector('li > a').textContent.trim();
         var link = manga.querySelector('a').href;
         link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-        var scan = manga.querySelector('li > a').textContent.trim();
         dataArray.push(new Data(image, title, '', scan, '', '', '', false, link));
     }
     output.push(new Output(CellDesings.normal1, Orientation.vertical, DefaultLayouts.longTripletsFullConstant, Paging.leading, new Section('Derniers chapitres en ligne', true), null, dataArray));
@@ -173,20 +182,21 @@
     var dataArray = [];
     var popList = document.querySelector('.serieslist.pop > ul').querySelectorAll('li');
     for (pop of popList) {
-        var link = pop.querySelector('a').href;
-        link = new ModuleRequest(link, 'get', emptyKeyValue, null);
         var image = pop.querySelector('img').src;
         image = new ModuleRequest(image, 'get', emptyKeyValue, null);
-        var title = pop.querySelector('.leftseries > h2 > a').textContent;
-        var genreArray = pop.querySelector('.leftseries > span').textContent;
-        dataArray.push(new Data(image, title, genreArray, '', title, '', '', false, link));
+        var title = pop.querySelector('h2 > a').textContent;
+        var genres = pop.querySelector('.leftseries > span').textContent;
+        var rating = pop.querySelector('.rating > i').textContent + '/10';
+        var link = pop.querySelector('a').href;
+        link = new ModuleRequest(link, 'get', emptyKeyValue, null);
+        dataArray.push(new Data(image, title, genres, rating, title, '', '', false, link));
     }
-    output.push(new Output(CellDesings.wide11, Orientation.horizontal, DefaultLayouts.wideFull, Paging.leading, new Section('Populaires', true), null, dataArray));
+    output.push(new Output(CellDesings.wide11, Orientation.horizontal, DefaultLayouts.wideFull, Paging.leading, new Section('Les plus populaires', true), null, dataArray));
 
     let MainPageObject = new MainPage(new ModuleRequest('', 'get', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(true, false, ''), output);
-    
     var finalJson = JSON.stringify(MainPageObject);
     savedData.innerHTML = finalJson;
     
-    </script>
-  </body></html>
+  </script>
+ </body>
+</html>

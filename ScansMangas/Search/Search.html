@@ -1,64 +1,55 @@
 
-
   <script type="text/javascript">
-
     const DefaultLayouts = {
-         ultraWideFull : 'ultraWideFull',
-         ultraWide : 'ultraWide',
-    
-         wideFull : 'wideFull',
-         wide : 'wide',
-    
-         wideStrechedFull : 'wideStrechedFull',
-         wideStrechedFullDouble : 'WideStrechedFullDouble',
-         wideStreched : 'wideStreched',
-         wideStrechedDouble : 'wideStrechedDouble',
-    
-         wideStrechedFullList : 'wideStrechedFullList',
-         wideStrechedList : 'wideStrechedList',
-    
-         doublets : 'doublets',
-         doubletsDouble : 'doubletsDouble',
-         doubletsFull : 'doubletsFull',
-         doubletsFullDouble : 'doubletsFullDouble',
-    
-         doubletsConstant : 'doubletsConstant',
-         doubletsDoubleConstant : 'doubletsDoubleConstant',
-         doubletsFullConstant : 'doubletsFullConstant',
-         doubletsFullDoubleConstant : 'doubletsFullDoubleConstant',
+        ultraWideFull : 'ultraWideFull',
+        ultraWide : 'ultraWide',
+        wideFull : 'wideFull',
+        wide : 'wide',
+        wideStrechedFull : 'wideStrechedFull',
+        wideStrechedFullDouble : 'WideStrechedFullDouble',
+        wideStreched : 'wideStreched',
+        wideStrechedDouble : 'wideStrechedDouble',
+        wideStrechedFullList : 'wideStrechedFullList',
+        wideStrechedList : 'wideStrechedList',
         
-         longDoublets : 'longDoublets',
-         longDoubletsDouble : 'longDoubletsDouble',
-         longDoubletsFull : 'longDoubletsFull',
-         longDoubletsFullDouble : 'longDoubletsFullDouble',
-    
-         longDoubletsConstant : 'longDoubletsConstant',
-         longDoubletsDoubleConstant : 'longDoubletsDoubleConstant',
-         longDoubletsFullConstant : 'longDoubletsFullConstant',
-         longDoubletsFullDoubleConstant : 'longDoubletsFullDoubleConstant',
-    
-         triplets : 'triplets',
-         tripletsDouble : 'tripletsDouble',
-         tripletsFull : 'tripletsFull',
-         tripletsFullDouble : 'tripletsFullDouble',
-    
-         tripletsConstant : 'tripletsConstant',
-         tripletsDoubleConstant : 'tripletsDoubleConstant',
-         tripletsFullConstant : 'tripletsFullConstant',
-         tripletsFullDoubleConstant : 'tripletsFullDoubleConstant',
-    
-         longTriplets : 'longTriplets',
-         longTripletsDouble : 'longTripletsDouble',
-         longTripletsFull : 'longTripletsFull',
-         longTripletsFullDouble : 'longTripletsFullDouble',
-    
-         longTripletsConstant : 'longTripletsConstant',
-         longTripletsDoubleConstant : 'longTripletsDoubleConstant',
-         longTripletsFullConstant : 'longTripletsFullConstant',
-         longTripletsFullDoubleConstant : 'longTripletsFullDoubleConstant',
-    
-         none: ''
-        };
+        doublets : 'doublets',
+        doubletsDouble : 'doubletsDouble',
+        doubletsFull : 'doubletsFull',
+        doubletsFullDouble : 'doubletsFullDouble',
+        doubletsConstant : 'doubletsConstant',
+        doubletsDoubleConstant : 'doubletsDoubleConstant',
+        doubletsFullConstant : 'doubletsFullConstant',
+        doubletsFullDoubleConstant : 'doubletsFullDoubleConstant',
+            
+        longDoublets : 'longDoublets',
+        longDoubletsDouble : 'longDoubletsDouble',
+        longDoubletsFull : 'longDoubletsFull',
+        longDoubletsFullDouble : 'longDoubletsFullDouble',
+        longDoubletsConstant : 'longDoubletsConstant',
+        longDoubletsDoubleConstant : 'longDoubletsDoubleConstant',
+        longDoubletsFullConstant : 'longDoubletsFullConstant',
+        longDoubletsFullDoubleConstant : 'longDoubletsFullDoubleConstant',
+        
+        triplets : 'triplets',
+        tripletsDouble : 'tripletsDouble',
+        tripletsFull : 'tripletsFull',
+        tripletsFullDouble : 'tripletsFullDouble',
+        tripletsConstant : 'tripletsConstant',
+        tripletsDoubleConstant : 'tripletsDoubleConstant',
+        tripletsFullConstant : 'tripletsFullConstant',
+        tripletsFullDoubleConstant : 'tripletsFullDoubleConstant',
+        
+        longTriplets : 'longTriplets',
+        longTripletsDouble : 'longTripletsDouble',
+        longTripletsFull : 'longTripletsFull',
+        longTripletsFullDouble : 'longTripletsFullDouble',
+        longTripletsConstant : 'longTripletsConstant',
+        longTripletsDoubleConstant : 'longTripletsDoubleConstant',
+        longTripletsFullConstant : 'longTripletsFullConstant',
+        longTripletsFullDoubleConstant : 'longTripletsFullDoubleConstant',
+        
+        none: ''
+    };
     
     const CellDesings = {
         Special1 : 'Special1',
@@ -72,7 +63,6 @@
         normal3 : 'normal3',
         normal4 : 'normal4',
         normal5 : 'normal5',
-        normal6 : 'normal6',
         normal7 : 'normal7',
 
         wide1 : 'wide1',
@@ -93,47 +83,41 @@
         centered : 'centered',
         none : ''
     };
-
     const Orientation = {
         horizontal : 'horizontal',
         vertical : 'vertical'
     };
+
     function Search(request,extra,separator,javascriptConfig,output) {
-            this.request = request;
-            this.extra = extra;
-            this.separator = separator;
-            this.javascriptConfig = javascriptConfig;
-            this.output  = output;
-        }
-    
+        this.request = request;
+        this.extra = extra;
+        this.separator = separator;
+        this.javascriptConfig = javascriptConfig;
+        this.output  = output;
+    }
     function ModuleRequest(url,method,headers,httpBody) {
         this.url = url;
         this.method = method;
         this.headers  = headers;
         this.httpBody = httpBody;
     }
-        
     function Extra(commands,extraInfo) {
         this.commands = commands;
         this.extraInfo = extraInfo;
     }
-    
     function Commands(commandName,params) {
         this.commandName = commandName;
         this.params = params;
     }
-    
     function JavascriptConfig(removeJavascript,loadInWebView,javaScript) {
         this.removeJavascript = removeJavascript;
         this.loadInWebView = loadInWebView;
         this.javaScript = javaScript;
     }
-    
     function KeyValue(key,value) {
         this.key = key;
         this.value = value;
     }
-    
     function Output(cellDesing,orientation,defaultLayout,paging,section,layout,data) {
         this.cellDesing = cellDesing;
         this.orientation  = orientation;
@@ -143,7 +127,6 @@
         this.layout = layout;
         this.data = data;
     }
-    
     function Section(sectionName,separator) {
         this.sectionName  = sectionName;
         this.separator = separator;
@@ -164,36 +147,28 @@
 
     var savedData = document.getElementById('ketsu-final-data');
     var parsedJson = JSON.parse(savedData.innerHTML); 
+    let emptyKeyValue = [new KeyValue('','')];
 
     let output = [];
-    let emptyKeyValue = [new KeyValue('','')];
     let searchArray = [];
 
-    var mangas = document.querySelectorAll('.bs > .bsx');
+    var mangas = document.querySelectorAll('.bsx');
     for (manga of mangas) {
         var image = manga.querySelector('img').src;
         image = new ModuleRequest(image, 'get', emptyKeyValue, null);
+        var title = manga.querySelector('a').title;
+        var rating = '';
+        try { rating = manga.querySelector('.rating > i').textContent + '/10'; } catch{}
         var link = manga.querySelector('a').href;
         link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-        var title = manga.querySelector('a').title;
-        var star = '';
-        var starNumber = parseInt(manga.querySelector('select.score').getAttribute('data-current-rating'));
-        if (starNumber == 0) {
-            starNumber = 5;
-        }
-        while (starNumber != 0) {
-            star = star + '★';
-            starNumber--
-        }
-        searchArray.push(new Data(image,title,'',star,'','','',false,link));
+        searchArray.push(new Data(image,title,'',rating,'','','',false,link));
     }
-    output.push(new Output(CellDesings.normal7,Orientation.vertical,DefaultLayouts.longTripletsFullConstant,Paging.none,new Section('', true),null,searchArray));
+    output.push(new Output(CellDesings.normal1,Orientation.vertical,DefaultLayouts.longTripletsFullConstant,Paging.none,new Section('', true),null,searchArray));
 
     let searchPageObject = new Search(new ModuleRequest('','',emptyKeyValue,null),new Extra([new Commands('',emptyKeyValue)],emptyKeyValue),'',new JavascriptConfig(true,false,''),output);
-
     var finalJson = JSON.stringify(searchPageObject);
     savedData.innerHTML = finalJson;
 
-</script>
+  </script>
  </body>
 </html>
