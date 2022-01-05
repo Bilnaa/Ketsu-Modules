@@ -68,6 +68,13 @@
             "image": "https://i.postimg.cc/ydYj9BrN/scom.png",
             "info": "Watch movies and series for free with the module of StreamingCommunity.",
             "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/StreamingCommunity/StreamingCommunity.json"
+        },
+        {
+            "name": "Goojara | ENG",
+            "type": "video",
+            "image": "https://i.postimg.cc/J4QpF9Xy/goojara-logo.png",
+            "info": "Watch movies and series for free with the module of Goojara.",
+            "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/Goojara.to/moduleTemplate.json"
         }
     ],
     "images": [
@@ -102,6 +109,13 @@
             "info": "Read for free webtoons that are on the website MangaWeebs",
             "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/Manga%20Weeb/moduleTemplate.json",
             "Zetsu_link":"zetsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/Manga%20Weeb/moduleTemplate.json"
+        },
+        {
+            "name": "Senmanga | JP",
+            "image": "https://i.postimg.cc/hvP5c4qS/logo-sen.png",
+            "info": "Read raw mangas on the beta module for Senmanga.",
+            "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/Senmanga/senmanga.json",
+            "Zetsu_link":"zetsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/Senmanga/senmanga.json"
         }
     ],
     "text":[
