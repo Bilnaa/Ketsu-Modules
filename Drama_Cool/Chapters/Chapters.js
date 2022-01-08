@@ -73,24 +73,28 @@ for (var x = 0; x < buttonBox.length; x++) {
 		output.push(new NeedsResolver('', new ModuleRequest(fixedLink, 'get', emptyKeyValue, null)));
 		output.push(new NeedsResolver('', new ModuleRequest(link, 'get', emptyKeyValue, null)));
 	}
-	if (link.includes('sbplay1.com')) {
+	if (link.includes('sbplay1') || link.includes('sbplay2')) {
 		output.push(new NeedsResolver('', new ModuleRequest(link, 'get', emptyKeyValue, null)));
 	}
-	if (link.includes('https://mixdrop.co/e/')){
+	if (link.includes('https://mixdrop.co/e/')) {
 		output.push(new NeedsResolver('', new ModuleRequest(link, 'get', emptyKeyValue, null)));
 	}
-	if (link.includes('fplayer.info')){
+	if (link.includes('fplayer.info')) {
 		output.push(new NeedsResolver('', new ModuleRequest(link, 'get', emptyKeyValue, null)));
 	}
-	if (link.includes('asianembed.com')) {
-		if(!link.includes('streaming.php')){
-		var fixedLink = 'https:' + link;
-		output.push(new NeedsResolver('', new ModuleRequest(fixedLink, 'get', emptyKeyValue, null)));
-		}else{}
+	if (link.includes('asianembed')) {
+		if (!link.includes('streaming.php')) {
+			var fixedLink = 'https:' + link;
+			output.push(new NeedsResolver('UNSUPPORTED', new ModuleRequest(fixedLink, 'get', emptyKeyValue, null)));
+		} else {
+			output.push(new NeedsResolver('UNSUPPORTED', new ModuleRequest('https:' + link, 'get', emptyKeyValue, null)));
+		}
+	}
+	if (link.includes('fembed-hd')) {
+		output.push(new NeedsResolver('', new ModuleRequest(link, 'get', emptyKeyValue, null)));
 	}
 }
 let emptyExtra = new Extra([new Commands('', emptyKeyValue)], emptyKeyValue);
-var chaptersObject = new Chapters(new ModuleRequest('', '', emptyKeyValue, null), emptyExtra,
-	new JavascriptConfig(false, false, ''), new Output(new Videos(output, null), null, null));
+var chaptersObject = new Chapters(new ModuleRequest('', '', emptyKeyValue, null), emptyExtra, new JavascriptConfig(false, false, ''), new Output(new Videos(output, null), null, null));
 var finalJson = JSON.stringify(chaptersObject);
 savedData.innerHTML = finalJson;
