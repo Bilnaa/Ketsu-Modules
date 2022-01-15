@@ -116,7 +116,16 @@
             "info": "Read raw mangas on the beta module for Senmanga.",
             "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/Senmanga/senmanga.json",
             "Zetsu_link":"zetsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/Senmanga/senmanga.json"
+        },
+        {
+            "name": "LelScanVF | FR",
+            "type": "Image",
+            "image": "https://i.postimg.cc/WzKq9LBY/lelscan-logo.png",
+            "info": "Lisez gratuitement des mangas avec le module du site LelScanVF.",
+            "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/LelScanVF/moduleTemplate.json",
+            "Zetsu_link":"zetsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/LelScanVF/moduleTemplate.json"
         }
+
     ],
     "text":[
         {
