@@ -1,0 +1,68 @@
+function Info(request, extra, javascriptConfig, output) {
+    this.request = request;
+    this.extra = extra;
+    this.javascriptConfig = javascriptConfig;
+    this.output = output;
+}
+
+function ModuleRequest(url, method, headers, httpBody) {
+    this.url = url;
+    this.method = method;
+    this.headers = headers;
+    this.httpBody = httpBody;
+}
+
+function Extra(commands, extraInfo) {
+    this.commands = commands;
+    this.extraInfo = extraInfo;
+}
+
+function Commands(commandName, params) {
+    this.commandName = commandName;
+    this.params = params;
+}
+
+function JavascriptConfig(removeJavascript, loadInWebView, javaScript) {
+    this.removeJavascript = removeJavascript;
+    this.loadInWebView = loadInWebView;
+    this.javaScript = javaScript;
+}
+
+function KeyValue(key, value) {
+    this.key = key;
+    this.value = value;
+}
+
+function Chapter(chapName, link, openInWebView) {
+    this.chapName = chapName;
+    this.link = link;
+    this.openInWebView = openInWebView;
+}
+
+function Output(image, title, link, description, genres, field1, field2, field3, field4, chapters) {
+    this.image = image;
+    this.link = link;
+    this.title = title;
+    this.description = description;
+    this.genres = genres;
+    this.field1 = field1;
+    this.field2 = field2;
+    this.field3 = field3;
+    this.field4 = field4;
+    this.chapters = chapters;
+}
+var savedData = document.getElementById('ketsu-final-data');
+var parsedJson = JSON.parse(savedData.innerHTML);
+let emptyKeyValue = [new KeyValue('Referer', 'https://zoro.to')];
+var image = document.querySelector('.film-poster img').src;;
+image = new ModuleRequest(image, 'get', emptyKeyValue, null);
+var title = document.querySelector('.anisc-detail h2').textContent + '/' + document.querySelector('.anisc-detail h2').dataset.jname;
+var desc = document.querySelector('.anisc-info').textContent.trim().replaceAll('\n', ' ');
+var genres = Array.from(document.querySelectorAll('.item.item-list a')).map(g => g.textContent);
+var type = 'Anime';
+var episodes = [];
+var json = JSON.parse(document.querySelector('#syncData').innerText);
+var nextRequest = `https://zoro.to/ajax/v2/episode/list/${json.anime_id}`;
+let infoPageObject = new Info(new ModuleRequest(nextRequest, 'get', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(false, false, ''), new Output(image, title, parsedJson.request, desc, genres, '', '', type, 'Eps: ' + episodes.length, episodes));
+var finalJson = JSON.stringify(infoPageObject);
+savedData.innerHTML = finalJson;

@@ -1,0 +1,942 @@
+{
+  "moduleInfo": {
+    "moduleName": "Zoro",
+    "moduleInitials": "ZR",
+    "moduleDesc": "Module for zoro, subs are now supported on the newer version of Ketsu",
+    "developer": "ナビル",
+    "moduleID": "114653268923213246",
+    "moduleImage": "https://zoro.to/apple-touch-icon.png",
+    "moduleVersion": 1.06,
+    "moduleLenguage": "ENG",
+    "changelog": "Fixed the main page + redesigned it and the search page",
+    "moduleType": "Video",
+    "baseURL": "https://zoro.to/",
+    "moduleDeveloperSite": "https://bilnaa.github.io/main/",
+    "UpdateSite": "https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/Zoro.to/moduleTemplate.json",
+    "preferedServer": "STREAMTA",
+    "preferedDownloadServer": "STREAMTA",
+    "blackListed": [
+      ""
+    ]
+  },
+  "global": {
+    "variables": [{
+      "key": "",
+      "value": ""
+    }],
+    "cookies": [{
+      "key": "",
+      "value": ""
+    }],
+    "headers": [{
+      "key": "",
+      "value": ""
+    }]
+  },
+  "mainPage": [{
+    "request": {
+      "url": "https://zoro.to/home/",
+      "method": "get",
+      "headers": [{
+        "key": "",
+        "value": ""
+      }],
+      "httpBody": null
+    },
+    "extra": {
+      "commands": [{
+        "commandName": "",
+        "params": [{
+          "key": "",
+          "value": ""
+        }]
+      }],
+      "extraInfo": [{
+        "key": "",
+        "value": ""
+      }]
+    },
+    "javascriptConfig": {
+      "removeJavascript": true,
+      "loadInWebView": false,
+      "javaScript": "const DefaultLayouts = { ultraWideFull: 'ultraWideFull', ultraWide: 'ultraWide', wideFull: 'wideFull', wide: 'wide', wideStrechedFull: 'wideStrechedFull', wideStrechedFullDouble: 'WideStrechedFullDouble', wideStreched: 'wideStreched', wideStrechedDouble: 'wideStrechedDouble', wideStrechedFullList: 'wideStrechedFullList', wideStrechedList: 'wideStrechedList', doublets: 'doublets', doubletsDouble: 'doubletsDouble', doubletsFull: 'doubletsFull', doubletsFullDouble: 'doubletsFullDouble', doubletsConstant: 'doubletsConstant', doubletsDoubleConstant: 'doubletsDoubleConstant', doubletsFullConstant: 'doubletsFullConstant', doubletsFullDoubleConstant: 'doubletsFullDoubleConstant', longDoublets: 'longDoublets', longDoubletsDouble: 'longDoubletsDouble', longDoubletsFull: 'longDoubletsFull', longDoubletsFullDouble: 'longDoubletsFullDouble', longDoubletsConstant: 'longDoubletsConstant', longDoubletsDoubleConstant: 'longDoubletsDoubleConstant', longDoubletsFullConstant: 'longDoubletsFullConstant', longDoubletsFullDoubleConstant: 'longDoubletsFullDoubleConstant', triplets: 'triplets', tripletsDouble: 'tripletsDouble', tripletsFull: 'tripletsFull', tripletsFullDouble: 'tripletsFullDouble', tripletsConstant: 'tripletsConstant', tripletsDoubleConstant: 'tripletsDoubleConstant', tripletsFullConstant: 'tripletsFullConstant', tripletsFullDoubleConstant: 'tripletsFullDoubleConstant', longTriplets: 'longTriplets', longTripletsDouble: 'longTripletsDouble', longTripletsFull: 'longTripletsFull', longTripletsFullDouble: 'longTripletsFullDouble', longTripletsConstant: 'longTripletsConstant', longTripletsDoubleConstant: 'longTripletsDoubleConstant', longTripletsFullConstant: 'longTripletsFullConstant', longTripletsFullDoubleConstant: 'longTripletsFullDoubleConstant', none: ''};const CellDesings = { Special1: 'Special1', Special2: 'Special2', Special3: 'Special3', CELLHelperText: 'CELLHelperText', small1: 'small1', small2: 'small2', normal1: 'normal1', normal2: 'normal2', normal3: 'normal3', normal4: 'normal4', normal5: 'normal5', normal6: 'normal6', normal7: 'normal7', wide1: 'wide1', wide2: 'wide2', wide3: 'wide3', wide4: 'wide4', wide5: 'wide5', wide6: 'wide6', wide7: 'wide7', wide8: 'wide8', wide9: 'wide9', wide10: 'wide10', wide11: 'wide11'};const Paging = { leading: 'leading', centered: 'centered', none: ''};const Orientation = { horizontal: 'horizontal', vertical: 'vertical'};function MainPage(request, extra, javascriptConfig, output) { this.request = request; this.extra = extra; this.javascriptConfig = javascriptConfig; this.output = output;}function ModuleRequest(url, method, headers, httpBody) { this.url = url; this.method = method; this.headers = headers; this.httpBody = httpBody;}function Extra(commands, extraInfo) { this.commands = commands; this.extraInfo = extraInfo;}function Commands(commandName, params) { this.commandName = commandName; this.params = params;}function JavascriptConfig(removeJavascript, loadInWebView, javaScript) { this.removeJavascript = removeJavascript; this.loadInWebView = loadInWebView; this.javaScript = javaScript;}function KeyValue(key, value) { this.key = key; this.value = value;}function Output(cellDesing, orientation, defaultLayout, paging, section, layout, data) { this.cellDesing = cellDesing; this.orientation = orientation; this.defaultLayout = defaultLayout; this.paging = paging; this.section = section; this.layout = layout; this.data = data;}function Section(sectionName, separator) { this.sectionName = sectionName; this.separator = separator;}function Layout(insets, visibleCellsWidthS, visibleCellsWidthM, visibleCellsWidthL, visibleCellsHeight, heightForVisibleCells, cellSize, ratio, constant, horizontalSpacing, verticalSpacing) { this.insets = insets; this.visibleCellsWidthS = visibleCellsWidthS; this.visibleCellsWidthM = visibleCellsWidthM; this.visibleCellsWidthL = visibleCellsWidthL; this.visibleCellsHeight = visibleCellsHeight; this.heightForVisibleCells = heightForVisibleCells; this.cellSize = cellSize; this.ratio = ratio; this.constant = constant; this.horizontalSpacing = horizontalSpacing; this.verticalSpacing = verticalSpacing;}function Insets(top, bottom, left, right) { this.top = top; this.bottom = bottom; this.left = left; this.right = right;}function Size(width, height) { this.width = width; this.height = height;}function Ratio(inRelation, number1, number2) { this.inRelation = inRelation; this.number1 = number1; this.number2 = number2;}function Data(image, title, description, field1, field2, field3, field4, isChapter, link, openInWebView) { this.image = image; this.title = title; this.description = description; this.field1 = field1; this.field2 = field2; this.field3 = field3; this.field4 = field4; this.isChapter = isChapter; this.link = link; this.openInWebView = openInWebView;}function shuffle(a) { var j, x, i; for (i = a.length - 1; i > 0; i--) { j = Math.floor(Math.random() * (i + 1)); x = a[i]; a[i] = a[j]; a[j] = x; } return a;}var savedData = document.getElementById('ketsu-final-data');var parsedJson = JSON.parse(savedData.innerHTML);let emptyKeyValue = [new KeyValue('', '')];let output = [];var sliderArray = [];var slider = document.querySelectorAll('#slider .swiper-wrapper .swiper-slide');for (slides of slider) { let title = slides.querySelector('img').alt; var image = slides.querySelector('img').dataset.src; image = new ModuleRequest(image, 'get', emptyKeyValue, ''); var link = 'https://zoro.to/' + slides.querySelector('.btn.btn-secondary.btn-radius').href; link = new ModuleRequest(link, 'get', emptyKeyValue, ''); var description = slides.querySelector('.desi-depion').innerText; var type = slides.querySelector('div.sc-detail > div:nth-child(1)').innerText; var date = 'First Aired : ' + slides.querySelector('.scd-item.m-hide').innerText; sliderArray.push(new Data(image, type, description, title, date, '', '', false, link));}var TopAiring = [];var best = document.querySelectorAll('#anime-featured > div > div > div > div:nth-child(1) > div > div.anif-block-ul > ul li');for (list of best) { let title = list.querySelector('img').alt; var link = 'https://zoro.to/' + list.querySelector('a').href; link = new ModuleRequest(link, 'get', emptyKeyValue, null); var image = list.querySelector('img').dataset.src; image = new ModuleRequest(image, 'get', emptyKeyValue, null); var ep = list.querySelector('span:nth-child(3)').textContent.trim(); var language = '??'; try { language = list.querySelector('span:nth-child(1)').textContent.trim(); } catch {} TopAiring.push(new Data(image, title, '', ep, language, '', '', false, link));}var LastEpisodes = [];var last = document.querySelectorAll('#main-content > section:nth-child(2) > div.tab-content > div > div.film_list-wrap div.flw-item');for (list of last) { let title = list.querySelector('img').alt; var link = 'https://zoro.to/' + list.querySelector('a').href; link = new ModuleRequest(link, 'get', emptyKeyValue, null); var image = list.querySelector('img').dataset.src; image = new ModuleRequest(image, 'get', emptyKeyValue, null); var ep = '??'; try { ep = list.querySelector('.tick.rtl').textContent.trim().replace('Ep', '').replaceAll(' ', ''); } catch (e) { ep = list.querySelector('.tick.rtl'); if (ep == null) { ep = '??'; } else { ep = list.querySelector('.tick.rtl').textContent.trim() } } var language = '??'; try { language = list.querySelector('.tick.ltr').textContent.replaceAll('\\n', '').trim().replace(' ', '/').replaceAll(' ', ''); } catch { language = list.querySelector('.tick.ltr'); if (language == null) { language = '??'; } else { language = list.querySelector('.tick.ltr').innerText.trim().replace('\\n', '/'); } } if (list.querySelector('.fdi-item').innerText.includes('Special')) { ep = 'Special'; language = ''; } LastEpisodes.push(new Data(image, title, 'test1', ep, language, 'test2', 'test3', false, link));}var NewAnimes = [];var newanimes = document.querySelectorAll('#main-content > section:nth-child(4) > div.tab-content > div > div.film_list-wrap div.flw-item');for (list of newanimes) { let title = list.querySelector('img').alt; var link = 'https://zoro.to/' + list.querySelector('a').href; link = new ModuleRequest(link, 'get', emptyKeyValue, null); var image = list.querySelector('img').dataset.src; image = new ModuleRequest(image, 'get', emptyKeyValue, null); var ep = '??'; try { ep = list.querySelector('.tick.rtl').textContent.trim().replace('Ep', '').replaceAll(' ', ''); } catch { ep = list.querySelector('.tick.rtl'); if (ep == null) { ep = '??'; } else { ep = list.querySelector('.tick.rtl').textContent.trim() } } var language = '??'; try { language = list.querySelector('.tick.ltr').textContent.replaceAll('\\n', '').trim().replace(' ', '/').replaceAll(' ', ''); } catch { language = list.querySelector('.tick.ltr'); if (language == null) { language = '??'; } else { language = list.querySelector('.tick.ltr').innerText.trim().replace('\\n', '/'); } } if (list.querySelector('.fdi-item').innerText.includes('Special')) { ep = 'Special'; language = ''; } NewAnimes.push(new Data(image, title, '', ep, language, '', '', false, link));}let layout = new Layout(new Insets(0,0,0,0),1,2,2,1,0,new Size(400,105),new Ratio('width',4,10),new Size(0,0),0,0); output.push(new Output(CellDesings.Special3, Orientation.horizontal, DefaultLayouts.wideStrechedFull, Paging.leading, new Section('', true), layout, sliderArray));output.push(new Output(CellDesings.Special1, Orientation.horizontal, DefaultLayouts.triplets, Paging.none, new Section('Top Airing : ', true), null, TopAiring));output.push(new Output(CellDesings.normal1, Orientation.horizontal, DefaultLayouts.longTripletsDoubleConstant, Paging.leading, new Section('Last Episodes: ', true), null, LastEpisodes));output.push(new Output(CellDesings.normal1, Orientation.horizontal, DefaultLayouts.longTripletsFullConstant, Paging.none, new Section('New On Zoro', true), null, NewAnimes));let MainPageObject = new MainPage(new ModuleRequest('', 'get', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(true, false, ''), output);var finalJson = JSON.stringify(MainPageObject);savedData.innerHTML = finalJson;"
+    },
+    "output": [{
+      "cellDesing": "normal1",
+      "orientation": "vertical",
+      "defaultLayout": "wide",
+      "paging": "",
+      "section": {
+        "sectionName": "",
+        "separator": false
+      },
+      "layout": {
+        "insets": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "visibleCellsWidthS": 2,
+        "visibleCellsWidthM": 2,
+        "visibleCellsWidthL": 2,
+        "visibleCellsHeight": 2,
+        "heightForVisibleCells": 400,
+        "cellSize": {
+          "width": 300,
+          "height": 300
+        },
+        "ratio": {
+          "inRelation": "width",
+          "number1": 1,
+          "number2": 2
+        },
+        "constant": {
+          "width": 1,
+          "height": 2
+        },
+        "horizontalSpacing": 0,
+        "verticalSpacing": 0
+      },
+      "data": [{
+        "image": {
+          "url": "",
+          "method": "get",
+          "headers": [{
+            "key": "",
+            "value": ""
+          }],
+          "httpBody": null
+        },
+        "title": "",
+        "description": "",
+        "field1": "",
+        "field2": "",
+        "field3": "",
+        "field4": "",
+        "openInWebView": false,
+        "isChapter": false,
+        "link": {
+          "url": "",
+          "method": "",
+          "headers": [{
+            "key": "",
+            "value": ""
+          }],
+          "httpBody": null
+        }
+      }]
+    }]
+  }],
+  "search": [{
+    "request": {
+      "url": "https://zoro.to/search?type=&status=&rated=&genres=&score=&season=&language=&sort=&sy=&sm=&sd=&ey=&em=&ed=&keyword=<searched>&page=<page>",
+      "method": "get",
+      "headers": [{
+        "key": "",
+        "value": ""
+      }],
+      "httpBody": null
+    },
+    "separator": "%20",
+    "extra": {
+      "commands": [{
+        "commandName": "",
+        "params": [{
+          "key": "",
+          "value": ""
+        }]
+      }],
+      "extraInfo": [{
+        "key": "",
+        "value": ""
+      }]
+    },
+    "javascriptConfig": {
+      "removeJavascript": true,
+      "loadInWebView": false,
+      "javaScript": " const DefaultLayouts = { ultraWideFull: 'ultraWideFull', ultraWide: 'ultraWide', wideFull: 'wideFull', wide: 'wide', wideStrechedFull: 'wideStrechedFull', wideStrechedFullDouble: 'WideStrechedFullDouble', wideStreched: 'wideStreched', wideStrechedDouble: 'wideStrechedDouble', wideStrechedFullList: 'wideStrechedFullList', wideStrechedList: 'wideStrechedList', doublets: 'doublets', doubletsDouble: 'doubletsDouble', doubletsFull: 'doubletsFull', doubletsFullDouble: 'doubletsFullDouble', doubletsConstant: 'doubletsConstant', doubletsDoubleConstant: 'doubletsDoubleConstant', doubletsFullConstant: 'doubletsFullConstant', doubletsFullDoubleConstant: 'doubletsFullDoubleConstant', longDoublets: 'longDoublets', longDoubletsDouble: 'longDoubletsDouble', longDoubletsFull: 'longDoubletsFull', longDoubletsFullDouble: 'longDoubletsFullDouble', longDoubletsConstant: 'longDoubletsConstant', longDoubletsDoubleConstant: 'longDoubletsDoubleConstant', longDoubletsFullConstant: 'longDoubletsFullConstant', longDoubletsFullDoubleConstant: 'longDoubletsFullDoubleConstant', triplets: 'triplets', tripletsDouble: 'tripletsDouble', tripletsFull: 'tripletsFull', tripletsFullDouble: 'tripletsFullDouble', tripletsConstant: 'tripletsConstant', tripletsDoubleConstant: 'tripletsDoubleConstant', tripletsFullConstant: 'tripletsFullConstant', tripletsFullDoubleConstant: 'tripletsFullDoubleConstant', longTriplets: 'longTriplets', longTripletsDouble: 'longTripletsDouble', longTripletsFull: 'longTripletsFull', longTripletsFullDouble: 'longTripletsFullDouble', longTripletsConstant: 'longTripletsConstant', longTripletsDoubleConstant: 'longTripletsDoubleConstant', longTripletsFullConstant: 'longTripletsFullConstant', longTripletsFullDoubleConstant: 'longTripletsFullDoubleConstant', none: '' }; const CellDesings = { Special1: 'Special1', Special2: 'Special2', Special3: 'Special3', CELLHelperText: 'CELLHelperText', small1: 'small1', small2: 'small2', normal1: 'normal1', normal2: 'normal2', normal3: 'normal3', normal4: 'normal4', normal5: 'normal5', normal6: 'normal6', normal7: 'normal7', wide1: 'wide1', wide2: 'wide2', wide3: 'wide3', wide4: 'wide4', wide5: 'wide5', wide6: 'wide6', wide7: 'wide7', wide8: 'wide8', wide9: 'wide9', wide10: 'wide10', wide11: 'wide11' }; const Paging = { leading: 'leading', centered: 'centered', none: '' }; const Orientation = { horizontal: 'horizontal', vertical: 'vertical' }; function Search(request, extra, separator, javascriptConfig, output) { this.request = request; this.extra = extra; this.separator = separator; this.javascriptConfig = javascriptConfig; this.output = output; } function ModuleRequest(url, method, headers, httpBody) { this.url = url; this.method = method; this.headers = headers; this.httpBody = httpBody; } function Extra(commands, extraInfo) { this.commands = commands; this.extraInfo = extraInfo; } function Commands(commandName, params) { this.commandName = commandName; this.params = params; } function JavascriptConfig(removeJavascript, loadInWebView, javaScript) { this.removeJavascript = removeJavascript; this.loadInWebView = loadInWebView; this.javaScript = javaScript; } function KeyValue(key, value) { this.key = key; this.value = value; } function Output(cellDesing, orientation, defaultLayout, paging, section, layout, data) { this.cellDesing = cellDesing; this.orientation = orientation; this.defaultLayout = defaultLayout; this.paging = paging; this.section = section; this.layout = layout; this.data = data; } function Section(sectionName, separator) { this.sectionName = sectionName; this.separator = separator; } function Layout(insets, visibleCellsWidthS, visibleCellsWidthM, visibleCellsWidthL, visibleCellsHeight, heightForVisibleCells, cellSize, ratio, constant, horizontalSpacing, verticalSpacing) { this.insets = insets; this.visibleCellsWidthS = visibleCellsWidthS; this.visibleCellsWidthM = visibleCellsWidthM; this.visibleCellsWidthL = visibleCellsWidthL; this.visibleCellsHeight = visibleCellsHeight; this.heightForVisibleCells = heightForVisibleCells; this.cellSize = cellSize; this.ratio = ratio; this.constant = constant; this.horizontalSpacing = horizontalSpacing; this.verticalSpacing = verticalSpacing; } function Insets(top, bottom, left, right) { this.top = top; this.bottom = bottom; this.left = left; this.right = right; } function Size(width, height) { this.width = width; this.height = height; } function Ratio(inRelation, number1, number2) { this.inRelation = inRelation; this.number1 = number1; this.number2 = number2; } function Data(image, title, description, field1, field2, field3, field4, isChapter, link, openInWebView) { this.image = image; this.title = title; this.description = description; this.field1 = field1; this.field2 = field2; this.field3 = field3; this.field4 = field4; this.isChapter = isChapter; this.link = link; this.openInWebView = openInWebView; } function quickData(link, image, title, field1) { return new Data(image, title, 'unknown', field1, 'unknown', 'unknown', 'unknown', false, link); } function shuffle(a) { var j, x, i; for (i = a.length - 1; i > 0; i--) { j = Math.floor(Math.random() * (i + 1)); x = a[i]; a[i] = a[j]; a[j] = x; } return a; } var savedData = document.getElementById('ketsu-final-data'); var parsedJson = JSON.parse(savedData.innerHTML); let output = []; let emptyKeyValue = [new KeyValue('', '')]; var searchArray = []; var shorts = document.querySelectorAll('.film_list-wrap .flw-item'); for (short of shorts) { var image = short.querySelector('img').dataset.src; image = new ModuleRequest(image, 'get', emptyKeyValue, null); var title = short.querySelector('img').alt; var field1 = ''; try { language = short.querySelector('.tick.ltr').textContent.replaceAll('\\n', '').trim().replace(' ', '/').replaceAll(' ', ''); } catch { language = short.querySelector('.tick.ltr'); if (language == null) { language = '??'; } else { language = short.querySelector('.tick.ltr').innerText.trim().replace('\\n', '/'); } } var field1 = short.querySelector('.tick-item.tick-eps').textContent.trim(); var link = 'https://zoro.to/' + short.querySelector('a').href; link = new ModuleRequest(link, 'get', emptyKeyValue, null); searchArray.push(new Data(image, title, field1 + ' ' + language, '', language, '', '', false, link)); } output.push(new Output(CellDesings.wide9, Orientation.vertical, DefaultLayouts.wideStrechedFullList, Paging .none, new Section('', true), null, searchArray)); let searchPageObject = new Search(new ModuleRequest('', '', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), '', new JavascriptConfig(true, false, ''), output); var finalJson = JSON.stringify(searchPageObject); savedData.innerHTML = finalJson;"
+    },
+    "output": [{
+      "cellDesing": "normal1",
+      "orientation": "vertical",
+      "defaultLayout": "wide",
+      "paging": "",
+      "section": {
+        "sectionName": "",
+        "separator": false
+      },
+      "layout": {
+        "insets": {
+          "top": 0,
+          "bottom": 0,
+          "left": 0,
+          "right": 0
+        },
+        "visibleCellsWidthS": 2,
+        "visibleCellsWidthM": 2,
+        "visibleCellsWidthL": 2,
+        "visibleCellsHeight": 2,
+        "heightForVisibleCells": 400,
+        "cellSize": {
+          "width": 300,
+          "height": 300
+        },
+        "ratio": {
+          "inRelation": "width",
+          "number1": 1,
+          "number2": 2
+        },
+        "constant": {
+          "width": 1,
+          "height": 2
+        },
+        "horizontalSpacing": 0,
+        "verticalSpacing": 0
+      },
+      "data": [{
+        "image": {
+          "url": "",
+          "method": "get",
+          "headers": [{
+            "key": "",
+            "value": ""
+          }],
+          "httpBody": null
+        },
+        "title": "",
+        "description": "",
+        "field1": "",
+        "field2": "",
+        "field3": "",
+        "field4": "",
+        "openInWebView": false,
+        "isChapter": false,
+        "link": {
+          "url": "empty",
+          "method": "get",
+          "headers": [{
+            "key": "key",
+            "value": "value"
+          }],
+          "httpBody": null
+        }
+      }]
+    }]
+  }],
+  "info": [{
+      "request": {
+        "url": "",
+        "method": "get",
+        "headers": [{
+          "key": "",
+          "value": ""
+        }],
+        "httpBody": null
+      },
+      "extra": {
+        "commands": [{
+          "commandName": "",
+          "params": [{
+            "key": "",
+            "value": ""
+          }]
+        }],
+        "extraInfo": [{
+          "key": "",
+          "value": ""
+        }]
+      },
+      "javascriptConfig": {
+        "removeJavascript": true,
+        "loadInWebView": false,
+        "javaScript": " function Info(request, extra, javascriptConfig, output) { this.request = request; this.extra = extra; this.javascriptConfig = javascriptConfig; this.output = output; } function ModuleRequest(url, method, headers, httpBody) { this.url = url; this.method = method; this.headers = headers; this.httpBody = httpBody; } function Extra(commands, extraInfo) { this.commands = commands; this.extraInfo = extraInfo; } function Commands(commandName, params) { this.commandName = commandName; this.params = params; } function JavascriptConfig(removeJavascript, loadInWebView, javaScript) { this.removeJavascript = removeJavascript; this.loadInWebView = loadInWebView; this.javaScript = javaScript; } function KeyValue(key, value) { this.key = key; this.value = value; } function Chapter(chapName, link, openInWebView) { this.chapName = chapName; this.link = link; this.openInWebView = openInWebView; } function Output(image, title, link, description, genres, field1, field2, field3, field4, chapters) { this.image = image; this.link = link; this.title = title; this.description = description; this.genres = genres; this.field1 = field1; this.field2 = field2; this.field3 = field3; this.field4 = field4; this.chapters = chapters; } var savedData = document.getElementById('ketsu-final-data'); var parsedJson = JSON.parse(savedData.innerHTML); let emptyKeyValue = [new KeyValue('Referer', 'https://zoro.to')]; var image = document.querySelector('.film-poster img').src;; image = new ModuleRequest(image, 'get', emptyKeyValue, null); var title = document.querySelector('.anisc-detail h2').textContent + '/' + document.querySelector( '.anisc-detail h2').dataset.jname; var desc = ''; try { desc = document.querySelector('.anisc-info').textContent.replaceAll('\\n', ' ').trim().replaceAll('\\n', ' ').trim(); } catch { desc = document.querySelector('.anisc-info').textContent.trim(); } var genres = Array.from(document.querySelectorAll('.item.item-list a')).map(g => g.textContent); var type = 'Anime'; var episodes = []; var json = JSON.parse(document.querySelector('#syncData').innerText); var nextRequest = `https://zoro.to/ajax/v2/episode/list/${json.anime_id}`; let infoPageObject = new Info(new ModuleRequest(nextRequest, 'get', emptyKeyValue, null), new Extra([ new Commands('', emptyKeyValue) ], emptyKeyValue), new JavascriptConfig(false, false, ''), new Output(image, title, parsedJson.request, desc, genres, '', '', type, 'Eps: ' + episodes.length, episodes)); var finalJson = JSON.stringify(infoPageObject); savedData.innerHTML = finalJson;"
+      },
+      "output": {
+        "image": {
+          "url": "",
+          "method": "get",
+          "headers": [{
+            "key": "",
+            "value": ""
+          }],
+          "httpBody": null
+        },
+        "link": {
+          "url": "",
+          "method": "get",
+          "headers": [{
+            "key": "",
+            "value": ""
+          }],
+          "httpBody": null
+        },
+        "title": "",
+        "description": "",
+        "genres": [
+          ""
+        ],
+        "field1": "",
+        "field2": "",
+        "field3": "",
+        "field4": "",
+        "chapters": [{
+          "chapName": "",
+          "openInWebView": false,
+          "link": {
+            "url": "empty",
+            "method": "get",
+            "headers": [{
+              "key": "key",
+              "value": "value"
+            }],
+            "httpBody": null
+          }
+        }]
+      }
+    },
+    {
+      "request": {
+        "url": "",
+        "method": "get",
+        "headers": [{
+          "key": "",
+          "value": ""
+        }],
+        "httpBody": null
+      },
+      "extra": {
+        "commands": [{
+          "commandName": "",
+          "params": [{
+            "key": "",
+            "value": ""
+          }]
+        }],
+        "extraInfo": [{
+          "key": "",
+          "value": ""
+        }]
+      },
+      "javascriptConfig": {
+        "removeJavascript": true,
+        "loadInWebView": false,
+        "javaScript": "function Info(request, extra, javascriptConfig, output) { this.request = request; this.extra = extra; this.javascriptConfig = javascriptConfig; this.output = output;}function ModuleRequest(url, method, headers, httpBody) { this.url = url; this.method = method; this.headers = headers; this.httpBody = httpBody;}function Extra(commands, extraInfo) { this.commands = commands; this.extraInfo = extraInfo;}function Commands(commandName, params) { this.commandName = commandName; this.params = params;}function JavascriptConfig(removeJavascript, loadInWebView, javaScript) { this.removeJavascript = removeJavascript; this.loadInWebView = loadInWebView; this.javaScript = javaScript;}function KeyValue(key, value) { this.key = key; this.value = value;}function Chapter(chapName, link, openInWebView) { this.chapName = chapName; this.link = link; this.openInWebView = openInWebView;}function Output(image, title, link, description, genres, field1, field2, field3, field4, chapters) { this.image = image; this.link = link; this.title = title; this.description = description; this.genres = genres; this.field1 = field1; this.field2 = field2; this.field3 = field3; this.field4 = field4; this.chapters = chapters;}var savedData = document.getElementById('ketsu-final-data');var parsedJson = JSON.parse(savedData.innerText);let emptyKeyValue = [new KeyValue('Referer', 'https://zoro.to')];var image = parsedJson.output.image;var title = parsedJson.output.title;var desc = parsedJson.output.description;var genres = parsedJson.output.genres;var type = 'Anime';var episodes = [];var matchcheck = document.body.innerText.match(/\",\"totalItems\":+.+.+/g);var script = document.querySelector('script');var scriptText = script.innerText.trim();scriptText = scriptText + matchcheck[0];scriptText = scriptText.replace('/*', '').replace('*/', '');console.log(scriptText);var html = JSON.parse(scriptText).html;var parser = new DOMParser();var doc = parser.parseFromString(html, 'text/html');var animes = doc.querySelectorAll('.ss-list a');for (var x = 0; x < animes.length ; x++) { var anime = animes[x];var link = 'https://zoro.to/ajax/v2/episode/servers?episodeId=' + anime.dataset.id; var name = `${x+1} : ` + anime.title; let chapter = new Chapter(name, new ModuleRequest(link, 'get', emptyKeyValue, null), false); episodes.push(chapter);}parsedJson.request.url = parsedJson.output.link.url;let infoPageObject = new Info(new ModuleRequest('', '', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(false, false, ''), new Output(image, title, parsedJson.request, desc, genres, '', '', type, 'Eps: ' + episodes.length, episodes));var finalJson = JSON.stringify(infoPageObject);savedData.innerText = finalJson;"
+      },
+      "output": {
+        "image": {
+          "url": "",
+          "method": "get",
+          "headers": [{
+            "key": "",
+            "value": ""
+          }],
+          "httpBody": null
+        },
+        "link": {
+          "url": "",
+          "method": "get",
+          "headers": [{
+            "key": "",
+            "value": ""
+          }],
+          "httpBody": null
+        },
+        "title": "",
+        "description": "",
+        "genres": [
+          ""
+        ],
+        "field1": "",
+        "field2": "",
+        "field3": "",
+        "field4": "",
+        "chapters": [{
+          "chapName": "",
+          "openInWebView": false,
+          "link": {
+            "url": "empty",
+            "method": "get",
+            "headers": [{
+              "key": "key",
+              "value": "value"
+            }],
+            "httpBody": null
+          }
+        }]
+      }
+    }
+  ],
+  "chapters": [{
+      "request": {
+        "url": "",
+        "method": "get",
+        "headers": [{
+          "key": "key",
+          "value": "value"
+        }],
+        "httpBody": null
+      },
+      "extra": {
+        "commands": [{
+          "commandName": "",
+          "params": [{
+            "key": "",
+            "value": ""
+          }]
+        }],
+        "extraInfo": [{
+          "key": "",
+          "value": ""
+        }]
+      },
+      "javascriptConfig": {
+        "removeJavascript": true,
+        "loadInWebView": false,
+        "javaScript": " function Chapters(request, extra, javascriptConfig, output) { this.request = request; this.extra = extra; this.javascriptConfig = javascriptConfig; this.output = output; } function ModuleRequest(url, method, headers, httpBody) { this.url = url; this.method = method; this.headers = headers; this.httpBody = httpBody; } function Extra(commands, extraInfo) { this.commands = commands; this.extraInfo = extraInfo; } function Commands(commandName, params) { this.commandName = commandName; this.params = params; } function JavascriptConfig(removeJavascript, loadInWebView, javaScript) { this.removeJavascript = removeJavascript; this.loadInWebView = loadInWebView; this.javaScript = javaScript; } function KeyValue(key, value) { this.key = key; this.value = value; } function Output(videos, images, text) { this.videos = videos; this.images = images; this.text = text; } function Videos(needsResolver, rawVideo) { this.needsResolver = needsResolver; this.rawVideo = rawVideo; } function NeedsResolver(resolverIdentifier, link) { this.resolverIdentifier = resolverIdentifier; this.link = link; } function RawVideo(video) { this.video = video; } function Video(videoQuality, videoLink) { this.videoQuality = videoQuality; this.videoLink = videoLink; } var savedData = document.getElementById('ketsu-final-data'); var parsedJson = JSON.parse(savedData.innerHTML); var extraInfo = parsedJson.extra.extraInfo; var emptyKeyValue = [new KeyValue('', '')]; var output = []; const script = document.querySelector('script').innerHTML.replace('/*', '').replace('*/', ''); const data = JSON.parse(script); const html = data.html; const htmlObject = document.createElement('div'); htmlObject.innerHTML = html; document.body.appendChild(htmlObject); var extraInfo = [new KeyValue('count', '0')]; var links = document.querySelectorAll('.item.server-item'); for (var x = 0; x < links.length; x++) { var link = links[x]; var id = link.dataset.id; var url = 'https://zoro.to/ajax/v2/episode/sources?id=' + id; if (x == 0){ var nextRequest = url } else{ extraInfo.push(new KeyValue(`${x}`, `${url}`)); } console.log(url); } let emptyExtra = new Extra([new Commands('', emptyKeyValue)], extraInfo); var chaptersObject = new Chapters(new ModuleRequest(nextRequest, 'get', emptyKeyValue, null), emptyExtra, new JavascriptConfig(false, false, ''), new Output(new Videos([], []), null, null)); var finalJson = JSON.stringify(chaptersObject); savedData.innerHTML = finalJson;"
+      },
+      "output": {
+        "videos": {
+          "needsResolver": [{
+            "resolverIdentifier": "",
+            "link": {
+              "url": "",
+              "method": "get",
+              "headers": [{
+                "key": "key",
+                "value": "value"
+              }],
+              "httpBody": null
+            }
+          }],
+          "rawVideo": [{
+            "video": [{
+              "videoQuality": "",
+              "videoLink": {
+                "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+                "method": "get",
+                "headers": [{
+                  "key": "key",
+                  "value": "value"
+                }],
+                "httpBody": null
+              }
+            }]
+          }]
+        },
+        "images": [{
+          "url": "empty",
+          "method": "get",
+          "headers": [{
+            "key": "key",
+            "value": "value"
+          }],
+          "httpBody": null
+        }],
+        "text": {
+          "text": ""
+        }
+      }
+    },
+    {
+      "request": {
+        "url": "",
+        "method": "get",
+        "headers": [{
+          "key": "key",
+          "value": "value"
+        }],
+        "httpBody": null
+      },
+      "extra": {
+        "commands": [{
+          "commandName": "",
+          "params": [{
+            "key": "",
+            "value": ""
+          }]
+        }],
+        "extraInfo": [{
+          "key": "",
+          "value": ""
+        }]
+      },
+      "javascriptConfig": {
+        "removeJavascript": true,
+        "loadInWebView": false,
+        "javaScript": " function Chapters(request, extra, javascriptConfig, output) { this.request = request; this.extra = extra; this.javascriptConfig = javascriptConfig; this.output = output; } function ModuleRequest(url, method, headers, httpBody) { this.url = url; this.method = method; this.headers = headers; this.httpBody = httpBody; } function Extra(commands, extraInfo) { this.commands = commands; this.extraInfo = extraInfo; } function Commands(commandName, params) { this.commandName = commandName; this.params = params; } function JavascriptConfig(removeJavascript, loadInWebView, javaScript) { this.removeJavascript = removeJavascript; this.loadInWebView = loadInWebView; this.javaScript = javaScript; } function KeyValue(key, value) { this.key = key; this.value = value; } function Output(videos, images, text) { this.videos = videos; this.images = images; this.text = text; } function Videos(needsResolver, rawVideo) { this.needsResolver = needsResolver; this.rawVideo = rawVideo; } function NeedsResolver(resolverIdentifier, link) { this.resolverIdentifier = resolverIdentifier; this.link = link; } function RawVideo(video) { this.video = video; } function Video(videoQuality, videoLink) { this.videoQuality = videoQuality; this.videoLink = videoLink; } function getValueFromKey(keys, key) { for (var x = 0; x < keys.length; x++) { let tKey = keys[x]; if (tKey.key == key) { return tKey.value; } } } var savedData = document.getElementById('ketsu-final-data'); var parsedJson = JSON.parse(savedData.innerHTML); var extraInfo = parsedJson.extra.extraInfo; var emptyKeyValue = [new KeyValue('', '')]; var output = parsedJson.output.videos;; var actualCount = getValueFromKey(extraInfo, 'count'); var nextCount = parseInt(actualCount.match(/\\d+/g)[0]) + 1; var nextRequest = getValueFromKey(extraInfo, nextCount); if (actualCount == 0) { output = new Videos([], []); } const script = document.querySelector('script').innerHTML.replace('/*', '').replace('*/', ''); const data = JSON.parse(script); if(data.link.includes('streamtape.com')){ var fixedLink = data.link.replace('https://streamtape.com/', 'https://streamta.pe/'); output.needsResolver.push(new NeedsResolver('', new ModuleRequest(fixedLink, 'get', emptyKeyValue, null))) } try{ output.needsResolver.push(new NeedsResolver('', new ModuleRequest(data.link, 'get', emptyKeyValue, null))); }catch{ output.needsResolver = [new NeedsResolver('', new ModuleRequest(data.link, 'get', emptyKeyValue, null))]; } extraInfo[0].value = '' + (parseInt(actualCount) + 1); if (nextRequest == undefined) { nextRequest = ''; } let emptyExtra = new Extra([new Commands('', emptyKeyValue)], extraInfo); var chaptersObject = new Chapters(new ModuleRequest(nextRequest, 'get', emptyKeyValue, null), emptyExtra, new JavascriptConfig(false, false, ''), new Output(output, null, null)); var finalJson = JSON.stringify(chaptersObject); savedData.innerHTML = finalJson;"
+      },
+      "output": {
+        "videos": {
+          "needsResolver": [{
+            "resolverIdentifier": "",
+            "link": {
+              "url": "",
+              "method": "get",
+              "headers": [{
+                "key": "key",
+                "value": "value"
+              }],
+              "httpBody": null
+            }
+          }],
+          "rawVideo": [{
+            "video": [{
+              "videoQuality": "",
+              "videoLink": {
+                "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+                "method": "get",
+                "headers": [{
+                  "key": "key",
+                  "value": "value"
+                }],
+                "httpBody": null
+              }
+            }]
+          }]
+        },
+        "images": [{
+          "url": "empty",
+          "method": "get",
+          "headers": [{
+            "key": "key",
+            "value": "value"
+          }],
+          "httpBody": null
+        }],
+        "text": {
+          "text": ""
+        }
+      }
+    }
+  ],
+  "moduleResolvers": [{
+      "resolverInfo": {
+        "resolverName": "SBPLAY",
+        "nameMatches": [
+          "SBPLAY1", "SBPLAY2", "WATCHSB"
+        ],
+        "developer": "ナビル",
+        "moduleID": "654651432156",
+        "resolverVersion": 1.02,
+        "baseURL": "https://sbplay1.com/ & https://sbplay2.com/"
+      },
+      "resolver": [{
+          "request": {
+            "url": "empty",
+            "method": "get",
+            "headers": [{
+              "key": "key",
+              "value": "value"
+            }],
+            "httpBody": null
+          },
+          "extra": {
+            "commands": [{
+              "commandName": "",
+              "params": [{
+                "key": "",
+                "value": ""
+              }]
+            }],
+            "extraInfo": [{
+              "key": "",
+              "value": ""
+            }]
+          },
+          "javascriptConfig": {
+            "removeJavascript": true,
+            "loadInWebView": false,
+            "javaScript": "function Resolver(request, extra, javascriptConfig, output) {this.request = request;this.extra = extra;this.javascriptConfig = javascriptConfig;this.output = output;}function ModuleRequest(url, method, headers, httpBody) {this.url = url;this.method = method;this.headers = headers;this.httpBody = httpBody;}function Extra(commands, extraInfo) {this.commands = commands;this.extraInfo = extraInfo;}function Commands(commandName, params) {this.commandName = commandName;this.params = params;}function JavascriptConfig(removeJavascript, loadInWebView, javaScript) {this.removeJavascript = removeJavascript;this.loadInWebView = loadInWebView;this.javaScript = javaScript;}function KeyValue(key, value) {this.key = key;this.value = value;}function Output(video) {this.video = video;}function Video(videoQuality, videoLink) {this.videoQuality = videoQuality;this.videoLink = videoLink;}function getNext(match, array) {for (var x = 0; x < array.length; x++) {let mMatch = array[x];if (mMatch.includes(match)) {return array[x + 1];}}}var savedData = document.getElementById('ketsu-final-data');var parsedJson = JSON.parse(savedData.innerHTML);var emptyKeyValue = [new KeyValue('Referer', parsedJson.request.url)];var videos = [];if (parsedJson.request.url.includes('sbplay1')) {var nextRequest = parsedJson.request.url.replace('https://sbplay1.com/e/', 'https://sbplay1.com/dl?op=download_orig&id=');}if (parsedJson.request.url.includes('sbplay2')) {var nextRequest = parsedJson.request.url.replace('https://sbplay2.com/e/', 'https://sbplay2.com/dl?op=download_orig&id=');} if (parsedJson.request.url.includes('watchsb')) {var nextRequest = parsedJson.request.url.replace('https://watchsb.com/e/', 'https://watchsb.com/dl?op=download_orig&id=').replace('.html','');}let emptyExtra = new Extra([new Commands('', emptyKeyValue)], emptyKeyValue);var chaptersObject = new Resolver(new ModuleRequest(nextRequest, 'get', emptyKeyValue, null), emptyExtra, new JavascriptConfig(false, false, ''), new Output(videos));var finalJson = JSON.stringify(chaptersObject);savedData.innerHTML = finalJson;"
+          },
+          "output": {
+            "moduleID": "",
+            "video": [{
+              "videoQuality": "720",
+              "videoLink": {
+                "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+                "method": "get",
+                "headers": [{
+                  "key": "key",
+                  "value": "value"
+                }],
+                "httpBody": null
+              }
+            }]
+          }
+        },
+        {
+          "request": {
+            "url": "empty",
+            "method": "get",
+            "headers": [{
+              "key": "key",
+              "value": "value"
+            }],
+            "httpBody": null
+          },
+          "extra": {
+            "commands": [{
+              "commandName": "",
+              "params": [{
+                "key": "",
+                "value": ""
+              }]
+            }],
+            "extraInfo": [{
+              "key": "",
+              "value": ""
+            }]
+          },
+          "javascriptConfig": {
+            "removeJavascript": true,
+            "loadInWebView": false,
+            "javaScript": "function Resolver(request, extra, javascriptConfig, output) {this.request = request;this.extra = extra;this.javascriptConfig = javascriptConfig;this.output = output;}function ModuleRequest(url, method, headers, httpBody) {this.url = url;this.method = method;this.headers = headers;this.httpBody = httpBody;}function Extra(commands, extraInfo) {this.commands = commands;this.extraInfo = extraInfo;}function Commands(commandName, params) {this.commandName = commandName;this.params = params;}function JavascriptConfig(removeJavascript, loadInWebView, javaScript) {this.removeJavascript = removeJavascript;this.loadInWebView = loadInWebView;this.javaScript = javaScript;}function KeyValue(key, value) {this.key = key;this.value = value;}function Output(video) {this.video = video;}function Video(videoQuality, videoLink) {this.videoQuality = videoQuality;this.videoLink = videoLink;}function getNext(match, array) {for (var x = 0; x < array.length; x++) {let mMatch = array[x];if (mMatch.includes(match)) {return array[x + 1];}}}var savedData = document.getElementById('ketsu-final-data');var parsedJson = JSON.parse(savedData.innerHTML);var emptyKeyValue = [new KeyValue('Referer', parsedJson.request.url)];var videos = [];var id = document.querySelector('form > input[name=id]').value;var hash = document.querySelector('form > input[name=hash]').value;var mode = document.querySelector('form > input[name=mode]').value;if (parsedJson.request.url.includes('sbplay1')) {var url = `https://sbplay1.com//dl?op=download_orig&id=${id}&mode=${mode}&hash=${hash}`;}if (parsedJson.request.url.includes('sbplay2')) {var url = `https://sbplay2.com//dl?op=download_orig&id=${id}&mode=${mode}&hash=${hash}`;} if(parsedJson.request.url.includes('watchsb')) {var url = `https://watchsb.com//dl?op=download_orig&id=${id}&mode=${mode}&hash=${hash}`;}let emptyExtra = new Extra([new Commands('', emptyKeyValue)], emptyKeyValue);var chaptersObject = new Resolver(new ModuleRequest(url, 'get', emptyKeyValue, null), emptyExtra, new JavascriptConfig(false, false, ''), new Output(videos));var finalJson = JSON.stringify(chaptersObject);savedData.innerHTML = finalJson;"
+          },
+          "output": {
+            "moduleID": "",
+            "video": [{
+              "videoQuality": "720",
+              "videoLink": {
+                "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+                "method": "get",
+                "headers": [{
+                  "key": "key",
+                  "value": "value"
+                }],
+                "httpBody": null
+              }
+            }]
+          }
+        },
+        {
+          "request": {
+            "url": "empty",
+            "method": "get",
+            "headers": [{
+              "key": "key",
+              "value": "value"
+            }],
+            "httpBody": null
+          },
+          "extra": {
+            "commands": [{
+              "commandName": "",
+              "params": [{
+                "key": "",
+                "value": ""
+              }]
+            }],
+            "extraInfo": [{
+              "key": "",
+              "value": ""
+            }]
+          },
+          "javascriptConfig": {
+            "removeJavascript": true,
+            "loadInWebView": false,
+            "javaScript": "function Resolver(request, extra, javascriptConfig, output) {this.request = request;this.extra = extra;this.javascriptConfig = javascriptConfig;this.output = output;}function ModuleRequest(url, method, headers, httpBody) {this.url = url;this.method = method;this.headers = headers;this.httpBody = httpBody;}function Extra(commands, extraInfo) {this.commands = commands;this.extraInfo = extraInfo;}function Commands(commandName, params) {this.commandName = commandName;this.params = params;}function JavascriptConfig(removeJavascript, loadInWebView, javaScript) {this.removeJavascript = removeJavascript;this.loadInWebView = loadInWebView;this.javaScript = javaScript;}function KeyValue(key, value) {this.key = key;this.value = value;}function Output(video) {this.video = video;}function Video(videoQuality, videoLink) {this.videoQuality = videoQuality;this.videoLink = videoLink;}function getNext(match, array) {for(var x = 0; x < array.length; x++) {let mMatch = array[x];if(mMatch.includes(match)) {return array[x + 1];}}}var savedData = document.getElementById('ketsu-final-data');var parsedJson = JSON.parse(savedData.innerHTML);var emptyKeyValue = [new KeyValue('Referer', parsedJson.request.url)];var videos = [];var videoLink = document.querySelector('span > a').href;videos.push(new Video('Normal',new ModuleRequest(videoLink,'get',emptyKeyValue,null)));let emptyExtra = new Extra([new Commands('', emptyKeyValue)], emptyKeyValue);var chaptersObject = new Resolver(new ModuleRequest('', '', emptyKeyValue, null), emptyExtra, new JavascriptConfig(false, false, ''), new Output(videos));var finalJson = JSON.stringify(chaptersObject);savedData.innerHTML = finalJson;"
+          },
+          "output": {
+            "moduleID": "",
+            "video": [{
+              "videoQuality": "720",
+              "videoLink": {
+                "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+                "method": "get",
+                "headers": [{
+                  "key": "key",
+                  "value": "value"
+                }],
+                "httpBody": null
+              }
+            }]
+          }
+        }
+      ]
+    },
+    {
+      "resolverInfo": {
+        "resolverName": "STREAMTA",
+        "nameMatches": [
+          "STREAMTA"
+        ],
+        "developer": "ナビル",
+        "moduleID": "8465132120",
+        "resolverVersion": 1.6,
+        "baseURL": ""
+      },
+      "resolver": [{
+        "request": {
+          "url": "empty",
+          "method": "get",
+          "headers": [{
+            "key": "key",
+            "value": "value"
+          }],
+          "httpBody": null
+        },
+        "extra": {
+          "commands": [{
+            "commandName": "",
+            "params": [{
+              "key": "",
+              "value": ""
+            }]
+          }],
+          "extraInfo": [{
+            "key": "",
+            "value": ""
+          }]
+        },
+        "javascriptConfig": {
+          "removeJavascript": true,
+          "loadInWebView": false,
+          "javaScript": "function Resolver(request, extra, javascriptConfig, output) {this.request = request;this.extra = extra;this.javascriptConfig = javascriptConfig;this.output = output;}function ModuleRequest(url, method, headers, httpBody) {this.url = url;this.method = method;this.headers = headers;this.httpBody = httpBody;}function Extra(commands, extraInfo) {this.commands = commands;this.extraInfo = extraInfo;}function Commands(commandName, params) {this.commandName = commandName;this.params = params;}function JavascriptConfig(removeJavascript, loadInWebView, javaScript) {this.removeJavascript = removeJavascript;this.loadInWebView = loadInWebView;this.javaScript = javaScript;}function KeyValue(key, value) {this.key = key;this.value = value;}function Output(video) {this.video = video;}function Video(videoQuality, videoLink) {this.videoQuality = videoQuality;this.videoLink = videoLink;}function getNext(match, array) {for(var x = 0; x < array.length; x++) {let mMatch = array[x];if(mMatch.includes(match)) {return array[x + 1];}}}var savedData = document.getElementById('ketsu-final-data');var parsedJson = JSON.parse(savedData.innerHTML);var emptyKeyValue = [new KeyValue('Referer', parsedJson.request.url)];var videos = [];let playerRegex = /innerHTML\\s=\\s*\"([^\"]+)\"\\s?\\+\\s?''\\+\\s?\\('([^']+)/;let body = document.body.innerText;let playerMatch = playerRegex.exec(body);if (playerMatch) { let matchedLink = playerMatch[2]; let index = matchedLink.indexOf('?');if (index == -1){try{firstpart = playerMatch[1].split('=')[1].replace('\"','');secondpart = playerMatch[2].substr(5);secondtry = playerMatch[2].substr(4);let videoLink = 'https://streamta.pe/get_video?id=' + firstpart + secondpart + '&stream=1';let fixedLink = 'https://streamta.pe/get_video?id=' + firstpart + secondtry + '&stream=1';console.log(videoLink,fixedLink);videos.push(new Video('THAI GUY WAS HERE', new ModuleRequest(fixedLink, 'get', emptyKeyValue, null)));videos.push(new Video('Normal',new ModuleRequest(videoLink,'get',emptyKeyValue,null)));}catch(e){}try{if (matchedLink.match(/^=/)){let videoLink = 'https://streamta.pe/get_video?id=' + matchedLink.substr(5) + '&stream=1';if (videoLink.includes('id==')) {videoLink = videoLink.replace('id==', 'id='); }console.log(videoLink);videos.push(new Video('Normal',new ModuleRequest(videoLink,'get',emptyKeyValue,null)));}}catch(e){}try{ if(matchedLink.match(/id=/)) { split = matchedLink.split('id='); let videoLink = 'https://streamta.pe/get_video?id=' + split[1] + '&stream=1'; console.log(videoLink); videos.push(new Video('Normal', new ModuleRequest(videoLink, 'get', emptyKeyValue, null))); } }catch(e){}try{if (matchedLink.match(/^([a-zA-Z]+d=)/)){split = matchedLink.split('d=');let videoLink = 'https://streamta.pe/get_video?id=' + split[1] + '&stream=1';console.log(videoLink);videos.push(new Video('Normal',new ModuleRequest(videoLink,'get',emptyKeyValue,null)));}}catch(e){}}else{let videoLink = `https://streamta.pe/get_video${matchedLink.substr(index)}&stream=1`;console.log(videoLink);videos.push(new Video('Normal',new ModuleRequest(videoLink,'get',emptyKeyValue,null)));}}let emptyExtra = new Extra([new Commands('', emptyKeyValue)], emptyKeyValue);var chaptersObject = new Resolver(new ModuleRequest('', '', emptyKeyValue, null), emptyExtra, new JavascriptConfig(false, false, ''), new Output(videos));var finalJson = JSON.stringify(chaptersObject);savedData.innerHTML = finalJson;"
+        },
+        "output": {
+          "moduleID": "234234823",
+          "video": [{
+            "videoQuality": "720",
+            "videoLink": {
+              "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+              "method": "get",
+              "headers": [{
+                "key": "key",
+                "value": "value"
+              }],
+              "httpBody": null
+            }
+          }]
+        }
+      }]
+    },
+    {
+      "resolverInfo": {
+        "resolverName": "VidCloud",
+        "nameMatches": [
+          "RAPID-CLOUD"
+        ],
+        "developer": "ナビル",
+        "moduleID": "rapidcloud",
+        "resolverVersion": 1.07,
+        "baseURL": "https://rapid-cloud.ru/"
+      },
+      "resolver": [{
+          "request": {
+            "url": "empty",
+            "method": "get",
+            "headers": [{
+              "key": "key",
+              "value": "value"
+            }],
+            "httpBody": null
+          },
+          "extra": {
+            "commands": [{
+              "commandName": "",
+              "params": [{
+                "key": "",
+                "value": ""
+              }]
+            }],
+            "extraInfo": [{
+              "key": "",
+              "value": ""
+            }]
+          },
+          "javascriptConfig": {
+            "removeJavascript": true,
+            "loadInWebView": false,
+            "javaScript": "function Resolver(request, extra, javascriptConfig, output) { this.request = request; this.extra = extra; this.javascriptConfig = javascriptConfig; this.output = output;}function ModuleRequest(url, method, headers, httpBody) { this.url = url; this.method = method; this.headers = headers; this.httpBody = httpBody;}function Extra(commands, extraInfo) { this.commands = commands; this.extraInfo = extraInfo;}function Commands(commandName, params) { this.commandName = commandName; this.params = params;}function JavascriptConfig(removeJavascript, loadInWebView, javaScript) { this.removeJavascript = removeJavascript; this.loadInWebView = loadInWebView; this.javaScript = javaScript;}function KeyValue(key, value) { this.key = key; this.value = value;}function Output(video) { this.video = video;}function Video(videoQuality, videoLink) { this.videoQuality = videoQuality; this.videoLink = videoLink;}function getNext(match, array) { for (var x = 0; x < array.length; x++) { let mMatch = array[x]; if (mMatch.includes(match)) { return array[x + 1]; } }}var savedData = document.getElementById('ketsu-final-data');var parsedJson = JSON.parse(savedData.innerHTML);var emptyKeyValue = [new KeyValue('Referer', parsedJson.request.url)];var videos = []; var id = parsedJson.request.url.split('/')[4].split('?')[0];var nextRequest = `https://rapid-cloud.ru/ajax/embed-6/getSources?id=${id}&_token=`;let emptyExtra = new Extra([new Commands('', emptyKeyValue)], emptyKeyValue);var chaptersObject = new Resolver(new ModuleRequest(nextRequest, 'get', emptyKeyValue, null), emptyExtra, new JavascriptConfig(false, false, ''), new Output(videos));var finalJson = JSON.stringify(chaptersObject);savedData.innerHTML = finalJson;"
+          },
+          "output": {
+            "moduleID": "",
+            "video": [{
+              "videoQuality": "720",
+              "videoSubs": [{
+                "language": "",
+                "link": ""
+              }],
+              "videoLink": {
+                "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+                "method": "get",
+                "headers": [{
+                  "key": "key",
+                  "value": "value"
+                }],
+                "httpBody": null
+              }
+            }]
+          }
+        },
+        {
+          "request": {
+            "url": "empty",
+            "method": "get",
+            "headers": [{
+              "key": "key",
+              "value": "value"
+            }],
+            "httpBody": null
+          },
+          "extra": {
+            "commands": [{
+              "commandName": "",
+              "params": [{
+                "key": "",
+                "value": ""
+              }]
+            }],
+            "extraInfo": [{
+              "key": "",
+              "value": ""
+            }]
+          },
+          "javascriptConfig": {
+            "removeJavascript": true,
+            "loadInWebView": false,
+            "javaScript": "function Resolver(request, extra, javascriptConfig, output) { this.request = request; this.extra = extra; this.javascriptConfig = javascriptConfig; this.output = output; } function ModuleRequest(url, method, headers, httpBody) { this.url = url; this.method = method; this.headers = headers; this.httpBody = httpBody; } function Extra(commands, extraInfo) { this.commands = commands; this.extraInfo = extraInfo; } function Commands(commandName, params) { this.commandName = commandName; this.params = params; } function JavascriptConfig(removeJavascript, loadInWebView, javaScript) { this.removeJavascript = removeJavascript; this.loadInWebView = loadInWebView; this.javaScript = javaScript; } function KeyValue(key, value) { this.key = key; this.value = value; } function Output(video, subs) { this.video = video; this.subs = subs; } function Video(videoQuality, videoLink) { this.videoQuality = videoQuality; this.videoLink = videoLink; } function VideoSub(language, link) { this.language = language; this.link = link; } function getNext(match, array) { for (var x = 0; x < array.length; x++) { let mMatch = array[x]; if (mMatch.includes(match)) { return array[x + 1]; } } } function getValueFromKey(keys, key) { for (var x = 0; x < keys.length; x++) { let tKey = keys[x]; if (tKey.key == key) { return tKey.value; } } } var savedData = document.getElementById('ketsu-final-data'); var parsedJson = JSON.parse(savedData.innerHTML); var emptyKeyValue = [new KeyValue('Referer', parsedJson.request.url)]; var videos = []; var subs = []; var extraInfo = parsedJson.extra.extraInfo; var extraInfo = [new KeyValue('count', '0')]; var script = document.querySelector('script').innerText.replace('*/', '').replace('/*', ''); var paramjson = JSON.parse(script); var nextRequest = paramjson.sources[0].file; var substracks = paramjson.tracks; if (substracks == undefined) { substracks = ''; } else { for (var x = 0; x < substracks.length - 1; x++) { var sub = substracks[x]; var sublink = sub.file; sublink = new ModuleRequest(sublink, 'get', emptyKeyValue, null); var sublang = sub.label; var subobj = new VideoSub(sublang, sublink); subs.push(subobj); } for (var y = 0; y < subs.length; y++) { var string = JSON.stringify(subs[y]); var keyvalue = new KeyValue(`${y+1}`, `${string}`); extraInfo.push(keyvalue); } } let emptyExtra = new Extra([new Commands('', emptyKeyValue)], extraInfo); var chaptersObject = new Resolver(new ModuleRequest(nextRequest, 'get', emptyKeyValue, null), emptyExtra, new JavascriptConfig(false, false, ''), new Output(videos)); var finalJson = JSON.stringify(chaptersObject); savedData.innerHTML = finalJson;"
+          },
+          "output": {
+            "moduleID": "",
+            "video": [{
+              "videoQuality": "720",
+              "videoSubs": [{
+                "language": "",
+                "link": ""
+              }],
+              "videoLink": {
+                "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+                "method": "get",
+                "headers": [{
+                  "key": "key",
+                  "value": "value"
+                }],
+                "httpBody": null
+              }
+            }]
+          }
+        },
+        {
+          "request": {
+            "url": "empty",
+            "method": "get",
+            "headers": [{
+              "key": "key",
+              "value": "value"
+            }],
+            "httpBody": null
+          },
+          "extra": {
+            "commands": [{
+              "commandName": "",
+              "params": [{
+                "key": "",
+                "value": ""
+              }]
+            }],
+            "extraInfo": [{
+              "key": "",
+              "value": ""
+            }]
+          },
+          "javascriptConfig": {
+            "removeJavascript": true,
+            "loadInWebView": false,
+            "javaScript": "function Resolver(request, extra, javascriptConfig, output) { this.request = request; this.extra = extra; this.javascriptConfig = javascriptConfig; this.output = output;}function ModuleRequest(url, method, headers, httpBody) { this.url = url; this.method = method; this.headers = headers; this.httpBody = httpBody;}function Extra(commands, extraInfo) { this.commands = commands; this.extraInfo = extraInfo;}function Commands(commandName, params) { this.commandName = commandName; this.params = params;}function JavascriptConfig(removeJavascript, loadInWebView, javaScript) { this.removeJavascript = removeJavascript; this.loadInWebView = loadInWebView; this.javaScript = javaScript;}function KeyValue(key, value) { this.key = key; this.value = value;}function Output(video,subs) { this.video = video; this.subs = subs;}function Video(videoQuality, videoLink) { this.videoQuality = videoQuality; this.videoLink = videoLink;}function VideoSub(language, link) { this.language = language; this.link = link;}function getNext(match, array) { for (var x = 0; x < array.length; x++) { let mMatch = array[x]; if (mMatch.includes(match)) { return array[x + 1]; } }}var savedData = document.getElementById('ketsu-final-data');var parsedJson = JSON.parse(savedData.innerHTML);var emptyKeyValue = [new KeyValue('Referer', parsedJson.request.url)];var videos = [];var extraInfo = parsedJson.extra.extraInfo;var subs = [];var body = document.querySelector('script').innerText.replace('*/', '').replace('/*', '');var lines = body.split('\\n');if (extraInfo.length > 1) { for (var y = 1; y < extraInfo.length; y++) { var sub = JSON.parse(extraInfo[y].value); subs.push(sub); }} else { subs = null;}for (var x = 0; x < lines.length; x++) { var line = lines[x]; if (line.includes('EXT-X-STREAM-INF:PROGRAM-ID=1')) { var videoQuality = line.split('RESOLUTION=')[1].match(/(\\d)+x+(\\d)+/g)[0]; var videoLink = lines[x + 1]; var fixedLink = parsedJson.request.url.replace('master.m3u8', videoLink); videos.push(new Video(videoQuality, new ModuleRequest(fixedLink, 'get', emptyKeyValue, null))); }}let emptyExtra = new Extra([new Commands('', emptyKeyValue)], emptyKeyValue);var chaptersObject = new Resolver(new ModuleRequest('', 'get', emptyKeyValue, null), emptyExtra, new JavascriptConfig(false, false, ''), new Output(videos,subs));var finalJson = JSON.stringify(chaptersObject);savedData.innerHTML = finalJson;"
+          },
+          "output": {
+            "moduleID": "",
+            "video": [{
+              "videoQuality": "720",
+              "videoSubs": [{
+                "language": "",
+                "link": ""
+              }],
+              "videoLink": {
+                "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+                "method": "get",
+                "headers": [{
+                  "key": "key",
+                  "value": "value"
+                }],
+                "httpBody": null
+              }
+            }]
+          }
+        }
+      ]
+    }
+  ],
+  "responseCodeFunctions": [{
+    "code": 0,
+    "msgTitle": "",
+    "msgBody": "",
+    "type": "normal",
+    "functions": [{
+      "request": {
+        "url": "empty",
+        "method": "get",
+        "headers": [{
+          "key": "key",
+          "value": "value"
+        }],
+        "httpBody": null
+      },
+      "extra": {
+        "commands": [{
+          "commandName": "",
+          "params": [{
+            "key": "",
+            "value": ""
+          }]
+        }],
+        "extraInfo": [{
+          "key": "",
+          "value": ""
+        }]
+      },
+      "javascriptConfig": {
+        "removeJavascript": true,
+        "loadInWebView": false,
+        "javaScript": ""
+      }
+    }]
+  }],
+  "helperFunctions": [{
+    "functionName": "example",
+    "msgTitle": "",
+    "msgBody": "",
+    "type": "normal",
+    "functions": [{
+      "request": {
+        "url": "empty",
+        "method": "get",
+        "headers": [{
+          "key": "key",
+          "value": "value"
+        }],
+        "httpBody": null
+      },
+      "extra": {
+        "commands": [{
+          "commandName": "",
+          "params": [{
+            "key": "",
+            "value": ""
+          }]
+        }],
+        "extraInfo": [{
+          "key": "",
+          "value": ""
+        }]
+      },
+      "javascriptConfig": {
+        "removeJavascript": true,
+        "loadInWebView": false,
+        "javaScript": ""
+      }
+    }]
+  }]
+}
