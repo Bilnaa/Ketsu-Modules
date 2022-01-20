@@ -292,7 +292,7 @@ let layout = new Layout(new Insets(0,0,0,0),1,2,2,1,0,new Size(400,105),new Rati
 output.push(new Output(CellDesings.Special3, Orientation.horizontal, DefaultLayouts.wideStrechedFull, Paging.leading, new Section('', true), layout, sliderArray));
 output.push(new Output(CellDesings.Special1, Orientation.horizontal, DefaultLayouts.triplets, Paging.none, new Section('Top Airing : ', true), null, TopAiring));
 output.push(new Output(CellDesings.normal1, Orientation.horizontal, DefaultLayouts.longTripletsDoubleConstant, Paging.leading, new Section('Last Episodes: ', true), null, LastEpisodes));
-output.push(new Output(CellDesings.normal1, Orientation.horizontal, DefaultLayouts.longTripletsFullConstant, Paging.none, new Section('New On Zoro', true), null, NewAnimes));
+output.push(new Output(CellDesings.normal1, Orientation.horizontal, DefaultLayouts.longDoubletsFull, Paging.none, new Section('New On Zoro', true), null, NewAnimes));
 let MainPageObject = new MainPage(new ModuleRequest('', 'get', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(true, false, ''), output);
 var finalJson = JSON.stringify(MainPageObject);
 savedData.innerHTML = finalJson;

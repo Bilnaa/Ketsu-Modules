@@ -73,12 +73,14 @@ var links = document.querySelectorAll('.item.server-item');
 for (var x = 0; x < links.length; x++) {
     var link = links[x];
     var id = link.dataset.id;
-    var url = 'https://zoro.to/ajax/v2/episode/sources?id=' + id;
+    var lang = link.dataset.type;
+    var url = 'https://zoro.to/ajax/v2/episode/sources?id=' + id + '?lang=' + lang;
     if (x == 0) {
         var nextRequest = url
     } else {
         extraInfo.push(new KeyValue(`${x}`, `${url}`));
     }
+    console.log(url);
 }
 let emptyExtra = new Extra([new Commands('', emptyKeyValue)], extraInfo);
 var chaptersObject = new Chapters(new ModuleRequest(nextRequest, 'get', emptyKeyValue, null), emptyExtra, new JavascriptConfig(false, false, ''), new Output(new Videos([], []), null, null));
