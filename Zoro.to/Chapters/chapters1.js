@@ -72,7 +72,7 @@ var extraInfo = parsedJson.extra.extraInfo;
 var emptyKeyValue = [new KeyValue('', '')];
 var output = parsedJson.output.videos;;
 var actualCount = getValueFromKey(extraInfo, 'count');
-var nextCount = parseInt(actualCount.match(/\d+/g)[0]) + 1;
+var nextCount = parseInt(actualCount.match(/\\d+/g)[0]) + 1;
 var nextRequest = getValueFromKey(extraInfo, nextCount);
 if (actualCount == 0) {
     output = new Videos([], []);
@@ -82,24 +82,19 @@ const data = JSON.parse(script);
 if (data.link.includes('streamtape.com')) {
     var fixedLink = data.link.replace('https://streamtape.com/', 'https://streamta.pe/');
     if (parsedJson.request.url.includes('?lang=dub')) {
-        output.needsResolver.push(new NeedsResolver('STREAMTA DUB', new ModuleRequest(fixedLink, 'get',
-            emptyKeyValue, null)));
+        output.needsResolver.push(new NeedsResolver('STREAMTA DUB', new ModuleRequest(fixedLink, 'get', emptyKeyValue, null)));
     } else if (data.link.includes('streamtape') && parsedJson.request.url.includes('?lang=dub')) {
-        output.needsResolver.push(new NeedsResolver('STREAMTAPE DUB', new ModuleRequest(fixedLink, 'get',
-            emptyKeyValue, null)));
+        output.needsResolver.push(new NeedsResolver('STREAMTAPE DUB', new ModuleRequest(fixedLink, 'get', emptyKeyValue, null)));
     } else {
-        output.needsResolver.push(new NeedsResolver('', new ModuleRequest(fixedLink, 'get', emptyKeyValue,
-            null)));
+        output.needsResolver.push(new NeedsResolver('', new ModuleRequest(fixedLink, 'get', emptyKeyValue, null)));
     }
 }
 try {
     if (parsedJson.request.url.includes('?lang=dub')) {
         resolver = data.link.split('/')[2].split('.')[0].toUpperCase();
-        output.needsResolver.push(new NeedsResolver(resolver + ' DUB', new ModuleRequest(data.link, 'get',
-            emptyKeyValue, null)));
+        output.needsResolver.push(new NeedsResolver(resolver + ' DUB', new ModuleRequest(data.link, 'get', emptyKeyValue, null)));
     } else {
-        output.needsResolver.push(new NeedsResolver('', new ModuleRequest(data.link, 'get', emptyKeyValue,
-            null)));
+        output.needsResolver.push(new NeedsResolver('', new ModuleRequest(data.link, 'get', emptyKeyValue, null)));
     }
 } catch {
     output.needsResolver = [new NeedsResolver('', new ModuleRequest(data.link, 'get', emptyKeyValue, null))];
@@ -109,7 +104,6 @@ if (nextRequest == undefined) {
     nextRequest = '';
 }
 let emptyExtra = new Extra([new Commands('', emptyKeyValue)], extraInfo);
-var chaptersObject = new Chapters(new ModuleRequest(nextRequest, 'get', emptyKeyValue, null), emptyExtra,
-    new JavascriptConfig(false, false, ''), new Output(output, null, null));
+var chaptersObject = new Chapters(new ModuleRequest(nextRequest, 'get', emptyKeyValue, null), emptyExtra, new JavascriptConfig(false, false, ''), new Output(output, null, null));
 var finalJson = JSON.stringify(chaptersObject);
 savedData.innerHTML = finalJson;
