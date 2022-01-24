@@ -187,6 +187,9 @@ function shuffle(a) {
 var savedData = document.getElementById('ketsu-final-data');
 var parsedJson = JSON.parse(savedData.innerHTML);
 let emptyKeyValue = [new KeyValue('', '')];
+const dummyQuest = new ModuleRequest('', 'get', emptyKeyValue, null);
+const streamta = new ModuleRequest('ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/beta-ketsu/main/zoro.json', 'get', emptyKeyValue, null);
+const infoText = new Data(dummyQuest, "Subs are only available on newer versions of Ketsu, on the Rapid-Cloud resolver and won't work if you have the App Store version. Click on this message if you are using the appstore version of KETSU and not getting subtitles.", '', '', '', '', '', false, streamta, false);
 let output = [];
 var sliderArray = [];
 var slider = document.querySelectorAll('#slider .swiper-wrapper .swiper-slide');
@@ -237,13 +240,13 @@ for (list of last) {
     }
     var language = '??';
     try {
-        language = list.querySelector('.tick.ltr').textContent.replaceAll('\n', '').trim().replace(' ', '/').replaceAll(' ', '');
+        language = list.querySelector('.tick.ltr').textContent.replaceAll('\\n', '').trim().replace(' ', '/').replaceAll(' ', '');
     } catch {
         language = list.querySelector('.tick.ltr');
         if (language == null) {
             language = '??';
         } else {
-            language = list.querySelector('.tick.ltr').innerText.trim().replace('\n', '/');
+            language = list.querySelector('.tick.ltr').innerText.trim().replace('\\n', '/');
         }
     }
     if (list.querySelector('.fdi-item').innerText.includes('Special')) {
@@ -273,13 +276,13 @@ for (list of newanimes) {
     }
     var language = '??';
     try {
-        language = list.querySelector('.tick.ltr').textContent.replaceAll('\n', '').trim().replace(' ', '/').replaceAll(' ', '');
+        language = list.querySelector('.tick.ltr').textContent.replaceAll('\\n', '').trim().replace(' ', '/').replaceAll(' ', '');
     } catch {
         language = list.querySelector('.tick.ltr');
         if (language == null) {
             language = '??';
         } else {
-            language = list.querySelector('.tick.ltr').innerText.trim().replace('\n', '/');
+            language = list.querySelector('.tick.ltr').innerText.trim().replace('\\n', '/');
         }
     }
     if (list.querySelector('.fdi-item').innerText.includes('Special')) {
@@ -288,11 +291,12 @@ for (list of newanimes) {
     }
     NewAnimes.push(new Data(image, title, '', ep, language, '', '', false, link));
 }
-let layout = new Layout(new Insets(0,0,0,0),1,2,2,1,0,new Size(400,105),new Ratio('width',4,10),new Size(0,0),0,0); 
+let layout = new Layout(new Insets(0, 0, 0, 0), 1, 2, 2, 1, 0, new Size(400, 105), new Ratio('width', 4, 10), new Size(0, 0), 0, 0);
 output.push(new Output(CellDesings.Special3, Orientation.horizontal, DefaultLayouts.wideStrechedFull, Paging.leading, new Section('', true), layout, sliderArray));
+output.push(new Output('CELLHelperText', Orientation.vertical, DefaultLayouts.wideFull, Paging.none, new Section('', true), null, [infoText]));
 output.push(new Output(CellDesings.Special1, Orientation.horizontal, DefaultLayouts.triplets, Paging.none, new Section('Top Airing : ', true), null, TopAiring));
 output.push(new Output(CellDesings.normal1, Orientation.horizontal, DefaultLayouts.longTripletsDoubleConstant, Paging.leading, new Section('Last Episodes: ', true), null, LastEpisodes));
-output.push(new Output(CellDesings.normal1, Orientation.horizontal, DefaultLayouts.longDoubletsFull, Paging.none, new Section('New On Zoro', true), null, NewAnimes));
+output.push(new Output(CellDesings.wide6, Orientation.horizontal, DefaultLayouts.longDoubletsFull, Paging.none, new Section('New On Zoro', true), null, NewAnimes));
 let MainPageObject = new MainPage(new ModuleRequest('', 'get', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(true, false, ''), output);
 var finalJson = JSON.stringify(MainPageObject);
 savedData.innerHTML = finalJson;
