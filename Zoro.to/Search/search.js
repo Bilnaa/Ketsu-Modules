@@ -193,29 +193,34 @@ var savedData = document.getElementById('ketsu-final-data');
 var parsedJson = JSON.parse(savedData.innerHTML);
 let output = [];
 let emptyKeyValue = [new KeyValue('', '')];
-var searchArray = [];
-var shorts = document.querySelectorAll('.film_list-wrap .flw-item');
-for (short of shorts) {
-    var image = short.querySelector('img').dataset.src;
-    image = new ModuleRequest(image, 'get', emptyKeyValue, null);
-    var title = short.querySelector('img').alt;
-    var field1 = '';
-    try {
-        language = short.querySelector('.tick.ltr').textContent.replaceAll('\\n', '').trim().replace(' ', '/').replaceAll(' ', '');
-    } catch {
-        language = short.querySelector('.tick.ltr');
-        if (language == null) {
-            language = '??';
-        } else {
-            language = short.querySelector('.tick.ltr').innerText.trim().replace('\\n', '/');
+if (!parsedJson.request.url.split('keyword=')[1].includes('random')) {
+    var nextRequest = '';
+    var searchArray = [];
+    var shorts = document.querySelectorAll('.film_list-wrap .flw-item');
+    for (short of shorts) {
+        var image = short.querySelector('img').dataset.src;
+        image = new ModuleRequest(image, 'get', emptyKeyValue, null);
+        var title = short.querySelector('img').alt;
+        var field1 = '';
+        try {
+            language = short.querySelector('.tick.ltr').textContent.replaceAll('\\n', '').trim().replace(' ', '/').replaceAll(' ', '');
+        } catch {
+            language = short.querySelector('.tick.ltr');
+            if (language == null) {
+                language = '??';
+            } else {
+                language = short.querySelector('.tick.ltr').innerText.trim().replace('\\n', '/');
+            }
         }
+        var field1 = short.querySelector('.tick-item.tick-eps').textContent.trim();
+        var link = 'https://zoro.to/' + short.querySelector('a').href;
+        link = new ModuleRequest(link, 'get', emptyKeyValue, null);
+        searchArray.push(new Data(image, title, field1 + ' ' + language, '', language, '', '', false, link));
     }
-    var field1 = short.querySelector('.tick-item.tick-eps').textContent.trim();
-    var link = 'https://zoro.to/' + short.querySelector('a').href;
-    link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-    searchArray.push(new Data(image, title, field1 + ' ' + language, '', language, '', '', false, link));
+    output.push(new Output(CellDesings.wide9, Orientation.vertical, DefaultLayouts.wideStrechedFullList, Paging.none, new Section('', true), null, searchArray));
+} else {
+    nextRequest = 'https://zoro.to/random';
 }
-output.push(new Output(CellDesings.wide9, Orientation.vertical, DefaultLayouts.wideStrechedFullList, Paging.none, new Section('', true), null, searchArray));
-let searchPageObject = new Search(new ModuleRequest('', '', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), '', new JavascriptConfig(true, false, ''), output);
+let searchPageObject = new Search(new ModuleRequest(nextRequest, 'get', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), '', new JavascriptConfig(true, false, ''), output);
 var finalJson = JSON.stringify(searchPageObject);
 savedData.innerHTML = finalJson;

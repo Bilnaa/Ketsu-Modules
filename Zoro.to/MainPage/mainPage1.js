@@ -189,7 +189,7 @@ var parsedJson = JSON.parse(savedData.innerHTML);
 let emptyKeyValue = [new KeyValue('', '')];
 const dummyQuest = new ModuleRequest('', 'get', emptyKeyValue, null);
 const streamta = new ModuleRequest('ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/beta-ketsu/main/zoro.json', 'get', emptyKeyValue, null);
-const infoText = new Data(dummyQuest, "Subs are only available on newer versions of Ketsu, on the Rapid-Cloud resolver and won't work if you have the App Store version. Click on this message if you are using the appstore version of KETSU and not getting subtitles.", '', '', '', '', '', false, streamta, false);
+const infoText = new Data(dummyQuest, "Subs are only available on newer versions of Ketsu, on the Rapid-Cloud resolver and won't work if you have the App Store version.\\nClick on this message if you are using the App Store version of KETSU and not getting subtitles. If you do so don't forget to refresh this page.", '', '', '', '', '', false, streamta, false);
 let output = [];
 var sliderArray = [];
 var slider = document.querySelectorAll('#slider .swiper-wrapper .swiper-slide');
@@ -291,12 +291,41 @@ for (list of newanimes) {
     }
     NewAnimes.push(new Data(image, title, '', ep, language, '', '', false, link));
 }
+var MostViewed = [];
+var mostviewed = document.querySelectorAll('#top-viewed-day > ul > li');
+for (list of mostviewed) {
+    let title = list.querySelector('img').alt;
+    var link = 'https://zoro.to/' + list.querySelector('a').href;
+    link = new ModuleRequest(link, 'get', emptyKeyValue, null);
+    var image = list.querySelector('img').dataset.src;
+    image = new ModuleRequest(image, 'get', emptyKeyValue, null);
+    var views = '??';
+    try {
+        views = list.querySelector('.fdi-item').textContent.trim();
+    } catch {
+        views = list.querySelector('.fdi-item');
+    }
+    if (views == null) {
+        views = '??';
+    }
+    MostViewed.push(new Data(image, title, '', views, '', '', '', false, link));
+}
 let layout = new Layout(new Insets(0, 0, 0, 0), 1, 2, 2, 1, 0, new Size(400, 105), new Ratio('width', 4, 10), new Size(0, 0), 0, 0);
 output.push(new Output(CellDesings.Special3, Orientation.horizontal, DefaultLayouts.wideStrechedFull, Paging.leading, new Section('', true), layout, sliderArray));
 output.push(new Output('CELLHelperText', Orientation.vertical, DefaultLayouts.wideFull, Paging.none, new Section('', true), null, [infoText]));
 output.push(new Output(CellDesings.Special1, Orientation.horizontal, DefaultLayouts.triplets, Paging.none, new Section('Top Airing : ', true), null, TopAiring));
-output.push(new Output(CellDesings.normal1, Orientation.horizontal, DefaultLayouts.longTripletsDoubleConstant, Paging.leading, new Section('Last Episodes: ', true), null, LastEpisodes));
+output.push(new Output(CellDesings.normal1, Orientation.horizontal, DefaultLayouts.longTripletsDouble, Paging.leading, new Section('Last Episodes: ', true), null, LastEpisodes));
 output.push(new Output(CellDesings.wide6, Orientation.horizontal, DefaultLayouts.longDoubletsFull, Paging.none, new Section('New On Zoro', true), null, NewAnimes));
-let MainPageObject = new MainPage(new ModuleRequest('', 'get', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(true, false, ''), output);
+output.push(new Output(CellDesings.normal2, Orientation.horizontal, DefaultLayouts.longTripletsDouble, Paging.none, new Section('Most Viewed Animes', true), null, MostViewed));
+var date = new Date();
+var year = date.getFullYear();
+var day = date.getDate();
+var month = date.getMonth() + 1;
+var timezoneOffset = date.getTimezoneOffset();
+if (month.length != 10) {
+    month = '0' + month;
+}
+var nextRequest = `https://zoro.to/ajax/schedule/list?tzOffset=${timezoneOffset}&date=${year}-${month}-${day}`;
+let MainPageObject = new MainPage(new ModuleRequest(nextRequest, 'get', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(true, false, ''), output);
 var finalJson = JSON.stringify(MainPageObject);
 savedData.innerHTML = finalJson;
