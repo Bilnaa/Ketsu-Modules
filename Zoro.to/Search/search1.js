@@ -207,7 +207,7 @@
  } catch {
      desc = document.querySelector('.text').innerText.trim();
  }
- var link = 'https://zoro.to/' +document.querySelector('.btn.btn-radius.btn-primary.btn-play').href;
+ var link = 'https://zoro.to/' +document.querySelector('.btn.btn-radius.btn-primary.btn-play').href.replace('/watch/', '');
  link = new ModuleRequest(link, 'get', emptyKeyValue, null);
  try {
      var field1 = document.querySelector('#ani_detail > div > div > div.anis-content > div.anisc-detail > div.film-stats').innerText.trim().replaceAll('\\n', ' ')
