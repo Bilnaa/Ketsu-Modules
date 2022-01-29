@@ -51,7 +51,10 @@
     var output = [];
     var embeds = document.querySelector('._player-mirrors').querySelectorAll('li');
     for (embed of embeds) {
-        var link = 'https:'+ embed.getAttribute('data-link').replace('tape.com', 'ta.pe');
+        var link = embed.getAttribute('data-link').replace('tape.com', 'ta.pe');
+        if (!link.includes('https:')) {
+            link = 'https:'+link;
+        }
         output.push(new NeedsResolver('', new ModuleRequest(link, 'get', emptyKeyValue, null)));
     }
     
