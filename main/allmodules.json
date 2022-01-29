@@ -82,8 +82,14 @@
             "image": "https://i.postimg.cc/J4QpF9Xy/goojara-logo.png",
             "info": "Watch movies and series for free with the module of Goojara.",
             "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/Goojara.to/moduleTemplate.json"
+        },
+        {
+            "name": "Cineblog | IT",
+            "type": "video",
+            "image": "https://i.postimg.cc/7hghDrPg/CineBlog.png",
+            "info": "Watch Italian subbed and dubbed film with the module of Cineblog.",
+            "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/Cineblog/Cineblog.json"
         }
-
     ],
     "images": [{
             "name": "Scans Mangas | FR",
