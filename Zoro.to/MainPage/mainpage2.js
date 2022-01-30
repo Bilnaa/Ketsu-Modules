@@ -200,10 +200,10 @@ for (anime of content) {
   var episode = anime.querySelector('.fd-play').innerText.trim();
   var time = anime.querySelector('.time').innerText.trim();
   var title = time + ' - ' + anime.querySelector('h3').innerText.trim() + ' ' + episode;
-  schedule.push(new Data(dummyQuest, title, '', time, '', '', '', false, link, false));
+  schedule.push(new Data(dummyQuest, title, '', '', '', '', '', false, link, false));
 }
 var testLayout = new Layout(new Insets(0, 0, 10, 10), 1, 2, 3, 6, 300, new Size(0, 0), null, new Size(0, 0), 0, 0);
-output.push(new Output(CellDesings.small2, Orientation.horizontal, DefaultLayouts.none, Paging.leading, new Section('Airs Today', true), testLayout, schedule));
+output.push(new Output(CellDesings.small2, Orientation.vertical, DefaultLayouts.none, Paging.leading, new Section('Airs Today', true), testLayout, schedule));
 let MainPageObject = new MainPage(new ModuleRequest('', 'get', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(true, false, ''), output);
 var finalJson = JSON.stringify(MainPageObject);
 savedData.innerHTML = finalJson;
