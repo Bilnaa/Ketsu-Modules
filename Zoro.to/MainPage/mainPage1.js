@@ -323,8 +323,11 @@ var year = date.getFullYear();
 var day = date.getDate();
 var month = date.getMonth() + 1;
 var timezoneOffset = date.getTimezoneOffset();
-if (month.length != 10) {
+if (month.length <= 10) {
     month = '0' + month;
+}
+if(day <= 10){
+    day = '0' + day;
 }
 var nextRequest = `https://zoro.to/ajax/schedule/list?tzOffset=${timezoneOffset}&date=${year}-${month}-${day}`;
 let MainPageObject = new MainPage(new ModuleRequest(nextRequest, 'get', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(true, false, ''), output);

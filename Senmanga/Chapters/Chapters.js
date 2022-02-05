@@ -65,13 +65,20 @@ var output = [];
 var savedData = document.getElementById('ketsu-final-data');
 var parsedJson = JSON.parse(savedData.innerHTML);
 var emptyKeyValue = [new KeyValue('', '')];
-var link_viewer = document.querySelector('body > div.reader.text-center > a > img').src;
-var nb_ep = document.querySelector('body > div:nth-child(12) > div.page-nav > span > select').textContent.split('   ').pop().trim();
-for (var x = 1; x < nb_ep; x++) {
-    var img = link_viewer.replace(/1$/, x);
-    output.push(new ModuleRequest(img, 'get', emptyKeyValue, null));
+var scripts = document.querySelectorAll('p');
+for (script of scripts){
+    if(script.innerText.includes('let chapter_url =')){
+        var script1 = script.innerText.replace('; var hash = window.location.hash; if (!hash) { hash = 1; } else { hash = parseInt(hash.replace("/", "#")) - 1; } $(function () { imgscroll.beLoad($("#img_list"), imglist, hash); });','');
+        var json = eval(script1);
+        var images = imglist;
+        for (img of images){
+          var img = img.url;
+          output.push(new ModuleRequest(img, 'get', emptyKeyValue, null));
+        }
+    }
 }
 let emptyExtra = new Extra([new Commands('', emptyKeyValue)], emptyKeyValue);
-var chaptersObject = new Chapters(new ModuleRequest('', '', emptyKeyValue, null), emptyExtra, new JavascriptConfig(false, false, ''), new Output(null, output, null));
+var chaptersObject = new Chapters(new ModuleRequest('', '', emptyKeyValue, null), emptyExtra,
+    new JavascriptConfig(false, false, ''), new Output(null, output, null));
 var finalJson = JSON.stringify(chaptersObject);
 savedData.innerHTML = finalJson;
