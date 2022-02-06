@@ -85,9 +85,9 @@ for (var x = 0; x < buttonBox.length; x++) {
 	if (link.includes('asianembed')) {
 		if (!link.includes('streaming.php')) {
 			var fixedLink = 'https:' + link;
-			output.push(new NeedsResolver('UNSUPPORTED', new ModuleRequest(fixedLink, 'get', emptyKeyValue, null)));
+			output.push(new NeedsResolver('', new ModuleRequest(fixedLink, 'get', emptyKeyValue, null)));
 		} else {
-			output.push(new NeedsResolver('UNSUPPORTED', new ModuleRequest('https:' + link, 'get', emptyKeyValue, null)));
+			output.push(new NeedsResolver('', new ModuleRequest('https:' + link, 'get', emptyKeyValue, null)));
 		}
 	}
 	if (link.includes('fembed-hd')) {
