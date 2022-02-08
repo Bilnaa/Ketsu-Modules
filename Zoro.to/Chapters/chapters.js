@@ -69,7 +69,6 @@ const htmlObject = document.createElement('div');
 htmlObject.innerHTML = html;
 document.body.appendChild(htmlObject);
 var extraInfo = [new KeyValue('count', '0')];
-console.log('test')
 var links = document.querySelectorAll('.item.server-item');
 for (var x = 0; x < links.length; x++) {
     var link = links[x];
