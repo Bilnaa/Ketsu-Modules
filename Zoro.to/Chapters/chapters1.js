@@ -136,6 +136,7 @@ if (code == undefined || code == '') {
             var data = {
                 link: metadata[x]
             };
+            if(data.link.includes('watchsb')){
             var lan = language[x];
             if (data.link.includes('streamtape.com')) {
                 var fixedLink = data.link.replace('https://streamtape.com/', 'https://streamta.pe/');
@@ -158,6 +159,7 @@ if (code == undefined || code == '') {
                 output.needsResolver = [new NeedsResolver('', new ModuleRequest(data.link, 'get', emptyKeyValue, null))];
             }
         }
+    }
         let emptyExtra = new Extra([new Commands('', emptyKeyValue)], emptyKeyValue);
         var chaptersObject = new Chapters(new ModuleRequest('', 'get', emptyKeyValue, null), emptyExtra, new JavascriptConfig(false, false, ''), new Output(output, null, null));
         var finalJson = JSON.stringify(chaptersObject);
