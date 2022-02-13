@@ -57,32 +57,41 @@ function Video(videoQuality, videoLink) {
     this.videoQuality = videoQuality;
     this.videoLink = videoLink;
 }
-var savedData = document.getElementById('ketsu-final-data');
-var parsedJson = JSON.parse(savedData.innerHTML);
-var extraInfo = parsedJson.extra.extraInfo;
-var emptyKeyValue = [new KeyValue('', '')];
-var output = [];
-const script = document.querySelector('script').innerHTML.replace('/*', '').replace('*/', '');
-const data = JSON.parse(script);
-const html = data.html;
-const htmlObject = document.createElement('div');
-htmlObject.innerHTML = html;
-document.body.appendChild(htmlObject);
-var extraInfo = [new KeyValue('count', '0')];
-var links = document.querySelectorAll('.item.server-item');
-for (var x = 0; x < links.length; x++) {
-    var link = links[x];
-    var id = link.dataset.id;
-    var lang = link.dataset.type;
-    var url = 'https://zoro.to/ajax/v2/episode/sources?id=' + id + '?lang=' + lang;
-    if (x == 0) {
-        var nextRequest = url
-    } else {
-        extraInfo.push(new KeyValue(`${x}`, `${url}`));
+
+function getValueFromKey(keys, key) {
+    for (var x = 0; x < keys.length; x++) {
+        let tKey = keys[x];
+        if (tKey.key == key) {
+            return tKey.value;
+        }
     }
-    console.log(url);
 }
-let emptyExtra = new Extra([new Commands('', emptyKeyValue)], extraInfo);
-var chaptersObject = new Chapters(new ModuleRequest(nextRequest, 'get', emptyKeyValue, null), emptyExtra, new JavascriptConfig(false, false, ''), new Output(new Videos([], []), null, null));
-var finalJson = JSON.stringify(chaptersObject);
-savedData.innerHTML = finalJson;
+
+function createElementFromHTML(htmlString) {
+    var div = document.createElement('div');
+    div.innerHTML = htmlString.trim();
+    return div.firstChild;
+}
+var output = new Videos([], []);
+var savedData = document.getElementById('ketsu-final-data');
+let parsedData = JSON.parse(savedData.innerText);
+let data = JSON.parse(document.querySelector('script').innerText.replace('/*', '').replace('*/', '')).html.trim();
+if (parsedData.global.variables.length > 0) {
+    let emptyKeyValue = [new KeyValue('token', parsedData.global.variables[0].value)];
+    let holder = document.createElement('div');
+    holder.id = 'holder';
+    document.body.prepend(holder);
+    holder.innerHTML = data;
+    let servers = document.querySelectorAll('.server-item');
+    var ids = [];
+    for (div of servers) {
+        try {
+            let lol = div.getAttribute('data-id') + '' + div.getAttribute('data-type');
+            emptyKeyValue.push(new KeyValue('key', lol));
+        } catch {}
+    }
+    let emptyExtra = new Extra([new Commands('', emptyKeyValue)], emptyKeyValue);
+    var chaptersObject = new Chapters(new ModuleRequest('https://zoro.to/ajax/v2/episode/servers', 'get', emptyKeyValue, null), emptyExtra, new JavascriptConfig(false, true, ''), new Output(output, null, null));
+    var finalJson = JSON.stringify(chaptersObject);
+    savedData.innerHTML = finalJson;
+}

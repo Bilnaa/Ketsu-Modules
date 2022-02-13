@@ -292,7 +292,7 @@ for (list of newanimes) {
     NewAnimes.push(new Data(image, title, '', ep, language, '', '', false, link));
 }
 var MostViewed = [];
-var mostviewed = document.querySelectorAll('#top-viewed-day > ul > li');
+var mostviewed = document.querySelectorAll('#top-viewed-week > ul > li');
 for (list of mostviewed) {
     let title = list.querySelector('img').alt;
     var link = 'https://zoro.to/' + list.querySelector('a').href;
@@ -323,11 +323,11 @@ var year = date.getFullYear();
 var day = date.getDate();
 var month = date.getMonth() + 1;
 var timezoneOffset = date.getTimezoneOffset();
-if (month.length <= 10) {
+if (month < 10) {
     month = '0' + month;
 }
-if(day <= 10){
-    day = '0' + day;
+if (day < 10) {
+    day = '0' + day
 }
 var nextRequest = `https://zoro.to/ajax/schedule/list?tzOffset=${timezoneOffset}&date=${year}-${month}-${day}`;
 let MainPageObject = new MainPage(new ModuleRequest(nextRequest, 'get', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(true, false, ''), output);

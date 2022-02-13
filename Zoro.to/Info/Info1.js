@@ -58,7 +58,7 @@ var image = parsedJson.output.image;
 var title = parsedJson.output.title;
 var desc = parsedJson.output.description;
 var genres = parsedJson.output.genres;
-var type = 'Anime';
+var type = '';
 var episodes = [];
 var script = document.querySelector('script').innerText.replace('*/', '').replace('/*', '');
 var html = JSON.parse(script).html;
@@ -73,8 +73,6 @@ for (var x = 0; x < animes.length; x++) {
     episodes.push(chapter);
 }
 parsedJson.request.url = parsedJson.output.link.url;
-let infoPageObject = new Info(new ModuleRequest('', '', emptyKeyValue, null), new Extra([new Commands('',
-    emptyKeyValue)], emptyKeyValue), new JavascriptConfig(false, false, ''), new Output(image, title,
-    parsedJson.request, desc, genres, '', '', type, 'Eps: ' + episodes.length, episodes));
+let infoPageObject = new Info(new ModuleRequest('', '', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(false, false, ''), new Output(image, title, parsedJson.request, desc, genres, parsedJson.output.field1, parsedJson.output.field2, type, 'Eps: ' + episodes.length, episodes));
 var finalJson = JSON.stringify(infoPageObject);
 savedData.innerText = finalJson;
