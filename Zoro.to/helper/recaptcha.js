@@ -41,27 +41,50 @@ function createElementFromHTML(htmlString) {
     return div.firstChild;
 }
 var done = false;
-var _0x359c07 = _0x4666;
-var _0x1cbce7 = _0x4666;
 var mCode = '';
-grecaptcha.ready(function () {
-    var _0x5c6fe9 = _0x1cbce7;
-    grecaptcha.execute(recaptchaSiteKey, {
-        'action': _0x5c6fe9(0x3bb)
-    })['then'](function (_0x178b6b) {
-        if (_0x178b6b != undefined && _0x178b6b != '') {
-            localStorage.setItem('ketsu-code', _0x178b6b);
-            mCode = _0x178b6b;
-            document.body.prepend(createElementFromHTML("<div style='width: 100%;background-color: black;'><h4 style='text-align: center;'>KETSU FINISHED</h4></div>"));
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-            done = true;
-        }
+try {
+    var _0x359c07 = _0x4666;
+    var _0x1cbce7 = _0x4666;
+    grecaptcha.ready(function () {
+        var _0x5c6fe9 = _0x1cbce7;
+        grecaptcha.execute(recaptchaSiteKey, {
+            'action': _0x5c6fe9(0x3bb)
+        })['then'](function (_0x178b6b) {
+            if (_0x178b6b != undefined && _0x178b6b != '') {
+                localStorage.setItem('ketsu-code', _0x178b6b);
+                mCode = _0x178b6b;
+                document.body.prepend(createElementFromHTML("<div style='width: 100%;background-color: black;'><h4 style='text-align: center;'>KETSU FINISHED</h4></div>"));
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+                done = true;
+            }
+        });
     });
-});
-for (var x = 0; x < 2500; x++) {
+} catch {}
+try {
+    var _0x3401d2 = _0x3de586;
+    var _0x359c07 = _0x3de586;
+    grecaptcha[_0x3401d2(0xcf3)](function () {
+        var _0x3bca0e = _0x3401d2;
+        grecaptcha['execute'](recaptchaSiteKey, {
+            'action': _0x3bca0e(0x35e)
+        })[_0x3bca0e(0x3d6)](function (_0x2e4d0a) {
+            if (_0x2e4d0a != undefined && _0x2e4d0a != '') {
+                localStorage.setItem('ketsu-code', _0x2e4d0a);
+                mCode = _0x2e4d0a;
+                document.body.prepend(createElementFromHTML("<div style='width: 100%;background-color: black;'><h4 style='text-align: center;'>KETSU FINISHED</h4></div>"));
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+                done = true;
+            }
+        });
+    });
+} catch {}
+for (var x = 0; x < 1500; x++) {
     if (done) {
         break;
     }
