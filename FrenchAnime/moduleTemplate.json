@@ -6,7 +6,7 @@
     "developer": "ナビル",
     "moduleID": "08521515068",
     "moduleImage": "https://i.postimg.cc/W1M8FtJk/frenchanime.png",
-    "moduleVersion": 1.2,
+    "moduleVersion": 1.31,
     "moduleLenguage": "FR",
     "moduleType": "Video",
     "baseURL": "https://french-anime.com/",
@@ -155,7 +155,7 @@
   "search": [
     {
       "request": {
-        "url": "https://french-anime.com/index.php/search/?do=search&subaction=search&story=<searched>",
+        "url": "https://french-anime.com/index.php/search/?story=<searched>&do=search&search_start=<page>&subaction=search&submit=Submit",
         "method": "get",
         "headers": [
           {
@@ -453,19 +453,19 @@
   "moduleResolvers": [
     {
       "resolverInfo": {
-        "resolverName": "",
+        "resolverName": "EVOLOAD",
         "nameMatches": [
-          ""
+          "EVOLOAD"
         ],
-        "developer": "",
-        "moduleID": "",
-        "resolverVersion": 1,
-        "baseURL": ""
+        "developer": "ナビル",
+        "moduleID": "230076042410",
+        "resolverVersion": 1.00,
+        "baseURL": "evoload.io"
       },
       "resolver": [
         {
           "request": {
-            "url": "",
+            "url": "empty",
             "method": "get",
             "headers": [
               {
@@ -495,9 +495,191 @@
             ]
           },
           "javascriptConfig": {
-            "removeJavascript": false,
+            "removeJavascript": true,
             "loadInWebView": false,
-            "javaScript": ""
+            "javaScript": "function Resolver(request, extra, javascriptConfig, output) {this.request = request;this.extra = extra;this.javascriptConfig = javascriptConfig;this.output = output;}function ModuleRequest(url, method, headers, httpBody) {this.url = url;this.method = method;this.headers = headers;this.httpBody = httpBody;}function Extra(commands, extraInfo) {this.commands = commands;this.extraInfo = extraInfo;}function Commands(commandName, params) {this.commandName = commandName;this.params = params;}function JavascriptConfig(removeJavascript, loadInWebView, javaScript) {this.removeJavascript = removeJavascript;this.loadInWebView = loadInWebView;this.javaScript = javaScript;}function KeyValue(key, value) {this.key = key;this.value = value;}function Output(video) {this.video = video;}function Video(videoQuality, videoLink) {this.videoQuality = videoQuality;this.videoLink = videoLink;}function getNext(match, array) {for (var x = 0; x < array.length; x++) {let mMatch = array[x];if (mMatch.includes(match)) {return array[x + 1];}}}var savedData = document.getElementById('ketsu-final-data');var parsedJson = JSON.parse(savedData.innerHTML);var emptyKeyValue = [new KeyValue('Referer', parsedJson.request.url)];var videos = [];var id = document.getElementById('captcha_pass').getAttribute('value');var nextRequest = `https://csrv.evosrv.com/captcha?${id}`;let emptyExtra = new Extra([new Commands('', emptyKeyValue)], emptyKeyValue);var chaptersObject = new Resolver(new ModuleRequest(nextRequest, 'get', emptyKeyValue, null), emptyExtra, new JavascriptConfig(false, false, ''), new Output(videos));var finalJson = JSON.stringify(chaptersObject);savedData.innerHTML = finalJson;"
+          },
+          "output": {
+            "moduleID": "",
+            "video": [
+              {
+                "videoQuality": "720",
+                "videoLink": {
+                  "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+                  "method": "get",
+                  "headers": [
+                    {
+                      "key": "key",
+                      "value": "value"
+                    }
+                  ],
+                  "httpBody": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "request": {
+            "url": "empty",
+            "method": "get",
+            "headers": [
+              {
+                "key": "key",
+                "value": "value"
+              }
+            ],
+            "httpBody": null
+          },
+          "extra": {
+            "commands": [
+              {
+                "commandName": "",
+                "params": [
+                  {
+                    "key": "",
+                    "value": ""
+                  }
+                ]
+              }
+            ],
+            "extraInfo": [
+              {
+                "key": "",
+                "value": ""
+              }
+            ]
+          },
+          "javascriptConfig": {
+            "removeJavascript": true,
+            "loadInWebView": false,
+            "javaScript": " function Resolver(request, extra, javascriptConfig, output) { this.request = request; this.extra = extra; this.javascriptConfig = javascriptConfig; this.output = output; } function ModuleRequest(url, method, headers, httpBody) { this.url = url; this.method = method; this.headers = headers; this.httpBody = httpBody; } function Extra(commands, extraInfo) { this.commands = commands; this.extraInfo = extraInfo; } function Commands(commandName, params) { this.commandName = commandName; this.params = params; } function JavascriptConfig(removeJavascript, loadInWebView, javaScript) { this.removeJavascript = removeJavascript; this.loadInWebView = loadInWebView; this.javaScript = javaScript; } function KeyValue(key, value) { this.key = key; this.value = value; } function Output(video) { this.video = video; } function Video(videoQuality, videoLink) { this.videoQuality = videoQuality; this.videoLink = videoLink; } function getNext(match, array) { for (var x = 0; x < array.length; x++) { let mMatch = array[x]; if (mMatch.includes(match)) { return array[x + 1]; } } } var savedData = document.getElementById('ketsu-final-data'); var parsedJson = JSON.parse(savedData.innerHTML); var emptyKeyValue = [new KeyValue('Referer', parsedJson.request.url)]; var videos = []; var csrv = document.querySelector('script').innerText.replace('*/', '').replace('/*', '').trim(); var formdata = { 'code': parsedJson.request.headers[0].value.split('/')[4], 'csrv_token' : csrv, 'pass': parsedJson.request.url.split('?')[1], 'token': 'ok' }; var body = 'code=' + formdata.code + '&csrv_token=' + formdata.csrv_token + '&pass=' + formdata.pass + '&token=' + formdata.token; let emptyExtra = new Extra([new Commands('', emptyKeyValue)], emptyKeyValue); var chaptersObject = new Resolver(new ModuleRequest('https://evoload.io/SecurePlayer', 'post', emptyKeyValue, body), emptyExtra, new JavascriptConfig(false, false, ''), new Output(videos)); var finalJson = JSON.stringify(chaptersObject); savedData.innerHTML = finalJson;"
+          },
+          "output": {
+            "moduleID": "",
+            "video": [
+              {
+                "videoQuality": "720",
+                "videoLink": {
+                  "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+                  "method": "get",
+                  "headers": [
+                    {
+                      "key": "key",
+                      "value": "value"
+                    }
+                  ],
+                  "httpBody": null
+                }
+              }
+            ]
+          }
+        },
+        {
+          "request": {
+            "url": "empty",
+            "method": "get",
+            "headers": [
+              {
+                "key": "key",
+                "value": "value"
+              }
+            ],
+            "httpBody": null
+          },
+          "extra": {
+            "commands": [
+              {
+                "commandName": "",
+                "params": [
+                  {
+                    "key": "",
+                    "value": ""
+                  }
+                ]
+              }
+            ],
+            "extraInfo": [
+              {
+                "key": "",
+                "value": ""
+              }
+            ]
+          },
+          "javascriptConfig": {
+            "removeJavascript": true,
+            "loadInWebView": false,
+            "javaScript": " function Resolver(request, extra, javascriptConfig, output) { this.request = request; this.extra = extra; this.javascriptConfig = javascriptConfig; this.output = output; } function ModuleRequest(url, method, headers, httpBody) { this.url = url; this.method = method; this.headers = headers; this.httpBody = httpBody; } function Extra(commands, extraInfo) { this.commands = commands; this.extraInfo = extraInfo; } function Commands(commandName, params) { this.commandName = commandName; this.params = params; } function JavascriptConfig(removeJavascript, loadInWebView, javaScript) { this.removeJavascript = removeJavascript; this.loadInWebView = loadInWebView; this.javaScript = javaScript; } function KeyValue(key, value) { this.key = key; this.value = value; } function Output(video) { this.video = video; } function Video(videoQuality, videoLink) { this.videoQuality = videoQuality; this.videoLink = videoLink; } function getNext(match, array) { for (var x = 0; x < array.length; x++) { let mMatch = array[x]; if (mMatch.includes(match)) { return array[x + 1]; } } } var savedData = document.getElementById('ketsu-final-data'); var parsedJson = JSON.parse(savedData.innerHTML); var emptyKeyValue = [new KeyValue('Referer', parsedJson.request.url)]; var videos = []; var script = document.querySelector('script').innerText.replace('*/', '').replace('/*', '').trim(); var json = JSON.parse(script); videos.push(new Video('Normal',new ModuleRequest(json.stream.src,'get',emptyKeyValue,null)));; let emptyExtra = new Extra([new Commands('', emptyKeyValue)], emptyKeyValue); var chaptersObject = new Resolver(new ModuleRequest('', 'POST', emptyKeyValue, null), emptyExtra, new JavascriptConfig(false, false, ''), new Output(videos)); var finalJson = JSON.stringify(chaptersObject); savedData.innerHTML = finalJson;"
+          },
+          "output": {
+            "moduleID": "",
+            "video": [
+              {
+                "videoQuality": "720",
+                "videoLink": {
+                  "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+                  "method": "get",
+                  "headers": [
+                    {
+                      "key": "key",
+                      "value": "value"
+                    }
+                  ],
+                  "httpBody": null
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },  
+    {
+      "resolverInfo": {
+        "resolverName": "VUDEO",
+        "nameMatches": [
+          "VUDEO"
+        ],
+        "developer": "Frizrat",
+        "moduleID": "18511209",
+        "resolverVersion": 1.0,
+        "baseURL": ""
+      },
+      "resolver": [
+        {
+          "request": {
+            "url": "empty",
+            "method": "get",
+            "headers": [
+              {
+                "key": "key",
+                "value": "value"
+              }
+            ],
+            "httpBody": null
+          },
+          "extra": {
+            "commands": [
+              {
+                "commandName": "",
+                "params": [
+                  {
+                    "key": "",
+                    "value": ""
+                  }
+                ]
+              }
+            ],
+            "extraInfo": [
+              {
+                "key": "",
+                "value": ""
+              }
+            ]
+          },
+          "javascriptConfig": {
+            "removeJavascript": true,
+            "loadInWebView": false,
+            "javaScript": "function Resolver(request, extra, javascriptConfig, output) { this.request = request; this.extra = extra; this.javascriptConfig = javascriptConfig; this.output = output; } function ModuleRequest(url, method, headers, httpBody) { this.url = url; this.method = method; this.headers = headers; this.httpBody = httpBody; } function Extra(commands, extraInfo) { this.commands = commands; this.extraInfo = extraInfo; } function Commands(commandName, params) { this.commandName = commandName; this.params = params; } function JavascriptConfig(removeJavascript, loadInWebView, javaScript) { this.removeJavascript = removeJavascript; this.loadInWebView = loadInWebView; this.javaScript = javaScript; } function KeyValue(key, value) { this.key = key; this.value = value; } function Output(video) { this.video = video; } function Video(videoQuality, videoLink) { this.videoQuality = videoQuality; this.videoLink = videoLink; } var savedData = document.getElementById('ketsu-final-data'); var parsedJson = JSON.parse(savedData.innerHTML); var emptyKeyValue = [new KeyValue('','')]; var videos = []; var scripts = document.querySelectorAll('p'); for (script of scripts) { var scriptText = script.innerHTML; if (scriptText.includes('var player')) { var json = scriptText.split('\"')[1]; json = '[{\"mp4\":\"' + json + '\"}]'; let parsedJ = JSON.parse(json); for (video of parsedJ) { let header = [new KeyValue('Referer', 'https://vudeo.net/'), new KeyValue('Content-Type', '')]; videos.push(new Video('', new ModuleRequest(video.mp4, 'get', header, null))); } break; } } let emptyExtra = new Extra([new Commands('',emptyKeyValue)],emptyKeyValue); var chaptersObject = new Resolver(new ModuleRequest('','',emptyKeyValue,null),emptyExtra,new JavascriptConfig(false,false,''), new Output(videos)); var finalJson = JSON.stringify(chaptersObject); savedData.innerHTML = finalJson;"
           },
           "output": {
             "moduleID": "",

@@ -5,7 +5,7 @@
   "developer": "Anonymous",
   "moduleID": "fsfr",
   "moduleImage": "https://french-anime.com/templates/franime/images/favicon3.png",
-  "moduleVersion": "1.0",
+  "moduleVersion": "1.01",
   "moduleLenguage": "fr",
   "moduleHasVideos": "true",
   "randomizeUserAgent": "false",
@@ -55,7 +55,7 @@
   ],
   "search": [
     {
-      "request": "https://french-anime.com/index.php/search/?do=search&subaction=search&story=<searched>",
+      "request": "https://french-anime.com/index.php?story=<searched>&do=search&search_start=<page>&subaction=search",
       "method": "post",
       "headers": [
         {

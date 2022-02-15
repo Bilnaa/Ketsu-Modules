@@ -67,25 +67,26 @@
  var emptyKeyValue = [new KeyValue('', '')];
  let newRequest = new ModuleRequest(parsedJson.request.url, 'get', emptyKeyValue, null);
  var commands = [new Commands('helperFunction', [new KeyValue('isCustomRequest', 'true'), new KeyValue('name', 'example')])];
- for(const data of parsedJson.global.variables) {
+ for (const data of parsedJson.global.variables) {
  	const link = data.value;
-	 if(link.includes('streamtape.com')){
-	var fixedLink = link.replace('https://streamtape.com/', 'https://streamta.pe/');
- 	output.push(new NeedsResolver('', new ModuleRequest(fixedLink, 'get', emptyKeyValue, null)));
+ 	if (link.includes('streamtape.com')) {
+ 		var fixedLink = link.replace('https://streamtape.com/', 'https://streamta.pe/');
+ 		output.push(new NeedsResolver('', new ModuleRequest(fixedLink, 'get', emptyKeyValue, null)));
+ 	}
+ 	if (link.includes('my.mail.ru')) {
+ 		var fixedLink = link.replace('https://my.mail.ru/video/embed/', 'https://my.mail.ru/+/video/meta/');
+ 		output.push(new NeedsResolver('', new ModuleRequest(fixedLink, 'get', emptyKeyValue, null)));
+ 	}
+ 	if (link.includes('videovard.sx')) {
+ 		output.push(new NeedsResolver('', new ModuleRequest(link, 'get', emptyKeyValue, null)));
+ 	}
+ 	if (link.includes('video.sibnet.ru/')) {
+ 		output.push(new NeedsResolver('', new ModuleRequest(link, 'get', emptyKeyValue, null)));
+ 	}
+	if(link.includes('yourupload.com')){
+		output.push(new NeedsResolver('', new ModuleRequest(link, 'get', emptyKeyValue, null)));
+	}
  }
-if (link.includes('my.mail.ru')){
-	var fixedLink = link.replace('https://my.mail.ru/video/embed/', 'https://my.mail.ru/+/video/meta/');
-	output.push(new NeedsResolver('', new ModuleRequest(fixedLink, 'get', emptyKeyValue, null)));
-}
-if (link.includes('streamlare.com') || link.includes('videovard.sx')){
-	var fixedLink = link;
-	output.push(new NeedsResolver('', new ModuleRequest(fixedLink, 'get', emptyKeyValue, null)));
-}
-if (link.includes('video.sibnet.ru/')){
-	output.push(new NeedsResolver('', new ModuleRequest(link, 'get', emptyKeyValue, null)));
-}
- }
- 
  let emptyExtra = new Extra(commands, emptyKeyValue);
  var chaptersObject = new Chapters(newRequest, emptyExtra, new JavascriptConfig(false, false, ''), new Output(new Videos(output, null), null, null), new Extra('', emptyKeyValue));
  var finalJson = JSON.stringify(chaptersObject);

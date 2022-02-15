@@ -154,7 +154,7 @@
   "search": [
     {
       "request": {
-        "url": "https://french-stream.run/index.php?story=<searched>&do=search&subaction=search",
+        "url": "https://french-stream.run/index.php?story=<searched>&do=search&search_start=<page>&subaction=search&submit=Submit",
         "method": "get",
         "headers": [
           {

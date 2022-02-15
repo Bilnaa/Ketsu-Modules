@@ -5,7 +5,7 @@
     "developer": "JacK_ ",
     "moduleID": "6735883946",
     "moduleImage": "https://i.imgur.com/AYyMYiE.png",
-    "moduleVersion": "1.3",
+    "moduleVersion": "1.4",
     "moduleLenguage": "FR",
     "moduleHasVideos": "true",
     "randomizeUserAgent": "false",
@@ -42,7 +42,7 @@
         }
     }],
     "search": [{
-        "request": "https://vostfree.tv/index.php?do=search&subaction=search&story=<searched>&submit=Submit",
+        "request": "https://vostfree.tv/index.php?story=<searched>&do=search&search_start=<page>&subaction=search&submit=Submit",
         "method": "post",
         "headers": [{
             "key": "",
