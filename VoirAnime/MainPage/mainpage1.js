@@ -147,7 +147,7 @@ let output = [];
 let emptyKeyValue = [new KeyValue('', '')];
 var lastAnime = [];
 anime = document.querySelectorAll('.row.c-tabs-item__content');
-for(list of anime) {
+for (list of anime) {
 	let title = list.querySelector('.h4 a').textContent;
 	var link = list.querySelector('.h4 a').href;
 	link = new ModuleRequest(link, 'get', emptyKeyValue, null);
@@ -157,7 +157,7 @@ for(list of anime) {
 	lastAnime.push(new Data(image, title, '', ep, '', '', '', false, link));
 }
 output.push(new Output(CellDesings.wide6, Orientation.horizontal, DefaultLayouts.wide, Paging.leading, new Section('Derniers Films VOSTFR : ', true), null, lastAnime));
-let extraInfo = [new KeyValue('count', '1'), new KeyValue('0', 'https://voiranime.com/?filter=subbed',new KeyValue('1', 'https://voiranime.com/?filter=dubbed'))];
+let extraInfo = [new KeyValue('count', '1'), new KeyValue('0', 'https://voiranime.com/?filter=subbed', new KeyValue('1', 'https://voiranime.com/?filter=dubbed'))];
 let MainPageObject = new MainPage(new ModuleRequest('https://voiranime.com/?filter=subbed', 'get', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], extraInfo), new JavascriptConfig(true, false, ''), output);
 var finalJson = JSON.stringify(MainPageObject);
 savedData.innerHTML = finalJson;

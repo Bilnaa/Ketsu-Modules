@@ -181,7 +181,7 @@ function quickData(link, image, title, field1) {
 
 function shuffle(a) {
 	var j, x, i;
-	for(i = a.length - 1; i > 0; i--) {
+	for (i = a.length - 1; i > 0; i--) {
 		j = Math.floor(Math.random() * (i + 1));
 		x = a[i];
 		a[i] = a[j];
@@ -195,7 +195,7 @@ let output = [];
 let emptyKeyValue = [new KeyValue('', '')];
 var lastAdded = document.querySelector('.c-tabs-item').querySelectorAll('.row.c-tabs-item__content');
 let lastAddedArray = [];
-for(var x = 0; x < lastAdded.length; x++) {
+for (var x = 0; x < lastAdded.length; x++) {
 	let list = lastAdded[x];
 	let title = list.querySelector('.h4 a').textContent;
 	var link = list.querySelector('.h4 a').href;
@@ -203,7 +203,7 @@ for(var x = 0; x < lastAdded.length; x++) {
 	var desc = list.querySelector('.post-content').textContent.replaceAll('\\n', ' ');
 	link = new ModuleRequest(link, 'get', emptyKeyValue, null);
 	image = new ModuleRequest(image, 'get', emptyKeyValue, null);
-	if(title.includes('(VF)')) {
+	if (title.includes('(VF)')) {
 		var field2 = 'VF';
 	} else {
 		var field2 = 'VOSTFR';

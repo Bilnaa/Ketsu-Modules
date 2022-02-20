@@ -31,21 +31,11 @@ function KeyValue(key, value) {
     this.key = key;
     this.value = value;
 }
-
 const savedData = document.getElementById('ketsu-final-data');
 const parsedJson = JSON.parse(savedData.innerHTML);
-
 let emptyKeyValue = [new KeyValue('', '')];
-
 const data = document.querySelector('.chapter-video-frame').querySelector('p iframe').src;
-
-const commands = [
-    new Commands('variable', [
-        new KeyValue('data', data),
-        new KeyValue('current', parsedJson.request.url)
-    ])
-];
-
+const commands = [new Commands('variable', [new KeyValue('data', data), new KeyValue('current', parsedJson.request.url)])];
 const infoPageObject = new Info(new ModuleRequest('', '', emptyKeyValue, null), new Extra(commands, emptyKeyValue), new JavascriptConfig(false, false, ''));
 const finalJson = JSON.stringify(infoPageObject);
 savedData.innerHTML = finalJson;

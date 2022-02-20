@@ -143,9 +143,9 @@ function Data(image, title, description, field1, field2, field3, field4, isChapt
 }
 
 function getValueFromKey(keys, key) {
-	for(var x = 0; x < keys.length; x++) {
+	for (var x = 0; x < keys.length; x++) {
 		let tKey = keys[x];
-		if(tKey.key == key) {
+		if (tKey.key == key) {
 			return tKey.value;
 		}
 	}
@@ -159,7 +159,7 @@ var extraInfo = parsedJson.extra.extraInfo;
 var count = parseInt(getValueFromKey(extraInfo, 'count'));
 var lastAnime = [];
 anime = document.querySelectorAll('.col-12.col-md-6.badge-pos-1');
-for(list of anime) {
+for (list of anime) {
 	let title = list.querySelector('.h5 a').textContent;
 	var link = list.querySelector('a').href;
 	link = new ModuleRequest(link, 'get', emptyKeyValue, null);
@@ -171,7 +171,14 @@ for(list of anime) {
 		image = list.querySelector('.item-thumb img').src;
 	}
 	image = new ModuleRequest(image, 'get', emptyKeyValue, null);
-	var ep = 'Épisode ' + list.querySelector('.btn-link').textContent;
+	try {
+		var ep = 'Épisode ' + list.querySelector('.btn-link').textContent;
+		if (ep.includes('FILM')) {
+			ep = 'Film'
+		}
+	} catch (e) {
+		ep = ''
+	};
 	lastAnime.push(new Data(image, title, '', ep, '', '', '', false, link));
 }
 output.push(new Output(CellDesings.normal1, Orientation.vertical, DefaultLayouts.longTripletsFullConstant, Paging.leading, new Section('Derniers épisodes VF', true), null, lastAnime));
