@@ -73,19 +73,11 @@
  		var fixedLink = link.replace('https://streamtape.com/', 'https://streamta.pe/');
  		output.push(new NeedsResolver('', new ModuleRequest(fixedLink, 'get', emptyKeyValue, null)));
  	}
- 	if (link.includes('my.mail.ru')) {
- 		var fixedLink = link.replace('https://my.mail.ru/video/embed/', 'https://my.mail.ru/+/video/meta/');
- 		output.push(new NeedsResolver('', new ModuleRequest(fixedLink, 'get', emptyKeyValue, null)));
- 	}
- 	if (link.includes('videovard.sx')) {
+ 	if (link.includes('videovard.sx') || link.includes('video.sibnet.ru/') || link.includes('yourupload.com') || link.includes('voe')) {
  		output.push(new NeedsResolver('', new ModuleRequest(link, 'get', emptyKeyValue, null)));
+ 	} else {
+ 		output.push(new NeedsResolver('UNSUPPORTED', new ModuleRequest(link, 'get', emptyKeyValue, null)));
  	}
- 	if (link.includes('video.sibnet.ru/')) {
- 		output.push(new NeedsResolver('', new ModuleRequest(link, 'get', emptyKeyValue, null)));
- 	}
-	if(link.includes('yourupload.com')){
-		output.push(new NeedsResolver('', new ModuleRequest(link, 'get', emptyKeyValue, null)));
-	}
  }
  let emptyExtra = new Extra(commands, emptyKeyValue);
  var chaptersObject = new Chapters(newRequest, emptyExtra, new JavascriptConfig(false, false, ''), new Output(new Videos(output, null), null, null), new Extra('', emptyKeyValue));
