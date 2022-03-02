@@ -95,7 +95,7 @@
             "name": "MangaDex | ENG",
             "type": "Image",
             "image": "https://i.postimg.cc/4d38NsqH/Manga-Dex-logo.png",
-            "info": "Read for free webtoons that are on the website of AsuraScans",
+            "info": "Read manga for free with the module of MangaDex.",
             "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/MangaDex/moduleTemplate.json",
             "Zetsu_link": "zetsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/MangaDex/moduleTemplate.json"
         }, {
@@ -133,7 +133,7 @@
         {
             "name": "Senmanga | JP",
             "image": "https://i.postimg.cc/hvP5c4qS/logo-sen.png",
-            "info": "Read raw mangas on the beta module for Senmanga.",
+            "info": "Read raw mangas on the module for Senmanga.",
             "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/Senmanga/senmanga.json",
             "Zetsu_link": "zetsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/Senmanga/senmanga.json"
         },
