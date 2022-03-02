@@ -6,9 +6,10 @@
     "developer": "ナビル",
     "moduleID": "3261521415421",
     "moduleImage": "https://i.postimg.cc/4d38NsqH/Manga-Dex-logo.png",
-    "moduleVersion": 1.0,
+    "moduleVersion": 1.01,
     "moduleLenguage": "ENG",
     "moduleType": "Image",
+    "changelog": "1.01 - Now the search is more relevant",
     "baseURL": "https://mangadex.org/",
     "moduleDeveloperSite": "https://bilnaa.github.io/main",
     "UpdateSite": "https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/MangaDex/moduleTemplate.json",
@@ -486,7 +487,7 @@
   "search": [
     {
       "request": {
-        "url": "https://api.mangadex.org/manga?title=<searched>&limit=100&contentRating[]=safe&contentRating[]=suggestive&contentRating[]=erotica&includes[]=cover_art&order[relevance]=desc",
+        "url": "https://api.mangadex.org/manga?title=<searched>&limit=100&contentRating[]=safe&contentRating[]=suggestive&contentRating[]=erotica&includes[]=cover_art&order[createdAt]=asc",
         "method": "get",
         "headers": [
           {
