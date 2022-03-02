@@ -92,6 +92,13 @@
         }
     ],
     "images": [{
+            "name": "MangaDex | ENG",
+            "type": "Image",
+            "image": "https://i.postimg.cc/4d38NsqH/Manga-Dex-logo.png",
+            "info": "Read for free webtoons that are on the website of AsuraScans",
+            "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/MangaDex/moduleTemplate.json",
+            "Zetsu_link": "zetsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/MangaDex/moduleTemplate.json"
+        }, {
             "name": "Scans Mangas | FR",
             "type": "Image",
             "image": "https://i.postimg.cc/MTqkm3hx/Scans-Mangas.png",
