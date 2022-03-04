@@ -6,8 +6,9 @@
     "developer": "ナビル",
     "moduleID": "20020901",
     "moduleImage": "https://i.postimg.cc/MK0y10tY/asura-logo.png",
-    "moduleVersion": 1.01,
+    "moduleVersion": 1.02,
     "moduleLenguage": "ENG",
+    "changelog":"added the separator for the search to work when you have more than two words",
     "moduleType": "Image",
     "baseURL": "https://www.asurascans.com/",
     "moduleDeveloperSite": "https://www.asurascans.com/",
@@ -164,7 +165,7 @@
         ],
         "httpBody": null
       },
-      "separator": "",
+      "separator": "+",
       "extra": {
         "commands": [
           {
