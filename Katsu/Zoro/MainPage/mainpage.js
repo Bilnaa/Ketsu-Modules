@@ -50,7 +50,7 @@ var last = document.querySelectorAll(
 for (list of last) {
     let title = list.querySelector('img').alt;
     var link = 'https://zoro.to/' + list.querySelector('.film-name a').href;
-    var image = list.querySelector('img').dataset.src;
+    var image = list.querySelector('img').getAttribute('data-src');
     var ep = '??';
     try {
         ep = list.querySelector('.tick.rtl').textContent.trim().replace('Ep', '').replaceAll(' ', '');
@@ -84,7 +84,7 @@ var mostviewed = document.querySelectorAll('#top-viewed-week > ul > li');
 for (list of mostviewed) {
     let title = list.querySelector('img').alt;
     var link = 'https://zoro.to/' + list.querySelector('a').href;
-    var image = list.querySelector('img').dataset.src;
+    var image = list.querySelector('img').getAttribute('data-src');
     var views = '??';
     try {
         views = list.querySelector('.fdi-item').textContent.trim();

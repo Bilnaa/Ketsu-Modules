@@ -47,7 +47,7 @@ for (short of shorts) {
             language = short.querySelector('.tick.ltr').innerText.trim().replace('\\n', '/');
         }
     }
-    var image = short.querySelector('img').dataset.src;
+    var image = short.querySelector('img').getAttribute('data-src');
     var field1 = short.querySelector('.tick-item.tick-eps').textContent.trim();
     var link = 'https://zoro.to/' + short.querySelector('a').href;
     var title = short.querySelector('img').alt;
