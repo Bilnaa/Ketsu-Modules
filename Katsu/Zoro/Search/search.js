@@ -29,12 +29,23 @@ function SearchObject(request, method, headers, separator, extraInfo, loadJavasc
 }
 var savedData = document.getElementById('katsu-final-data');
 var parsedJson = JSON.parse(savedData.innerHTML);
-var moduleID = 'UAFR';
+var moduleID = '114653268923213246';
 var headers = [new Header('', '')];
 var extraInfo = [new ExtraInfo('')];
 var searchPageObject;
 var output = [];
-var type = 'Anime';
+try {
+    var field1 = document.querySelector('#ani_detail > div > div > div.anis-content > div.anisc-detail > div.film-stats').innerText.trim().replaceAll('\\n', ' ')
+} catch (e) {
+    var field1 = document.querySelector('#ani_detail > div > div > div.anis-content > div.anisc-detail > div.film-stats').innerText.trim()
+};
+if (field1.includes('TV')) {
+    var type = 'TV';
+} else if (field1.includes('Movie')) {
+    var type = 'Movie'
+} else {
+    var type = 'Unknown'
+};
 var shorts = document.querySelectorAll('.film_list-wrap .flw-item');
 for (short of shorts) {
     try {
