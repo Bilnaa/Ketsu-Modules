@@ -6,14 +6,14 @@
     "developer": "ナビル",
     "moduleID": "2849626",
     "moduleImage": "https://yt3.ggpht.com/a-/AAuE7mAW2MBlo2Dg0vVQBmQTl8ex6dhwNZHmObqHwQ=s900-mo-c-c0xffffffff-rj-k-no",
-    "moduleVersion": 2.51,
+    "moduleVersion": 2.52,
     "moduleLenguage": "ENG",
     "moduleType": "Video",
     "changelog": "Reenabled asianembed support but sbplay no more available",
     "baseURL": "https://www.dramacool.sk/",
     "moduleDeveloperSite": "https://bilnaa.github.io/main",
     "UpdateSite": "https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/Drama_Cool/moduleTemplate.json",
-    "preferedServer": "ASIANEMBED",
+    "preferedServer": "STREAMTA",
     "preferedDownloadServer": "STREAMTA",
     "blackListed": [
       ""
