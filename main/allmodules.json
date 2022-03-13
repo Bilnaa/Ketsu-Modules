@@ -80,14 +80,6 @@
             "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/AnimeWorld/AnimeWorld.json"
         },
         {
-            "name": "Streaming Community | IT",
-            "type": "video",
-            "author": "Frizrat",
-            "image": "https://i.postimg.cc/ydYj9BrN/scom.png",
-            "info": "Watch movies and series for free with the module of StreamingCommunity.",
-            "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/StreamingCommunity/StreamingCommunity.json"
-        },
-        {
             "name": "Goojara | ENG",
             "type": "video",
             "author": "Nabil",
