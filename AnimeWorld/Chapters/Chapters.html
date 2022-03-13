@@ -71,7 +71,9 @@
             if (dLink.includes('DLL/ANIME')) {
                 raw.push(new RawVideo([new Video('Normal', new ModuleRequest(dLink.replace('download-file.php?id=', ''),
                     'get', emptyKeyValue, null))]));
-            } else {
+            } else if(dLink.includes('animeworld.biz')) {
+                output.push(new NeedsResolver('WATCHSB_BROKEN', new ModuleRequest(dLink, 'get', emptyKeyValue, null)));
+            } else{
                 output.push(new NeedsResolver('', new ModuleRequest(dLink, 'get', emptyKeyValue, null)))
             }
         }
