@@ -193,6 +193,10 @@
    var time = hour + ':' + minute;
    return time;
  }
+
+ function getDaysInMonth(month, year) {
+   return new Date(year, month, 0).getDate();
+ }
  var savedData = document.getElementById('ketsu-final-data');
  var parsedJson = JSON.parse(savedData.innerHTML);
  let emptyKeyValue = [new KeyValue('', '')];
@@ -210,7 +214,8 @@
    var dummyQuest = new ModuleRequest('', 'get', emptyKeyValue, null);
    var episode = anime.querySelector('.fd-play').innerText.trim();
    var time = anime.querySelector('.time').innerText.trim();
-   if (!(parseInt(time.split(':')[0]) < parseInt(actualtime.split(':')[0])) && !(time.split(':')[1] < actualtime.split(':')[1])) {
+   if ((parseInt(time.split(':')[0]) > parseInt(actualtime.split(':')[0])) || ((parseInt(time.split(':')[0]) == parseInt(actualtime.split(':')[0])) && (parseInt(time.split(':')[1]) > parseInt(actualtime.split(':')[1])))) {
+     console.log('not aired yet');
      var title = time + ' - ' + anime.querySelector('h3').innerText.trim() + ' ' + episode;
      schedule.push(new Data(dummyQuest, title, '', '', '', '', '', false, link, false));
    }
@@ -221,16 +226,23 @@
    var year = date.getFullYear();
    var day = date.getDate();
    var month = date.getMonth() + 1;
+   var daysinmonth = getDaysInMonth(month, year);
    var timezoneOffset = date.getTimezoneOffset();
    if (month < 10) {
      month = '0' + month;
    }
-   var nextDay = new Date(date);
-   nextDay.setDate(date.getDate() + 1);
-   if (nextDay.getDate() < 10) {
-     nextDay = '0' + nextDay.getDate();
+   var nextDay = day + 1;
+   if (nextDay > daysinmonth) {
+     nextDay = '01';
+     month = month + 1;
+     if (month > 12) {
+       month = '01';
+       year = year + 1;
+     }
+   } else {
+     nextDay = day + 1;
    }
-   var nextRequest = `https://zoro.to/ajax/schedule/list?tzOffset=${timezoneOffset}&date=${year}-${month}-${nextDay.getDate()}`;
+   var nextRequest = `https://zoro.to/ajax/schedule/list?tzOffset=${timezoneOffset}&date=${year}-${month}-${nextDay}`;
  } else {
    output.push(new Output(CellDesings.small2, Orientation.vertical, DefaultLayouts.none, Paging.leading, new Section('Airs Today', true), testLayout, schedule));
  }
