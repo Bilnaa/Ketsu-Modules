@@ -9,7 +9,7 @@
     "moduleVersion": 1.5,
     "moduleLenguage": "ENG",
     "searchPlaceHolder": "If you want to search for a random anime, just type 'random'",
-    "changelog": "1.5 - You can now choose the text in the discover page to show or not by setting the 'LoadText' variable to False",
+    "changelog": "1.5 - You can now choose the text in the discover page to show or not by setting the 'LoadText' variable to False + got rid of STREAMTAPE",
     "moduleType": "Video",
     "baseURL": "https://zoro.to/",
     "moduleDeveloperSite": "https://bilnaa.github.io/main/",
