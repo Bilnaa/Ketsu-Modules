@@ -83,21 +83,15 @@ if (data.link.includes('streamtape.com')) {
     var fixedLink = data.link.replace('https://streamtape.com/', 'https://streamta.pe/');
     if (parsedJson.request.url.includes('?lang=dub')) {
         output.needsResolver.push(new NeedsResolver('STREAMTA DUB', new ModuleRequest(fixedLink, 'get', emptyKeyValue, null)));
-    } else if (data.link.includes('streamtape') && parsedJson.request.url.includes('?lang=dub')) {
-        output.needsResolver.push(new NeedsResolver('STREAMTAPE DUB', new ModuleRequest(fixedLink, 'get', emptyKeyValue, null)));
     } else {
         output.needsResolver.push(new NeedsResolver('', new ModuleRequest(fixedLink, 'get', emptyKeyValue, null)));
     }
 }
-try {
-    if (parsedJson.request.url.includes('?lang=dub')) {
-        resolver = data.link.split('/')[2].split('.')[0].toUpperCase();
-        output.needsResolver.push(new NeedsResolver(resolver + ' DUB', new ModuleRequest(data.link, 'get', emptyKeyValue, null)));
-    } else {
-        output.needsResolver.push(new NeedsResolver('', new ModuleRequest(data.link, 'get', emptyKeyValue, null)));
-    }
-} catch {
-    output.needsResolver = [new NeedsResolver('', new ModuleRequest(data.link, 'get', emptyKeyValue, null))];
+if (parsedJson.request.url.includes('?lang=dub') && !data.link.includes('streamtape.com')) {
+    resolver = data.link.split('/')[2].split('.')[0].toUpperCase();
+    output.needsResolver.push(new NeedsResolver(resolver + ' DUB', new ModuleRequest(data.link, 'get', emptyKeyValue, null)));
+} else if (data.link.includes('streamtape')) {} else {
+    output.needsResolver.push(new NeedsResolver('', new ModuleRequest(data.link, 'get', emptyKeyValue, null)));
 }
 extraInfo[0].value = '' + (parseInt(actualCount) + 1);
 if (nextRequest == undefined) {
