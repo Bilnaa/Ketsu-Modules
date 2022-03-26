@@ -69,29 +69,32 @@ var buttonBox = document.querySelector('div.anime_muti_link').querySelectorAll('
 for (var x = 0; x < buttonBox.length; x++) {
 	var link = buttonBox[x].dataset.video;
 	if (link.includes('streamtape')) {
-		fixedLink = link.replace('https://streamtape.com/', 'https://streamta.pe/');
-		output.push(new NeedsResolver('', new ModuleRequest(fixedLink, 'get', emptyKeyValue, null)));
-		output.push(new NeedsResolver('', new ModuleRequest(link, 'get', emptyKeyValue, null)));
+		output.push(new NeedsResolver('', new ModuleRequest(link.replace('streamtape.com', 'streamta.pe'), 'get', emptyKeyValue, null)));
 	}
 	if (link.includes('sbplay1') || link.includes('sbplay2')) {
-		output.push(new NeedsResolver('', new ModuleRequest(link, 'get', emptyKeyValue, null)));
-	}
-	if (link.includes('https://mixdrop.co/e/')) {
-		output.push(new NeedsResolver('', new ModuleRequest(link, 'get', emptyKeyValue, null)));
-	}
-	if (link.includes('fplayer.info')) {
-		output.push(new NeedsResolver('', new ModuleRequest(link, 'get', emptyKeyValue, null)));
+		output.push(new NeedsResolver('WATCHSB', new ModuleRequest(link, 'get', emptyKeyValue, null)));
 	}
 	if (link.includes('asianembed')) {
 		if (!link.includes('streaming.php')) {
 			var fixedLink = 'https:' + link;
-			output.push(new NeedsResolver('VIDSTREAMING', new ModuleRequest(fixedLink, 'get', emptyKeyValue, null)));
+			output.push(new NeedsResolver('VIDSTREAMING_BROKEN', new ModuleRequest(fixedLink, 'get', emptyKeyValue, null)));
 		} else {
-			output.push(new NeedsResolver('VIDSTREAMING', new ModuleRequest('https:' + link, 'get', emptyKeyValue, null)));
+			output.push(new NeedsResolver('VIDSTREAMING_BROKEN', new ModuleRequest('https:' + link, 'get', emptyKeyValue, null)));
+		}
+	} else {
+		output.push(new NeedsResolver('', new ModuleRequest(link, 'get', emptyKeyValue, null)));
+	}
+}
+if (output.length > 0) {
+	for (var x = 0; x < output.length; x++) {
+		if (output[x].link.url == '{' || output[x].link.url.includes('streamtape') || !output[x].link.url.includes('https') || output[x].link.url.includes('dood') || (output[x].link.url.includes('sbplay2') && output[x].resolverIdentifier == '')) {
+			output.splice(x, 1);
 		}
 	}
-	if (link.includes('fembed-hd')) {
-		output.push(new NeedsResolver('', new ModuleRequest(link, 'get', emptyKeyValue, null)));
+	for (var y = 0; y < output.length; y++) {
+		if (output[y].link.url == '{') {
+			output.splice(y, 1);
+		}
 	}
 }
 let emptyExtra = new Extra([new Commands('', emptyKeyValue)], emptyKeyValue);

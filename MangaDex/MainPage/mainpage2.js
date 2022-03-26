@@ -203,7 +203,7 @@ for (slide of slides) {
         for (relationship of relationships) {
             if (relationship.type == 'cover_art') {
                 var coverArt = relationship.attributes.fileName;
-            } else {}
+            } 
         }
         var image = 'https://uploads.mangadex.org/covers/' + slide.id + '/' + coverArt;
         image = new ModuleRequest(image, 'get', emptyKeyValue, null);
@@ -217,7 +217,7 @@ for (slide of slides) {
         for (relationship of relationships1) {
             if (relationship.type == 'manga') {
                 var id = relationship.id;
-            } else {}
+            } 
         }
         var link = 'https://api.mangadex.org/manga/' + id + '?includes[]=cover_art';
         link = new ModuleRequest(link, 'get', emptyKeyValue, null);

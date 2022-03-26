@@ -198,12 +198,15 @@ var parser = JSON.parse(paramjs);
 var searchArray = [];
 var searchs = parser.data;
 for (search of searchs) {
-    var title = search.attributes.title.en.trim();
+    var title = search.attributes.title.en;
+    if (search.attributes.title.en == undefined) {
+        title = search.attributes.title.ja;
+    }
     var relationships = search.relationships;
     for (relationship of relationships) {
         if (relationship.type == 'cover_art') {
             var coverArt = relationship.attributes.fileName;
-        } else {}
+        }
     }
     var image = 'https://uploads.mangadex.org/covers/' + search.id + '/' + coverArt;
     image = new ModuleRequest(image, 'get', emptyKeyValue, null);
@@ -212,7 +215,7 @@ for (search of searchs) {
     try {
         var desc = search.attributes.depion.en.trim();
     } catch (e) {
-        var desc = search.attributes.depion.jp;
+        var desc = search.attributes.depion.ja;
         if (desc == null) {
             desc = '';
         }

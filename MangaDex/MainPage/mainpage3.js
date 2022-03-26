@@ -201,7 +201,7 @@ for (slide of slides) {
     for (relationship of relationships) {
         if (relationship.type == 'cover_art') {
             var coverArt = relationship.attributes.fileName;
-        } else {}
+        } 
     }
     var image = 'https://uploads.mangadex.org/covers/' + slide.id + '/' + coverArt;
     image = new ModuleRequest(image, 'get', emptyKeyValue, null);
