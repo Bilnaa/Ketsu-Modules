@@ -71,15 +71,15 @@ for (var x = 0; x < buttonBox.length; x++) {
 	if (link.includes('streamtape')) {
 		output.push(new NeedsResolver('', new ModuleRequest(link.replace('streamtape.com', 'streamta.pe'), 'get', emptyKeyValue, null)));
 	}
-	if (link.includes('sbplay1') || link.includes('sbplay2')) {
-		output.push(new NeedsResolver('WATCHSB', new ModuleRequest(link, 'get', emptyKeyValue, null)));
+	if (link.includes('sbplay')) {
+		output.push(new NeedsResolver('', new ModuleRequest(link, 'get', emptyKeyValue, null)));
 	}
 	if (link.includes('asianembed')) {
 		if (!link.includes('streaming.php')) {
 			var fixedLink = 'https:' + link;
-			output.push(new NeedsResolver('VIDSTREAMING_BROKEN', new ModuleRequest(fixedLink, 'get', emptyKeyValue, null)));
+			output.push(new NeedsResolver('', new ModuleRequest(fixedLink, 'get', emptyKeyValue, null)));
 		} else {
-			output.push(new NeedsResolver('VIDSTREAMING_BROKEN', new ModuleRequest('https:' + link, 'get', emptyKeyValue, null)));
+			output.push(new NeedsResolver('', new ModuleRequest('https:' + link, 'get', emptyKeyValue, null)));
 		}
 	} else {
 		output.push(new NeedsResolver('', new ModuleRequest(link, 'get', emptyKeyValue, null)));
