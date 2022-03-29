@@ -105,7 +105,7 @@ var relationships = json.data.relationships;
     }
     var image = 'https://uploads.mangadex.org/covers/' + json.data.id + '/' + coverArt;
     image = new ModuleRequest(image, 'get', emptyKeyValue, null);
-var nextRequest = `https://api.mangadex.org/manga/${json.data.id}/feed?order[chapter]=asc&order[volume]=asc&limit=500&translatedLanguage[]=en`;
+var nextRequest = `https://api.mangadex.org/manga/a2c1d849-af05-4bbc-b2a7-866ebb10331f/feed?order[chapter]=asc&order[volume]=asc&limit=500&translatedLanguage[]=en`;
 let infoPageObject = new Info(new ModuleRequest(nextRequest, 'get', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(false, false, ''), new Output(image, title, parsedJson.request, desc, genresArray, status, 'Manga', type, 'Eps: ' + episodes.length, episodes));
 var finalJson = JSON.stringify(infoPageObject);
 savedData.innerHTML = finalJson;
