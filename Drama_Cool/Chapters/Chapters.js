@@ -73,7 +73,10 @@ for (var x = 0; x < buttonBox.length; x++) {
 	}
 	if (link.includes('sbplay')) {
 		output.push(new NeedsResolver('', new ModuleRequest(link, 'get', emptyKeyValue, null)));
-	}
+	};
+	if (link.includes('dood')) {
+		output.push(new NeedsResolver('', new ModuleRequest(link.replace('ws', 'so'), 'get', emptyKeyValue, null)));
+	};
 	if (link.includes('asianembed')) {
 		if (!link.includes('streaming.php')) {
 			var fixedLink = 'https:' + link;
@@ -87,7 +90,7 @@ for (var x = 0; x < buttonBox.length; x++) {
 }
 if (output.length > 0) {
 	for (var x = 0; x < output.length; x++) {
-		if (output[x].link.url == '{' || output[x].link.url.includes('streamtape') || !output[x].link.url.includes('https') || output[x].link.url.includes('dood') || (output[x].link.url.includes('sbplay2') && output[x].resolverIdentifier == '')) {
+		if (output[x].link.url == '{' || output[x].link.url.includes('streamtape') || !output[x].link.url.includes('https') || output[x].link.url.includes('dood.ws') || (output[x].link.url.includes('sbplay2') && output[x].resolverIdentifier == '')) {
 			output.splice(x, 1);
 		}
 	}
