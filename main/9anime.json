@@ -11,7 +11,7 @@
         "moduleType": "Video",
         "baseURL": "https://9anime.id/",
         "moduleDeveloperSite": "https://mprotmod.github.io/Modules-KETSU/index.html",
-        "UpdateSite": "https://raw.githubusercontent.com/mprotmod/Modules-KETSU/main/Module%20Parser%20KETSU/9Anime/module.json",
+        "UpdateSite": "https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/main/9anime.json",
         "preferedServer": "VIZCLOUD",
         "preferedDownloadServer": "VIZCLOUD",
         "blackListed": [
