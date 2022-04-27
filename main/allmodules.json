@@ -107,7 +107,7 @@
             "name": "9anime | ENG",
             "type": "video",
             "author": "Nabil",
-            "image": "https://s2.bunnycdn.ru/assets/sites/9anime/favicons/favicon.png",
+            "image": "https://i.postimg.cc/V6KWhqVc/9anime.png",
             "info": "Watch subbed and dubbed animes with the module of 9anime.",
             "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/main/9anime.json"
         }
