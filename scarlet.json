@@ -1,0 +1,25 @@
+{
+	"META": {
+		"repoName": "Nabil’s Repo",
+		"repoIcon": "https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/main/images/logoapple.png"
+	},
+	"KETSU": [{
+		"name": "Ketsu",
+		"version": "1.43",
+		"icon": "https://d1fdloi71mui9q.cloudfront.net/1JBIg7XxQ3WqZ8AAZPiz_GydL9KJ3v5AKUN1B",
+		"down": "https://github.com/appketsu/KETSU-IPA/raw/main/KETSU.ipa",
+		"dev": "Orion",
+		"category": "KETSU",
+		"bundleID": "pw.zetsu.zetsu",
+		"banner": "https://ketsu.app/imagages/Macbook%20Pro%2001.png",
+		"screenshots": [
+			"https://ketsu.app/imagages/downloads.png",
+			"https://ketsu.app/imagages/showcase-1.png",
+			"https://ketsu.app/imagages/showcase-2.png",
+			"https://ketsu.app/imagages/showcase-3.png"
+		],
+		"contact": [
+			"https://twitter.com/_Bilnaa"
+		]
+	}]
+}
