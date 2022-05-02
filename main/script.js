@@ -10,7 +10,7 @@ xhr.onload = function () {
             let image = parsedJson.video[x].image;
             let link = parsedJson.video[x].link;
             let author = parsedJson.video[x].author;
-            if (name.includes('FR')) {
+            if (!name.includes('FR')) {
                 var moduleEle = `<div class="col"> <div class="card mb-3 mt-5" style="max-width: 540px;"> <div class="row g-0"> <div class="col-md-4 text-center"> <img src="${image}" class="rounded img-fluid mx-auto d-block" alt="${name}" style="padding-top: auto;"> </div> <div class="col-md-8"> <div class="card-body"> <h5 class="card-title">${name}</h5> <h6 class="card-subtitle mb-2 text-muted">Author: ${author}</h6> <p class="card-text">${info}</p> <a href="${link}" class="btn btn-dark">Ajouter</a> </div> </div> </div> </div></div>`;
             } else {
                 var moduleEle = `<div class="col"> <div class="card mb-3 mt-5" style="max-width: 540px;"> <div class="row g-0"> <div class="col-md-4 text-center"> <img src="${image}" class="rounded img-fluid mx-auto d-block" alt="${name}" style="padding-top: auto;"> </div> <div class="col-md-8"> <div class="card-body"> <h5 class="card-title">${name}</h5> <h6 class="card-subtitle mb-2 text-muted">Auteur: ${author}</h6> <p class="card-text">${info}</p> <a href="${link}" class="btn btn-dark">Add</a> </div> </div> </div> </div></div>`;
