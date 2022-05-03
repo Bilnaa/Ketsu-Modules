@@ -1,184 +1,141 @@
 {
     "video": [{
-            "name": "Nabil's Library | ALL",
-            "type": "video",
-            "author": "Nabil",
-            "image": "https://i.postimg.cc/pVFx8ZN2/lib-dessin.png",
-            "info": "All the modules hosted by this website directly inside Ketsu.",
-            "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/Librairie/moduleTemplate.json"
-        },
-        {
-            "name": "VostFree | FR",
-            "type": "video",
-            "author": "Nabil",
-            "image": "https://i.postimg.cc/brRJ6SW8/logo.png",
-            "info": "Regardez gratuitement des animes avec le module du site VostFree.",
-            "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilna95/bilna95.github.io/main/VostFree%20Ketsu/moduleTemplate.json"
-        },
-        {
-            "name": "VoirAnime | FR",
-            "type": "video",
-            "author": "Nabil",
-            "image": "https://i.postimg.cc/mg50q3sn/vato.png",
-            "info": "Regardez gratuitement des animes avec le module du site VoirAnime.",
-            "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/VoirAnime/moduleTemplate.json"
-        },
-        {
-            "name": "Zoro | ENG",
-            "type": "video",
-            "author": "Nabil",
-            "image": "https://i.postimg.cc/QC5gQWG6/zoro-logo.png",
-            "info": "Watch subbed and dubbed animes with the module of Zoro.",
-            "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/Zoro.to/moduleTemplate.json"
-        },
-        {
-            "name": "Zoro (App Store version) | ENG",
-            "type": "video",
-            "author": "Nabil",
-            "image": "https://i.postimg.cc/QC5gQWG6/zoro-logo.png",
-            "info": "If you got the app through the App Store, you must add this module.",
-            "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/beta-ketsu/main/zoro.json"
-        },
-        {
-            "name": "Wiflix | FR",
-            "type": "video",
-            "author": "Nabil",
-            "image": "https://i.postimg.cc/HnG4D0fD/logo.png",
-            "info": "Regardez gratuitement des films et séries avec le module du site Wiflix.",
-            "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilna95/bilna95.github.io/main/wiflix.ws/moduleTemplate.json"
-        },
-        {
-            "name": "French Anime | FR",
-            "type": "video",
-            "author": "Nabil",
-            "image": "https://i.postimg.cc/W1M8FtJk/frenchanime.png",
-            "info": "Regardez gratuitement des animes avec le module du site French Anime.",
-            "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilna95/bilna95.github.io/main/FrenchAnime/moduleTemplate.json"
-        },
-        {
-            "name": "VostAnimes | FR ",
-            "type": "video",
-            "author": "Frizrat",
-            "image": "https://i.postimg.cc/dVSFCpyf/vostanimes-logo.png",
-            "info": "Regardez gratuitement des animes avec le module du site VostAnimes.",
-            "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilna95/bilna95.github.io/main/VostAnimes/VostAnimesKETSU.json"
-        },
-        {
-            "name": "French Stream | FR ",
-            "type": "video",
-            "author": "Frizrat",
-            "image": "https://i.postimg.cc/gkyWt2kQ/fstream-logo.png",
-            "info": "Regardez gratuitement des films avec le module du site French Stream.",
-            "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/FrenchStream/FrenchStream.json"
-        },
-        {
-            "name": "Drama Cool | ENG",
-            "type": "video",
-            "author": "Nabil",
-            "image": "https://i.postimg.cc/Sss25qmT/drama-cool.png",
-            "info": "Watch dramas from all Asia with the module of Drama Cool.",
-            "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilna95/bilna95.github.io/main/Drama_Cool/moduleTemplate.json"
-        },
-        {
-            "name": "AnimeWorld | IT",
-            "type": "video",
-            "author": "Frizrat",
-            "image": "https://i.postimg.cc/Qtw77TXC/Anime-World-logo.png",
-            "info": "Watch Italian subbed and dubbed animes with the module of AnimeWorld.",
-            "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/AnimeWorld/AnimeWorld.json"
-        },
-        {
-            "name": "Goojara | ENG",
-            "type": "video",
-            "author": "Nabil",
-            "image": "https://i.postimg.cc/J4QpF9Xy/goojara-logo.png",
-            "info": "Watch movies and series for free with the module of Goojara.",
-            "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/Goojara.to/moduleTemplate.json"
-        },
-        {
-            "name": "Cineblog | IT",
-            "type": "video",
-            "author": "Frizrat",
-            "image": "https://i.postimg.cc/7hghDrPg/CineBlog.png",
-            "info": "Watch Italian subbed and dubbed film with the module of Cineblog.",
-            "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/Cineblog/Cineblog.json"
-        },
-        {
-            "name": "9anime | ENG",
-            "type": "video",
-            "author": "Nabil",
-            "image": "https://i.postimg.cc/V6KWhqVc/9anime.png",
-            "info": "Watch subbed and dubbed animes with the module of 9anime.",
-            "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/main/9anime.json"
-        }
-    ],
+        "name": "Nabil's Library | ALL",
+        "author": "Nabil",
+        "image": "https://i.postimg.cc/pVFx8ZN2/lib-dessin.png",
+        "info": "All the modules hosted by this website directly inside Ketsu.",
+        "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/Librairie/moduleTemplate.json"
+    }, {
+        "name": "VostFree | FR",
+        "author": "Nabil",
+        "image": "https://i.postimg.cc/brRJ6SW8/logo.png",
+        "info": "Regardez gratuitement des animes avec le module du site VostFree.",
+        "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilna95/bilna95.github.io/main/VostFree%20Ketsu/moduleTemplate.json"
+    }, {
+        "name": "VoirAnime | FR",
+        "author": "Nabil",
+        "image": "https://i.postimg.cc/mg50q3sn/vato.png",
+        "info": "Regardez gratuitement des animes avec le module du site VoirAnime.",
+        "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/VoirAnime/moduleTemplate.json"
+    }, {
+        "name": "Zoro | ENG",
+        "author": "Nabil",
+        "image": "https://i.postimg.cc/QC5gQWG6/zoro-logo.png",
+        "info": "Watch subbed and dubbed animes with the module of Zoro.",
+        "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/Zoro.to/moduleTemplate.json"
+    }, {
+        "name": "Zoro (App Store version) | ENG",
+        "author": "Nabil",
+        "image": "https://i.postimg.cc/QC5gQWG6/zoro-logo.png",
+        "info": "If you got the app through the App Store, you must add this module.",
+        "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/beta-ketsu/main/zoro.json"
+    }, {
+        "name": "Wiflix | FR",
+        "author": "Nabil",
+        "image": "https://i.postimg.cc/HnG4D0fD/logo.png",
+        "info": "Regardez gratuitement des films et séries avec le module du site Wiflix.",
+        "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilna95/bilna95.github.io/main/wiflix.ws/moduleTemplate.json"
+    }, {
+        "name": "French Anime | FR",
+        "author": "Nabil",
+        "image": "https://i.postimg.cc/W1M8FtJk/frenchanime.png",
+        "info": "Regardez gratuitement des animes avec le module du site French Anime.",
+        "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilna95/bilna95.github.io/main/FrenchAnime/moduleTemplate.json"
+    }, {
+        "name": "VostAnimes | FR",
+        "author": "Frizrat",
+        "image": "https://i.postimg.cc/dVSFCpyf/vostanimes-logo.png",
+        "info": "Regardez gratuitement des animes avec le module du site VostAnimes.",
+        "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilna95/bilna95.github.io/main/VostAnimes/VostAnimesKETSU.json"
+    }, {
+        "name": "French Stream | FR",
+        "author": "Frizrat",
+        "image": "https://i.postimg.cc/gkyWt2kQ/fstream-logo.png",
+        "info": "Regardez gratuitement des films avec le module du site French Stream.",
+        "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/FrenchStream/FrenchStream.json"
+    }, {
+        "name": "Drama Cool | ENG",
+        "author": "Nabil",
+        "image": "https://i.postimg.cc/Sss25qmT/drama-cool.png",
+        "info": "Watch dramas from all Asia with the module of Drama Cool.",
+        "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilna95/bilna95.github.io/main/Drama_Cool/moduleTemplate.json"
+    }, {
+        "name": "AnimeWorld | IT",
+        "author": "Frizrat",
+        "image": "https://i.postimg.cc/Qtw77TXC/Anime-World-logo.png",
+        "info": "Watch Italian subbed and dubbed animes with the module of AnimeWorld.",
+        "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/AnimeWorld/AnimeWorld.json"
+    }, {
+        "name": "Goojara | ENG",
+        "author": "Nabil",
+        "image": "https://i.postimg.cc/J4QpF9Xy/goojara-logo.png",
+        "info": "Watch movies and series for free with the module of Goojara.",
+        "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/Goojara.to/moduleTemplate.json"
+    }, {
+        "name": "Cineblog | IT",
+        "author": "Frizrat",
+        "image": "https://i.postimg.cc/7hghDrPg/CineBlog.png",
+        "info": "Watch Italian subbed and dubbed film with the module of Cineblog.",
+        "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/Cineblog/Cineblog.json"
+    }, {
+        "name": "9anime | ENG",
+        "author": "Nabil",
+        "image": "https://i.postimg.cc/V6KWhqVc/9anime.png",
+        "info": "Watch subbed and dubbed animes with the module of 9anime.",
+        "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/main/9anime.json"
+    }],
     "images": [{
-            "name": "MangaDex | ENG",
-            "type": "Image",
-            "author": "Nabil",
-            "image": "https://i.postimg.cc/4d38NsqH/Manga-Dex-logo.png",
-            "info": "Read manga for free with the module of MangaDex.",
-            "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/MangaDex/moduleTemplate.json",
-            "Zetsu_link": "zetsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/MangaDex/moduleTemplate.json"
-        }, {
-            "name": "Scans Mangas | FR",
-            "type": "Image",
-            "author": "Frizrat",
-            "image": "https://i.postimg.cc/MTqkm3hx/Scans-Mangas.png",
-            "info": "Lisez gratuitement des mangas avec le module du site Scans Mangas.",
-            "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilna95/bilna95.github.io/main/ScansMangas/ScansMangasKETSU.json",
-            "Zetsu_link": "zetsuapp://?moduleData=https://raw.githubusercontent.com/Bilna95/bilna95.github.io/main/ScansMangas/ScansMangasKETSU.json"
-        },
-        {
-            "name": "Nine Manga | FR",
-            "type": "Image",
-            "author": "Frizrat",
-            "image": "https://i.postimg.cc/6pvDJNKt/ninemanga.png",
-            "info": "Lisez gratuitement des mangas avec le module du site Nine Manga.",
-            "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilna95/bilna95.github.io/main/NineManga/NineMangaFR.json",
-            "Zetsu_link": "zetsuapp://?moduleData=https://raw.githubusercontent.com/Bilna95/bilna95.github.io/main/NineManga/NineMangaFR.json"
-        },
-        {
-            "name": "AsuraScans | ENG",
-            "type": "Image",
-            "author": "Nabil",
-            "image": "https://i.postimg.cc/MK0y10tY/asura-logo.png",
-            "info": "Read for free webtoons that are on the website of AsuraScans",
-            "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/Asura/asura.json",
-            "Zetsu_link": "zetsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/Asura/asura.json"
-        },
-        {
-            "name": "MangaWeebs | ENG",
-            "type": "Image",
-            "author": "Nabil",
-            "image": "https://i.postimg.cc/rptLRW8s/mangaweeb-logo.png",
-            "info": "Read for free webtoons that are on the website MangaWeebs",
-            "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/Manga%20Weeb/moduleTemplate.json",
-            "Zetsu_link": "zetsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/Manga%20Weeb/moduleTemplate.json"
-        },
-        {
-            "name": "Senmanga | JP",
-            "type": "Image",
-            "author": "Nabil",
-            "image": "https://i.postimg.cc/hvP5c4qS/logo-sen.png",
-            "info": "Read raw mangas on the module for Senmanga.",
-            "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/Senmanga/senmanga.json",
-            "Zetsu_link": "zetsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/Senmanga/senmanga.json"
-        },
-        {
-            "name": "LelScan-VF | FR",
-            "type": "Image",
-            "author": "Nabil",
-            "image": "https://i.postimg.cc/WzKq9LBY/lelscan-logo.png",
-            "info": "Lisez gratuitement des mangas avec le module du site LelScan-VF.",
-            "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/LelScanVF/moduleTemplate.json",
-            "Zetsu_link": "zetsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/LelScanVF/moduleTemplate.json"
-        }
-
-    ],
+        "name": "MangaDex | ENG",
+        "author": "Nabil",
+        "image": "https://i.postimg.cc/4d38NsqH/Manga-Dex-logo.png",
+        "info": "Read manga for free with the module of MangaDex.",
+        "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/MangaDex/moduleTemplate.json",
+        "Zetsu_link": "zetsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/MangaDex/moduleTemplate.json"
+    }, {
+        "name": "Scans Mangas | FR",
+        "author": "Frizrat",
+        "image": "https://i.postimg.cc/MTqkm3hx/Scans-Mangas.png",
+        "info": "Lisez gratuitement des mangas avec le module du site Scans Mangas.",
+        "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilna95/bilna95.github.io/main/ScansMangas/ScansMangasKETSU.json",
+        "Zetsu_link": "zetsuapp://?moduleData=https://raw.githubusercontent.com/Bilna95/bilna95.github.io/main/ScansMangas/ScansMangasKETSU.json"
+    }, {
+        "name": "Nine Manga | FR",
+        "author": "Frizrat",
+        "image": "https://i.postimg.cc/6pvDJNKt/ninemanga.png",
+        "info": "Lisez gratuitement des mangas avec le module du site Nine Manga.",
+        "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilna95/bilna95.github.io/main/NineManga/NineMangaFR.json",
+        "Zetsu_link": "zetsuapp://?moduleData=https://raw.githubusercontent.com/Bilna95/bilna95.github.io/main/NineManga/NineMangaFR.json"
+    }, {
+        "name": "AsuraScans | ENG",
+        "author": "Nabil",
+        "image": "https://i.postimg.cc/MK0y10tY/asura-logo.png",
+        "info": "Read for free webtoons that are on the website of AsuraScans",
+        "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/Asura/asura.json",
+        "Zetsu_link": "zetsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/Asura/asura.json"
+    }, {
+        "name": "MangaWeebs | ENG",
+        "author": "Nabil",
+        "image": "https://i.postimg.cc/rptLRW8s/mangaweeb-logo.png",
+        "info": "Read for free webtoons that are on the website MangaWeebs",
+        "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/Manga%20Weeb/moduleTemplate.json",
+        "Zetsu_link": "zetsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/Manga%20Weeb/moduleTemplate.json"
+    }, {
+        "name": "Senmanga | JP",
+        "author": "Nabil",
+        "image": "https://i.postimg.cc/hvP5c4qS/logo-sen.png",
+        "info": "Read raw mangas on the module for Senmanga.",
+        "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/Senmanga/senmanga.json",
+        "Zetsu_link": "zetsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/Senmanga/senmanga.json"
+    }, {
+        "name": "LelScan-VF | FR",
+        "author": "Nabil",
+        "image": "https://i.postimg.cc/WzKq9LBY/lelscan-logo.png",
+        "info": "Lisez gratuitement des mangas avec le module du site LelScan-VF.",
+        "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/LelScanVF/moduleTemplate.json",
+        "Zetsu_link": "zetsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/LelScanVF/moduleTemplate.json"
+    }],
     "text": [{
         "name": "Livre1 | FR",
-        "type": "Text",
         "author": "Frizrat",
         "image": "https://i.postimg.cc/7h4JHNF6/livre1-logo.png",
         "info": "Lisez gratuitement des livres avec le module du site Livre1.",
