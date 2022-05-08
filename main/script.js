@@ -3,7 +3,11 @@ xhr.open('GET', 'https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/
 xhr.onload = function () {
     var content = xhr.responseText;
     var parsedJson = JSON.parse(content);
+<<<<<<< HEAD
     if (!navigator.userAgent.match(/ipad|ipod|iphone/i)) {
+=======
+    if (!navigator.userAgent.match(/ipad|ipod|iphone|Mac/i)) {
+>>>>>>> 53b1fea (init linux)
         for (var x = 0; x < parsedJson.video.length; x++) {
             let name = parsedJson.video[x].name;
             let info = parsedJson.video[x].info;

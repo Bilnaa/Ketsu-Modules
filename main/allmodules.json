@@ -42,6 +42,15 @@
         "info": "Regardez gratuitement des animes avec le module du site French Anime.",
         "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilna95/bilna95.github.io/main/FrenchAnime/moduleTemplate.json"
     }, {
+<<<<<<< HEAD
+=======
+        "name": "VostAnimes | FR",
+        "author": "Frizrat",
+        "image": "https://i.postimg.cc/dVSFCpyf/vostanimes-logo.png",
+        "info": "Regardez gratuitement des animes avec le module du site VostAnimes.",
+        "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilna95/bilna95.github.io/main/VostAnimes/VostAnimesKETSU.json"
+    }, {
+>>>>>>> 53b1fea (init linux)
         "name": "French Stream | FR",
         "author": "Frizrat",
         "image": "https://i.postimg.cc/gkyWt2kQ/fstream-logo.png",
@@ -76,7 +85,11 @@
         "author": "Nabil",
         "image": "https://i.postimg.cc/V6KWhqVc/9anime.png",
         "info": "Watch subbed and dubbed animes with the module of 9anime.",
+<<<<<<< HEAD
         "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/NineAnime/9anime.json"
+=======
+        "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/main/9anime.json"
+>>>>>>> 53b1fea (init linux)
     },
     {
         "name": "OtakuFR | FR",
@@ -84,6 +97,7 @@
         "image": "https://i.postimg.cc/2j9g6m8d/otakufr.png",
         "info": "Regardez gratuitement des animes avec le module du site Otakufr.",
         "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/Otakufr/moduleTemplate.json"
+<<<<<<< HEAD
     },
     {
         "name": "Anime-Flex | FR",
@@ -112,6 +126,8 @@
         "image": "https://i.postimg.cc/fTkrNh5s/space.png",
         "info": "Watch subbed and dubbed films and shows with the module of Spacemov.",
         "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Danyspb/SpaceMov/master/moduleTemplate.json"
+=======
+>>>>>>> 53b1fea (init linux)
     }],
     "images": [{
         "name": "MangaDex | ENG",

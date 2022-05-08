@@ -53,7 +53,11 @@ function Output(image, title, link, description, genres, field1, field2, field3,
 }
 var savedData = document.getElementById('ketsu-final-data');
 var parsedJson = JSON.parse(savedData.innerText);
+<<<<<<< HEAD
 let emptyKeyValue = [new KeyValue('Referer', 'https://zoro.to'), new KeyValue('X-Requested-With', 'XMLHttpRequest')];
+=======
+let emptyKeyValue = [new KeyValue('Referer', 'https://zoro.to')];
+>>>>>>> 53b1fea (init linux)
 var image = parsedJson.output.image;
 var title = parsedJson.output.title;
 var desc = parsedJson.output.description;
@@ -68,15 +72,22 @@ var animes = doc.querySelectorAll('.ss-list a');
 for (var x = 0; x < animes.length; x++) {
     var anime = animes[x];
     var link = 'https://zoro.to/ajax/v2/episode/servers?episodeId=' + anime.dataset.id;
+<<<<<<< HEAD
     var name = anime.title;
     if (!name.includes('Episode')) {
         name = `${x+1} : ` + name;
     }
+=======
+    var name = `${x+1} : ` + anime.title;
+>>>>>>> 53b1fea (init linux)
     let chapter = new Chapter(name, new ModuleRequest(link, 'get', emptyKeyValue, null), false);
     episodes.push(chapter);
 }
 parsedJson.request.url = parsedJson.output.link.url;
+<<<<<<< HEAD
 parsedJson.request.headers = [new KeyValue('', '')];
+=======
+>>>>>>> 53b1fea (init linux)
 let infoPageObject = new Info(new ModuleRequest('', '', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(false, false, ''), new Output(image, title, parsedJson.request, desc, genres, parsedJson.output.field1, parsedJson.output.field2, type, 'Eps: ' + episodes.length, episodes));
 var finalJson = JSON.stringify(infoPageObject);
 savedData.innerText = finalJson;

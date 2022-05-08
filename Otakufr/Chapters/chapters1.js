@@ -70,6 +70,7 @@ var savedData = document.getElementById('ketsu-final-data');
 var parsedJson = JSON.parse(savedData.innerHTML);
 var extraInfo = parsedJson.extra.extraInfo;
 var emptyKeyValue = [new KeyValue('Referer', parsedJson.request.url), new KeyValue('X-Requested-With', 'XMLHttpRequest')];
+<<<<<<< HEAD
 var output = parsedJson.output.videos;
 var actualCount = '' + (parseInt(getValueFromKey(extraInfo, 'count')));
 var nextCount = parseInt(actualCount) + 1;
@@ -88,6 +89,22 @@ if (!videoLink.includes('sendvid.com')) {
     }
 }
 extraInfo[0].value = '' + (nextCount);
+=======
+var output = parsedJson.output.videos;;
+var actualCount = getValueFromKey(extraInfo, 'count');
+var nextCount = parseInt(actualCount.match(/\\d+/g)[0]) + 2;
+var nextRequest = getValueFromKey(extraInfo, nextCount);
+if (actualCount == 0) {
+    output = new Videos([], []);
+}
+var videoLink = document.querySelector('.ui.embed').getAttribute('data-url');
+if(videoLink.includes('https')){
+    output.needsResolver.push(new NeedsResolver('', new ModuleRequest(videoLink, 'get', emptyKeyValue, null)));
+} else {
+    output.needsResolver.push(new NeedsResolver('', new ModuleRequest('https:'+videoLink, 'get', emptyKeyValue, null)));
+}
+extraInfo[0].value = '' + (parseInt(actualCount) + 1);
+>>>>>>> 53b1fea (init linux)
 if (nextRequest == undefined) {
     nextRequest = '';
 }

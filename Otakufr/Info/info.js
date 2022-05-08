@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 53b1fea (init linux)
 function Info(request, extra, javascriptConfig, output) {
     this.request = request;
     this.extra = extra;
@@ -33,7 +38,11 @@ function KeyValue(key, value) {
     this.value = value;
 }
 
+<<<<<<< HEAD
 function Chapter(chapName, link, openInWebView) {
+=======
+function Chapter(chapName, link,openInWebView) {
+>>>>>>> 53b1fea (init linux)
     this.chapName = chapName;
     this.link = link;
     this.openInWebView = openInWebView;
@@ -52,6 +61,7 @@ function Output(image, title, link, description, genres, field1, field2, field3,
     this.chapters = chapters;
 }
 
+<<<<<<< HEAD
 function getStuff(array, match) {
     for (var x = 0; x < array.length; x++) {
         let data = array[x].innerText;
@@ -110,3 +120,62 @@ for (var i = chapters.length - 1; i >= 0; i--) {
 let infoPageObject = new Info(new ModuleRequest('', '', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(false, false, ''), new Output(image, title, parsedJson.request, desc, genres, status, studio, type, 'Eps: ' + episodes.length, episodes));
 var finalJson = JSON.stringify(infoPageObject);
 savedData.innerHTML = finalJson;
+=======
+function getStuff(array,match) {
+        for (var x = 0 ; x< array.length;x++) {
+            let data = array[x].innerText;
+            if (data.includes(match)) {
+                return data.replace(match,'').trim();
+            } 
+        }
+      }
+function getHtmlStuff(array,match) {
+    for (var x = 0 ; x< array.length;x++) {
+    let data = array[x].innerText;
+    if (data.includes(match)) {
+        return array[x];
+    } 
+}
+}
+
+var savedData = document.getElementById('ketsu-final-data');
+var parsedJson = JSON.parse(savedData.innerHTML);
+let emptyKeyValue = [new KeyValue('', '')];
+
+var episodes = [];
+var type = 'empty';
+var status = 'Unknown';
+var genres = Array.from(document.querySelectorAll("ul > li:nth-child(5) > ul li a")).map(g => g.textContent.trim());
+var otherinfos = document.querySelectorAll('.list-unstyled li');
+for(var i = 0; i < otherinfos.length; i++) {
+    let data = otherinfos[i].innerText;
+    if (data.includes('Type:')) {
+        type = data.replace('Type:','').trim();
+    } else if (data.includes('Studio d\'animation:')) {
+        status = data.replace('Studio d\'animation:','').trim();
+    } 
+}
+var desc = '';
+var synopsysdiv = document.querySelectorAll('.episode.fz-sm.synop p');
+for(var x = 1; x < synopsysdiv.length; x++) {
+    desc = desc + synopsysdiv[x].innerText;
+}
+var title =  document.querySelector('figure > img').title;
+var image = document.querySelector('figure > img').src;
+image = new ModuleRequest(image,'get',emptyKeyValue,null);
+var genresArray = [];
+
+var chapters = document.querySelectorAll('div.float-right > a');
+for(var i = chapters.length - 1; i >= 0; i--) {
+	var element = chapters[i];
+	var fixedLink = element.href;
+    var episodeName = element.innerText.split('\n')[0];
+	let chapter = new Chapter('Épisode'+episodeName.replace(title,''), new ModuleRequest(fixedLink, 'get', emptyKeyValue, null), false);
+	episodes.push(chapter);
+}
+
+
+let infoPageObject = new Info(new ModuleRequest('', '', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(false, false, ''), new Output(image, title, parsedJson.request, desc, genres, status, 'Anime', type, 'Eps: '  + episodes.length, episodes));
+var finalJson = JSON.stringify(infoPageObject);
+savedData.innerHTML = finalJson;
+>>>>>>> 53b1fea (init linux)

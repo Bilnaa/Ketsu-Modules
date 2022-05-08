@@ -187,7 +187,10 @@ function shuffle(a) {
 var savedData = document.getElementById('ketsu-final-data');
 var parsedJson = JSON.parse(savedData.innerHTML);
 let emptyKeyValue = [new KeyValue('', '')];
+<<<<<<< HEAD
 let emptyKeyValue1 = [new KeyValue('X-Requested-With', 'XMLHttpRequest')];
+=======
+>>>>>>> 53b1fea (init linux)
 var LoadText = parsedJson.extra.extraInfo[0].value;
 const dummyQuest = new ModuleRequest('', 'get', emptyKeyValue, null);
 const streamta = new ModuleRequest('ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/beta-ketsu/main/zoro.json', 'get', emptyKeyValue, null);
@@ -204,7 +207,11 @@ for (slides of slider) {
     var description = slides.querySelector('.desi-depion').innerText;
     var type = slides.querySelector('div.sc-detail > div:nth-child(1)').innerText;
     var date = 'First Aired : ' + slides.querySelector('.scd-item.m-hide').innerText;
+<<<<<<< HEAD
     sliderArray.push(new Data(image, title + ' ' + type, description, title, date, '', '', false, link));
+=======
+    sliderArray.push(new Data(image, type, description, title, date, '', '', false, link));
+>>>>>>> 53b1fea (init linux)
 }
 var TopAiring = [];
 var best = document.querySelectorAll('#anime-featured > div > div > div > div:nth-child(1) > div > div.anif-block-ul > ul li');
@@ -314,7 +321,11 @@ for (list of mostviewed) {
 }
 let layout = new Layout(new Insets(0, 0, 0, 0), 1, 1, 1, 1, 0, new Size(400, 105), new Ratio('width', 4, 10), new Size(0, 0), 0, 0);
 let layout1 = new Layout(new Insets(0, 0, 10, 10), 1, 1, 1, 1, 0, new Size(400, 105), new Ratio('width', 4, 10), new Size(0, 0), 0, 0);
+<<<<<<< HEAD
 output.push(new Output(CellDesings.Special3, Orientation.horizontal, DefaultLayouts.wideStrechedFull, Paging.leading, new Section('', true), layout, shuffle(sliderArray)));
+=======
+output.push(new Output(CellDesings.Special3, Orientation.horizontal, DefaultLayouts.wideStrechedFull, Paging.leading, new Section('', true), layout, sliderArray));
+>>>>>>> 53b1fea (init linux)
 if (LoadText == 'True') {
     output.push(new Output('CELLHelperText', Orientation.horizontal, DefaultLayouts.wideFull, Paging.centered, new Section('', true), layout1, [infoText]));
 } else {}
@@ -331,9 +342,16 @@ if (month < 10) {
     month = '0' + month;
 }
 if (day < 10) {
+<<<<<<< HEAD
     day = '' + '0' + day
 }
 var nextRequest = `https://zoro.to/ajax/schedule/list?tzOffset=${timezoneOffset}&date=${year}-${month}-${day}`;
 let MainPageObject = new MainPage(new ModuleRequest(nextRequest, 'get', emptyKeyValue1, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(true, false, ''), output);
+=======
+    day = '0' + day
+}
+var nextRequest = `https://zoro.to/ajax/schedule/list?tzOffset=${timezoneOffset}&date=${year}-${month}-${day}`;
+let MainPageObject = new MainPage(new ModuleRequest(nextRequest, 'get', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(true, false, ''), output);
+>>>>>>> 53b1fea (init linux)
 var finalJson = JSON.stringify(MainPageObject);
 savedData.innerHTML = finalJson;
