@@ -83,6 +83,13 @@
         "image": "https://i.postimg.cc/V6KWhqVc/9anime.png",
         "info": "Watch subbed and dubbed animes with the module of 9anime.",
         "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/main/9anime.json"
+    },
+    {
+        "name": "OtakuFR | FR",
+        "author": "Nabil",
+        "image": "https://i.postimg.cc/2j9g6m8d/otakufr.png",
+        "info": "Regardez gratuitement des animes avec le module du site Otakufr.",
+        "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/Otakufr/moduleTemplate.json"
     }],
     "images": [{
         "name": "MangaDex | ENG",
