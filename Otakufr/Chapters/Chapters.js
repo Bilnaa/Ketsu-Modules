@@ -62,25 +62,35 @@ function Text(text) {
     this.text = text;
 }
 var output = [];
-var savedData = document.getElementById('ketsu-final-data');
-var parsedJson = JSON.parse(savedData.innerHTML);
-var extraInfo = parsedJson.extra.extraInfo;
+// var savedData = document.getElementById('ketsu-final-data');
+// var parsedJson = JSON.parse(savedData.innerHTML);
+var nextRequest = '';
+// var extraInfo = parsedJson.extra.extraInfo;
+var videos = new Videos([], []);
 var extraInfo = [new KeyValue('count', '0')];
 var emptyKeyValue = [new KeyValue('Referer', parsedJson.request.url), new KeyValue('X-Requested-With', 'XMLHttpRequest')];
 var links = document.querySelectorAll('iframe');
-for (var x = 1; x < links.length; x++) {
+for (var x = 0; x < links.length; x++) {
     var link = links[x];
-    var id = link.dataset.id;
-    var lang = link.dataset.type;
-    var url = 'https:' + link.src;
-    if (x == 1) {
-        var nextRequest = url;
-    } else {
-        extraInfo.push(new KeyValue(`${x}`, `${url}`));
+    if (link.src.includes('parisanime.com')) {
+        var url = 'https:' + link.src;
+        if (x == 0) {
+            nextRequest = url;
+        } else {
+            extraInfo.push(new KeyValue(`${x}`, `${url}`));
+        }
+        console.log(url);
+    } else{
+        if(link.src.includes('https:')) {
+            output.push(new NeedsResolver('', new ModuleRequest(link.src, 'get', emptyKeyValue, null)));
+            videos = new Videos(output, []);
+        }
     }
-    console.log(url);
+}
+if (extraInfo.length >= 2) {
+    nextRequest = extraInfo[1].value;
 }
 let emptyExtra = new Extra([new Commands('', emptyKeyValue)], extraInfo);
 var chaptersObject = new Chapters(new ModuleRequest(nextRequest, 'get', emptyKeyValue, null), emptyExtra, new JavascriptConfig(false, true, ''), new Output(new Videos([], []), null, null));
 var finalJson = JSON.stringify(chaptersObject);
-savedData.innerHTML = finalJson;
+// savedData.innerHTML = finalJson;

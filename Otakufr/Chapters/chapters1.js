@@ -70,11 +70,11 @@ var savedData = document.getElementById('ketsu-final-data');
 var parsedJson = JSON.parse(savedData.innerHTML);
 var extraInfo = parsedJson.extra.extraInfo;
 var emptyKeyValue = [new KeyValue('Referer', parsedJson.request.url), new KeyValue('X-Requested-With', 'XMLHttpRequest')];
-var output = parsedJson.output.videos;;
+var output = parsedJson.output.videos;
 var actualCount = getValueFromKey(extraInfo, 'count');
-var nextCount = parseInt(actualCount.match(/\\d+/g)[0]) + 2;
+var nextCount = parseInt(actualCount.match(/\\d+/g)[0]) + 1;
 var nextRequest = getValueFromKey(extraInfo, nextCount);
-if (actualCount == 0) {
+if (!(actualCount == 0 && output.length >= 1)) {
     output = new Videos([], []);
 }
 var videoLink = document.querySelector('.ui.embed').getAttribute('data-url');
@@ -83,7 +83,7 @@ if(videoLink.includes('https')){
 } else {
     output.needsResolver.push(new NeedsResolver('', new ModuleRequest('https:'+videoLink, 'get', emptyKeyValue, null)));
 }
-extraInfo[0].value = '' + (parseInt(actualCount) + 1);
+extraInfo[0].value = '' + (nextCount);
 if (nextRequest == undefined) {
     nextRequest = '';
 }
