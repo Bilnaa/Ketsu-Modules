@@ -71,17 +71,17 @@ var parsedJson = JSON.parse(savedData.innerHTML);
 var extraInfo = parsedJson.extra.extraInfo;
 var emptyKeyValue = [new KeyValue('Referer', parsedJson.request.url), new KeyValue('X-Requested-With', 'XMLHttpRequest')];
 var output = parsedJson.output.videos;
-var actualCount = getValueFromKey(extraInfo, 'count');
-var nextCount = parseInt(actualCount.match(/\\d+/g)[0]) + 1;
+var actualCount = '' + (parseInt(getValueFromKey(extraInfo, 'count')));
+var nextCount = parseInt(actualCount) + 1;
 var nextRequest = getValueFromKey(extraInfo, nextCount);
-if (!(actualCount == 0 && output.length >= 1)) {
+if (!(output.needsResolver.length >= 1)) {
     output = new Videos([], []);
 }
 var videoLink = document.querySelector('.ui.embed').getAttribute('data-url');
-if(videoLink.includes('https')){
+if (videoLink.includes('https')) {
     output.needsResolver.push(new NeedsResolver('', new ModuleRequest(videoLink, 'get', emptyKeyValue, null)));
 } else {
-    output.needsResolver.push(new NeedsResolver('', new ModuleRequest('https:'+videoLink, 'get', emptyKeyValue, null)));
+    output.needsResolver.push(new NeedsResolver('', new ModuleRequest('https:' + videoLink, 'get', emptyKeyValue, null)));
 }
 extraInfo[0].value = '' + (nextCount);
 if (nextRequest == undefined) {
