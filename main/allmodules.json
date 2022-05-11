@@ -42,12 +42,6 @@
         "info": "Regardez gratuitement des animes avec le module du site French Anime.",
         "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilna95/bilna95.github.io/main/FrenchAnime/moduleTemplate.json"
     }, {
-        "name": "VostAnimes | FR",
-        "author": "Frizrat",
-        "image": "https://i.postimg.cc/dVSFCpyf/vostanimes-logo.png",
-        "info": "Regardez gratuitement des animes avec le module du site VostAnimes.",
-        "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilna95/bilna95.github.io/main/VostAnimes/VostAnimesKETSU.json"
-    }, {
         "name": "French Stream | FR",
         "author": "Frizrat",
         "image": "https://i.postimg.cc/gkyWt2kQ/fstream-logo.png",
