@@ -78,10 +78,14 @@ if (!(output.needsResolver.length >= 1)) {
     output = new Videos([], []);
 }
 var videoLink = document.querySelector('.ui.embed').getAttribute('data-url');
-if (videoLink.includes('https')) {
-    output.needsResolver.push(new NeedsResolver('', new ModuleRequest(videoLink, 'get', emptyKeyValue, null)));
-} else {
-    output.needsResolver.push(new NeedsResolver('', new ModuleRequest('https:' + videoLink, 'get', emptyKeyValue, null)));
+if (!videoLink.includes('sendvid.com')) {
+    if (!videoLink.includes('https')) {
+        output.needsResolver.push(new NeedsResolver('', new ModuleRequest('https:' + videoLink, 'get', emptyKeyValue, null)));
+    } else if (videoLink.includes('sendvid.net')) {
+        output.needsResolver.push(new NeedsResolver('FEMBED', new ModuleRequest(videoLink, 'get', emptyKeyValue, null)));
+    } else {
+        output.needsResolver.push(new NeedsResolver('', new ModuleRequest(videoLink, 'get', emptyKeyValue, null)));
+    }
 }
 extraInfo[0].value = '' + (nextCount);
 if (nextRequest == undefined) {
