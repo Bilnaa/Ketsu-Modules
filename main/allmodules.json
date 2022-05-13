@@ -84,6 +84,13 @@
         "image": "https://i.postimg.cc/2j9g6m8d/otakufr.png",
         "info": "Regardez gratuitement des animes avec le module du site Otakufr.",
         "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/Otakufr/moduleTemplate.json"
+    },
+    {
+        "name": "Anime-Flex| FR",
+        "author": "Danyspb",
+        "image": "https://i.postimg.cc/yxfKr13F/anime-flex.png",
+        "info": "Regardez gratuitement des animes avec le module du site Anime-Flex.",
+        "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Danyspb/Anime-Flex/main/moduleTemplate.json"
     }],
     "images": [{
         "name": "MangaDex | ENG",
