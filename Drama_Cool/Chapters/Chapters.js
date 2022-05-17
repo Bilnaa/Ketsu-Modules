@@ -77,12 +77,12 @@ for (var x = 0; x < buttonBox.length; x++) {
 	if (link.includes('dood')) {
 		output.push(new NeedsResolver('', new ModuleRequest(link.replace('ws', 'so'), 'get', emptyKeyValue, null)));
 	};
-	if (link.includes('asianembed')) {
-		if (!link.includes('streaming.php')) {
+	if (link.includes('dembed1.com')) {
+		if (!link.includes('https')) {
 			var fixedLink = 'https:' + link;
 			output.push(new NeedsResolver('', new ModuleRequest(fixedLink, 'get', emptyKeyValue, null)));
 		} else {
-			output.push(new NeedsResolver('', new ModuleRequest('https:' + link, 'get', emptyKeyValue, null)));
+			output.push(new NeedsResolver('', new ModuleRequest(link, 'get', emptyKeyValue, null)));
 		}
 	} else {
 		output.push(new NeedsResolver('', new ModuleRequest(link, 'get', emptyKeyValue, null)));
