@@ -91,6 +91,13 @@
         "image": "https://i.postimg.cc/yxfKr13F/anime-flex.png",
         "info": "Regardez gratuitement des animes avec le module du site Anime-Flex.",
         "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Danyspb/Anime-Flex/main/moduleTemplate.json"
+    },
+    {
+        "name": "MyKDrama | FR",
+        "author": "Danyspb",
+        "image": "https://i.postimg.cc/dt5zN85t/KDramafin.png",
+        "info": "Regardez gratuitement des dramas en français avec le module du site Wiflix.",
+        "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Danyspb/MyKDrama/master/moduleTemplate.json"
     }],
     "images": [{
         "name": "MangaDex | ENG",
