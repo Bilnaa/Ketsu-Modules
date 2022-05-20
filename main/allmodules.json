@@ -96,7 +96,7 @@
         "name": "MyKDrama | FR",
         "author": "Danyspb",
         "image": "https://i.postimg.cc/dt5zN85t/KDramafin.png",
-        "info": "Regardez gratuitement des dramas en français avec le module du site Wiflix.",
+        "info": "Regardez gratuitement des dramas en français avec le module du site MyKDrama.",
         "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Danyspb/MyKDrama/master/moduleTemplate.json"
     }],
     "images": [{
