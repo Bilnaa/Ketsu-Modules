@@ -1,0 +1,79 @@
+{
+    "moduleName": "ASIANEMBED",
+    "nameMatches": ["ASIANEMBED", "VIDSTREAMING_BROKEN","DEMBED1"],
+    "developer": "Uknown",
+    "moduleID": "56464964116",
+    "moduleVersion": "1.01",
+    "baseURL": "",
+    "resolver": [{
+        "request": "empty",
+        "method": "get",
+        "userAgent": "",
+        "referer": "",
+        "headers": [{
+            "key": "Referer",
+            "value": "https://asianembed.io/"
+        }],
+        "extraInfo": [{
+            "value": ""
+        }],
+        "loadJavascript": "true",
+        "javaScript": "function Header(key, value) { this.key = key; this.value = value;}function ExtraInfo(value) { this.value = value;}function Output(link, moduleID, headers, quality) { this.quality = quality; this.link = link; this.moduleID = moduleID; this.headers = headers}function ResolverLogic(request, method, userAgent, referer, headers, extraInfo, loadJavascript, javaScript, output) { this.request = request; this.method = method; this.userAgent = userAgent; this.referer = referer; this.headers = headers; this.extraInfo = extraInfo; this.loadJavascript = loadJavascript; this.javaScript = javaScript; this.output = output;}var moduleID = '100';var resolverLogic;var output = [];var requestHeaders = [new Header('Referer', 'https://gogoanime.pe/')];var extraInfo = [new ExtraInfo('done'), new ExtraInfo('')];var savedData = document.getElementById('katsu-final-data');var parsedJson = JSON.parse(savedData.innerHTML);var nextRequest = parsedJson.request + '&done=done';var newFound = false;try { for (source of playerInstance.getPlaylist()) { for (vid of source.allSources) { let mviD = vid.file; let quality = vid.label; if (mviD != undefined && quality != undefined) { output.push(new Output(mviD, moduleID, requestHeaders, quality)); newFound = true; } } }} catch { newFound = false;}if (output.length <= 0) { output.push(new Output('', '', requestHeaders, ''));}resolverLogic = new ResolverLogic(nextRequest, 'get', '', '', requestHeaders, extraInfo, 'true', '', output);var finalJson = JSON.stringify(resolverLogic);savedData.innerHTML = finalJson;",
+        "output": [{
+            "quality": "",
+            "link": "",
+            "moduleID": "",
+            "headers": [{
+                "key": "key",
+                "value": "value"
+            }]
+        }]
+    }, {
+        "request": "empty",
+        "method": "get",
+        "userAgent": "",
+        "referer": "",
+        "headers": [{
+            "key": "key",
+            "value": "value"
+        }],
+        "extraInfo": [{
+            "value": ""
+        }],
+        "loadJavascript": "false",
+        "javaScript": "var script = document.createElement('script');script.setAttribute('src','https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js');document.head.appendChild(script);script.addEventListener('load', function() { function Header(key, value) { this.key = key; this.value = value; } function ExtraInfo(value) { this.value = value; } function Output(link, moduleID, headers, quality) { this.quality = quality; this.link = link; this.moduleID = moduleID; this.headers = headers } function ResolverLogic(request, method, userAgent, referer, headers, extraInfo, loadJavascript, javaScript, output) { this.request = request; this.method = method; this.userAgent = userAgent; this.referer = referer; this.headers = headers; this.extraInfo = extraInfo; this.loadJavascript = loadJavascript; this.javaScript = javaScript; this.output = output; } var moduleID = '100'; var key = 'imthekeyofthejson'; var resolverLogic; var output = []; var script = document.querySelectorAll('p')[2].getAttribute('src'); let mOrg = (new URL(script)); var requestHeaders = [new Header('Referer', mOrg.origin)]; var extraInfo = [new ExtraInfo('')]; var savedData = document.getElementById('katsu-final-data'); var mFinalLink = ''; if (output.length <= 0) { try { var key = '93422192433952489752342908585752'; var IV = '9262859232435825'; var cryptoToken = /data-name=\"crypto\".+data-value=\"(.+?)\"/gm.exec(document.querySelector('body').innerHTML)[1]; var decryptedData = CryptoJS.AES.decrypt(cryptoToken, CryptoJS.enc.Utf8.parse(key), { 'iv': CryptoJS.enc.Utf8.parse(IV) }); decryptedData = CryptoJS.enc.Utf8.stringify(decryptedData); var id = decryptedData.substr(0, decryptedData.indexOf('&')); id = CryptoJS.AES.encrypt(id, CryptoJS.enc.Utf8.parse(key), { 'iv': CryptoJS.enc.Utf8.parse(IV) }).toString(); let rest = decryptedData.substr(decryptedData.indexOf('&')); mFinalLink = '/encrypt-ajax.php?id=' + id + rest; mFinalLink = mOrg.origin + mFinalLink.replace('done&&', 'done&'); requestHeaders.push(new Header('referer', script)); requestHeaders.push(new Header('x-requested-with', 'XMLHttpRequest')); requestHeaders.push(new Header('accept', 'application/json, text/javascript, */*; q=0.01')); } catch (e) { console.log(e); } } var scripts = document.querySelectorAll('script'); for (var x = 0; x < scripts.length; x++) { var actualScript = scripts[x].innerText; if (actualScript.includes('playerInstance')) { var links = actualScript.split('\\''); for (var y = 0; y < links.length; y++) { var finalLink = links[y]; if (finalLink.includes('http')) { if (finalLink.includes('php?url') || finalLink.includes('m3u8') || finalLink.includes('mp4') || finalLink.includes('hls') || finalLink.includes('file')) { var quality = 'MP4'; if (finalLink.includes('m3u8') || finalLink.includes('hls')) { quality = 'HLS'; } output.push(new Output(finalLink, moduleID, requestHeaders, quality)); } } } break; } } if (output.length > 0) { if (output[output.length - 1].quality != 'HLS' && output[output.length - 1].quality != 'hls') { output.reverse(); } } if (output.length == 0) { output.push(new Output('', '', requestHeaders, '')); } resolverLogic = new ResolverLogic(mFinalLink, 'get', '', '', requestHeaders, extraInfo, 'false', '', output); var finalJson = JSON.stringify(resolverLogic); savedData.innerHTML = finalJson; });",
+        "output": [{
+            "quality": "",
+            "link": "",
+            "moduleID": "",
+            "headers": [{
+                "key": "key",
+                "value": "value"
+            }]
+        }]
+    }, {
+        "request": "empty",
+        "method": "get",
+        "userAgent": "",
+        "referer": "",
+        "headers": [{
+            "key": "key",
+            "value": "value"
+        }],
+        "extraInfo": [{
+            "value": ""
+        }],
+        "loadJavascript": "false",
+        "javaScript": "var script = document.createElement('script');script.setAttribute('src','https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js');document.head.appendChild(script);script.addEventListener('load', function() { function Header(key, value) { this.key = key; this.value = value; } function ExtraInfo(value) { this.value = value; } function Output(link, moduleID, headers, quality) { this.quality = quality; this.link = link; this.moduleID = moduleID; this.headers = headers } function ResolverLogic(request, method, userAgent, referer, headers, extraInfo, loadJavascript, javaScript, output) { this.request = request; this.method = method; this.userAgent = userAgent; this.referer = referer; this.headers = headers; this.extraInfo = extraInfo; this.loadJavascript = loadJavascript; this.javaScript = javaScript; this.output = output; } var moduleID = '100'; var key = 'imthekeyofthejson'; var resolverLogic; var output = []; var extraInfo = [new ExtraInfo('')]; var savedData = document.getElementById('katsu-final-data'); var parsedJson = JSON.parse(savedData.innerHTML); var requestHeaders = parsedJson.headers; var key = '93422192433952489752342908585752'; var IV = '9262859232435825'; var script = document.querySelector('script:nth-child(2)'); var parsedData = JSON.parse(script.innerHTML.replace('/*', '').replace('*/', '').replace('//','')); var decryptedData = CryptoJS.AES.decrypt(parsedData.data, CryptoJS.enc.Utf8.parse(key), { 'iv': CryptoJS.enc.Utf8.parse(IV) }); decryptedData = CryptoJS.enc.Utf8.stringify(decryptedData); decryptedData = JSON.parse(decryptedData); var m3u8 = decryptedData.source_bk; var mp4 = decryptedData.source; for (var x = 0; x < mp4.length; x++) { var selectedm3u8 = mp4[x]; if (selectedm3u8 != '') { output.push(new Output(selectedm3u8.file, moduleID, requestHeaders, selectedm3u8.label)); } } for (var x = 0; x < m3u8.length; x++) { var selectedm3u8 = m3u8[x]; if (selectedm3u8 != '') { output.push(new Output(selectedm3u8.file, moduleID, requestHeaders, selectedm3u8.label)); } } if (output.length > 0) { if (output[output.length - 1].quality != 'HLS' && output[output.length - 1].quality != 'hls') { output.reverse(); } } resolverLogic = new ResolverLogic('', 'get', '', '', requestHeaders, extraInfo, '', '', output); var finalJson = JSON.stringify(resolverLogic); savedData.innerHTML = finalJson;});",
+        "output": [{
+            "quality": "",
+            "link": "",
+            "moduleID": "",
+            "headers": [{
+                "key": "key",
+                "value": "value"
+            }]
+        }]
+    }]
+}
+ 
