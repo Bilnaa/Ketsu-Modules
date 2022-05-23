@@ -68,7 +68,10 @@ var animes = doc.querySelectorAll('.ss-list a');
 for (var x = 0; x < animes.length; x++) {
     var anime = animes[x];
     var link = 'https://zoro.to/ajax/v2/episode/servers?episodeId=' + anime.dataset.id;
-    var name = `${x+1} : ` + anime.title;
+    var name =  anime.title;
+    if(!name.includes('Episode')){
+        name = `${x+1} : ` + name;
+    }
     let chapter = new Chapter(name, new ModuleRequest(link, 'get', emptyKeyValue, null), false);
     episodes.push(chapter);
 }
