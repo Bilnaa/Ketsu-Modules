@@ -98,6 +98,13 @@
         "image": "https://i.postimg.cc/dt5zN85t/KDramafin.png",
         "info": "Regardez gratuitement des dramas en français avec le module du site MyKDrama.",
         "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Danyspb/MyKDrama/master/moduleTemplate.json"
+    },
+    {
+        "name": "HDToday | ALL",
+        "author": "Nabil",
+        "image": "https://i.postimg.cc/hPwD4Cbj/hdtoday-logo.png",
+        "info": "Watch subbed and dubbed film with the module of Hdtoday.",
+        "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/main/hdtoday.json"
     }],
     "images": [{
         "name": "MangaDex | ENG",
