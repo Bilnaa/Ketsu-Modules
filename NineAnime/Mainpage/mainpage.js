@@ -231,15 +231,17 @@ for (const anime of animeList) {
     let link = anime.querySelector('.name').href;
     link = new URL(link, parsedJson.request.url).href.split('?')[0];
     link = new ModuleRequest(link, 'get', emptyKeyValue, null);
+    var ep = anime.querySelector('.tag.ep').innerText;
+    var lang = anime.querySelector('.taglist').innerText;
     let image = anime.querySelector('.poster > img').src;
     image = new ModuleRequest(image, 'get', emptyKeyValue, null);
-    const obj = new Data(image, title, 'unknown', 'unknown', 'unknown', 'unknown', 'unknown', false, link, false);
+    const obj = new Data(image, title, 'unknown', ep, lang, 'unknown', 'unknown', false, link, false);
     recent.push(obj);
 }
 var topLayout = new Layout(new Insets(0, 0, 0, 0), 1, 1, 1, 1, 0, new Size(400, 105), new Ratio('width', 8, 14), new Size(0, 0), 0, 0);
 output.push(new Output(CellDesings.Special3, Orientation.horizontal, DefaultLayouts.none, Paging.centered, new Section('', false), topLayout, shuffle(featured)));
 output.push(new Output(CellDesings.Special1, Orientation.horizontal, DefaultLayouts.triplets, Paging.leading, new Section('Top Anime', true), null, topAnime));
-output.push(new Output(CellDesings.normal4, Orientation.vertical, DefaultLayouts.longTripletsFull, Paging.none, new Section('Recently Updated', true), null, recent));
+output.push(new Output(CellDesings.normal2, Orientation.vertical, DefaultLayouts.longTripletsFull, Paging.none, new Section('Recently Updated', true), null, recent));
 let MainPageObject = new MainPage(new ModuleRequest('', 'get', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(true, false, ''), output);
 var finalJson = JSON.stringify(MainPageObject);
 savedData.innerHTML = finalJson;
