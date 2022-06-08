@@ -103,8 +103,15 @@
         "name": "HDToday | ALL",
         "author": "Nabil",
         "image": "https://i.postimg.cc/hPwD4Cbj/hdtoday-logo.png",
-        "info": "Watch subbed and dubbed film with the module of Hdtoday.",
+        "info": "Watch subbed and dubbed films and shows with the module of Hdtoday.",
         "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/main/hdtoday.json"
+    },
+    {
+        "name": "Spacemov | ENG",
+        "author": "Danyspb",
+        "image": "https://i.postimg.cc/fTkrNh5s/space.png",
+        "info": "Watch subbed and dubbed films and shows with the module of Spacemov.",
+        "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Danyspb/SpaceMov/master/moduleTemplate.json"
     }],
     "images": [{
         "name": "MangaDex | ENG",
