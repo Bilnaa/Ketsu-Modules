@@ -169,6 +169,14 @@
         "info": "Lisez gratuitement des mangas avec le module du site LelScan-VF.",
         "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/LelScanVF/moduleTemplate.json",
         "Zetsu_link": "zetsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/LelScanVF/moduleTemplate.json"
+    },
+    {
+        "name": "Mangas-Origines | FR",
+        "author": "Danyspb",
+        "image": "https://i.postimg.cc/7hVCyvSC/manga.png",
+        "info": "Lisez gratuitement des mangas avec le module du site Mangas-Origines.",
+        "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Danyspb/Origines-Mangas/master/moduleTemplate.json",
+        "Zetsu_link": "zetsuapp://?moduleData=https://raw.githubusercontent.com/Danyspb/Origines-Mangas/master/moduleTemplate.json"
     }],
     "text": [{
         "name": "Livre1 | FR",
