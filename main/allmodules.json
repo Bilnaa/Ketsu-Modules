@@ -119,6 +119,13 @@
         "image": "https://streamingcommunity.stream/templates/streamingcommunity/images/logo.png",
         "info": "Watch Italian subbed and dubbed film with the module of Streaming-Community.",
         "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/StreamingCommunity/StreamingCommunity.json"
+    },
+    {
+        "name": "Neko-Sama | FR",
+        "author": "Nabil",
+        "image": "https://zupimages.net/up/21/12/303j.png",
+        "info": "Regardez gratuitement des animes avec le module du site Neko-Sama.",
+        "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/Neko-Sama/moduleTemplate.json"
     }],
     "images": [{
         "name": "MangaDex | ENG",
