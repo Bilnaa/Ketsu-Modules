@@ -6,8 +6,8 @@
        "developer": "ナビル",
        "moduleID": "CC3Gg83tsjm",
        "moduleImage": "https://i.postimg.cc/V6KWhqVc/9anime.png",
-       "moduleVersion": 1.94,
-       "changelog": "1.94 - So basically they're fucking with me changing everything at all time of the day, sorry guys for the updates...",
+       "moduleVersion": 1.95,
+       "changelog": "1.95 - So basically they're fucking with me changing everything at all time of the day, sorry guys for the updates...",
        "moduleLenguage": "ENG",
        "moduleType": "Video",
        "baseURL": "https://9anime.id/",
@@ -514,9 +514,9 @@
        "resolverInfo": {
            "resolverName": "VIZSTREAM",
            "nameMatches": [
-               "VIZCLOUD_FUCKED", "MCLOUD_FUCKED"
+               "VIZCLOUD", "MCLOUD"
            ],
-           "developer": "Jack_",
+           "developer": "ナビル",
            "moduleID": "q3RuUt2jwX9",
            "resolverVersion": 1,
            "baseURL": ""
