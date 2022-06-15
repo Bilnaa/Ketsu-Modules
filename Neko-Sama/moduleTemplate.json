@@ -12,7 +12,7 @@
     "baseURL": "https://neko-sama.fr/",
     "searchPlaceHolder": "Commencez votre recherche par une majuscule",
     "moduleDeveloperSite": "https://bilnaa.github.io/main",
-    "UpdateSite": "http://192.168.1.13:5502/Neko-Sama/moduleTemplate.json",
+    "UpdateSite": "https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/Neko-Sama/moduleTemplate.json",
     "preferedServer": "",
     "preferedDownloadServer": "",
     "blackListed": [
