@@ -60,7 +60,7 @@ function Video(videoQuality, videoLink) {
 var savedData = document.getElementById('ketsu-final-data');
 var parsedJson = JSON.parse(savedData.innerHTML);
 var extraInfo = parsedJson.extra.extraInfo;
-var emptyKeyValue = [new KeyValue('', '')];
+var emptyKeyValue = [new KeyValue('X-Requested-With', 'XMLHttpRequest')];
 var output = [];
 const script = document.querySelector('script').innerHTML.replace('/*', '').replace('*/', '');
 const data = JSON.parse(script);
