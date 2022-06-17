@@ -83,7 +83,7 @@
         "author": "Nabil",
         "image": "https://i.postimg.cc/2j9g6m8d/otakufr.png",
         "info": "Regardez gratuitement des animes avec le module du site Otakufr.",
-        "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/Otakufr/moduleTemplate.json"
+        "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Danyspb/Modules-Ketsu/main/Anime-Flex/moduleTemplate.json"
     },
     {
         "name": "Anime-Flex | FR",
@@ -97,7 +97,7 @@
         "author": "Danyspb",
         "image": "https://i.postimg.cc/dt5zN85t/KDramafin.png",
         "info": "Regardez gratuitement des dramas en français avec le module du site MyKDrama.",
-        "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Danyspb/MyKDrama/master/moduleTemplate.json"
+        "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Danyspb/Modules-Ketsu/main/MyKDrama/moduleTemplate.json"
     },
     {
         "name": "HDToday | ALL",
@@ -111,7 +111,7 @@
         "author": "Danyspb",
         "image": "https://i.postimg.cc/fTkrNh5s/space.png",
         "info": "Watch subbed and dubbed films and shows with the module of Spacemov.",
-        "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Danyspb/SpaceMov/master/moduleTemplate.json"
+        "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Danyspb/Modules-Ketsu/main/spacemove/moduleTemplate.json"
     },
     {
         "name": "Streaming-Community | IT",
@@ -126,6 +126,12 @@
         "image": "https://zupimages.net/up/21/12/303j.png",
         "info": "Regardez gratuitement des animes avec le module du site Neko-Sama.",
         "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/Neko-Sama/moduleTemplate.json"
+    },{
+        "name": "iAnimes | FR",
+        "author": "Nabil",
+        "image": "https://i.postimg.cc/KvXJYvw5/cover-IAnime.png",
+        "info": "Regardez gratuitement des animes, des films et des séries avec le module du site iAnimes.",
+        "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Danyspb/Modules-Ketsu/main/IAnime/moduleTemplate.json"
     }],
     "images": [{
         "name": "MangaDex | ENG",
@@ -182,8 +188,8 @@
         "author": "Danyspb",
         "image": "https://i.postimg.cc/7hVCyvSC/manga.png",
         "info": "Lisez gratuitement des mangas avec le module du site Mangas-Origines.",
-        "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Danyspb/Origines-Mangas/master/moduleTemplate.json",
-        "Zetsu_link": "zetsuapp://?moduleData=https://raw.githubusercontent.com/Danyspb/Origines-Mangas/master/moduleTemplate.json"
+        "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Danyspb/Modules-Ketsu/main/Mangas-Origines/moduleTemplate.json",
+        "Zetsu_link": "zetsuapp://?moduleData=https://raw.githubusercontent.com/Danyspb/Modules-Ketsu/main/Mangas-Origines/moduleTemplate.json"
     }],
     "text": [{
         "name": "Livre1 | FR",
