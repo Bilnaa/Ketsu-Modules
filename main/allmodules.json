@@ -90,7 +90,7 @@
         "author": "Danyspb",
         "image": "https://i.postimg.cc/yxfKr13F/anime-flex.png",
         "info": "Regardez gratuitement des animes avec le module du site Anime-Flex.",
-        "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Danyspb/Anime-Flex/main/moduleTemplate.json"
+        "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Danyspb/Modules-Ketsu/main/Anime-Flex/moduleTemplate.json"
     },
     {
         "name": "MyKDrama | FR",
