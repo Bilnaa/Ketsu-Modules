@@ -6,10 +6,10 @@
     "developer": "ナビル",
     "moduleID": "114653268923213246",
     "moduleImage": "https://i.postimg.cc/jSP7Srhr/zoro-gif.gif",
-    "moduleVersion": 1.82,
+    "moduleVersion": 1.83,
     "moduleLenguage": "ENG",
     "searchPlaceHolder": "If you want to search for a random anime, just type 'random'",
-    "changelog": "1.82 - Fixed the search temporally, it now works again",
+    "changelog": "1.83 - Search pagination is fixed",
     "moduleType": "Video",
     "baseURL": "https://zoro.to/",
     "moduleDeveloperSite": "https://bilnaa.github.io/main/",
@@ -322,7 +322,7 @@
 ],
   "search": [{
     "request": {
-      "url": "https://zoro.to/search?&keyword=<searched>",
+      "url": "https://zoro.to/search?&keyword=<searched>&page=<page>",
       "method": "get",
       "headers": [{
         "key": "",
