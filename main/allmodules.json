@@ -128,11 +128,19 @@
         "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/Neko-Sama/moduleTemplate.json"
     },{
         "name": "iAnimes | FR",
-        "author": "Nabil",
+        "author": "Dany & Nabil",
         "image": "https://i.postimg.cc/KvXJYvw5/cover-IAnime.png",
         "info": "Regardez gratuitement des animes, des films et des séries avec le module du site iAnimes.",
         "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Danyspb/Modules-Ketsu/main/IAnime/moduleTemplate.json"
-    }],
+    },
+    {
+        "name": "SuperCartoons | ENG",
+        "author": "Danyspb",
+        "image": "https://i.postimg.cc/76pDGT5K/car.png",
+        "info": "Watch old cartoons with the module of Supercartoons.",
+        "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Danyspb/Modules-Ketsu/main/SuperCartoons/moduleTemplate.json"
+    }
+    ],
     "images": [{
         "name": "MangaDex | ENG",
         "author": "Nabil",
