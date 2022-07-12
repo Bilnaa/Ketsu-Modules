@@ -194,6 +194,8 @@ var parsedJson = JSON.parse(savedData.innerHTML);
 let output = parsedJson.output;
 datas = [];
 let emptyKeyValue = [new KeyValue('', '')];
+var nump = Math.floor(Math.random()*(3)+1);
+var urlmod = `https://www.supercartoons.net/studio/12-${nump}/king-features-syndicate.html`;
 var url = 'https://www.supercartoons.net';
 var dat = document.querySelectorAll('.cartoons-list.row article');
 for (d of dat) {
@@ -204,7 +206,7 @@ for (d of dat) {
     var title = d.querySelector('h3').textContent.trim();
     datas.push(new Data(image, title, '', '', '', '', '', false, link));
 }
-output.push(new Output(CellDesings.normal1, Orientation.horizontal, DefaultLayouts.longTripletsDouble, Paging.leading, new Section('Characters : Bugs ', true), null, datas));
-let MainPageObject = new MainPage(new ModuleRequest('https://www.supercartoons.net/character/1-1/mickey-mouse.html', 'get', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(true, false, ''), output);
+output.push(new Output(CellDesings.normal1, Orientation.horizontal, DefaultLayouts.longTripletsDouble, Paging.leading, new Section('Studios : MGM', true), null, datas));
+let MainPageObject = new MainPage(new ModuleRequest(urlmod, 'get', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(true, false, ''), output);
 var finalJson = JSON.stringify(MainPageObject);
 savedData.innerHTML = finalJson;

@@ -218,7 +218,7 @@
         var dat = [];
         var donnes = [];
 
-
+        
         var rec = document.querySelectorAll('#content > div > center:nth-child(5) > table > tbody > tr > td');
         for ( i = 0; i < rec.length; i++) {
            var dat = rec[i].querySelectorAll('table tbody');
