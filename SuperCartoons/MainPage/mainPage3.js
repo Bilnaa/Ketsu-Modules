@@ -195,6 +195,8 @@
     let output = parsedJson.output;
     datas = [];
     let emptyKeyValue = [new KeyValue('', '')];
+    var nump = Math.floor(Math.random()*(7)+1);
+    var urlmod = `https://www.supercartoons.net/studio/4-${nump}/mgm.html`;
     var url = 'https://www.supercartoons.net';
     var dat = document.querySelectorAll('.cartoons-list.row article');
     for (d of dat) {
@@ -205,7 +207,7 @@
         var title = d.querySelector('h3').textContent.trim();
         datas.push(new Data(image, title, '', '', '', '', '', false, link));
     }
-    output.push(new Output(CellDesings.normal1, Orientation.horizontal, DefaultLayouts.longTripletsDouble, Paging.leading, new Section('Characters : Speedy Gonzales', true), null, datas));
-    let MainPageObject = new MainPage(new ModuleRequest('https://www.supercartoons.net/character/17-1/bugs-bunny.html', 'get',emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue),new JavascriptConfig(true, false, ''), output);
+    output.push(new Output(CellDesings.normal1, Orientation.horizontal, DefaultLayouts.longTripletsDouble, Paging.leading, new Section('Studios : Warner Bros', true), null, datas));
+    let MainPageObject = new MainPage(new ModuleRequest(urlmod, 'get',emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue),new JavascriptConfig(true, false, ''), output);
     var finalJson = JSON.stringify(MainPageObject);
     savedData.innerHTML = finalJson;

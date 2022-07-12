@@ -204,7 +204,7 @@ for (d of dat) {
     var title = d.querySelector('h3').textContent.trim();
     datas.push(new Data(image, title, '', '', '', '', '', false, link));
 }
-output.push(new Output(CellDesings.normal1, Orientation.horizontal, DefaultLayouts.longTripletsDouble, Paging.leading, new Section('Characters : Mickey Mouse', true), null, datas));
+output.push(new Output(CellDesings.normal1, Orientation.horizontal, DefaultLayouts.longTripletsDouble, Paging.leading, new Section('Studios : King Features Syndicate', true), null, datas));
 let MainPageObject = new MainPage(new ModuleRequest('', 'get', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(true, false, ''), output);
 var finalJson = JSON.stringify(MainPageObject);
 savedData.innerHTML = finalJson;
