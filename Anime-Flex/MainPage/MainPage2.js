@@ -193,6 +193,10 @@ var savedData = document.getElementById('ketsu-final-data');
 var parsedJson = JSON.parse(savedData.innerHTML);
 let output = parsedJson.output;
 let emptyKeyValue = [new KeyValue('', '')];
+
+var nump = Math.floor(Math.random()*(14)+1);
+var urli = `https://anime-flix.net/films/page/${nump}/`;
+
 let Serie = [];
 var check = document.querySelectorAll('#archive-content > article');
 for (ch of check) {
@@ -206,7 +210,7 @@ for (ch of check) {
     Serie.push(donnes);
 }
 output.push(new Output(CellDesings.normal7, Orientation.horizontal, DefaultLayouts.longTripletsDouble, Paging.leading, new Section('Séries', true), null, Serie));
-let MainPageObject = new MainPage(new ModuleRequest('https://anime-flix.net/films/', 'get', emptyKeyValue, null),
+let MainPageObject = new MainPage(new ModuleRequest(urli, 'get', emptyKeyValue, null),
 new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(true, false, ''), output);
 var finalJson = JSON.stringify(MainPageObject);
 savedData.innerHTML = finalJson;

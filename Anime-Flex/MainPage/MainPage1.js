@@ -197,7 +197,9 @@
     const rien = new ModuleRequest('', 'get', emptyKeyValue, null);
     var lien = new ModuleRequest('https://discord.gg/BN8ZbtKp','get', emptyKeyValue, null);
     var contact = new Data(rien, 'En cas de problème du module veuillez le signaler au niveau du serveur Discord de Ketsu.\\nVous pouvez y accéder en cliquant sur ce texte.\\nAllez bon visionnage 😉.\\nDanyspb','','','','','',false,lien,false);
-    
+    var nump = Math.floor(Math.random()*(15)+1);
+    var urli = `https://anime-flix.net/series/page/${nump}/`;
+
     var face = [];
     var brave = document.querySelectorAll('#slider-movies-tvshows > article');
     for (b of brave){
@@ -232,6 +234,6 @@
     output.push(new Output(CellDesings.Special3, Orientation.horizontal, DefaultLayouts.wideStrechedFull, Paging.leading,new Section('', true), layout, face));
     output.push(new Output('CELLHelperText', Orientation.horizontal, DefaultLayouts.wideFull, Paging.centered, new Section('', true), layout1, [contact]));
     output.push(new Output(CellDesings.Special1, Orientation.horizontal, DefaultLayouts.triplets, Paging.leading,new Section('En Vedette', true), null, vedette));
-    let MainPageObject = new MainPage(new ModuleRequest('https://anime-flix.net/series/', 'get', emptyKeyValue,null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(true,false, ''), output);
+    let MainPageObject = new MainPage(new ModuleRequest(urli, 'get', emptyKeyValue,null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(true,false, ''), output);
     var finalJson = JSON.stringify(MainPageObject);
     savedData.innerHTML = finalJson;

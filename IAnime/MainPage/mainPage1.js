@@ -215,24 +215,15 @@ const DefaultLayouts = {
    let output = [];
    let emptyKeyValue = [new KeyValue('','')];
    var page  = [
-       'Xdf789POGg45rrty&b1u3vv0lSorJk9Lex0tbKZEtbz8RlMC9','Wqs418Rtbsdfg7987ds&b1u3vv0lSorJk9Lex0tbKZEtbz8RlMC9',
-       'Qxc108FGkpodhjccjv&b1u3vv0lSorJk9Lex0tbKZEtbz8RlMC9','SpS891Ntpztzret87ty&b1u3vv0lSorJk9Lex0tbKZEtbz8RlMC9',
-       'BoR851UkN56456uui&b1u3vv0lSorJk9Lex0tbKZEtbz8RlMC9','Xod038Fbzfghfdh87df&b1u3vv0lSorJk9Lex0tbKZEtbz8RlMC9',
-       'ADs480FvP01121j&b1u3vv0lSorJk9Lex0tbKZEtbz8RlMC9','ApG097Bgtzrte787dfg&b1u3vv0lSorJk9Lex0tbKZEtbz8RlMC9',
-       'Wup331BgFuytt788o&b1u3vv0lSorJk9Lex0tbKZEtbz8RlMC9','Pvi726Butcvbqs45re&b1u3vv0lSorJk9Lex0tbKZEtbz8RlMC9',
-       'Vja882Gptlklgjjk&b1u3vv0lSorJk9Lex0tbKZEtbz8RlMC9','Foo00451xcv45fdtyr&b1u3vv0lSorJk9Lex0tbKZEtbz8RlMC9',
-       'CbO016Dxmipoifdg5456&b1u3vv0lSorJk9Lex0tbKZEtbz8RlMC9','Kpy369Mbvzzret7987&b1u3vv0lSorJk9Lex0tbKZEtbz8RlMC9',
-       'Jpr104Gol654rtetfgh&b1u3vv0lSorJk9Lex0tbKZEtbz8RlMC9','PdR780Bop78ret89z7g&b1u3vv0lSorJk9Lex0tbKZEtbz8RlMC9',
-       'Bss541Lky987ljhlgh2313s&b1u3vv0lSorJk9Lex0tbKZEtbz8RlMC9','Mvp442Srifdsg7987sdg&b1u3vv0lSorJk9Lex0tbKZEtbz8RlMC9',
-       'FtH029Lgtjkhnbspoipfg&b1u3vv0lSorJk9Lex0tbKZEtbz8RlMC9','Nrs598Ftp87rfdxgxd8&b1u3vv0lSorJk9Lex0tbKZEtbz8RlMC9',
-       'Mer710Gnr132654987&b1u3vv0lSorJk9Lex0tbKZEtbz8RlMC9','Cof591Fopoiup87uipou&b1u3vv0lSorJk9Lex0tbKZEtbz8RlMC9',
-       'Qop487Rdtkmlkfgh5646aze&b1u3vv0lSorJk9Lex0tbKZEtbz8RlMC9','Jsa419Ygpazer878fdsd&b1u3vv0lSorJk9Lex0tbKZEtbz8RlMC9',
-       'Bod452VViiuher8787fd&b1u3vv0lSorJk9Lex0tbKZEtbz8RlMC9','Rij126Prtezrt5454sdfg&b1u3vv0lSorJk9Lex0tbKZEtbz8RlMC9',
-       'QQo447FFtxvxw7987&b1u3vv0lSorJk9Lex0tbKZEtbz8RlMC9'
+       'Xdf789POGg45rrty','Wqs418Rtbsdfg7987ds','QQo447FFtxvxw7987','Qxc108FGkpodhjccjv','SpS891Ntpztzret87ty',
+       'BoR851UkN56456uui ','Xod038Fbzfghfdh87df','ADs480FvP01121j','ApG097Bgtzrte787dfg','Wup331BgFuytt788o', 
+       'Pvi726Butcvbqs45re','Vja882Gptlklgjjk','Foo00451xcv45fdtyr','CbO016Dxmipoifdg5456','Kpy369Mbvzzret7987',
+       'Jpr104Gol654rtetfgh','PdR780Bop78ret89z7g','Bss541Lky987ljhlgh2313s','Mvp442Srifdsg7987sdg','Nrs598Ftp87rfdxgxd8',
+       'Mer710Gnr132654987','Cof591Fopoiup87uipou','Qop487Rdtkmlkfgh5646aze','Jsa419Ygpazer878fdsd','Bod452VViiuher8787fd',
+       'Rij126Prtezrt5454sdfg'
    ];
    var nump = page[Math.floor(Math.random() * page.length)];
-   var urlmodi =`https://www.ianimes.org/listing2.php?affichage=${nump}`;
-
+   var urlmodi =`https://www.ianimes.org/listing2.php?affichage=${nump}&b1u3vv0lSorJk9Lex0tbKZEtbz8RlMC9`;
    const rien = new ModuleRequest('', 'get', emptyKeyValue, null);
    var lien = new ModuleRequest('https://bilnaa.github.io/main/','get', emptyKeyValue, null);
    var contact = new Data(rien, 'Vous pouvez parcourir la liste des films de façon aléatoire en actualisant la page acceuil .Pour faire cela, vous devez tirer du haut vers le bas la page acceuil.\\nVous pouvez ajouter des modules en cliquant sur ce texte.\\nAllez bon visionnage 😉.\\nDanyspb','','','','','',false,lien,false);
