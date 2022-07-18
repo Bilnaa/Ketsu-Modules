@@ -139,6 +139,13 @@
         "image": "https://i.postimg.cc/76pDGT5K/car.png",
         "info": "Watch old cartoons with the module of Supercartoons.",
         "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Danyspb/Modules-Ketsu/main/SuperCartoons/moduleTemplate.json"
+    },
+    {
+        "name": "Turkish123 | ENG | TURC",
+        "author": "Danyspb",
+        "image": "https://i.postimg.cc/QxNQ6Ysg/cor.jpg",
+        "info": "Watch turkish subbed series with the module of Turkish123.",
+        "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Danyspb/Modules-Ketsu/main/Turkish123/moduleTemplate.json"
     }
     ],
     "images": [{
