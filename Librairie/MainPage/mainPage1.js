@@ -196,15 +196,15 @@ let results1 = [];
 let results2 = [];
 let emptyKeyValue = [new KeyValue('', '')];
 const dummyQuest = new ModuleRequest('empty', 'get', emptyKeyValue, null);
-const infoText = new Data(dummyQuest, 'After pressing on a module, please wait a few seconds till pop up appears. A', '', '', '', '', '', false, dummyQuest, false);
+const infoText = new Data(dummyQuest, 'After pressing on a module, please wait a few seconds till pop up appears.', '', '', '', '', '', false, dummyQuest, false);
 output.push(new Output('CELLHelperText', Orientation.vertical, DefaultLayouts.wideFull, Paging.none, new Section('', true), null, [infoText]));
 const testLayout = new Layout(new Insets(10, 10, 10, 10), 1, 1, 1, 1, 100, new Size(400, 50), null, new Size(0, 0), 10, 10);
 var content = document.querySelector('body > script:nth-child(2)').innerText.replace('/*', '').replace('*/', '');
 var Json = JSON.parse(content);
 var videos = Json.video;
-for (var x = 1 ; x < videos.length ; x++) {
+for (var x = 1; x < videos.length; x++) {
     var video = videos[x];
-    let name = video.name;
+    let name = video.name + ' By ' + video.author;
     let info = video.info;
     let image = video.image;
     image = new ModuleRequest(image, 'get', emptyKeyValue, null);
@@ -213,7 +213,7 @@ for (var x = 1 ; x < videos.length ; x++) {
     results.push(new Data(image, name, info, '', '', '', '', false, link, true));
 }
 for (module of Json.images) {
-    let name = module.name;
+    let name = module.name + ' By ' + module.author;
     let info = module.info;
     let image = module.image;
     image = new ModuleRequest(image, 'get', emptyKeyValue, null);
@@ -222,7 +222,7 @@ for (module of Json.images) {
     results1.push(new Data(image, name, info, '', '', '', '', false, link, true));
 }
 for (module of Json.text) {
-    let name = module.name;
+    let name = module.name + ' By ' + module.author;
     let info = module.info;
     let image = module.image;
     image = new ModuleRequest(image, 'get', emptyKeyValue, null);
