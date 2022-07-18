@@ -195,8 +195,8 @@
     let output = parsedJson.output;
     let emptyKeyValue = [new KeyValue('', '')];
     const rien = new ModuleRequest('', 'get', emptyKeyValue, null);
-    var lien = new ModuleRequest('https://discord.gg/BN8ZbtKp','get', emptyKeyValue, null);
-    var contact = new Data(rien, 'En cas de problème du module veuillez le signaler au niveau du serveur Discord de Ketsu.\\nVous pouvez y accéder en cliquant sur ce texte.\\nAllez bon visionnage 😉.\\nDanyspb','','','','','',false,lien,false);
+    var lien = new ModuleRequest('https://bilnaa.github.io/main/','get', emptyKeyValue, null);
+    var contact = new Data(rien, 'Vous pouvez parcourir la liste des films et des series de façon aléatoire en actualisant la page acceuil .Pour faire cela, vous devez tirer du haut vers le bas la page acceuil.\\nVous pouvez aussi ajouter d autres modules en cliquant sur ce texte.\\nAllez bon visionnage 😉.\\nDanyspb','','','','','',false,lien,false);
     var nump = Math.floor(Math.random()*(15)+1);
     var urli = `https://anime-flix.net/series/page/${nump}/`;
 
