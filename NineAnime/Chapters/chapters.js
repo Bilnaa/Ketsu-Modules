@@ -57,22 +57,80 @@ function Video(videoQuality, videoLink) {
     this.videoQuality = videoQuality;
     this.videoLink = videoLink;
 }
+const cipherKey = 'rTKp3auwu0ULA6II';
+
+function getVrf(id) {
+    return encrypt(cipher(cipherKey, encodeURIComponent(id))).replace(/=+$/g, '');
+}
+
+function encrypt(t) {
+    var h = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
+    var i = '';
+    for (t = ''.concat(t), r = 0; r < t.length; r++) {
+        if (255 < t.charCodeAt(r)) {
+            return null;
+        }
+        for (var i = '', r = 0; r < t.length; r += 3) {
+            var u = [void 0, void 0, void 0, void 0];
+            u[0] = t.charCodeAt(r) >> 2, u[1] = (3 & t.charCodeAt(r)) << 4, t.length > r + (1) && ((u[1] |= t.charCodeAt(r + 1) >> 4, u[2] = (15 & t.charCodeAt(r + 1)) << 2), u[2] = (15 & t.charCodeAt(r + 1)) << 2), t.length > r + (2) && (u[2] |= t.charCodeAt(r + 2) >> 6, u[3] = 63 & t.charCodeAt(r + 2));
+            for (var e = 0; e < u.length; e++) {
+                'undefined' == typeof u[e] ? i += '=' : i += function (t) {
+                    if (0 <= t && t < 64) {
+                        return h[t];
+                    }
+                }(u[e]);
+            }
+        }
+    }
+    return i;
+};
+
+function cipher(key, text) {
+    var arr = new Array(256);
+    for (var i = 0; i < 256; i++) {
+        arr[i] = i;
+    }
+    var u = 0;
+    var r;
+    for (var i = 0; i < 256; i++) {
+        u = (u + arr[i] + key[i % key.length].charCodeAt(0)) % 256;
+        r = arr[i];
+        arr[i] = arr[u];
+        arr[u] = r;
+    }
+    u = 0;
+    var c = 0;
+    return text.split('').map(function (j) {
+        c = (c + 1) % 256;
+        u = (u + arr[c]) % 256;
+        r = arr[c];
+        arr[c] = arr[u];
+        arr[u] = r;
+        return String.fromCharCode(j.charCodeAt(0) ^ arr[(arr[c] + arr[u]) % 256]);
+    }).join('');
+}
+
 var savedData = document.getElementById('ketsu-final-data');
 var parsedJson = JSON.parse(savedData.innerHTML);
 var extraInfo = parsedJson.extra.extraInfo;
 var emptyKeyValue = [new KeyValue('', '')];
 var output = [];
+var url = new URL(parsedJson.request.url);
+var nextRequest = '';
 var extraInfo = [new KeyValue('count', '0')];
-var request = new URL(parsedJson.request.url);
-const params = request.search.substring(1).split('&amp;');
-for (var x = 0; x < params.length; x++) {
-    var param = params[x];
-    let link = param.split('=')[1];
-    var url = 'https://9anime.id/ajax/anime/episode?id=' + link;
+const script = document.querySelector('script').innerText.replace('*/', '').replace('/*', '');
+const html = JSON.parse(script).result;
+const parser = new DOMParser();
+const doc = parser.parseFromString(html, 'text/html');
+const servers = doc.querySelectorAll('.servers li');
+for (var x = 0; x < servers.length; x++) {
+    var server = servers[x];
+    let id = server.getAttribute('data-link-id');
+    let link = `${url.origin}/ajax/server/${id}?vrf=${getVrf(id)}`;
     if (x == 0) {
-        var nextRequest = url
+        nextRequest = link;
     } else {
-        extraInfo.push(new KeyValue(`${x}`, `${url}`));
+        extraInfo.push(new KeyValue(`${x}`, `${link}`));
     }
 }
 let emptyExtra = new Extra([new Commands('', emptyKeyValue)], extraInfo);

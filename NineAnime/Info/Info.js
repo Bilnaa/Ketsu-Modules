@@ -51,22 +51,25 @@ function Output(image, title, link, description, genres, field1, field2, field3,
     this.field4 = field4;
     this.chapters = chapters;
 }
+const cipherKey = 'rTKp3auwu0ULA6II';
 
-function test(t) {
-    var h = '0wMrYU+ixjJ4QdzgfN2HlyIVAt3sBOZnCT9Lm7uFDovkb/EaKpRWhqXS5168ePcG';
+function getVrf(id) {
+    return encrypt(cipher(cipherKey, encodeURIComponent(id))).replace(/=+$/g, '');
+}
+
+function encrypt(t) {
+    var h = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
     var i = '';
-    var Ht = '=';
     for (t = ''.concat(t), r = 0; r < t.length; r++) {
         if (255 < t.charCodeAt(r)) {
             return null;
         }
         for (var i = '', r = 0; r < t.length; r += 3) {
-            var u = [undefined, undefined, undefined, undefined];
-            u[0] = t.charCodeAt(r) >> 2, u[1] = (3 & t.charCodeAt(r)) << 4, t.length > r + (1) && (u[1] |= t.charCodeAt(r + 1) >> 4, u[2] = (15 & t.charCodeAt(r + 1)) << 2), t.length > r + (2) && (u[2] |= t.charCodeAt(r + 2) >> 6, u[3] = 63 & t.charCodeAt(r + 2));
+            var u = [void 0, void 0, void 0, void 0];
+            u[0] = t.charCodeAt(r) >> 2, u[1] = (3 & t.charCodeAt(r)) << 4, t.length > r + (1) && ((u[1] |= t.charCodeAt(r + 1) >> 4, u[2] = (15 & t.charCodeAt(r + 1)) << 2), u[2] = (15 & t.charCodeAt(r + 1)) << 2), t.length > r + (2) && (u[2] |= t.charCodeAt(r + 2) >> 6, u[3] = 63 & t.charCodeAt(r + 2));
             for (var e = 0; e < u.length; e++) {
-                'undefined' == typeof u[e] ? i += Ht : i += function (t) {
+                'undefined' == typeof u[e] ? i += '=' : i += function (t) {
                     if (0 <= t && t < 64) {
-                        console.log(h[t]);
                         return h[t];
                     }
                 }(u[e]);
@@ -76,37 +79,36 @@ function test(t) {
     return i;
 };
 
-function helperOne(t, n) {
-    return t % n;
-}
-
-function helperTwo(t, n) {
-    return t < n;
-}
-
-function je(t, n) {
-    var c = '';
-    for (var u, e = [], o = 0, c = '', f = 256, s = 0; s < f; s += 1) e[s] = s;
-    for (s = 0; s < f; s += 1) o = helperOne(o + e[s] + t.charCodeAt(s % t.length), f), u = e[s], e[s] = e[o], e[o] = u;
-    for (var o = s = 0, a = 0; helperTwo(a, n.length); a += 1) o = (o + e[s = (s + a) % f]) % f, u = e[s], e[s] = e[o], e[o] = u, c += String.fromCharCode(n.charCodeAt(a) ^ e[(e[s] + e[o]) % f]);
-    return c;
-}
-
-function getId(t) {
-    var i = test(encodeURIComponent(t) + '0000000');
-    i = i.substr(0, 6).split('').reverse().join('');
-    return i + test(je(i, encodeURIComponent(''.concat(t)))).replace(/=+$/g, '');
+function cipher(key, text) {
+    var arr = new Array(256);
+    for (var i = 0; i < 256; i++) {
+        arr[i] = i;
+    }
+    var u = 0;
+    var r;
+    for (var i = 0; i < 256; i++) {
+        u = (u + arr[i] + key[i % key.length].charCodeAt(0)) % 256;
+        r = arr[i];
+        arr[i] = arr[u];
+        arr[u] = r;
+    }
+    u = 0;
+    var c = 0;
+    return text.split('').map(function (j) {
+        c = (c + 1) % 256;
+        u = (u + arr[c]) % 256;
+        r = arr[c];
+        arr[c] = arr[u];
+        arr[u] = r;
+        return String.fromCharCode(j.charCodeAt(0) ^ arr[(arr[c] + arr[u]) % 256]);
+    }).join('');
 }
 var savedData = document.getElementById('ketsu-final-data');
 var parsedJson = JSON.parse(savedData.innerHTML);
 let emptyKeyValue = [new KeyValue('Referer', 'https://9anime.id/home')];
+var url = new URL(parsedJson.request.url);
 const info = document.querySelector('.info');
-try {
-    document.querySelector('p[itemprop=description] .more').click();
-} catch (e) {
-    console.log(e);
-}
-const metaArr = info.querySelectorAll('.meta > div > div');
+const metaArr = info.querySelectorAll('.bmeta > .meta > div');
 let meta = {};
 for (const m of metaArr) {
     let re = m.textContent.split(':');
@@ -118,22 +120,13 @@ var episodes = [];
 var type = meta.type ? meta.type : 'TV';
 var status = meta.status ? meta.status : 'On Going';
 var genres = meta.genre ? meta.genre.split(', ') : [];
-var desc = '';
 var title = info.querySelector('h1.title').textContent.trim();
-var image = document.querySelector('#info > .thumb > div > img').src;
+var image = document.querySelector('.poster img').src;
 image = new ModuleRequest(image, 'get', emptyKeyValue, null);
-try {
-    desc = info.querySelector('p[itemprop=description]').textContent.replace('less', '').replace(' less', '').trim();
-} catch {}
-try {
-    if (desc.length == 0) {
-        desc = info.querySelector('p[itemprop=depion]').textContent;
-    }
-} catch {}
-desc = desc.replace(/\"/g, '');
-var id = parsedJson.request.url.split('/')[4].split('.').pop();
-var vrf = getId(id);
-var nextRequest = `https://9anime.to/ajax/anime/servers?vrf=${encodeURIComponent(vrf)}&id=${id}`;
+const desc = document.querySelector('.synopsis.mb-3 .content').textContent.trim();
+var id = document.querySelector('#watch-main').dataset.id;
+var vrf = getVrf(id);
+var nextRequest = `${url.origin}/ajax/episode/list/${id}?vrf=${getVrf(id)}`;
 let infoPageObject = new Info(new ModuleRequest(nextRequest, 'get', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(false, false, ''), new Output(image, title, parsedJson.request, desc, genres, status, 'Anime', type, 'Eps: ' + episodes.length, episodes));
 var finalJson = JSON.stringify(infoPageObject);
 savedData.innerHTML = finalJson;

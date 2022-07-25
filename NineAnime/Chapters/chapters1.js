@@ -66,36 +66,15 @@ function getValueFromKey(keys, key) {
         }
     }
 }
-var savedData = document.getElementById('ketsu-final-data');
-var parsedJson = JSON.parse(savedData.innerHTML);
-var extraInfo = parsedJson.extra.extraInfo;
-var emptyKeyValue = [new KeyValue('Referer', 'https://9anime.id/watch/')];
-var output = parsedJson.output.videos;;
-var actualCount = getValueFromKey(extraInfo, 'count');
-var nextCount = parseInt(actualCount.match(/\\d+/g)[0]) + 1;
-var nextRequest = getValueFromKey(extraInfo, nextCount);
-if (actualCount == 0) {
-    output = new Videos([], []);
-}
 
-function ze(input) {
-    var key = '0wMrYU+ixjJ4QdzgfN2HlyIVAt3sBOZnCT9Lm7uFDovkb/EaKpRWhqXS5168ePcG';
-    console.log(input);
-    var t = input.replace(/[\\t\\n\\f\\r]/g, '').length % 4 == 0;
-    console.log(t);
-    if (t.length % 4 == 0) {
-        t = t.replace(/==?$/g, '');
-    } else {
-        t = input;
-    }
-    if (t.length % 4 == 1 || t.match(/[^+/0-9A-Za-z]/)) {
-        throw new Error('bad input');
-    }
+function decrypt(input, key) {
+    var t = input.replace(/[\t\n\f\r]/g, '');
+    if (t.length % 4 == 1 || t.match(/[^\+\/0-9A-Za-z]/)) throw new Error('bad input');
     var i = 0;
     var r = '';
     var e = 0;
     var u = 0;
-    for (o in t) {
+    for (var o = 0; o < t.length; o++) {
         e = e << 6;
         i = key.indexOf(t[o]);
         e = e | i;
@@ -108,35 +87,58 @@ function ze(input) {
             u = 0;
         }
     }
-    return 12 == u ? (e = e >> 4, r += String.fromCharCode(e)) : 18 == u ? (e = e >> 2, r += String.fromCharCode((65280 & e) >> 8), r += String.fromCharCode(255 & e)) : r;
+    return 12 == u ? r + String.fromCharCode(e >> 4) : 18 == u ? r + String.fromCharCode((65280 & e) >> 8) + String.fromCharCode(255 & e) : r;
 }
 
-function getLink(url) {
-    var i = url.substr(0, 6);
-    var n = url.substr(6, url.length);
-    var c = ze(n);
-    console.log(c);
-    return decodeURIComponent(je(i, c));
+function cipher(key, text) {
+    var arr = new Array(256);
+    for (var i = 0; i < 256; i++) {
+        arr[i] = i;
+    }
+    var u = 0;
+    var r;
+    for (var i = 0; i < 256; i++) {
+        u = (u + arr[i] + key[i % key.length].charCodeAt(0)) % 256;
+        r = arr[i];
+        arr[i] = arr[u];
+        arr[u] = r;
+    }
+    u = 0;
+    var c = 0;
+    return text.split('').map(function (j) {
+        c = (c + 1) % 256;
+        u = (u + arr[c]) % 256;
+        r = arr[c];
+        arr[c] = arr[u];
+        arr[u] = r;
+        return String.fromCharCode(j.charCodeAt(0) ^ arr[(arr[c] + arr[u]) % 256]);
+    }).join('');
 }
 
-function je(t, n) {
-    var c = '';
-    for (var u, e = [], o = 0, c = '', f = 256, s = 0; s < f; s += 1) e[s] = s;
-    for (s = 0; s < f; s += 1) o = helperOne(o + e[s] + t.charCodeAt(s % t.length), f), u = e[s], e[s] = e[o], e[o] = u;
-    for (var o = s = 0, a = 0; helperTwo(a, n.length); a += 1) o = (o + e[s = (s + a) % f]) % f, u = e[s], e[s] = e[o], e[o] = u, c += String.fromCharCode(n.charCodeAt(a) ^ e[(e[s] + e[o]) % f]);
-    return c;
+function getLink(text) {
+    return decodeURIComponent(cipher(cipherKey, decrypt(text, nineAnimeKey))).replace(/=+$/g, '');
 }
 
-function helperOne(t, n) {
-    return t % n;
+const nineAnimeKey = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
+const cipherKey = 'rTKp3auwu0ULA6II';
+var savedData = document.getElementById('ketsu-final-data');
+var parsedJson = JSON.parse(savedData.innerHTML);
+var extraInfo = parsedJson.extra.extraInfo;
+var emptyKeyValue = [new KeyValue('Referer', 'https://9anime.id/watch/')];
+var output = parsedJson.output.videos;;
+var actualCount = getValueFromKey(extraInfo, 'count');
+var nextCount = parseInt(actualCount.match(/\d+/g)[0]) + 1;
+var nextRequest = getValueFromKey(extraInfo, nextCount);
+if (actualCount == 0) {
+    output = new Videos([], []);
 }
-
-function helperTwo(t, n) {
-    return t < n;
+try {
+    const script = document.querySelector('script').innerHTML.replace('/*', '').replace('*/', '');
+    const data = getLink(JSON.parse(script).result.url);
+    output.needsResolver.push(new NeedsResolver('', new ModuleRequest(data.replace('streamtape.com', 'streamta.pe').replace('?autostart=true', ''), 'get', emptyKeyValue, null)));
+} catch (e) {
+    console.log(e);
 }
-const script = document.querySelector('script').innerHTML.replace('/*', '').replace('*/', '');
-const data = getLink(JSON.parse(script).url.replaceAll('=', ''));
-output.needsResolver.push(new NeedsResolver('', new ModuleRequest(data.replace('streamtape.com', 'streamta.pe').replace('?autostart=true', ''), 'get', emptyKeyValue, null)));
 extraInfo[0].value = '' + (parseInt(actualCount) + 1);
 if (nextRequest == undefined) {
     nextRequest = '';

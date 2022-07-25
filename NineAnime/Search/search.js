@@ -192,22 +192,25 @@ function shuffle(a) {
 var savedData = document.getElementById('ketsu-final-data');
 var parsedJson = JSON.parse(savedData.innerHTML);
 var finalData = '';
+const cipherKey = 'rTKp3auwu0ULA6II';
 
-function test(t) {
-    var h = '0wMrYU+ixjJ4QdzgfN2HlyIVAt3sBOZnCT9Lm7uFDovkb/EaKpRWhqXS5168ePcG';
+function getVrf(id) {
+    return encrypt(cipher(cipherKey, encodeURIComponent(id))).replace(/=+$/g, '');
+}
+
+function encrypt(t) {
+    var h = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
     var i = '';
-    var Ht = '=';
     for (t = ''.concat(t), r = 0; r < t.length; r++) {
         if (255 < t.charCodeAt(r)) {
             return null;
         }
         for (var i = '', r = 0; r < t.length; r += 3) {
-            var u = [undefined, undefined, undefined, undefined];
-            u[0] = t.charCodeAt(r) >> 2, u[1] = (3 & t.charCodeAt(r)) << 4, t.length > r + (1) && (u[1] |= t.charCodeAt(r + 1) >> 4, u[2] = (15 & t.charCodeAt(r + 1)) << 2), t.length > r + (2) && (u[2] |= t.charCodeAt(r + 2) >> 6, u[3] = 63 & t.charCodeAt(r + 2));
+            var u = [void 0, void 0, void 0, void 0];
+            u[0] = t.charCodeAt(r) >> 2, u[1] = (3 & t.charCodeAt(r)) << 4, t.length > r + (1) && ((u[1] |= t.charCodeAt(r + 1) >> 4, u[2] = (15 & t.charCodeAt(r + 1)) << 2), u[2] = (15 & t.charCodeAt(r + 1)) << 2), t.length > r + (2) && (u[2] |= t.charCodeAt(r + 2) >> 6, u[3] = 63 & t.charCodeAt(r + 2));
             for (var e = 0; e < u.length; e++) {
-                'undefined' == typeof u[e] ? i += Ht : i += function (t) {
+                'undefined' == typeof u[e] ? i += '=' : i += function (t) {
                     if (0 <= t && t < 64) {
-                        console.log(h[t]);
                         return h[t];
                     }
                 }(u[e]);
@@ -217,26 +220,29 @@ function test(t) {
     return i;
 };
 
-function helperOne(t, n) {
-    return t % n;
-}
-
-function helperTwo(t, n) {
-    return t < n;
-}
-
-function je(t, n) {
-    var c = '';
-    for (var u, e = [], o = 0, c = '', f = 256, s = 0; s < f; s += 1) e[s] = s;
-    for (s = 0; s < f; s += 1) o = helperOne(o + e[s] + t.charCodeAt(s % t.length), f), u = e[s], e[s] = e[o], e[o] = u;
-    for (var o = s = 0, a = 0; helperTwo(a, n.length); a += 1) o = (o + e[s = (s + a) % f]) % f, u = e[s], e[s] = e[o], e[o] = u, c += String.fromCharCode(n.charCodeAt(a) ^ e[(e[s] + e[o]) % f]);
-    return c;
-}
-
-function searchHere(t) {
-    var i = test(encodeURIComponent(t) + '0000000');
-    i = i.substr(0, 6).split('').reverse().join('');
-    return i + test(je(i, encodeURIComponent(''.concat(t)))).replace(/=+$/g, '');
+function cipher(key, text) {
+    var arr = new Array(256);
+    for (var i = 0; i < 256; i++) {
+        arr[i] = i;
+    }
+    var u = 0;
+    var r;
+    for (var i = 0; i < 256; i++) {
+        u = (u + arr[i] + key[i % key.length].charCodeAt(0)) % 256;
+        r = arr[i];
+        arr[i] = arr[u];
+        arr[u] = r;
+    }
+    u = 0;
+    var c = 0;
+    return text.split('').map(function (j) {
+        c = (c + 1) % 256;
+        u = (u + arr[c]) % 256;
+        r = arr[c];
+        arr[c] = arr[u];
+        arr[u] = r;
+        return String.fromCharCode(j.charCodeAt(0) ^ arr[(arr[c] + arr[u]) % 256]);
+    }).join('');
 }
 let output = [];
 let results = [];
@@ -247,34 +253,43 @@ if (!urlRequest.includes('vrf=')) {
     let keyword = new URL(urlRequest).searchParams.get('keyword');
     let page = new URL(urlRequest).searchParams.get('page');
     let origin = new URL(urlRequest).origin;
-    let keywordEnc = searchHere(keyword).replace('=', '');
-    newRequest = new ModuleRequest(`${origin}/search?keyword=${keyword.replace(/\\s/g, '+')}&vrf=${encodeURIComponent(keywordEnc)}&page=${page}`, 'get', emptyKeyValue, null);
+    let keywordEnc = getVrf(keyword);
+    newRequest = new ModuleRequest(`${origin}/filter?keyword=${keyword.replace(/\s/g, '+')}&vrf=${encodeURIComponent(keywordEnc)}&page=${page}`, 'get', emptyKeyValue, null);
 } else {
-    const animeList = document.querySelectorAll('.anime-list > li');
+    const animeList = document.querySelectorAll('.ani.items > .item');
     for (const anime of animeList) {
-        const title = anime.querySelector('.name').textContent.trim();
+        const title = anime.querySelector('img').alt;
         let link = anime.querySelector('.name').href;
         link = new URL(link, parsedJson.request.url).href;
         link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-        let image = anime.querySelector('.poster > img').src;
+        let image = anime.querySelector('img').src;
         image = new ModuleRequest(image, 'get', emptyKeyValue, null);
-        const tag = anime.querySelector('.poster > .tag').textContent.trim();
-        const tags = Array.from(anime.querySelectorAll('.poster > .taglist > span')).map(t => t.className.toUpperCase());
-        const language = tags.includes('DUB') ? 'DUB' : 'SUB';
-        let type = 'TV';
-        for (const stag of tags) {
-            switch (stag) {
-                case 'MOVIE':
-                case 'SPECIAL':
-                case 'OVA':
-                case 'ONA':
-                    type = stag;
-                    break;
-                default:
-                    break;
+        let lang = '';
+        let epiStatus = anime.querySelectorAll('.ep-status');
+        if (epiStatus.length == 3) {
+            lang = 'SUB/DUB';
+        } else if (epiStatus.length == 2) {
+            let array = [];
+            for (div of epiStatus) {
+                if (div.className.includes('sub')) {
+                    array.push('SUB');
+                } else if (div.className.includes('dub')) {
+                    array.push('DUB');
+                }
             }
+            lang = array.join('/');
+        } else {
+            lang = 'SUB';
         }
-        const obj = new Data(image, title + ' ' + type, tag + ' ' + language, '', '', 'unknown', 'unknown', false, link, false);
+        var total = '';
+        var type = anime.querySelector('.ani.poster.tip .meta .inner .right').textContent.trim();
+        try {
+            total = 'Episode ' + anime.querySelector('.ep-status.total').textContent.trim() + ' ';
+        } catch (error) {
+            total = '';
+            console.log(error);
+        }
+        const obj = new Data(image, title + ' ' + type, total + lang, '', '', 'unknown', 'unknown', false, link, false);
         results.push(obj);
     }
     var testLayout = new Layout(new Insets(10, 10, 10, 10), 1, 2, 3, 1, 500, new Size(400, 400), new Ratio('width', 4, 11), new Size(0, 0), 10, 10);
