@@ -69,7 +69,7 @@ function getValueFromKey(keys, key) {
 
 function decrypt(input, key) {
     var t = input.replace(/[\t\n\f\r]/g, '');
-    if (t.length % 4 == 1 || t.match(/[^\+\/0-9A-Za-z]/)) throw new Error('bad input');
+    if (t.length % 4 == 1 || t.match(/[^\+/0-9A-Za-z]/)) throw new Error('bad input');
     var i = 0;
     var r = '';
     var e = 0;
@@ -87,7 +87,8 @@ function decrypt(input, key) {
             u = 0;
         }
     }
-    return 12 == u ? r + String.fromCharCode(e >> 4) : 18 == u ? r + String.fromCharCode((65280 & e) >> 8) + String.fromCharCode(255 & e) : r;
+    return 12 == u ? r + String.fromCharCode(e >> 4) : 18 == u ? r + String.fromCharCode((65280 & e) >> 8) +
+        String.fromCharCode(255 & e) : r;
 }
 
 function cipher(key, text) {
@@ -116,9 +117,8 @@ function cipher(key, text) {
 }
 
 function getLink(text) {
-    return decodeURIComponent(cipher(cipherKey, decrypt(text, nineAnimeKey))).replace(/=+$/g, '');
+    return decodeURIComponent(cipher(cipherKey, decrypt(text, nineAnimeKey)).replace('%3A%2F%2F','://').replaceAll('%2F','/').replace('%FT','').replace(/=+$/g, ''));
 }
-
 const nineAnimeKey = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 const cipherKey = 'kMXzgyNzT3k5dYab';
 var savedData = document.getElementById('ketsu-final-data');
@@ -132,16 +132,16 @@ var nextRequest = getValueFromKey(extraInfo, nextCount);
 if (actualCount == 0) {
     output = new Videos([], []);
 }
-
 const script = document.querySelector('script').innerHTML.replace('/*', '').replace('*/', '');
 const data = getLink(decodeURIComponent(JSON.parse(script).result.url.replaceAll('=', '')));
-output.needsResolver.push(new NeedsResolver('', new ModuleRequest(data.replace('streamtape.com', 'streamta.pe').replace('?autostart=true', ''), 'get', emptyKeyValue, null)));
-
+output.needsResolver.push(new NeedsResolver('', new ModuleRequest(data.replace('streamtape.com', 'streamta.pe')
+    .replace('?autostart=true', ''), 'get', emptyKeyValue, null)));
 extraInfo[0].value = '' + (parseInt(actualCount) + 1);
 if (nextRequest == undefined) {
     nextRequest = '';
 }
 let emptyExtra = new Extra([new Commands('', emptyKeyValue)], extraInfo);
-var chaptersObject = new Chapters(new ModuleRequest(nextRequest, 'get', emptyKeyValue, null), emptyExtra, new JavascriptConfig(false, false, ''), new Output(output, null, null));
+var chaptersObject = new Chapters(new ModuleRequest(nextRequest, 'get', emptyKeyValue, null), emptyExtra,
+    new JavascriptConfig(false, false, ''), new Output(output, null, null));
 var finalJson = JSON.stringify(chaptersObject);
 savedData.innerHTML = finalJson;
