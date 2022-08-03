@@ -51,14 +51,15 @@ function Output(image, title, link, description, genres, field1, field2, field3,
     this.field4 = field4;
     this.chapters = chapters;
 }
-const cipherKey = 'rTKp3auwu0ULA6II';
+const nineAnimeKey = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
+const cipherKey = "kMXzgyNzT3k5dYab"
 
-function getVrf(id) {
-    return encrypt(cipher(cipherKey, encodeURIComponent(id))).replace(/=+$/g, '');
+function getVrf(text) {
+    return encodeURIComponent(encrypt(cipher(cipherKey, encodeURIComponent(text)), nineAnimeKey))
 }
 
 function encrypt(t) {
-    var h = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
+    var h = nineAnimeKey;
     var i = '';
     for (t = ''.concat(t), r = 0; r < t.length; r++) {
         if (255 < t.charCodeAt(r)) {

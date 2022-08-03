@@ -120,7 +120,7 @@ function getLink(text) {
 }
 
 const nineAnimeKey = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
-const cipherKey = 'rTKp3auwu0ULA6II';
+const cipherKey = 'kMXzgyNzT3k5dYab';
 var savedData = document.getElementById('ketsu-final-data');
 var parsedJson = JSON.parse(savedData.innerHTML);
 var extraInfo = parsedJson.extra.extraInfo;
@@ -132,13 +132,11 @@ var nextRequest = getValueFromKey(extraInfo, nextCount);
 if (actualCount == 0) {
     output = new Videos([], []);
 }
-try {
-    const script = document.querySelector('script').innerHTML.replace('/*', '').replace('*/', '');
-    const data = getLink(JSON.parse(script).result.url);
-    output.needsResolver.push(new NeedsResolver('', new ModuleRequest(data.replace('streamtape.com', 'streamta.pe').replace('?autostart=true', ''), 'get', emptyKeyValue, null)));
-} catch (e) {
-    console.log(e);
-}
+
+const script = document.querySelector('script').innerHTML.replace('/*', '').replace('*/', '');
+const data = getLink(decodeURIComponent(JSON.parse(script).result.url.replaceAll('=', '')));
+output.needsResolver.push(new NeedsResolver('', new ModuleRequest(data.replace('streamtape.com', 'streamta.pe').replace('?autostart=true', ''), 'get', emptyKeyValue, null)));
+
 extraInfo[0].value = '' + (parseInt(actualCount) + 1);
 if (nextRequest == undefined) {
     nextRequest = '';

@@ -57,14 +57,15 @@ function Video(videoQuality, videoLink) {
     this.videoQuality = videoQuality;
     this.videoLink = videoLink;
 }
-const cipherKey = 'rTKp3auwu0ULA6II';
+const nineAnimeKey = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
+const cipherKey = "kMXzgyNzT3k5dYab"
 
-function getVrf(id) {
-    return encrypt(cipher(cipherKey, encodeURIComponent(id))).replace(/=+$/g, '');
+function getVrf(text){
+  return encodeURIComponent(encrypt(cipher(cipherKey, encodeURIComponent(text)), nineAnimeKey))
 }
 
 function encrypt(t) {
-    var h = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
+    var h = nineAnimeKey;
     var i = '';
     for (t = ''.concat(t), r = 0; r < t.length; r++) {
         if (255 < t.charCodeAt(r)) {
@@ -72,7 +73,10 @@ function encrypt(t) {
         }
         for (var i = '', r = 0; r < t.length; r += 3) {
             var u = [void 0, void 0, void 0, void 0];
-            u[0] = t.charCodeAt(r) >> 2, u[1] = (3 & t.charCodeAt(r)) << 4, t.length > r + (1) && ((u[1] |= t.charCodeAt(r + 1) >> 4, u[2] = (15 & t.charCodeAt(r + 1)) << 2), u[2] = (15 & t.charCodeAt(r + 1)) << 2), t.length > r + (2) && (u[2] |= t.charCodeAt(r + 2) >> 6, u[3] = 63 & t.charCodeAt(r + 2));
+            u[0] = t.charCodeAt(r) >> 2, u[1] = (3 & t.charCodeAt(r)) << 4, t.length > r + (1) && ((u[1] |= t
+                .charCodeAt(r + 1) >> 4, u[2] = (15 & t.charCodeAt(r + 1)) << 2), u[2] = (15 & t
+                .charCodeAt(r + 1)) << 2), t.length > r + (2) && (u[2] |= t.charCodeAt(r + 2) >> 6, u[3] =
+                63 & t.charCodeAt(r + 2));
             for (var e = 0; e < u.length; e++) {
                 'undefined' == typeof u[e] ? i += '=' : i += function (t) {
                     if (0 <= t && t < 64) {
