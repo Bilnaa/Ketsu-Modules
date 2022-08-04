@@ -193,7 +193,7 @@ var savedData = document.getElementById('ketsu-final-data');
 var parsedJson = JSON.parse(savedData.innerHTML);
 var finalData = '';
 const nineAnimeKey = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
-const cipherKey = "kMXzgyNzT3k5dYab"
+const cipherKey = "oZH6q4X4VAIHk0Ol"
 
 function getVrf(text){
   return encodeURIComponent(encrypt(cipher(cipherKey, encodeURIComponent(text)), nineAnimeKey))
