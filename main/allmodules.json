@@ -146,6 +146,12 @@
         "image": "https://i.postimg.cc/QxNQ6Ysg/cor.jpg",
         "info": "Watch turkish subbed series with the module of Turkish123.",
         "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Danyspb/Modules-Ketsu/main/Turkish123/moduleTemplate.json"
+    }, {
+        "name": "ADKami | FR",
+        "author": "Frizrat",
+        "image": "https://i.postimg.cc/4yX1tdVM/ADKami-Logo.png",
+        "info": "Regardez gratuitement des animes avec le module du site ADKami.",
+        "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/ADKami/ADKami.json"
     }
     ],
     "images": [{
