@@ -128,7 +128,7 @@
         "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/Neko-Sama/moduleTemplate.json"
     },{
         "name": "iAnimes | FR",
-        "author": "Dany & Nabil",
+        "author": "Danyspb & Nabil",
         "image": "https://i.postimg.cc/KvXJYvw5/cover-IAnime.png",
         "info": "Regardez gratuitement des animes, des films et des séries avec le module du site iAnimes.",
         "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Danyspb/Modules-Ketsu/main/IAnime/moduleTemplate.json"
@@ -211,6 +211,14 @@
         "info": "Lisez gratuitement des mangas avec le module du site Mangas-Origines.",
         "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Danyspb/Modules-Ketsu/main/Mangas-Origines/moduleTemplate.json",
         "Zetsu_link": "zetsuapp://?moduleData=https://raw.githubusercontent.com/Danyspb/Modules-Ketsu/main/Mangas-Origines/moduleTemplate.json"
+    },
+    {
+        "name": "KumaScans | ENG",
+        "author": "Danyspb",
+        "image": "https://i.postimg.cc/26PWWsJ8/kmsa.png",
+        "info": "A module for reading mangas weebtoon manhwa",
+        "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Danyspb/Modules-Ketsu/main/KumaScan/moduleTemplate.json",
+        "Zetsu_link": "zetsuapp://?moduleData=https://raw.githubusercontent.com/Danyspb/Modules-Ketsu/main/KumaScan/moduleTemplate.json"
     }],
     "text": [{
         "name": "Livre1 | FR",
