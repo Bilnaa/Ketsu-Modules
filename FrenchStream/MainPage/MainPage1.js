@@ -140,27 +140,25 @@ const parsedJson = JSON.parse(savedData.innerHTML);
 const emptyKeyValue = [new KeyValue('','')];
     
 var output = [];
-    
-var sections = document.querySelectorAll('.sect');
-for (section of sections) {
-    var dataArray = [];
-    var sectionName = section.querySelector('.st-capt').textContent.trim();
-    var shorts = section.querySelectorAll('.short-in');
-    for (short of shorts) {
-        var image = short.querySelector('img').src;
-        image = new ModuleRequest(image, 'get', emptyKeyValue, null);
-        var title = short.querySelector('.short-title').textContent.trim();
-        var field1='';
-        try {field1 = short.querySelector('.film-ripz').textContent.trim()} catch{}
-        try {field1 = short.querySelector('.mli-eps').textContent.trim()} catch{}
-        var language = short.querySelector('.film-verz').textContent.trim();
-        var link = short.querySelector('.short-poster').href;
-        link = new ModuleRequest(link, 'get', emptyKeyValue, null);
+
+for (section of document.querySelectorAll('.sect')) {
+    let dataArray = [];
+    let sectionName = section.querySelector('.st-capt').textContent.trim();
+    for (short of section.querySelectorAll('.short-in')) {
+        let image = short.querySelector('img').src;
+        image = new ModuleRequest(image, 'get', refererKeyValue, null);
+        let title = short.querySelector('.short-title').textContent.trim();
+
+        let field1 = short.querySelector('.short-qual').textContent.trim();
+        let language = short.querySelector('.short-label').textContent.trim();
+
+        let link = short.querySelector('.short-poster').href;
+        link = new ModuleRequest(link, 'get', refererKeyValue, null);
         dataArray.push(new Data(image, title, '', field1, language, '', '', false, link));
     }
     output.push(new Output(CellDesings.normal1,Orientation.horizontal,DefaultLayouts.longDoubletsDoubleConstant,Paging.leading, new Section(sectionName, true), null, dataArray));
 }
     
-const mainPageObject = new MainPage(new ModuleRequest('','get',emptyKeyValue,null),new Extra([new Commands('',emptyKeyValue)],emptyKeyValue),new JavascriptConfig(true,false,''),output);
+const mainPageObject = new MainPage(new ModuleRequest('','get',refererKeyValue,null),new Extra([new Commands('',refererKeyValue)],refererKeyValue),new JavascriptConfig(true,false,''),output);
 
 savedData.innerHTML = JSON.stringify(mainPageObject);
