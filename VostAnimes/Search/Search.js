@@ -171,25 +171,22 @@ const emptyKeyValue = [new KeyValue('','')];
 var output = [];
 var searchArray = [];
 
-var containers = document.querySelectorAll('.TPostMv > article');
-for (var container of containers) {
-    var image = container.querySelector('img').src;
+for (let container of document.querySelectorAll('.TPostMv > article')) {
+    let image = container.querySelector('img').src;
     if (!image.includes('https:')) { image = 'https:'+image }
     image = new ModuleRequest(image, 'get', emptyKeyValue, null);
-    var title = container.querySelector('.Title').textContent;
-    var desc = container.querySelector('.Description > p').textContent;
+    let title = container.querySelector('.Title').textContent;
+    let desc = container.querySelector('.Depion > p').textContent;
     
-    var info = '';
-    var infoList = container.querySelector('.Info').querySelectorAll('span');
-    for (infos of infoList) { info += infos.textContent+' '; }
+    let infos = Array.from(container.querySelectorAll('.Info > span')).map(info => info.textContent).join(' ');
 
-    var type = 'Anime';
-    var link = container.querySelector('a').href;
+    let type = 'Anime';
+    let link = container.querySelector('a').href;
     if (link.includes('film')) { type = 'Film'; }
     link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-    searchArray.push(new Data(image, title, desc, info.replace('  ', ' '), type, '', '', false, link));
+    searchArray.push(new Data(image, title, desc, infos, type, '', '', false, link));
 }
-var layout = new Layout(new Insets(10, 10, 10, 10), 1, 2, 3, 1, 500, new Size(400, 400), new Ratio('width', 4, 11),new Size(0, 0), 10, 10);
+const layout = new Layout(new Insets(10, 10, 10, 10), 1, 2, 3, 1, 500, new Size(400, 400), new Ratio('width', 4, 11),new Size(0, 0), 10, 10);
 output.push(new Output(CellDesings.wide11, Orientation.vertical, DefaultLayouts.none, Paging.none, new Section('',false), layout, searchArray));
 
 const searchPageObject = new Search(new ModuleRequest('','',emptyKeyValue,null),new Extra([new Commands('',emptyKeyValue)],emptyKeyValue),'',new JavascriptConfig(true,false,''),output);

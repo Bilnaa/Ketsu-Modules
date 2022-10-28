@@ -141,26 +141,24 @@ const emptyKeyValue = [new KeyValue('','')];
     
 var output = [];
 
-var sections = document.querySelector('main').querySelectorAll('section');
-for (section of sections) {
+for (section of document.querySelector('main').querySelectorAll('section')) {
     var design = CellDesings.normal1;
     var orient = Orientation.horizontal;
     var layout = DefaultLayouts.longDoubletsConstant;
     
     var dataArray = [];
-    var sectionName = section.querySelector('.Top > .Title').textContent.trim();
+    var sectionName = section.querySelector('.Top').textContent.trim().split('\\n')[0];
     
-    var containers = section.querySelector('ul').querySelectorAll('li > article');
-    for (container of containers) {
-        var image = container.querySelector('img').src;
+    for (container of section.querySelector('ul').querySelectorAll('li > article')) {
+        let image = container.querySelector('img').getAttribute('data-src');
         if (!image.includes('https:')) { image = 'https:'+image }
         image = new ModuleRequest(image, 'get', emptyKeyValue, null);
-        var title = container.querySelector('.Title').textContent;
-        var year = '';
+        let title = container.querySelector('.Title').textContent;
+        let year = '';
         try { year = container.querySelector('.Year').textContent.split(' -')[0]; } catch{}
-        var nb = '';
+        let nb = '';
         try { nb = container.querySelector('figcaption').textContent.trim().replace(' - ', ' '); } catch{}
-        var link = container.querySelector('a').href.split('-saison')[0].replace('Episod', 'anim').replace('Season', 'anime');
+        let link = container.querySelector('a').href.split('-saison')[0].replace('Episod', 'anim').replace('Season', 'anime');
         link = new ModuleRequest(link, 'get', emptyKeyValue, null);
         dataArray.push(new Data(image, title, '', nb, year, '', '', false, link));
     }
@@ -173,7 +171,6 @@ for (section of sections) {
     }
     output.push(new Output(design, orient, layout, Paging.leading, new Section(sectionName, true), null, dataArray));
 }
-    
 const mainPageObject = new MainPage(new ModuleRequest('','get',emptyKeyValue,null),new Extra([new Commands('',emptyKeyValue)],emptyKeyValue),new JavascriptConfig(true,false,''),output);
 
 savedData.innerHTML = JSON.stringify(mainPageObject);

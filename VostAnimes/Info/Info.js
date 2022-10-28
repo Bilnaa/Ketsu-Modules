@@ -49,17 +49,19 @@ var savedData = document.getElementById('ketsu-final-data');
 const parsedJson = JSON.parse(savedData.innerHTML);
 const emptyKeyValue = [new KeyValue('', '')];
 
-var image = document.querySelector('.Image > figure > img').src;
+var image = document.querySelector('.Image img').src;
 if (!image.includes('https:')) { image = 'https:'+image; }
 image = new ModuleRequest(image,'get',emptyKeyValue,null);
 var title = document.querySelector('title').textContent.split(' Anime en')[0];
 var desc = document.querySelector('.Depion').textContent.split('(function')[0].trim();
 
 var genres = [];
-genres = Array.from(document.querySelectorAll('a[rel=\"category tag')).map(g => g.textContent);
+try { genres = Array.from(document.querySelectorAll('a[rel=\"category tag')).map(g => g.textContent); } catch{}
 
-var time = document.querySelector('.Time').textContent;
-var year = document.querySelector('.Date').textContent;
+var time = '';
+try { time = document.querySelector('.Time').textContent; } catch{}
+var year = '';
+try { year = document.querySelector('.Date').textContent; } catch{}
 
 var episodes = [];
 var type ='Anime';
@@ -67,11 +69,9 @@ if (parsedJson.request.url.includes('film')) {
     type = 'Film';
     episodes.push(new Chapter(title, new ModuleRequest(parsedJson.request.url, 'get', emptyKeyValue, null), false));
 } else {
-    var saisons = document.querySelectorAll('.Wdgt.AABox');
-    for (saison of saisons) {
+    for (saison of document.querySelectorAll('.Wdgt.AABox')) {
         var nbSaison = Array.from(saison.querySelector('.Title').textContent.split(' ')).map(s => s.trim()).join(' ').replaceAll('  ', '');
-        var episodeList = saison.querySelectorAll('tr');
-        for (episode of episodeList) {
+        for (episode of saison.querySelectorAll('tr')) {
             var nbEp = episode.querySelector('.Num').textContent;
             var epLink = episode.querySelector('a').href;
             episodes.push(new Chapter(nbSaison+' Épisode '+nbEp, new ModuleRequest(epLink, 'get', emptyKeyValue, null), false));

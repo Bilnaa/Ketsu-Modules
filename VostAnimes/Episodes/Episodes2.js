@@ -60,23 +60,13 @@ var extraInfo = parsedJson.extra.extraInfo;
 var count = getValueFromKey(extraInfo,'count');
 if (count == 0) { output = new Videos([],[]); }
 
-const httpBody = getValueFromKey(extraInfo,'httpBody');
-const videoHeaders = [new KeyValue('Referer','https://vostanimes.tv/'), new KeyValue('Accept','text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3')];
-
 var link = document.querySelector('iframe').src.replace('tape.com','ta.pe');
-output.needsResolver.push(new NeedsResolver('', new ModuleRequest(encodeURIComponent(link), 'get', videoHeaders, null)));
+if (!link.includes('https:')) { link = 'https:'+link; }
+output.needsResolver.push(new NeedsResolver('', new ModuleRequest(link, 'get', emptyKeyValue, null)));
 
 var nextRequest = getValueFromKey(extraInfo,''+count);
-extraInfo[0].value = ''+(parseInt(count) +1);
+extraInfo[1].value = ''+(parseInt(count) +1);
 
-if (nextRequest == '') {
-  for (var x = 0; x < output.needsResolver.length; x++) {
-    var vid = decodeURIComponent(output.needsResolver[x].link.url);
-    if (!vid.includes('https:')) { output.needsResolver[x].link.url = 'https:'+vid; }
-    else { output.needsResolver[x].link.url = vid; }
-  }
-}
-
-const episodesObject = new Chapters(new ModuleRequest(nextRequest, 'post', emptyKeyValue, httpBody), new Extra([new Commands('', emptyKeyValue)], extraInfo), new JavascriptConfig(true, false, ''), new Output(output, null, null));
+const episodesObject = new Chapters(new ModuleRequest(nextRequest, 'get', [extraInfo[0]], null), new Extra([new Commands('', emptyKeyValue)], extraInfo), new JavascriptConfig(true, false, ''), new Output(output, null, null));
 
 savedData.innerText = JSON.stringify(episodesObject);
