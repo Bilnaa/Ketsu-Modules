@@ -49,31 +49,29 @@ var savedData = document.getElementById('ketsu-final-data');
 const parsedJson = JSON.parse(savedData.innerHTML);
 const emptyKeyValue = [new KeyValue('', '')];
 
-var image = document.querySelector('.fposter > img').src;
+let image = document.querySelector('.fposter > img').src;
 image = new ModuleRequest(image,'get',emptyKeyValue,null);
-var title = document.querySelector('#s-title').textContent.trim();
-var desc = document.querySelector('.fdesc').textContent.trim();
+let title = document.querySelector('#s-title').textContent.trim();
+let desc = Array.from(document.querySelectorAll('.flist.clearfix li')).slice(-1)[0].textContent;
 
-var genres = [];
-var genreList = document.querySelector('li[rel=\"nofollow').textContent.split(':')[1].split(', ');
-for (genre of genreList) { genres.push(genre) }
+let genres = Array.from(document.querySelectorAll('.flist-col a')).map(genre => genre.textContent);
 
-var type = parsedJson.request.url.split('run/')[1].split('/')[0];
+let origin = document.querySelectorAll('.flist-col li')[1].textContent;
+let type = parsedJson.request.url.split('stream-')[1].split('/')[0];
 
-var episodes = [];
-if (type == 'film') {episodes.push(new Chapter(title, new ModuleRequest(parsedJson.request.url, 'get', emptyKeyValue, null), false))}
+let episodes = [];
+if (type.includes('film')) { episodes.push(new Chapter(title, new ModuleRequest(parsedJson.request.url, 'get', emptyKeyValue, null), false)) }
 else {
-    var blockLang=['vf','vostfr'];
-    var lang = document.querySelector('.gGoup').querySelectorAll('.elink');
-    for (var x = 0; x<lang.length;x++) {
-        var epList = lang[x].querySelectorAll('a');
-        for (var y = 0; y<epList.length;y++) {
-            var link = parsedJson.request.url+'#'+blockLang[x]+'-'+epList[y].title.split('sode')[1].trim();
-            episodes.push(new Chapter(epList[y].title+' '+blockLang[x], new ModuleRequest(link, 'get', emptyKeyValue, null), false));
+    const versions = ['VF','VOSTFR'];
+    for (x in versions) {
+        let version = versions[x];
+        for (ep of document.querySelectorAll('.fx-row .elink')[x].querySelectorAll('p')) {
+            let link = `${parsedJson.request.url}#${ep.getAttribute('onclick').split('\'')[3]}`;
+            episodes.push(new Chapter(version+' '+ep.textContent, new ModuleRequest(link, 'get', emptyKeyValue, null), false));
         }
     }
 }
 
-const infoPageObject = new Info(new ModuleRequest('', '', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(false, false, ''), new Output(image, title, parsedJson.request, desc, genres, statut, 'Anime', type, 'Eps: '+ episodes.length, episodes));
+const infoPageObject = new Info(new ModuleRequest('', '', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(false, false, ''), new Output(image, title, parsedJson.request, desc, genres, origin, '', type, 'Eps: '+ episodes.length, episodes));
 
 savedData.innerHTML = JSON.stringify(infoPageObject);
