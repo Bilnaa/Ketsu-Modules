@@ -143,19 +143,22 @@ var output = [];
 var searchArray = [];
 
 for (short of document.querySelectorAll('.short-in')) {
-    let image = short.querySelector('img').src;
-    image = new ModuleRequest(image, 'get', refererKeyValue, null);
+    let img = short.querySelector('img').src;
+    if (!img.includes('https://')) { img = parsedJson.request.url.split('/index')[0] + img}
+    img = new ModuleRequest(img, 'get', emptyKeyValue, null);
     let title = short.querySelector('.short-title').textContent.trim();
 
-    let field1 = short.querySelector('.short-qual').textContent.trim();
-    let language = short.querySelector('.short-label').textContent.trim();
+    let field1 = '';
+    try { field1 = short.querySelector('.short-qual').textContent.trim(); } catch{}
+    let language = '';
+    try { language = short.querySelector('.short-label').textContent.trim(); } catch{}
     
     let link = short.querySelector('.short-poster').href;
-    link = new ModuleRequest(link, 'get', refererKeyValue, null);
-    searchArray.push(new Data(image, title, '', field1, language, '', '', false, link));
+    link = new ModuleRequest(link, 'get', emptyKeyValue, null);
+    searchArray.push(new Data(img, title, '', field1, language, '', '', false, link));
 }
 output.push(new Output(CellDesings.normal1,Orientation.vertical,DefaultLayouts.longDoubletsFullConstant,Paging.leading, new Section('', true), null, searchArray));
 
-const searchPageObject = new Search(new ModuleRequest('','',refererKeyValue,null),new Extra([new Commands('',refererKeyValue)],refererKeyValue),'',new JavascriptConfig(true,false,''),output);
+const searchPageObject = new Search(new ModuleRequest('','',emptyKeyValue,null),new Extra([new Commands('',emptyKeyValue)],emptyKeyValue),'',new JavascriptConfig(true,false,''),output);
 
 savedData.innerHTML = JSON.stringify(searchPageObject);
