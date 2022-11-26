@@ -152,6 +152,12 @@
         "image": "https://i.postimg.cc/4yX1tdVM/ADKami-Logo.png",
         "info": "Regardez gratuitement des animes avec le module du site ADKami.",
         "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/ADKami/ADKami.json"
+    }, {
+        "name": "GumGum-Streaming | FR",
+        "author": "Frizrat",
+        "image": "https://i2.wp.com/gum-gum-streaming.com/wp-content/uploads/2017/06/index.png",
+        "info": "Regardez gratuitement des animes avec le module du site Gum-Gum Streaming.",
+        "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/GumGum/GumGum.json"
     }
     ],
     "images": [{
