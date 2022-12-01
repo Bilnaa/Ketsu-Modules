@@ -13,8 +13,8 @@
     "baseURL": "https://www.dramacool.sk/",
     "moduleDeveloperSite": "https://bilnaa.github.io/main",
     "UpdateSite": "https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/Drama_Cool/moduleTemplate.json",
-    "preferedServer": "DEMBED1",
-    "preferedDownloadServer": "DEMBED1",
+    "preferedServer": "ASIANPLAY",
+    "preferedDownloadServer": "ASIANPLAY",
     "blackListed": [""]
   },
   "global": {
