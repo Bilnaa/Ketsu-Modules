@@ -182,6 +182,13 @@
         "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilna95/bilna95.github.io/main/NineManga/NineMangaFR.json",
         "Zetsu_link": "zetsuapp://?moduleData=https://raw.githubusercontent.com/Bilna95/bilna95.github.io/main/NineManga/NineMangaFR.json"
     }, {
+        "name": "Nine Manga | ITA",
+        "author": "Frizrat",
+        "image": "https://i.postimg.cc/6pvDJNKt/ninemanga.png",
+        "info": "Read for free webtoons that are on the website of Nine Manga.",
+        "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilna95/bilna95.github.io/main/NineManga/NineMangaITA.json",
+        "Zetsu_link": "zetsuapp://?moduleData=https://raw.githubusercontent.com/Bilna95/bilna95.github.io/main/NineManga/NineMangaITA.json"
+    }, {
         "name": "AsuraScans | ENG",
         "author": "Nabil",
         "image": "https://i.postimg.cc/MK0y10tY/asura-logo.png",
