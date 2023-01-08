@@ -13,8 +13,8 @@
         "baseURL": "https://9anime.id/",
         "moduleDeveloperSite": "https://mprotmod.github.io/Modules-KETSU/index.html",
         "UpdateSite": "https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/NineAnime/9anime.json",
-        "preferedServer": "STREAMTA",
-        "preferedDownloadServer": "STREAMTA",
+        "preferedServer": "STREAMTAPE",
+        "preferedDownloadServer": "STREAMTAPE",
         "blackListed": [""],
         "moduleCreatorIdStjHmJXaZpdURFoSjYEI": {
             "path": "HYZjb",
