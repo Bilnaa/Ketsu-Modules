@@ -78,15 +78,35 @@ var emptyKeyValue = [new KeyValue('Referer', 'https://9anime.gs/watch/')];
 var KETSU_ASYNC = true;
 var output = [];
 
+
+
 async function getVideos() {
-        await sleep(2500);
-        let divProv = document.querySelectorAll("#w-servers > div.servers .type li");
-         for (let prov of divProv) {
-                prov.dispatchEvent(new Event('click'));
-                await sleep(2500);
-                let link = document.querySelector('iframe').src;
-                output.push(new NeedsResolver('', new ModuleRequest(link, 'get', emptyKeyValue, null)));
-            }
+    for (let x = 0; x < 100; x++) {
+        if (output.length >= 1) {
+            break
+        } else {
+            await sleep(1000).then(async () => {
+                let divProv = document.querySelectorAll("#w-servers > div.servers .type li");
+                if (divProv.length >= 1) {
+                    for (let prov of divProv) {
+                        prov.dispatchEvent(new Event('click'));
+                      await sleep(2500).then(async ()=> {
+                        for (let i = 0; i < 100; i++) {
+                            let iframe = document.querySelector('iframe');
+                            if (iframe.src != undefined) {
+                                await sleep(2500).then(() => {
+                                    let link = document.querySelector('iframe').src;
+                                    output.push(new NeedsResolver('', new ModuleRequest(link, 'get', emptyKeyValue, null)));
+                                })
+                                break;
+                            }
+                        }
+                      })
+                    }
+                }
+            })
+        }
+    }
     let emptyExtra = new Extra([new Commands('', emptyKeyValue)], extraInfo);
     var chaptersObject = new Chapters(new ModuleRequest('', 'get', emptyKeyValue, null), emptyExtra, new JavascriptConfig(false, false, ''), new Output(new Videos(output, null), null, null));
     var finalJson = JSON.stringify(chaptersObject);

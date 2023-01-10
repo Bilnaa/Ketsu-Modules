@@ -100,23 +100,26 @@ desc = document.querySelector('.synopsis.mb-3 .content').textContent.trim();
 var KETSU_ASYNC = true;
 async function doStuff() {
     for (var x = 0; x < 13; x++) {
-       await sleep(2500);
-        let divEpisodes = document.querySelector("#w-episodes");
-        let total = divEpisodes.querySelectorAll('li').length;
-        if (total != null) {
-            let eps = divEpisodes.querySelectorAll('li');
-            for (let ep of eps) {
-                let title = `Episode ${ep.querySelector('a').dataset.num}`;
-                let link = ep.querySelector('a').href;
-                let obj = new Chapter(title, new ModuleRequest(link, 'get', emptyKeyValue, null), false);
-                episodes.push(obj);
-            }
-            break
+        if (episodes.length > 1) {
+            break;
         }
+        await sleep(1000).then(() => {
+            let divEpisodes = document.querySelector("#w-episodes");
+            var total = divEpisodes.querySelectorAll('li').length;
+            if (total != 0) {
+                let eps = divEpisodes.querySelectorAll('li');
+                for (let ep of eps) {
+                    let title = `Episode ${ep.querySelector('a').dataset.num}`;
+                    let link = ep.querySelector('a').href;
+                    let obj = new Chapter(title, new ModuleRequest(link, 'get', emptyKeyValue, null), false);
+                    episodes.push(obj);
+                }
+            }
+        });
     }
     var infoPageObject = new Info(new ModuleRequest('', 'get', emptyKeyValue, null), new Extra(commands, emptyKeyValue), new JavascriptConfig(false, false, ''), new Output(image, title, parsedJson.request, desc, genres, status, 'Anime', type, 'Eps: ' + episodes.length, episodes));
     var finalJson = JSON.stringify(infoPageObject);
     savedData.innerHTML = finalJson;
     window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');
 }
- doStuff(); 
+doStuff();
