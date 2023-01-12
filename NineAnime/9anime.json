@@ -2,18 +2,18 @@
     "moduleInfo": {
         "moduleName": "9Anime",
         "moduleInitials": "NA",
-        "moduleDesc": "Watch anime with the module of 9Anime.",
+        "moduleDesc": "Watch anime with the module of 9Anime. The module will only work on the ipa.",
         "developer": "ナビル",
         "moduleID": "CC3Gg83tsjm",
         "moduleImage": "https://i.postimg.cc/V6KWhqVc/9anime.png",
-        "moduleVersion": 2.18,
-        "changelog": "2.18 - Chapters part goes insanely fasy - The module will only work on the ipa.",
+        "moduleVersion": 2.19,
+        "changelog": "2.19 - Added MP4UPLOAD support and added SUB/DUB to the resolvers's name ",
         "moduleLenguage": "ENG",
         "moduleType": "Video",
         "baseURL": "https://9anime.id/",
         "moduleDeveloperSite": "https://mprotmod.github.io/Modules-KETSU/index.html",
         "UpdateSite": "https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/NineAnime/9anime.json",
-        "preferedServer": "STREAMTAPE",
+        "preferedServer": "MCLOUD",
         "preferedDownloadServer": "STREAMTAPE",
         "blackListed": [""],
         "moduleCreatorIdStjHmJXaZpdURFoSjYEI": {
@@ -351,7 +351,7 @@
                 "name": "Request"
             },
             "cellsHidden": false,
-            "javascriptEditorScroll": 0,
+            "javascriptEditorScroll": 1895.5556640625,
             "openedMenu": "Javascript",
             "async": false
         }
@@ -386,7 +386,7 @@
         "javascriptConfig": {
             "removeJavascript": false,
             "loadInWebView": true,
-            "javaScript": "\n        try {\n\n             \n\n        var KETSU_ASYNC = true;\n        \n        /* JAVASCRIPT STARTS */ function Chapters(request, extra, javascriptConfig, output)\n{\n    this.request = request;\n    this.extra = extra;\n    this.javascriptConfig = javascriptConfig;\n    this.output = output;\n}\n\nfunction ModuleRequest(url, method, headers, httpBody)\n{\n    this.url = url;\n    this.method = method;\n    this.headers = headers;\n    this.httpBody = httpBody;\n}\n\nfunction Extra(commands, extraInfo)\n{\n    this.commands = commands;\n    this.extraInfo = extraInfo;\n}\n\nfunction Commands(commandName, params)\n{\n    this.commandName = commandName;\n    this.params = params;\n}\n\nfunction JavascriptConfig(removeJavascript, loadInWebView, javaScript)\n{\n    this.removeJavascript = removeJavascript;\n    this.loadInWebView = loadInWebView;\n    this.javaScript = javaScript;\n}\n\nfunction KeyValue(key, value)\n{\n    this.key = key;\n    this.value = value;\n}\n\nfunction Output(videos, images, text)\n{\n    this.videos = videos;\n    this.images = images;\n    this.text = text;\n}\n\nfunction Videos(needsResolver, rawVideo)\n{\n    this.needsResolver = needsResolver;\n    this.rawVideo = rawVideo;\n}\n\nfunction NeedsResolver(resolverIdentifier, link)\n{\n    this.resolverIdentifier = resolverIdentifier;\n    this.link = link;\n}\n\nfunction RawVideo(video)\n{\n    this.video = video;\n}\n\nfunction Video(videoQuality, videoLink)\n{\n    this.videoQuality = videoQuality;\n    this.videoLink = videoLink;\n}\n\nfunction getValueFromKey(keys, key)\n{\n    for (var x = 0; x < keys.length; x++)\n    {\n        let tKey = keys[x];\n        if (tKey.key == key)\n        {\n            return tKey.value;\n        }\n    }\n}\nasync function sleep(ms)\n{\n    return new Promise(resolve => setTimeout(resolve, ms));\n}\n\nclass iframeInterval\n{\n    constructor(time, maxTries, callback, maxTriesCallback)\n    {\n        this.tries = 0;\n\n        this.interval = setInterval(async () =>\n        {\n            if (this.tries >= maxTries)\n            {\n                maxTriesCallback(this);\n                this.cancelTimer();\n                return\n            }\n\n            callback(this);\n            this.tries += 1;\n        }, time);\n\n    }\n\n    cancelTimer()\n    {\n        clearInterval(this.interval);\n\n    }\n}\n\nvar global = window || global;\nglobal.iframeInterval = iframeInterval;\n\nvar savedData = document.getElementById('ketsu-final-data');\nvar parsedJson = JSON.parse(savedData.innerHTML);\nvar extraInfo = parsedJson.extra.extraInfo;\nlet nextRequest = '';\nvar emptyKeyValue = [new KeyValue('Referer', 'https://9anime.gs/watch/')];\nvar KETSU_ASYNC = true;\nvar output = [];\n\n\nnew iframeInterval(100, 300, (interval) =>\n    {\n        // Callback\n        let buttons = document.querySelectorAll(\"#w-servers > div.servers .type li\");\n        if (buttons.length > 0)\n        {\n            getIframe();\n            interval.cancelTimer();\n        }\n    },\n    (interval) =>\n    {\n        // Error callback\n        window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');\n        interval.cancelTimer();\n    })\n\nwindow.mcs = 0;\nwindow.foundStrms = [];\n\nasync function getIframe()\n{\n\n    let buttons = document.querySelectorAll(\"#w-servers > div.servers .type li\");\n    buttons[this.window.mcs].dispatchEvent(new Event('click'));\n    console.log(window.mcs)\n    new iframeInterval(100, 30, (interval) =>\n        {\n            // Callback\n            let iframe = document.querySelector('iframe');\n            if (iframe.src != undefined && !window.foundStrms.includes(iframe.src))\n            {\n                console.log(iframe.src)\n                window.foundStrms.push(iframe.src);\n                if (iframe.src != \"\" && !iframe.src.includes('addthis') && !iframe.src.includes('disqus.com'))\n                {\n                    output.push(new NeedsResolver('', new ModuleRequest(iframe.src, 'get', emptyKeyValue, null)));\n\n                }\n                getNextStream();\n                interval.cancelTimer();\n            }\n\n        },\n        (interval) =>\n        {\n            // Error callback\n            getNextStream();\n            interval.cancelTimer();\n        });\n\n}\n\nfunction getNextStream()\n{\n    window.mcs += 1;\n\n    let buttons = document.querySelectorAll(\"#w-servers > div.servers .type li\");\n\n    if (window.mcs >= buttons.length - 1)\n    {\n        let emptyExtra = new Extra([new Commands('', emptyKeyValue)], extraInfo);\n        var chaptersObject = new Chapters(new ModuleRequest('', 'get', emptyKeyValue, null), emptyExtra, new JavascriptConfig(false, false, ''), new Output(new Videos(output, null), null, null));\n        var finalJson = JSON.stringify(chaptersObject);\n        savedData.innerHTML = finalJson;\n        window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');\n        return;\n    }\n    getIframe();\n} /* JAVASCRIPT ENDS */\n\n        } catch (e) {\n            console.error(e.message);\n\n            if (typeof KETSU_ASYNC !== 'undefined') {\n                window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');\n            }\n\n        }\n        \n        "
+            "javaScript": "\n        try {\n\n             \n\n        var KETSU_ASYNC = true;\n        \n        /* JAVASCRIPT STARTS */ function Chapters(request, extra, javascriptConfig, output)\n{\n    this.request = request;\n    this.extra = extra;\n    this.javascriptConfig = javascriptConfig;\n    this.output = output;\n}\n\nfunction ModuleRequest(url, method, headers, httpBody)\n{\n    this.url = url;\n    this.method = method;\n    this.headers = headers;\n    this.httpBody = httpBody;\n}\n\nfunction Extra(commands, extraInfo)\n{\n    this.commands = commands;\n    this.extraInfo = extraInfo;\n}\n\nfunction Commands(commandName, params)\n{\n    this.commandName = commandName;\n    this.params = params;\n}\n\nfunction JavascriptConfig(removeJavascript, loadInWebView, javaScript)\n{\n    this.removeJavascript = removeJavascript;\n    this.loadInWebView = loadInWebView;\n    this.javaScript = javaScript;\n}\n\nfunction KeyValue(key, value)\n{\n    this.key = key;\n    this.value = value;\n}\n\nfunction Output(videos, images, text)\n{\n    this.videos = videos;\n    this.images = images;\n    this.text = text;\n}\n\nfunction Videos(needsResolver, rawVideo)\n{\n    this.needsResolver = needsResolver;\n    this.rawVideo = rawVideo;\n}\n\nfunction NeedsResolver(resolverIdentifier, link)\n{\n    this.resolverIdentifier = resolverIdentifier;\n    this.link = link;\n}\n\nfunction RawVideo(video)\n{\n    this.video = video;\n}\n\nfunction Video(videoQuality, videoLink)\n{\n    this.videoQuality = videoQuality;\n    this.videoLink = videoLink;\n}\n\nfunction getValueFromKey(keys, key)\n{\n    for (var x = 0; x < keys.length; x++)\n    {\n        let tKey = keys[x];\n        if (tKey.key == key)\n        {\n            return tKey.value;\n        }\n    }\n}\nasync function sleep(ms)\n{\n    return new Promise(resolve => setTimeout(resolve, ms));\n}\n\nclass iframeInterval\n{\n    constructor(time, maxTries, callback, maxTriesCallback)\n    {\n        this.tries = 0;\n\n        this.interval = setInterval(async () =>\n        {\n            if (this.tries >= maxTries)\n            {\n                maxTriesCallback(this);\n                this.cancelTimer();\n                return\n            }\n\n            callback(this);\n            this.tries += 1;\n        }, time);\n\n    }\n\n    cancelTimer()\n    {\n        clearInterval(this.interval);\n\n    }\n}\n\nvar global = window || global;\nglobal.iframeInterval = iframeInterval;\n\nvar savedData = document.getElementById('ketsu-final-data');\nvar parsedJson = JSON.parse(savedData.innerHTML);\nvar extraInfo = parsedJson.extra.extraInfo;\nlet nextRequest = '';\nvar emptyKeyValue = [new KeyValue('Referer', 'https://9anime.gs/watch/')];\nvar KETSU_ASYNC = true;\nvar output = [];\n\n\nnew iframeInterval(100, 300, (interval) =>\n    {\n        // Callback\n        let buttons = document.querySelectorAll(\"#w-servers > div.servers .type li\");\n        if (buttons.length > 0)\n        {\n            getIframe();\n            interval.cancelTimer();\n        }\n    },\n    (interval) =>\n    {\n        // Error callback\n        window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');\n        interval.cancelTimer();\n    })\n\nwindow.mcs = 0;\nwindow.foundStrms = [];\n\nasync function getIframe()\n{\n\n    let buttons = document.querySelectorAll(\"#w-servers > div.servers .type li\");\n    buttons[this.window.mcs].dispatchEvent(new Event('click'));\n    console.log(window.mcs)\n    new iframeInterval(100, 30, (interval) =>\n        {\n            // Callback\n            let iframe = document.querySelector('iframe');\n            if (iframe.src != undefined && !window.foundStrms.includes(iframe.src))\n            {\n                console.log(iframe.src)\n                window.foundStrms.push(iframe.src);\n                let type = buttons[this.window.mcs].parentElement.parentElement.dataset.type.toUpperCase();\n                if (iframe.src != \"\" && !iframe.src.includes('addthis') && !iframe.src.includes('disqus.com'))\n                {\n                    let link_match = '';\n                    if(!iframe.src.includes('www')){\n                        link_match = iframe.src.split('/')[2].split('.')[0].toUpperCase()\n                    } else {\n                        link_match = iframe.src.split('/')[2].split('.')[1].toUpperCase()\n                    }\n                    output.push(new NeedsResolver(`(${type}) ${link_match}`, new ModuleRequest(iframe.src, 'get', emptyKeyValue, null)));\n\n                }\n                getNextStream();\n                interval.cancelTimer();\n            }\n\n        },\n        (interval) =>\n        {\n            // Error callback\n            getNextStream();\n            interval.cancelTimer();\n        });\n\n}\n\nfunction getNextStream()\n{\n    window.mcs += 1;\n\n    let buttons = document.querySelectorAll(\"#w-servers > div.servers .type li\");\n\n    if (window.mcs >= buttons.length - 1)\n    {\n        let emptyExtra = new Extra([new Commands('', emptyKeyValue)], extraInfo);\n        var chaptersObject = new Chapters(new ModuleRequest('', 'get', emptyKeyValue, null), emptyExtra, new JavascriptConfig(false, false, ''), new Output(new Videos(output, null), null, null));\n        var finalJson = JSON.stringify(chaptersObject);\n        savedData.innerHTML = finalJson;\n        window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');\n        return;\n    }\n    getIframe();\n} /* JAVASCRIPT ENDS */\n\n        } catch (e) {\n            console.error(e.message);\n\n            if (typeof KETSU_ASYNC !== 'undefined') {\n                window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');\n            }\n\n        }\n        \n        "
         },
         "output": {
             "videos": {
@@ -438,15 +438,15 @@
                 "name": "Request"
             },
             "cellsHidden": false,
-            "javascriptEditorScroll": 1868.888916015625,
-            "openedMenu": "Javascript",
+            "javascriptEditorScroll": 0,
+            "openedMenu": "Request",
             "async": true
         }
     }],
     "moduleResolvers": [{
         "resolverInfo": {
             "resolverName": "VIZSTREAM",
-            "nameMatches": ["MCLOUD"],
+            "nameMatches": ["MCLOUD", "VIDSTREAM", "(SUB) MCLOUD", "(SUB) VIDSTREAM", "(DUB) MCLOUD", "(DUB) VIDSTREAM"],
             "developer": "ナビル",
             "moduleID": "q3RuUt2jwX9",
             "resolverVersion": 1,
@@ -473,7 +473,7 @@
         },
         "resolver": [{
             "request": {
-                "url": "https://mcloud.to/e/l24k8q",
+                "url": "https://mcloud.to/e/8p0k2q",
                 "method": "get",
                 "headers": [{
                     "key": "Referer",
@@ -501,7 +501,7 @@
             "javascriptConfig": {
                 "removeJavascript": true,
                 "loadInWebView": false,
-                "javaScript": "\n        try {\n\n            /* JAVASCRIPT STARTS */  function Resolver(request, extra, javascriptConfig, output) {\n    this.request = request;\n    this.extra = extra;\n    this.javascriptConfig = javascriptConfig;\n    this.output = output;\n}\n\nfunction ModuleRequest(url, method, headers, httpBody) {\n    this.url = url;\n    this.method = method;\n    this.headers = headers;\n    this.httpBody = httpBody;\n}\n\nfunction Extra(commands, extraInfo) {\n    this.commands = commands;\n    this.extraInfo = extraInfo;\n}\n\nfunction Commands(commandName, params) {\n    this.commandName = commandName;\n    this.params = params;\n}\n\nfunction JavascriptConfig(removeJavascript, loadInWebView, javaScript) {\n    this.removeJavascript = removeJavascript;\n    this.loadInWebView = loadInWebView;\n    this.javaScript = javaScript;\n}\n\nfunction KeyValue(key, value) {\n    this.key = key;\n    this.value = value;\n}\n\nfunction Output(video) {\n    this.video = video;\n}\n\nfunction Video(videoQuality, videoLink) {\n    this.videoQuality = videoQuality;\n    this.videoLink = videoLink;\n}\n\nfunction getNext(match, array) {\n    for (var x = 0; x < array.length; x++) {\n        let mMatch = array[x];\n        if (mMatch.includes(match)) {\n            return array[x + 1];\n        }\n    }\n}\nvar savedData = document.getElementById('ketsu-final-data');\nvar parsedJson = JSON.parse(savedData.innerHTML);\nvar emptyKeyValue = [new KeyValue('Referer', parsedJson.request.url)];\nvar videos = [];\nlet nextRequest =  parsedJson.request.url + '?dev.';\n\nlet emptyExtra = new Extra([new Commands('', emptyKeyValue)], emptyKeyValue);\nvar chaptersObject = new Resolver(new ModuleRequest(nextRequest, 'get', emptyKeyValue, null), emptyExtra,\n    new JavascriptConfig(false, true, ''), new Output(videos));\nvar finalJson = JSON.stringify(chaptersObject);\nsavedData.innerHTML = finalJson;  /* JAVASCRIPT ENDS */\n\n        } catch (e) {\n            console.error(e.message);\n\n            if (typeof KETSU_ASYNC !== 'undefined') {\n                window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');\n            }\n\n        }\n        \n        "
+                "javaScript": "\n        try {\n\n            /* JAVASCRIPT STARTS */  function Resolver(request, extra, javascriptConfig, output) {\n    this.request = request;\n    this.extra = extra;\n    this.javascriptConfig = javascriptConfig;\n    this.output = output;\n}\n\nfunction ModuleRequest(url, method, headers, httpBody) {\n    this.url = url;\n    this.method = method;\n    this.headers = headers;\n    this.httpBody = httpBody;\n}\n\nfunction Extra(commands, extraInfo) {\n    this.commands = commands;\n    this.extraInfo = extraInfo;\n}\n\nfunction Commands(commandName, params) {\n    this.commandName = commandName;\n    this.params = params;\n}\n\nfunction JavascriptConfig(removeJavascript, loadInWebView, javaScript) {\n    this.removeJavascript = removeJavascript;\n    this.loadInWebView = loadInWebView;\n    this.javaScript = javaScript;\n}\n\nfunction KeyValue(key, value) {\n    this.key = key;\n    this.value = value;\n}\n\nfunction Output(video) {\n    this.video = video;\n}\n\nfunction Video(videoQuality, videoLink) {\n    this.videoQuality = videoQuality;\n    this.videoLink = videoLink;\n}\n\nfunction getNext(match, array) {\n    for (var x = 0; x < array.length; x++) {\n        let mMatch = array[x];\n        if (mMatch.includes(match)) {\n            return array[x + 1];\n        }\n    }\n}\nvar savedData = document.getElementById('ketsu-final-data');\nvar parsedJson = JSON.parse(savedData.innerHTML);\nvar emptyKeyValue = [new KeyValue('Referer', parsedJson.request.url.replace('?autostart=true',''))];\nvar videos = [];\nlet nextRequest =  parsedJson.request.url.replace('?autostart=true','') + '?dev.';\n\nlet emptyExtra = new Extra([new Commands('', emptyKeyValue)], emptyKeyValue);\nvar chaptersObject = new Resolver(new ModuleRequest(nextRequest, 'get', emptyKeyValue, null), emptyExtra,\n    new JavascriptConfig(false, true, ''), new Output(videos));\nvar finalJson = JSON.stringify(chaptersObject);\nsavedData.innerHTML = finalJson;  /* JAVASCRIPT ENDS */\n\n        } catch (e) {\n            console.error(e.message);\n\n            if (typeof KETSU_ASYNC !== 'undefined') {\n                window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');\n            }\n\n        }\n        \n        "
             },
             "output": {
                 "moduleID": "",
@@ -527,7 +527,7 @@
                 },
                 "cellsHidden": false,
                 "openedMenu": "Javascript",
-                "javascriptEditorScroll": 260
+                "javascriptEditorScroll": 762.2222290039062
             }
         }, {
             "request": {
@@ -559,7 +559,7 @@
             "javascriptConfig": {
                 "removeJavascript": false,
                 "loadInWebView": false,
-                "javaScript": "\n        try {\n\n            /* JAVASCRIPT STARTS */   function Resolver(request, extra, javascriptConfig, output) {\n    this.request = request;\n    this.extra = extra;\n    this.javascriptConfig = javascriptConfig;\n    this.output = output;\n}\n\nfunction ModuleRequest(url, method, headers, httpBody) {\n    this.url = url;\n    this.method = method;\n    this.headers = headers;\n    this.httpBody = httpBody;\n}\n\nfunction Extra(commands, extraInfo) {\n    this.commands = commands;\n    this.extraInfo = extraInfo;\n}\n\nfunction Commands(commandName, params) {\n    this.commandName = commandName;\n    this.params = params;\n}\n\nfunction JavascriptConfig(removeJavascript, loadInWebView, javaScript) {\n    this.removeJavascript = removeJavascript;\n    this.loadInWebView = loadInWebView;\n    this.javaScript = javaScript;\n}\n\nfunction KeyValue(key, value) {\n    this.key = key;\n    this.value = value;\n}\n\nfunction Output(video) {\n    this.video = video;\n}\n\nfunction Video(videoQuality, videoLink) {\n    this.videoQuality = videoQuality;\n    this.videoLink = videoLink;\n}\n\nfunction getNext(match, array) {\n    for (var x = 0; x < array.length; x++) {\n        let mMatch = array[x];\n        if (mMatch.includes(match)) {\n            return array[x + 1];\n        }\n    }\n}\nvar savedData = document.getElementById('ketsu-final-data');\nvar parsedJson = JSON.parse(savedData.innerHTML);\nvar emptyKeyValue = [new KeyValue('Referer', 'https://mcloud.to/')];\nvar videos = [];\n\nlet found = false;\n\nlet oldXHROpen = window.XMLHttpRequest.prototype.open;\nwindow.XMLHttpRequest.prototype.open = function(method, url, async, user, password)\n{\n    this.addEventListener('load', function()\n    {\n        let response = this.response;\n        if (response == undefined || found)\n        {\n            return\n        }\n\n        if (response.includes('sources'))\n        {\n            found = true;\n            let parsed = JSON.parse(response)\n            for (let source of parsed.data.media.sources)\n            {\n                videos.push(new Video('Normal', new ModuleRequest(source.file, 'get', emptyKeyValue, null)));\n\n            }\n\n            let emptyExtra = new Extra([new Commands('', emptyKeyValue)], emptyKeyValue);\n            var chaptersObject = new Resolver(new ModuleRequest('', '', emptyKeyValue, null), emptyExtra, new JavascriptConfig(false, true, ''), new Output(videos));\n            var finalJson = JSON.stringify(chaptersObject);\n            savedData.innerHTML = finalJson;\n            window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');\n        }\n    });\n    return oldXHROpen.apply(this, arguments);\n}\n\nlet foundS = '';\nfor (let script of document.querySelectorAll('script'))\n{\n    if (script.src.includes('/assets/mcloud/cache/'))\n    {\n        foundS = script.src;\n        console.log(foundS)\n        break;\n    }\n}\n\nlet script = document.createElement('script');\nscript.src = foundS\ndocument.body.appendChild(script)  /* JAVASCRIPT ENDS */\n\n        } catch (e) {\n            console.error(e.message);\n\n            if (typeof KETSU_ASYNC !== 'undefined') {\n                window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');\n            }\n\n        }\n        \n        "
+                "javaScript": "\n        try {\n\n            /* JAVASCRIPT STARTS */   function Resolver(request, extra, javascriptConfig, output) {\n    this.request = request;\n    this.extra = extra;\n    this.javascriptConfig = javascriptConfig;\n    this.output = output;\n}\n\nfunction ModuleRequest(url, method, headers, httpBody) {\n    this.url = url;\n    this.method = method;\n    this.headers = headers;\n    this.httpBody = httpBody;\n}\n\nfunction Extra(commands, extraInfo) {\n    this.commands = commands;\n    this.extraInfo = extraInfo;\n}\n\nfunction Commands(commandName, params) {\n    this.commandName = commandName;\n    this.params = params;\n}\n\nfunction JavascriptConfig(removeJavascript, loadInWebView, javaScript) {\n    this.removeJavascript = removeJavascript;\n    this.loadInWebView = loadInWebView;\n    this.javaScript = javaScript;\n}\n\nfunction KeyValue(key, value) {\n    this.key = key;\n    this.value = value;\n}\n\nfunction Output(video) {\n    this.video = video;\n}\n\nfunction Video(videoQuality, videoLink) {\n    this.videoQuality = videoQuality;\n    this.videoLink = videoLink;\n}\n\nfunction getNext(match, array) {\n    for (var x = 0; x < array.length; x++) {\n        let mMatch = array[x];\n        if (mMatch.includes(match)) {\n            return array[x + 1];\n        }\n    }\n}\nvar savedData = document.getElementById('ketsu-final-data');\nvar parsedJson = JSON.parse(savedData.innerHTML);\nvar emptyKeyValue = [new KeyValue('Referer', window.location.origin)];\nconsole.log(window.location.origin);\nvar videos = [];\n\nlet found = false;\n\nlet oldXHROpen = window.XMLHttpRequest.prototype.open;\nwindow.XMLHttpRequest.prototype.open = function(method, url, async, user, password)\n{\n    this.addEventListener('load', function()\n    {\n        let response = this.response;\n        if (response == undefined || found)\n        {\n            return\n        }\n\n        if (response.includes('sources'))\n        {\n            found = true;\n            let parsed = JSON.parse(response)\n            for (let source of parsed.data.media.sources)\n            {\n                videos.push(new Video('Normal', new ModuleRequest(source.file, 'get', emptyKeyValue, null)));\n\n            }\n\n            let emptyExtra = new Extra([new Commands('', emptyKeyValue)], emptyKeyValue);\n            var chaptersObject = new Resolver(new ModuleRequest('', '', emptyKeyValue, null), emptyExtra, new JavascriptConfig(false, true, ''), new Output(videos));\n            var finalJson = JSON.stringify(chaptersObject);\n            savedData.innerHTML = finalJson;\n            window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');\n        }\n    });\n    return oldXHROpen.apply(this, arguments);\n}\n\nlet foundS = '';\nfor (let script of document.querySelectorAll('script'))\n{\n    if (script.src.includes('/cache/scripts.js'))\n    {\n        foundS = script.src;\n        console.log(foundS)\n        break;\n    }\n}\n\nlet script = document.createElement('script');\nscript.src = foundS\ndocument.body.appendChild(script)  /* JAVASCRIPT ENDS */\n\n        } catch (e) {\n            console.error(e.message);\n\n            if (typeof KETSU_ASYNC !== 'undefined') {\n                window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');\n            }\n\n        }\n        \n        "
             },
             "output": {
                 "moduleID": "",
@@ -585,7 +585,7 @@
                 },
                 "cellsHidden": false,
                 "openedMenu": "Javascript",
-                "javascriptEditorScroll": 0
+                "javascriptEditorScroll": 985.5556030273438
             }
         }],
         "moduleCreatorIdaNWAZusZrfhHQPZgKcGK": {
@@ -610,7 +610,7 @@
     }, {
         "resolverInfo": {
             "resolverName": "Filemoon",
-            "nameMatches": ["FILEMOON"],
+            "nameMatches": ["(SUB) FILEMOON", "(DUB) FILEMOON"],
             "developer": "ナビル",
             "moduleID": "2446065035610",
             "resolverVersion": 1,
@@ -618,7 +618,7 @@
             "moduleCreatorIdYmCjrFBZxHShXBdSfGlO": {
                 "path": "PwMTx",
                 "id": "moduleResolvers,1,resolverInfosection",
-                "sectionsHidden": [],
+                "sectionsHidden": ["moduleCreatorIdwFlFXLiweQQvwQFUCRPO"],
                 "options": {
                     "name": "Resolver Parameters",
                     "listName": "parameters"
@@ -628,7 +628,7 @@
             "moduleCreatorIdqNTmPIXGJLntZCqvYcIc": {
                 "path": "IcIsr",
                 "id": "moduleResolvers,1,resolverInfocell",
-                "sectionsHidden": [],
+                "sectionsHidden": ["moduleCreatorIdwFlFXLiweQQvwQFUCRPO"],
                 "options": {
                     "name": "parameters"
                 },
@@ -685,7 +685,7 @@
             "moduleCreatorIdxhAGLuMFHwsXBtYFIdtN": {
                 "path": "lTaZj",
                 "id": "moduleResolvers,1,resolver,0cell",
-                "sectionsHidden": [],
+                "sectionsHidden": ["moduleCreatorIdwFlFXLiweQQvwQFUCRPO"],
                 "options": {
                     "name": "Request"
                 },
@@ -701,11 +701,224 @@
             "options": {
                 "name": "Resolver"
             },
-            "cellsHidden": false
+            "cellsHidden": true
         },
         "moduleCreatorIdeqFepfQgiOGSrkqtWowT": {
             "path": "resolver",
             "id": "moduleResolvers,1,resolversection",
+            "sectionsHidden": ["moduleCreatorIdwFlFXLiweQQvwQFUCRPO"],
+            "options": {
+                "name": "Resolver Request",
+                "listName": "Request"
+            },
+            "cellsHidden": false
+        }
+    }, {
+        "resolverInfo": {
+            "resolverName": "Streamtape",
+            "nameMatches": ["STREAMTAPE", "(SUB) STREAMTAPE", "(DUB) STREAMTAPE"],
+            "developer": "ナビル",
+            "moduleID": "8465132120",
+            "resolverVersion": 1.6,
+            "baseURL": "",
+            "moduleCreatorIdEXxbuKJuFrpFitRAIJkz": {
+                "path": "KYhjx",
+                "id": "moduleResolvers,2,resolverInfosection",
+                "sectionsHidden": [],
+                "options": {
+                    "name": "Resolver Parameters",
+                    "listName": "parameters"
+                },
+                "cellsHidden": false
+            },
+            "moduleCreatorIdiEeNUJmziosyutOeglQQ": {
+                "path": "hLjvc",
+                "id": "moduleResolvers,2,resolverInfocell",
+                "sectionsHidden": [],
+                "options": {
+                    "name": "parameters"
+                },
+                "cellsHidden": false
+            }
+        },
+        "resolver": [{
+            "request": {
+                "url": "https://streamtape.com/e/A0G2mdkJBkIXd4b/",
+                "method": "get",
+                "headers": [{
+                    "key": "",
+                    "value": "",
+                    "moduleCreatorHeaderisActive": false
+                }, {
+                    "key": "",
+                    "value": "",
+                    "moduleCreatorHeaderisActive": true
+                }]
+            },
+            "extra": {
+                "commands": [{
+                    "commandName": "",
+                    "params": [{
+                        "key": "",
+                        "value": ""
+                    }]
+                }],
+                "extraInfo": [{
+                    "key": "",
+                    "value": ""
+                }]
+            },
+            "javascriptConfig": {
+                "removeJavascript": true,
+                "loadInWebView": false,
+                "javaScript": "\n        try {\n\n            /* JAVASCRIPT STARTS */   function Resolver(request, extra, javascriptConfig, output) {\n    this.request = request;\n    this.extra = extra;\n    this.javascriptConfig = javascriptConfig;\n    this.output = output;\n}\n\nfunction ModuleRequest(url, method, headers, httpBody) {\n    this.url = url;\n    this.method = method;\n    this.headers = headers;\n    this.httpBody = httpBody;\n}\n\nfunction Extra(commands, extraInfo) {\n    this.commands = commands;\n    this.extraInfo = extraInfo;\n}\n\nfunction Commands(commandName, params) {\n    this.commandName = commandName;\n    this.params = params;\n}\n\nfunction JavascriptConfig(removeJavascript, loadInWebView, javaScript) {\n    this.removeJavascript = removeJavascript;\n    this.loadInWebView = loadInWebView;\n    this.javaScript = javaScript;\n}\n\nfunction KeyValue(key, value) {\n    this.key = key;\n    this.value = value;\n}\n\nfunction Output(video) {\n    this.video = video;\n}\n\nfunction Video(videoQuality, videoLink) {\n    this.videoQuality = videoQuality;\n    this.videoLink = videoLink;\n}\n\nfunction getNext(match, array) {\n    for (var x = 0; x < array.length; x++) {\n        let mMatch = array[x];\n        if (mMatch.includes(match)) {\n            return array[x + 1];\n        }\n    }\n}\nvar savedData = document.getElementById('ketsu-final-data');\nvar parsedJson = JSON.parse(savedData.innerHTML);\nvar emptyKeyValue = [new KeyValue('', '')];\n\nvar videos = [];\nconst linkRegex = /'robotlink'\\)\\.innerHTML = '(.+?)'\\+ \\('(.+?)'\\)/;\nlet bodyMatch = document.body.innerHTML.match(linkRegex);\nlet videoLink = 'https:' + bodyMatch[1] + bodyMatch[2].substring(3);\nvideos.push(new Video('Normal',new ModuleRequest(videoLink,'get',emptyKeyValue,null)));\n\nlet emptyExtra = new Extra([new Commands('', emptyKeyValue)], emptyKeyValue);\nvar chaptersObject = new Resolver(new ModuleRequest('', '', emptyKeyValue, null), emptyExtra, new JavascriptConfig(false, false, ''), new Output(videos));\nvar finalJson = JSON.stringify(chaptersObject);\nsavedData.innerHTML = finalJson; /* JAVASCRIPT ENDS */\n\n        } catch (e) {\n            console.error(e.message);\n\n            if (typeof KETSU_ASYNC !== 'undefined') {\n                window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');\n            }\n\n        }\n        \n        "
+            },
+            "output": {
+                "moduleID": "",
+                "video": [{
+                    "videoQuality": "720",
+                    "videoLink": {
+                        "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+                        "method": "get",
+                        "headers": [{
+                            "key": "key",
+                            "value": "value"
+                        }],
+                        "httpBody": null
+                    }
+                }]
+            },
+            "moduleCreatorIdXiWBHAVMcKIEyiuzkVkE": {
+                "path": "sdMVy",
+                "id": "moduleResolvers,2,resolver,0cell",
+                "sectionsHidden": [],
+                "options": {
+                    "name": "Request"
+                },
+                "cellsHidden": false,
+                "javascriptEditorScroll": 0,
+                "openedMenu": "Request"
+            }
+        }],
+        "moduleCreatorIdIKLMgSdKaaxEWqaUTanT": {
+            "path": "rSWth",
+            "id": "moduleResolvers,2section",
+            "sectionsHidden": [],
+            "options": {
+                "name": "Resolver"
+            },
+            "cellsHidden": false
+        },
+        "moduleCreatorIdYOdwabeFRkLvFBuIBVoh": {
+            "path": "resolver",
+            "id": "moduleResolvers,2,resolversection",
+            "sectionsHidden": [],
+            "options": {
+                "name": "Resolver Request",
+                "listName": "Request"
+            },
+            "cellsHidden": false
+        }
+    }, {
+        "resolverInfo": {
+            "resolverName": "MP4UPLOAD",
+            "nameMatches": ["MP4UPLOAD", "(SUB) MP4UPLOAD", "(DUB) MP4UPLOAD"],
+            "developer": "ナビル",
+            "moduleID": "12132",
+            "resolverVersion": 1,
+            "baseURL": "",
+            "moduleCreatorIdhsuhNexhVDoCTZCjeyHp": {
+                "path": "ucNVj",
+                "id": "moduleResolvers,3,resolverInfosection",
+                "sectionsHidden": [],
+                "options": {
+                    "name": "Resolver Parameters",
+                    "listName": "parameters"
+                },
+                "cellsHidden": false
+            },
+            "moduleCreatorIdbLVdTfMjVDxIytsNhWks": {
+                "path": "JtzsM",
+                "id": "moduleResolvers,3,resolverInfocell",
+                "sectionsHidden": [],
+                "options": {
+                    "name": "parameters"
+                },
+                "cellsHidden": false
+            }
+        },
+        "resolver": [{
+            "request": {
+                "url": "https://www.mp4upload.com/embed-z7moab92qjt1.html",
+                "method": "get",
+                "headers": [{
+                    "key": "User-Agent",
+                    "value": "Mozilla/5.0 (platform; rv:geckoversion) Gecko/geckotrail Firefox/firefoxversion",
+                    "moduleCreatorHeaderisActive": true
+                }, {
+                    "key": "",
+                    "value": "",
+                    "moduleCreatorHeaderisActive": true
+                }]
+            },
+            "extra": {
+                "commands": [{
+                    "commandName": "",
+                    "params": [{
+                        "key": "",
+                        "value": ""
+                    }]
+                }],
+                "extraInfo": [{
+                    "key": "",
+                    "value": ""
+                }]
+            },
+            "javascriptConfig": {
+                "removeJavascript": true,
+                "loadInWebView": false,
+                "javaScript": "\n        try {\n\n            /* JAVASCRIPT STARTS */   function Resolver(request, extra, javascriptConfig, output) {\n    this.request = request;\n    this.extra = extra;\n    this.javascriptConfig = javascriptConfig;\n    this.output = output;\n}\n\nfunction ModuleRequest(url, method, headers, httpBody) {\n    this.url = url;\n    this.method = method;\n    this.headers = headers;\n    this.httpBody = httpBody;\n}\n\nfunction Extra(commands, extraInfo) {\n    this.commands = commands;\n    this.extraInfo = extraInfo;\n}\n\nfunction Commands(commandName, params) {\n    this.commandName = commandName;\n    this.params = params;\n}\n\nfunction JavascriptConfig(removeJavascript, loadInWebView, javaScript) {\n    this.removeJavascript = removeJavascript;\n    this.loadInWebView = loadInWebView;\n    this.javaScript = javaScript;\n}\n\nfunction KeyValue(key, value) {\n    this.key = key;\n    this.value = value;\n}\n\nfunction Output(video) {\n    this.video = video;\n}\n\nfunction Video(videoQuality, videoLink) {\n    this.videoQuality = videoQuality;\n    this.videoLink = videoLink;\n}\n\nfunction getNext(match, array) {\n    for (var x = 0; x < array.length; x++) {\n        let mMatch = array[x];\n        if (mMatch.includes(match)) {\n            return array[x + 1];\n        }\n    }\n}\nfunction unPack (code) {\n\tfunction indent (code) {\n\t\ttry {\n\t\tvar tabs = 0, old=-1, add='';\n\t\tfor(var i=0;i<code.length;i++) {\n\t\t\tif(code[i].indexOf(\"{\") != -1) tabs++;\n\t\t\tif(code[i].indexOf(\"}\") != -1) tabs--;\n\t\t\t\n\t\t\tif(old != tabs) {\n\t\t\t\told = tabs;\n\t\t\t\tadd = \"\";\n\t\t\t\twhile (old > 0) {\n\t\t\t\t\tadd += \"\\t\";\n\t\t\t\t\told--;\n\t\t\t\t}\n\t\t\t\told = tabs;\n\t\t\t}\n\t\t\t\n\t\t\tcode[i] = add + code[i];\n\t\t}\n\t\t} finally {\n\t\t\ttabs = null;\n\t\t\told = null;\n\t\t\tadd = null;\n\t\t}\n\t\treturn code;\n\t}\n    \n    var env = {\n        eval: function (c) {\n            code = c;\n        },\n        window: {},\n        document: {}\n    };\n    \n    eval(\"with(env) {\" + code + \"}\");\n\t\n\tcode = (code+\"\").replace(/;/g, \";\\n\").replace(/{/g, \"\\n{\\n\").replace(/}/g, \"\\n}\\n\").replace(/\\n;\\n/g, \";\\n\").replace(/\\n\\n/g, \"\\n\");\n\t\n    code = code.split(\"\\n\");\n    code = indent(code);\n    \n    code = code.join(\"\\n\");\n    return code;\n} \n\nvar savedData = document.getElementById('ketsu-final-data');\nvar parsedJson = JSON.parse(savedData.innerHTML);\nvar emptyKeyValue =[new KeyValue('Referer', 'https://www.mp4upload.com/')];\n\n\nvar videos = [];\nvar scripts = document.querySelectorAll('p');\nfor (var script of scripts ){\n   if(script.innerHTML.includes('p,a,c,k,e,d')){\n      break\n   }\n}\nlet videojs = unPack(script.innerText);\nlet videoLink = videojs.match(/(http.*?\\.mp4upload+.+\\/video.mp4)/gm)[0];\nconsole.log(videoLink)\nvideos.push(new Video('Normal',new ModuleRequest(videoLink,'get',emptyKeyValue,null)));\n\nlet emptyExtra = new Extra([new Commands('', emptyKeyValue)], emptyKeyValue);\nvar chaptersObject = new Resolver(new ModuleRequest('', '', emptyKeyValue, null), emptyExtra, new JavascriptConfig(false, false, ''), new Output(videos));\nvar finalJson = JSON.stringify(chaptersObject);\nsavedData.innerHTML = finalJson; /* JAVASCRIPT ENDS */\n\n        } catch (e) {\n            console.error(e.message);\n\n            if (typeof KETSU_ASYNC !== 'undefined') {\n                window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');\n            }\n\n        }\n        \n        "
+            },
+            "output": {
+                "moduleID": "",
+                "video": [{
+                    "videoQuality": "720",
+                    "videoLink": {
+                        "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+                        "method": "get",
+                        "headers": [{
+                            "key": "key",
+                            "value": "value"
+                        }],
+                        "httpBody": null
+                    }
+                }]
+            },
+            "moduleCreatorIdVBIMJBLGzIoKAoQoZqXV": {
+                "path": "eyLbS",
+                "id": "moduleResolvers,3,resolver,0cell",
+                "sectionsHidden": [],
+                "options": {
+                    "name": "Request"
+                },
+                "cellsHidden": false,
+                "openedMenu": "Request",
+                "openedRequestMenu": "Http Body",
+                "javascriptEditorScroll": 0
+            }
+        }],
+        "moduleCreatorIdnUPtmfxKYWwAiFQXfCeS": {
+            "path": "fFeER",
+            "id": "moduleResolvers,3section",
+            "sectionsHidden": [],
+            "options": {
+                "name": "Resolver"
+            },
+            "cellsHidden": false
+        },
+        "moduleCreatorIdkKIZxbLvliMWoheMgUKl": {
+            "path": "resolver",
+            "id": "moduleResolvers,3,resolversection",
             "sectionsHidden": [],
             "options": {
                 "name": "Resolver Request",
@@ -879,11 +1092,11 @@
         }
     }],
     "moduleCreatorGlobalOptions": {
-        "selected": "moduleCreatorIdwRfnOgZUqEYZYLgAVfwq",
+        "selected": "moduleCreatorIdGGzCyICBSlBBZVQaKndu",
         "notes": {},
         "hideViews": [],
         "id": "CnbQVkzMrJvMsYI",
-        "projectName": "New Project"
+        "projectName": "NineAnime"
     },
     "moduleCreatorIdbdRNBMRoyEkGlKbKRgoX": {
         "path": "mainPage",
