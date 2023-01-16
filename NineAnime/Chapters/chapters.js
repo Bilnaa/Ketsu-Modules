@@ -95,8 +95,8 @@ class iframeInterval
         {
             if (this.tries >= maxTries)
             {
+                              this.cancelTimer();
                 maxTriesCallback(this);
-                this.cancelTimer();
                 return
             }
 
@@ -125,25 +125,28 @@ var KETSU_ASYNC = true;
 var output = [];
 
 
-new iframeInterval(100, 300, (interval) =>
+window.mcs = 0;
+window.foundStrms = [];
+
+
+new iframeInterval(100, 50, (interval) =>
     {
         // Callback
         let buttons = document.querySelectorAll("#w-servers > div.servers .type li");
         if (buttons.length > 0)
         {
-            getIframe();
             interval.cancelTimer();
+            getIframe();
         }
     },
     (interval) =>
     {
         // Error callback
+              interval.cancelTimer();
         window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');
-        interval.cancelTimer();
     })
 
-window.mcs = 0;
-window.foundStrms = [];
+
 
 async function getIframe()
 {
@@ -169,25 +172,24 @@ async function getIframe()
                         link_match = iframe.src.split('/')[2].split('.')[1].toUpperCase()
                     }
                     output.push(new NeedsResolver(`(${type}) ${link_match}`, new ModuleRequest(iframe.src, 'get', emptyKeyValue, null)));
-
+                    getNextStream();
+                    interval.cancelTimer();
                 }
-                getNextStream();
-                interval.cancelTimer();
+
             }
 
         },
         (interval) =>
         {
             // Error callback
+                      interval.cancelTimer();
             getNextStream();
-            interval.cancelTimer();
         });
 
 }
 
 function getNextStream()
 {
-    window.mcs += 1;
 
     let buttons = document.querySelectorAll("#w-servers > div.servers .type li");
 
@@ -200,5 +202,7 @@ function getNextStream()
         window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');
         return;
     }
+      window.mcs += 1;
+
     getIframe();
-}
+} 
