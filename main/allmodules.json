@@ -218,7 +218,7 @@
         "image": "https://i.postimg.cc/26PWWsJ8/kmsa.png",
         "info": "A module for reading mangas weebtoon manhwa",
         "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Danyspb/Modules-Ketsu/main/KumaScan/moduleTemplate.json",
-        "Zetsu_link": "zetsuapp://?moduleData=https://raw.githubusercontent.com/Danyspb/Modules-Ketsu/main/KumaScan/moduleTemplate.json"
+        "Zetsu_link": "zetsuapp://?moduleData=https://raw.githubusercontent.com/Danyspb/Modules-Ketsu/main/KumaScan/moduleTemplate.json "
     }],
     "text": [{
         "name": "Livre1 | FR",

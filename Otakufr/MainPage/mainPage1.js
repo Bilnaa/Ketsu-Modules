@@ -217,7 +217,7 @@ for (epi of lastepisodes) {
     var image = epi.querySelector('figure > a > img').src;
     image = new ModuleRequest(image, 'get', emptyKeyValue, null);
     var langue = epi.querySelector('div.h6 > span').textContent;
-    var ep = title.match(/[0-9]+.+./gm)[0];
+    var ep = title.match(/[0-9].+/gm)[0];
     title = title.replace(ep, '');
     var finalData = new Data(image, title, '', ep, langue, 'unknown2', 'unknown3', false, link);
     last.push(finalData);
