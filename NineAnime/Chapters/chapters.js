@@ -1,143 +1,208 @@
-function Chapters(request, extra, javascriptConfig, output) {
+function Chapters(request, extra, javascriptConfig, output)
+{
     this.request = request;
     this.extra = extra;
     this.javascriptConfig = javascriptConfig;
     this.output = output;
 }
 
-function ModuleRequest(url, method, headers, httpBody) {
+function ModuleRequest(url, method, headers, httpBody)
+{
     this.url = url;
     this.method = method;
     this.headers = headers;
     this.httpBody = httpBody;
 }
 
-function Extra(commands, extraInfo) {
+function Extra(commands, extraInfo)
+{
     this.commands = commands;
     this.extraInfo = extraInfo;
 }
 
-function Commands(commandName, params) {
+function Commands(commandName, params)
+{
     this.commandName = commandName;
     this.params = params;
 }
 
-function JavascriptConfig(removeJavascript, loadInWebView, javaScript) {
+function JavascriptConfig(removeJavascript, loadInWebView, javaScript)
+{
     this.removeJavascript = removeJavascript;
     this.loadInWebView = loadInWebView;
     this.javaScript = javaScript;
 }
 
-function KeyValue(key, value) {
+function KeyValue(key, value)
+{
     this.key = key;
     this.value = value;
 }
 
-function Output(videos, images, text) {
+function Output(videos, images, text)
+{
     this.videos = videos;
     this.images = images;
     this.text = text;
 }
 
-function Videos(needsResolver, rawVideo) {
+function Videos(needsResolver, rawVideo)
+{
     this.needsResolver = needsResolver;
     this.rawVideo = rawVideo;
 }
 
-function NeedsResolver(resolverIdentifier, link) {
+function NeedsResolver(resolverIdentifier, link)
+{
     this.resolverIdentifier = resolverIdentifier;
     this.link = link;
 }
 
-function RawVideo(video) {
+function RawVideo(video)
+{
     this.video = video;
 }
 
-function Video(videoQuality, videoLink) {
+function Video(videoQuality, videoLink)
+{
     this.videoQuality = videoQuality;
     this.videoLink = videoLink;
 }
-const nineAnimeKey = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
-const cipherKey = "oZH6q4X4VAIHk0Ol"
 
-function getVrf(text){
-  return encodeURIComponent(encrypt(cipher(cipherKey, encodeURIComponent(text)), nineAnimeKey))
+function getValueFromKey(keys, key)
+{
+    for (var x = 0; x < keys.length; x++)
+    {
+        let tKey = keys[x];
+        if (tKey.key == key)
+        {
+            return tKey.value;
+        }
+    }
+}
+async function sleep(ms)
+{
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-function encrypt(t) {
-    var h = nineAnimeKey;
-    var i = '';
-    for (t = ''.concat(t), r = 0; r < t.length; r++) {
-        if (255 < t.charCodeAt(r)) {
-            return null;
-        }
-        for (var i = '', r = 0; r < t.length; r += 3) {
-            var u = [void 0, void 0, void 0, void 0];
-            u[0] = t.charCodeAt(r) >> 2, u[1] = (3 & t.charCodeAt(r)) << 4, t.length > r + (1) && ((u[1] |= t
-                .charCodeAt(r + 1) >> 4, u[2] = (15 & t.charCodeAt(r + 1)) << 2), u[2] = (15 & t
-                .charCodeAt(r + 1)) << 2), t.length > r + (2) && (u[2] |= t.charCodeAt(r + 2) >> 6, u[3] =
-                63 & t.charCodeAt(r + 2));
-            for (var e = 0; e < u.length; e++) {
-                'undefined' == typeof u[e] ? i += '=' : i += function (t) {
-                    if (0 <= t && t < 64) {
-                        return h[t];
-                    }
-                }(u[e]);
+class iframeInterval
+{
+    constructor(time, maxTries, callback, maxTriesCallback)
+    {
+        this.tries = 0;
+
+        this.interval = setInterval(async () =>
+        {
+            if (this.tries >= maxTries)
+            {
+                              this.cancelTimer();
+                maxTriesCallback(this);
+                return
             }
-        }
-    }
-    return i;
-};
 
-function cipher(key, text) {
-    var arr = new Array(256);
-    for (var i = 0; i < 256; i++) {
-        arr[i] = i;
+            callback(this);
+            this.tries += 1;
+        }, time);
+
     }
-    var u = 0;
-    var r;
-    for (var i = 0; i < 256; i++) {
-        u = (u + arr[i] + key[i % key.length].charCodeAt(0)) % 256;
-        r = arr[i];
-        arr[i] = arr[u];
-        arr[u] = r;
+
+    cancelTimer()
+    {
+        clearInterval(this.interval);
+
     }
-    u = 0;
-    var c = 0;
-    return text.split('').map(function (j) {
-        c = (c + 1) % 256;
-        u = (u + arr[c]) % 256;
-        r = arr[c];
-        arr[c] = arr[u];
-        arr[u] = r;
-        return String.fromCharCode(j.charCodeAt(0) ^ arr[(arr[c] + arr[u]) % 256]);
-    }).join('');
 }
+
+var global = window || global;
+global.iframeInterval = iframeInterval;
 
 var savedData = document.getElementById('ketsu-final-data');
 var parsedJson = JSON.parse(savedData.innerHTML);
 var extraInfo = parsedJson.extra.extraInfo;
-var emptyKeyValue = [new KeyValue('', '')];
+let nextRequest = '';
+var emptyKeyValue = [new KeyValue('Referer', 'https://9anime.gs/watch/')];
+var KETSU_ASYNC = true;
 var output = [];
-var url = new URL(parsedJson.request.url);
-var nextRequest = '';
-var extraInfo = [new KeyValue('count', '0')];
-const script = document.querySelector('script').innerText.replace('*/', '').replace('/*', '');
-const html = JSON.parse(script).result;
-const parser = new DOMParser();
-const doc = parser.parseFromString(html, 'text/html');
-const servers = doc.querySelectorAll('.servers li');
-for (var x = 0; x < servers.length; x++) {
-    var server = servers[x];
-    let id = server.getAttribute('data-link-id');
-    let link = `${url.origin}/ajax/server/${id}?vrf=${getVrf(id)}`;
-    if (x == 0) {
-        nextRequest = link;
-    } else {
-        extraInfo.push(new KeyValue(`${x}`, `${link}`));
-    }
+
+
+window.mcs = 0;
+window.foundStrms = [];
+
+
+new iframeInterval(100, 50, (interval) =>
+    {
+        // Callback
+        let buttons = document.querySelectorAll("#w-servers > div.servers .type li");
+        if (buttons.length > 0)
+        {
+            interval.cancelTimer();
+            getIframe();
+        }
+    },
+    (interval) =>
+    {
+        // Error callback
+              interval.cancelTimer();
+        window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');
+    })
+
+
+
+async function getIframe()
+{
+
+    let buttons = document.querySelectorAll("#w-servers > div.servers .type li");
+    buttons[this.window.mcs].dispatchEvent(new Event('click'));
+    console.log(window.mcs)
+    new iframeInterval(100, 30, (interval) =>
+        {
+            // Callback
+            let iframe = document.querySelector('iframe');
+            if (iframe.src != undefined && !window.foundStrms.includes(iframe.src))
+            {
+                console.log(iframe.src)
+                window.foundStrms.push(iframe.src);
+                let type = buttons[this.window.mcs].parentElement.parentElement.dataset.type.toUpperCase();
+                if (iframe.src != "" && !iframe.src.includes('addthis') && !iframe.src.includes('disqus.com'))
+                {
+                    let link_match = '';
+                    if(!iframe.src.includes('www')){
+                        link_match = iframe.src.split('/')[2].split('.')[0].toUpperCase()
+                    } else {
+                        link_match = iframe.src.split('/')[2].split('.')[1].toUpperCase()
+                    }
+                    output.push(new NeedsResolver(`(${type}) ${link_match}`, new ModuleRequest(iframe.src, 'get', emptyKeyValue, null)));
+                    getNextStream();
+                    interval.cancelTimer();
+                }
+
+            }
+
+        },
+        (interval) =>
+        {
+            // Error callback
+                      interval.cancelTimer();
+            getNextStream();
+        });
+
 }
-let emptyExtra = new Extra([new Commands('', emptyKeyValue)], extraInfo);
-var chaptersObject = new Chapters(new ModuleRequest(nextRequest, 'get', emptyKeyValue, null), emptyExtra, new JavascriptConfig(false, false, ''), new Output(new Videos([], []), null, null));
-var finalJson = JSON.stringify(chaptersObject);
-savedData.innerHTML = finalJson;
+
+function getNextStream()
+{
+
+    let buttons = document.querySelectorAll("#w-servers > div.servers .type li");
+
+    if (window.mcs >= buttons.length - 1)
+    {
+        let emptyExtra = new Extra([new Commands('', emptyKeyValue)], extraInfo);
+        var chaptersObject = new Chapters(new ModuleRequest('', 'get', emptyKeyValue, null), emptyExtra, new JavascriptConfig(false, false, ''), new Output(new Videos(output, null), null, null));
+        var finalJson = JSON.stringify(chaptersObject);
+        savedData.innerHTML = finalJson;
+        window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');
+        return;
+    }
+      window.mcs += 1;
+
+    getIframe();
+} 

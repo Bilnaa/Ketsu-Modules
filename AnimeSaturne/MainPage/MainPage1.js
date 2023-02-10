@@ -182,26 +182,26 @@ var output = [];
 var dataArray = [];
 
 for (slide of document.querySelectorAll('.carousel-item')) {
-    var image = slide.querySelector('img').src;
+    let image = slide.querySelector('img').src;
     image = new ModuleRequest(image, 'get', emptyKeyValue, null);
-    var title = slide.textContent.trim();
-    var link = 'https://www.animesaturn.cc'+slide.querySelector('a').href;
+    let title = slide.textContent.trim();
+    let link = parsedJson.request.url+slide.querySelector('a').href;
     link = new ModuleRequest(link, 'get', emptyKeyValue, null);
     dataArray.push(new Data(image, title, '', '', '', '', '', false, link));
 }
-var sliderLayout = new Layout(new Insets(0,0,0,0),1,2,3,1,500, new Size(400,400), new Ratio('width',1.2, 3), new Size(0,0),0,0);
+const sliderLayout = new Layout(new Insets(0,0,0,0),1,2,3,1,500, new Size(400,400), new Ratio('width',1.2, 3), new Size(0,0),0,0);
 output.push(new Output(CellDesings.normal1, Orientation.horizontal, DefaultLayouts.none, Paging.centered, new Section('', false), sliderLayout, shuffle(dataArray.slice())));
 
 for (section of document.querySelectorAll('.container.p-3')) {
     var dataArray = [];
-    var animes = section.querySelectorAll('.card > a');
+    let animes = section.querySelectorAll('.card > a');
     if (animes.length != 0) {
-        var sectionName = section.querySelector('h3').textContent;
+        let sectionName = section.querySelector('h3').textContent;
         for (anime of animes) {
-            var image = anime.querySelector('img').src;
+            let image = anime.querySelector('img').src;
             image = new ModuleRequest(image, 'get', emptyKeyValue, null);
-            var title = anime.title;
-            var link = anime.href;
+            let title = anime.title;
+            let link = anime.href;
             link = new ModuleRequest(link, 'get', emptyKeyValue, null);
             dataArray.push(new Data(image, title, '', '', '', '', '', false, link));
         }
@@ -209,6 +209,6 @@ for (section of document.querySelectorAll('.container.p-3')) {
     }
 }
     
-const mainPageObject = new MainPage(new ModuleRequest('','get',emptyKeyValue,null),new Extra([new Commands('',emptyKeyValue)],emptyKeyValue),new JavascriptConfig(true,false,''),output);
+const mainPageObject = new MainPage(new ModuleRequest('','',emptyKeyValue,null),new Extra([new Commands('',emptyKeyValue)],emptyKeyValue),new JavascriptConfig(true,false,''),output);
 
 savedData.innerHTML = JSON.stringify(mainPageObject);

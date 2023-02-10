@@ -6,8 +6,8 @@
     "developer": "Frizrat",
     "moduleID": "23310521",
     "moduleImage": "https://i.postimg.cc/6pvDJNKt/ninemanga.png",
-    "moduleVersion": 1.4,
-    "changelog": "MainPage : nouvel affichage; Search : plus d'info affichée",
+    "moduleVersion": 1.45,
+    "changelog": "MainPage : + rapide;",
     "moduleLenguage": "FR",
     "moduleType": "Image",
     "nsfw": false,
@@ -16,712 +16,104 @@
     "UpdateSite": "https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/NineManga/NineMangaFR.json",
     "preferedServer": "",
     "preferedDownloadServer": "",
-    "blackListed": [
-      ""
-    ]
+    "blackListed": []
   },
-  "global": {
-    "variables": [
-      {
-        "key": "",
-        "value": ""
-      }
-    ],
-    "cookies": [
-      {
-        "key": "",
-        "value": ""
-      }
-    ],
-    "headers": [
-      {
-        "key": "",
-        "value": ""
-      }
-    ]
-  },
+  "global": { "variables": [], "cookies": [], "headers": [] },
   "mainPage": [
     {
       "request": {
         "url": "https://fr.ninemanga.com/",
         "method": "get",
-        "headers": [
-          {
-            "key": "",
-            "value": ""
-          }
-        ],
+        "headers": [],
         "httpBody": null
       },
-      "extra": {
-        "commands": [
-          {
-            "commandName": "",
-            "params": [
-              {
-                "key": "",
-                "value": ""
-              }
-            ]
-          }
-        ],
-        "extraInfo": [
-          {
-            "key": "",
-            "value": ""
-          }
-        ]
-      },
+      "extra": { "commands": [], "extraInfo": [] },
       "javascriptConfig": {
         "removeJavascript": true,
-        "loadInWebView": false,
-        "javaScript": "const DefaultLayouts = { ultraWideFull : 'ultraWideFull', ultraWide : 'ultraWide', wideFull : 'wideFull', wide : 'wide', wideStrechedFull : 'wideStrechedFull', wideStrechedFullDouble : 'WideStrechedFullDouble', wideStreched : 'wideStreched', wideStrechedDouble : 'wideStrechedDouble', wideStrechedFullList : 'wideStrechedFullList', wideStrechedList : 'wideStrechedList', doublets : 'doublets', doubletsDouble : 'doubletsDouble', doubletsFull : 'doubletsFull', doubletsFullDouble : 'doubletsFullDouble', doubletsConstant : 'doubletsConstant', doubletsDoubleConstant : 'doubletsDoubleConstant', doubletsFullConstant : 'doubletsFullConstant', doubletsFullDoubleConstant : 'doubletsFullDoubleConstant', longDoublets : 'longDoublets', longDoubletsDouble : 'longDoubletsDouble', longDoubletsFull : 'longDoubletsFull', longDoubletsFullDouble : 'longDoubletsFullDouble', longDoubletsConstant : 'longDoubletsConstant', longDoubletsDoubleConstant : 'longDoubletsDoubleConstant', longDoubletsFullConstant : 'longDoubletsFullConstant', longDoubletsFullDoubleConstant : 'longDoubletsFullDoubleConstant', triplets : 'triplets', tripletsDouble : 'tripletsDouble', tripletsFull : 'tripletsFull', tripletsFullDouble : 'tripletsFullDouble', tripletsConstant : 'tripletsConstant', tripletsDoubleConstant : 'tripletsDoubleConstant', tripletsFullConstant : 'tripletsFullConstant', tripletsFullDoubleConstant : 'tripletsFullDoubleConstant', longTriplets : 'longTriplets', longTripletsDouble : 'longTripletsDouble', longTripletsFull : 'longTripletsFull', longTripletsFullDouble : 'longTripletsFullDouble', longTripletsConstant : 'longTripletsConstant', longTripletsDoubleConstant : 'longTripletsDoubleConstant', longTripletsFullConstant : 'longTripletsFullConstant', longTripletsFullDoubleConstant : 'longTripletsFullDoubleConstant', none: '' }; const CellDesings = { Special1 : 'Special1', Special2 : 'Special2', Special3 : 'Special3', CELLHelperText : 'CELLHelperText', small1 : 'small1', small2 : 'small2', normal1 : 'normal1', normal2 : 'normal2', normal3 : 'normal3', normal4 : 'normal4', normal5 : 'normal5', normal7 : 'normal7', wide1 : 'wide1', wide2 : 'wide2', wide3 : 'wide3', wide4 : 'wide4', wide5 : 'wide5', wide6 : 'wide6', wide7 : 'wide7', wide8 : 'wide8', wide9 : 'wide9', wide10 : 'wide10', wide11 : 'wide11' }; const Paging = { leading : 'leading', centered : 'centered', none : '' }; const Orientation = { horizontal : 'horizontal', vertical : 'vertical' }; function MainPage(request, extra, javascriptConfig, output) { this.request = request; this.extra = extra; this.javascriptConfig = javascriptConfig; this.output = output; } function ModuleRequest(url, method, headers, httpBody) { this.url = url; this.method = method; this.headers = headers; this.httpBody = httpBody; } function Extra(commands, extraInfo) { this.commands = commands; this.extraInfo = extraInfo; } function Commands(commandName, params) { this.commandName = commandName; this.params = params; } function JavascriptConfig(removeJavascript, loadInWebView, javaScript) { this.removeJavascript = removeJavascript; this.loadInWebView = loadInWebView; this.javaScript = javaScript; } function KeyValue(key, value) { this.key = key; this.value = value; } function Output(cellDesing, orientation, defaultLayout, paging, section, layout, data) { this.cellDesing = cellDesing; this.orientation = orientation; this.defaultLayout = defaultLayout; this.paging = paging; this.section = section; this.layout = layout; this.data = data; } function Section(sectionName, separator) { this.sectionName = sectionName; this.separator = separator; } function Data(image, title, description, field1, field2, field3, field4, isChapter, link,openInWebView) { this.image = image; this.title = title; this.description = description; this.field1 = field1; this.field2 = field2; this.field3 = field3; this.field4 = field4; this.isChapter = isChapter; this.link = link; this.openInWebView = openInWebView; } var savedData = document.getElementById('ketsu-final-data'); var parsedJson = JSON.parse(savedData.innerHTML); let emptyKeyValue = [new KeyValue('','')]; let output = []; var dataArray = []; var updateList = document.querySelector('.pop_update').querySelectorAll('li'); for (update of updateList) { var image = update.querySelector('img').src; image = new ModuleRequest(image, 'get', emptyKeyValue, null); var title = update.querySelector('a').title; var link = update.querySelector('a').href + '?waring=1'; link = new ModuleRequest(link, 'get', emptyKeyValue, null); dataArray.push(new Data(image, title, '', '', '', '', '', false, link)); } output.push(new Output(CellDesings.normal1,Orientation.horizontal,DefaultLayouts.longDoubletsFullConstant,Paging.leading, new Section('', true), null, dataArray)); dataArray = []; var hotList = document.querySelector('.rightbox').querySelectorAll('li'); for (hot of hotList) { var image = hot.querySelector('img').src; image = new ModuleRequest(image, 'get', emptyKeyValue, null); var title = hot.querySelector('.show_book_desc').textContent; var link = hot.querySelector('a').href + '?waring=1'; link = new ModuleRequest(link, 'get', emptyKeyValue, null); dataArray.push(new Data(image, title, '', '', '', '', '', false, link)); } output.push(new Output(CellDesings.normal1, Orientation.horizontal, DefaultLayouts.longTripletsDouble, Paging.leading, new Section('Hot Manga', true), null, dataArray)); let extraInfo = [new KeyValue('count', '0'), new KeyValue('0', 'https://fr.ninemanga.com/list/New-Update/'), new KeyValue('1', 'https://fr.ninemanga.com/list/New-Book/')]; let MainPageObject = new MainPage(new ModuleRequest('https://fr.ninemanga.com/list/New-Update/', 'get', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], extraInfo), new JavascriptConfig(true, false, ''), output); var finalJson = JSON.stringify(MainPageObject); savedData.innerHTML = finalJson;"
+        "loadInWebView": true,
+        "javaScript": "const DefaultLayouts = { ultraWideFull : 'ultraWideFull', ultraWide : 'ultraWide', wideFull : 'wideFull', wide : 'wide', wideStrechedFull : 'wideStrechedFull', wideStrechedFullDouble : 'WideStrechedFullDouble', wideStreched : 'wideStreched', wideStrechedDouble : 'wideStrechedDouble', wideStrechedFullList : 'wideStrechedFullList', wideStrechedList : 'wideStrechedList', doublets : 'doublets', doubletsDouble : 'doubletsDouble', doubletsFull : 'doubletsFull', doubletsFullDouble : 'doubletsFullDouble', doubletsConstant : 'doubletsConstant', doubletsDoubleConstant : 'doubletsDoubleConstant', doubletsFullConstant : 'doubletsFullConstant', doubletsFullDoubleConstant : 'doubletsFullDoubleConstant', longDoublets : 'longDoublets', longDoubletsDouble : 'longDoubletsDouble', longDoubletsFull : 'longDoubletsFull', longDoubletsFullDouble : 'longDoubletsFullDouble', longDoubletsConstant : 'longDoubletsConstant', longDoubletsDoubleConstant : 'longDoubletsDoubleConstant', longDoubletsFullConstant : 'longDoubletsFullConstant', longDoubletsFullDoubleConstant : 'longDoubletsFullDoubleConstant', triplets : 'triplets', tripletsDouble : 'tripletsDouble', tripletsFull : 'tripletsFull', tripletsFullDouble : 'tripletsFullDouble', tripletsConstant : 'tripletsConstant', tripletsDoubleConstant : 'tripletsDoubleConstant', tripletsFullConstant : 'tripletsFullConstant', tripletsFullDoubleConstant : 'tripletsFullDoubleConstant', longTriplets : 'longTriplets', longTripletsDouble : 'longTripletsDouble', longTripletsFull : 'longTripletsFull', longTripletsFullDouble : 'longTripletsFullDouble', longTripletsConstant : 'longTripletsConstant', longTripletsDoubleConstant : 'longTripletsDoubleConstant', longTripletsFullConstant : 'longTripletsFullConstant', longTripletsFullDoubleConstant : 'longTripletsFullDoubleConstant', none: ''}; const CellDesings = { Special1 : 'Special1', Special2 : 'Special2', Special3 : 'Special3', CELLHelperText : 'CELLHelperText', small1 : 'small1', small2 : 'small2', normal1 : 'normal1', normal2 : 'normal2', normal3 : 'normal3', normal4 : 'normal4', normal5 : 'normal5', normal7 : 'normal7', wide1 : 'wide1', wide2 : 'wide2', wide3 : 'wide3', wide4 : 'wide4', wide5 : 'wide5', wide6 : 'wide6', wide7 : 'wide7', wide8 : 'wide8', wide9 : 'wide9', wide10 : 'wide10', wide11 : 'wide11' }; const Paging = { leading : 'leading', centered : 'centered', none : '' };const Orientation = { horizontal : 'horizontal', vertical : 'vertical' }; function MainPage(request, extra, javascriptConfig, output) { this.request = request; this.extra = extra; this.javascriptConfig = javascriptConfig; this.output = output;}function ModuleRequest(url, method, headers, httpBody) { this.url = url; this.method = method; this.headers = headers; this.httpBody = httpBody;}function Extra(commands, extraInfo) { this.commands = commands; this.extraInfo = extraInfo;}function Commands(commandName, params) { this.commandName = commandName; this.params = params;}function JavascriptConfig(removeJavascript, loadInWebView, javaScript) { this.removeJavascript = removeJavascript; this.loadInWebView = loadInWebView; this.javaScript = javaScript;}function KeyValue(key, value) { this.key = key; this.value = value;}function Output(cellDesing, orientation, defaultLayout, paging, section, layout, data) { this.cellDesing = cellDesing; this.orientation = orientation; this.defaultLayout = defaultLayout; this.paging = paging; this.section = section; this.layout = layout; this.data = data;}function Section(sectionName, separator) { this.sectionName = sectionName; this.separator = separator;}function Data(image, title, description, field1, field2, field3, field4, isChapter, link,openInWebView) { this.image = image; this.title = title; this.description = description; this.field1 = field1; this.field2 = field2; this.field3 = field3; this.field4 = field4; this.isChapter = isChapter; this.link = link; this.openInWebView = openInWebView;}function getFile(url) { var xhr = new XMLHttpRequest(); xhr.open('get', url, false); xhr.send(); return xhr.responseText;} var savedData = document.getElementById('ketsu-final-data');const parsedJson = JSON.parse(savedData.innerHTML); const emptyKeyValue = [new KeyValue('','')]; var output = [];const datas = [ {query: '.pop_update', layout: DefaultLayouts.longDoubletsFullConstant, title:'.bookname'}, {query: '.rightbox', layout: DefaultLayouts.longTripletsDouble, title:'.show_book_desc'}];for (let data of datas) { var dataArray = []; for (manga of document.querySelectorAll(data.query+' li')) { let image = manga.querySelector('img').src; image = new ModuleRequest(image, 'get', emptyKeyValue, null); let title = manga.querySelector(data.title).textContent; let link = manga.querySelector('a').href + '?waring=1'; link = new ModuleRequest(link, 'get', emptyKeyValue, null); dataArray.push(new Data(image, title, '', '', '', '', '', false, link)); } output.push(new Output(CellDesings.normal1,Orientation.horizontal,data.layout,Paging.leading, new Section(document.querySelector(data.query+' h1').textContent, true), null, dataArray));}for (url of ['Update' , 'Book']) { dataArray = []; const req = getFile(`https://fr.ninemanga.com/list/New-${url}/`); const parser = new DOMParser(); const doc = parser.parseFromString(req, 'text/html'); for (manga of doc.querySelectorAll('.leftbox li')) { let image = manga.querySelector('img').src; image = new ModuleRequest(image, 'get', emptyKeyValue, null); let title = manga.querySelector('.bookname').innerHTML; let link = manga.querySelector('a').href + '?waring=1'; link = new ModuleRequest(link, 'get', emptyKeyValue, null); dataArray.push(new Data(image, title, '', '', '', '', '', false, link)); } output.push(new Output(CellDesings.normal1, Orientation.horizontal, DefaultLayouts.longTripletsDoubleConstant, Paging.leading, new Section(document.querySelector('.leftbox h1').textContent, true), null, dataArray));}const mainPageObject = new MainPage(new ModuleRequest('', 'get', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(true, false, ''), output);savedData.innerHTML = JSON.stringify(mainPageObject);"
       },
-      "output": [
-        {
-          "cellDesing": "normal1",
-          "orientation": "vertical",
-          "defaultLayout": "wide",
-          "paging": "",
-          "section": {
-            "sectionName": "",
-            "separator": false
-          },
-          "layout": {
-            "insets": {
-              "top": 0,
-              "bottom": 0,
-              "left": 0,
-              "right": 0
-            },
-            "visibleCellsWidthS": 2,
-            "visibleCellsWidthM": 2,
-            "visibleCellsWidthL": 2,
-            "visibleCellsHeight": 2,
-            "heightForVisibleCells": 400,
-            "cellSize": {
-              "width": 300,
-              "height": 300
-            },
-            "ratio": {
-              "inRelation": "width",
-              "number1": 1,
-              "number2": 2
-            },
-            "constant": {
-              "width": 1,
-              "height": 2
-            },
-            "horizontalSpacing": 0,
-            "verticalSpacing": 0
-          },
-          "data": [
-            {
-              "image": {
-                "url": "https://jkanime.net/",
-                "method": "get",
-                "headers": [
-                  {
-                    "key": "",
-                    "value": ""
-                  }
-                ],
-                "httpBody": null
-              },
-              "title": "",
-              "description": "",
-              "field1": "",
-              "field2": "",
-              "field3": "",
-              "field4": "",
-              "isChapter": false,
-              "link": {
-                "url": "empty",
-                "method": "get",
-                "headers": [
-                  {
-                    "key": "key",
-                    "value": "value"
-                  }
-                ],
-                "httpBody": null
-              }
-            }
-          ]
-        }
-      ]
-    },{
-      "request": {
-        "url": "https://fr.ninemanga.com/",
+      "output": []
+    }
+  ],
+  "search": [ {
+    "request": {
+      "url": "https://fr.ninemanga.com/search/?wd=<searched>&page=<page>.html",
+      "method": "get",
+      "headers": [],
+      "httpBody": null
+    },
+    "separator": "+",
+    "extra": { "commands": [], "extraInfo": [] },
+    "javascriptConfig": {
+      "removeJavascript": true,
+      "loadInWebView": false,
+      "javaScript": "const DefaultLayouts = { ultraWideFull : 'ultraWideFull', ultraWide : 'ultraWide', wideFull : 'wideFull', wide : 'wide', wideStrechedFull : 'wideStrechedFull', wideStrechedFullDouble : 'WideStrechedFullDouble', wideStreched : 'wideStreched', wideStrechedDouble : 'wideStrechedDouble', wideStrechedFullList : 'wideStrechedFullList', wideStrechedList : 'wideStrechedList', doublets : 'doublets', doubletsDouble : 'doubletsDouble', doubletsFull : 'doubletsFull', doubletsFullDouble : 'doubletsFullDouble', doubletsConstant : 'doubletsConstant', doubletsDoubleConstant : 'doubletsDoubleConstant', doubletsFullConstant : 'doubletsFullConstant', doubletsFullDoubleConstant : 'doubletsFullDoubleConstant', longDoublets : 'longDoublets', longDoubletsDouble : 'longDoubletsDouble', longDoubletsFull : 'longDoubletsFull', longDoubletsFullDouble : 'longDoubletsFullDouble', longDoubletsConstant : 'longDoubletsConstant', longDoubletsDoubleConstant : 'longDoubletsDoubleConstant', longDoubletsFullConstant : 'longDoubletsFullConstant', longDoubletsFullDoubleConstant : 'longDoubletsFullDoubleConstant', triplets : 'triplets', tripletsDouble : 'tripletsDouble', tripletsFull : 'tripletsFull', tripletsFullDouble : 'tripletsFullDouble', tripletsConstant : 'tripletsConstant', tripletsDoubleConstant : 'tripletsDoubleConstant', tripletsFullConstant : 'tripletsFullConstant', tripletsFullDoubleConstant : 'tripletsFullDoubleConstant', longTriplets : 'longTriplets', longTripletsDouble : 'longTripletsDouble', longTripletsFull : 'longTripletsFull', longTripletsFullDouble : 'longTripletsFullDouble', longTripletsConstant : 'longTripletsConstant', longTripletsDoubleConstant : 'longTripletsDoubleConstant', longTripletsFullConstant : 'longTripletsFullConstant', longTripletsFullDoubleConstant : 'longTripletsFullDoubleConstant', none: ''}; const CellDesings = { Special1 : 'Special1', Special2 : 'Special2', Special3 : 'Special3', CELLHelperText : 'CELLHelperText', small1 : 'small1', small2 : 'small2', normal1 : 'normal1', normal2 : 'normal2', normal3 : 'normal3', normal4 : 'normal4', normal5 : 'normal5', normal7 : 'normal7', wide1 : 'wide1', wide2 : 'wide2', wide3 : 'wide3', wide4 : 'wide4', wide5 : 'wide5', wide6 : 'wide6', wide7 : 'wide7', wide8 : 'wide8', wide9 : 'wide9', wide10 : 'wide10', wide11 : 'wide11'}; const Paging = { leading : 'leading', centered : 'centered', none : '' };const Orientation = { horizontal : 'horizontal', vertical : 'vertical' };function Search(request,extra,separator,javascriptConfig,output) { this.request = request; this.extra = extra; this.separator = separator; this.javascriptConfig = javascriptConfig; this.output = output;}function ModuleRequest(url,method,headers,httpBody) { this.url = url; this.method = method; this.headers = headers; this.httpBody = httpBody;}function Extra(commands,extraInfo) { this.commands = commands; this.extraInfo = extraInfo;}function Commands(commandName,params) { this.commandName = commandName; this.params = params;}function JavascriptConfig(removeJavascript,loadInWebView,javaScript) { this.removeJavascript = removeJavascript; this.loadInWebView = loadInWebView; this.javaScript = javaScript;}function KeyValue(key,value) { this.key = key; this.value = value;}function Output(cellDesing,orientation,defaultLayout,paging,section,layout,data) { this.cellDesing = cellDesing; this.orientation = orientation; this.defaultLayout = defaultLayout; this.paging = paging; this.section = section; this.layout = layout; this.data = data;}function Section(sectionName,separator) { this.sectionName = sectionName; this.separator = separator;}function Data(image,title,description,field1,field2,field3,field4,isChapter,link,openInWebView) { this.image = image; this.title = title; this.description = description; this.field1 = field1; this.field2 = field2; this.field3 = field3; this.field4 = field4; this.isChapter = isChapter; this.link = link; this.openInWebView = openInWebView;} function Layout(insets, visibleCellsWidthS,visibleCellsWidthM,visibleCellsWidthL, visibleCellsHeight, heightForVisibleCells, cellSize, ratio, constant, horizontalSpacing, verticalSpacing) { this.insets = insets; this.visibleCellsWidthS = visibleCellsWidthS; this.visibleCellsWidthM = visibleCellsWidthM; this.visibleCellsWidthL = visibleCellsWidthL; this.visibleCellsHeight = visibleCellsHeight; this.heightForVisibleCells = heightForVisibleCells; this.cellSize = cellSize; this.ratio = ratio; this.constant = constant; this.horizontalSpacing = horizontalSpacing; this.verticalSpacing = verticalSpacing;}function Insets(top,bottom,left,right) { this.top = top; this.bottom = bottom; this.left = left; this.right = right;}function Size(width,height) { this.width = width; this.height = height;}function Ratio(inRelation,number1,number2) { this.inRelation = inRelation; this.number1 = number1; this.number2 = number2;}var savedData = document.getElementById('ketsu-final-data');const parsedJson = JSON.parse(savedData.innerHTML); const emptyKeyValue = [new KeyValue('','')];var output = [];var searchArray = [];for (manga of document.querySelectorAll('.bookinfo')) { let image = manga.querySelector('img').src; image = new ModuleRequest(image, 'get', emptyKeyValue, null); let title = manga.querySelector('.bookname').textContent; let desc = manga.querySelector('dd > p').textContent; let chapName = manga.querySelector('.chaptername').textContent; let views = manga.querySelector('span').textContent; let link = manga.querySelector('a').href + '?waring=1'; link = new ModuleRequest(link, 'get', emptyKeyValue, null); searchArray.push( new Data(image, title, desc, chapName, views,'','', false, link));}const layout = new Layout(new Insets(10, 10, 10, 10), 1, 2, 3, 1, 500, new Size(400, 400), new Ratio('width', 4, 11),new Size(0, 0), 10, 10);output.push(new Output(CellDesings.wide11, Orientation.vertical, DefaultLayouts.none, Paging.none, new Section('',false), layout, searchArray));const searchPageObject = new Search(new ModuleRequest('','',emptyKeyValue,null),new Extra([new Commands('',emptyKeyValue)],emptyKeyValue),'',new JavascriptConfig(true,false,''),output);savedData.innerHTML = JSON.stringify(searchPageObject);"
+    },
+    "output": []
+  } ],
+  "info": [ {
+    "request": {
+      "url": "",
+      "method": "get",
+      "headers": [],
+      "httpBody": null
+    },
+    "extra": { "commands": [], "extraInfo": [] },
+    "javascriptConfig": {
+      "removeJavascript": true,
+      "loadInWebView": false,
+      "javaScript": "function Info(request, extra, javascriptConfig, output) { this.request = request; this.extra = extra; this.javascriptConfig = javascriptConfig; this.output = output;}function ModuleRequest(url, method, headers, httpBody) { this.url = url; this.method = method; this.headers = headers; this.httpBody = httpBody;}function Extra(commands, extraInfo) { this.commands = commands; this.extraInfo = extraInfo;}function Commands(commandName, params) { this.commandName = commandName; this.params = params;}function JavascriptConfig(removeJavascript, loadInWebView, javaScript) { this.removeJavascript = removeJavascript; this.loadInWebView = loadInWebView; this.javaScript = javaScript;}function KeyValue(key, value) { this.key = key; this.value = value;}function Chapter(chapName, link,openInWebView) { this.chapName = chapName; this.link = link; this.openInWebView = openInWebView;}function Output(image, title, link, description, genres, field1, field2, field3, field4, chapters) { this.image = image; this.link = link; this.title = title; this.description = description; this.genres = genres; this.field1 = field1; this.field2 = field2; this.field3 = field3; this.field4 = field4; this.chapters = chapters;}var savedData = document.getElementById('ketsu-final-data');const parsedJson = JSON.parse(savedData.innerHTML);const emptyKeyValue = [new KeyValue('', '')];var image = document.querySelector('.bookface > img').src;image = new ModuleRequest(image,'get',emptyKeyValue,null);var title = document.querySelector('[itemprop=\"name').textContent;var desc = '';var statut = '';var author = '';var chapters = [];try { var genres = Array.from(document.querySelector('[itemprop=\"genre').querySelectorAll('a')).map(genre => genre.textContent); }catch { var genres = ['Manga', title]; }try { desc = document.querySelector('p[itemprop=\"depion\"]').textContent.replace('Résumé: ', ''); statut = document.querySelector('.red').textContent; author = document.querySelector('a[itemprop=\"author\"]').textContent;} catch {}for (chapter of document.querySelector('.silde').querySelectorAll('li > a')) { let chapTitle = chapter.title.replaceAll('\\n', '').trim(); let chapLink = chapter.href.replace('.html', '-10-1.html'); chapters.push(new Chapter(chapTitle,new ModuleRequest(chapLink,'get',emptyKeyValue,null),false));}chapters.reverse();const infoPageObject = new Info(new ModuleRequest('', '', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(false, false, ''), new Output(image, title, parsedJson.request, desc, genres, statut, 'Chaps: ' + chapters.length, author, '', chapters));savedData.innerHTML = JSON.stringify(infoPageObject);"
+    },
+    "output": {
+      "image": {
+        "url": "",
         "method": "get",
-        "headers": [
-          {
-            "key": "",
-            "value": ""
-          }
-        ],
+        "headers": [],
         "httpBody": null
       },
-      "extra": {
-        "commands": [
-          {
-            "commandName": "",
-            "params": [
-              {
-                "key": "",
-                "value": ""
-              }
-            ]
-          }
-        ],
-        "extraInfo": [
-          {
-            "key": "",
-            "value": ""
-          }
-        ]
-      },
-      "javascriptConfig": {
-        "removeJavascript": true,
-        "loadInWebView": false,
-        "javaScript": "const DefaultLayouts = { ultraWideFull : 'ultraWideFull', ultraWide : 'ultraWide', wideFull : 'wideFull', wide : 'wide', wideStrechedFull : 'wideStrechedFull', wideStrechedFullDouble : 'WideStrechedFullDouble', wideStreched : 'wideStreched', wideStrechedDouble : 'wideStrechedDouble', wideStrechedFullList : 'wideStrechedFullList', wideStrechedList : 'wideStrechedList', doublets : 'doublets', doubletsDouble : 'doubletsDouble', doubletsFull : 'doubletsFull', doubletsFullDouble : 'doubletsFullDouble', doubletsConstant : 'doubletsConstant', doubletsDoubleConstant : 'doubletsDoubleConstant', doubletsFullConstant : 'doubletsFullConstant', doubletsFullDoubleConstant : 'doubletsFullDoubleConstant', longDoublets : 'longDoublets', longDoubletsDouble : 'longDoubletsDouble', longDoubletsFull : 'longDoubletsFull', longDoubletsFullDouble : 'longDoubletsFullDouble', longDoubletsConstant : 'longDoubletsConstant', longDoubletsDoubleConstant : 'longDoubletsDoubleConstant', longDoubletsFullConstant : 'longDoubletsFullConstant', longDoubletsFullDoubleConstant : 'longDoubletsFullDoubleConstant', triplets : 'triplets', tripletsDouble : 'tripletsDouble', tripletsFull : 'tripletsFull', tripletsFullDouble : 'tripletsFullDouble', tripletsConstant : 'tripletsConstant', tripletsDoubleConstant : 'tripletsDoubleConstant', tripletsFullConstant : 'tripletsFullConstant', tripletsFullDoubleConstant : 'tripletsFullDoubleConstant', longTriplets : 'longTriplets', longTripletsDouble : 'longTripletsDouble', longTripletsFull : 'longTripletsFull', longTripletsFullDouble : 'longTripletsFullDouble', longTripletsConstant : 'longTripletsConstant', longTripletsDoubleConstant : 'longTripletsDoubleConstant', longTripletsFullConstant : 'longTripletsFullConstant', longTripletsFullDoubleConstant : 'longTripletsFullDoubleConstant', none: '' }; const CellDesings = { Special1 : 'Special1', Special2 : 'Special2', Special3 : 'Special3', CELLHelperText : 'CELLHelperText', small1 : 'small1', small2 : 'small2', normal1 : 'normal1', normal2 : 'normal2', normal3 : 'normal3', normal4 : 'normal4', normal5 : 'normal5', normal7 : 'normal7', wide1 : 'wide1', wide2 : 'wide2', wide3 : 'wide3', wide4 : 'wide4', wide5 : 'wide5', wide6 : 'wide6', wide7 : 'wide7', wide8 : 'wide8', wide9 : 'wide9', wide10 : 'wide10', wide11 : 'wide11' }; const Paging = { leading : 'leading', centered : 'centered', none : '' }; const Orientation = { horizontal : 'horizontal', vertical : 'vertical' }; function MainPage(request, extra, javascriptConfig, output) { this.request = request; this.extra = extra; this.javascriptConfig = javascriptConfig; this.output = output; } function ModuleRequest(url, method, headers, httpBody) { this.url = url; this.method = method; this.headers = headers; this.httpBody = httpBody; } function Extra(commands, extraInfo) { this.commands = commands; this.extraInfo = extraInfo; } function Commands(commandName, params) { this.commandName = commandName; this.params = params; } function JavascriptConfig(removeJavascript, loadInWebView, javaScript) { this.removeJavascript = removeJavascript; this.loadInWebView = loadInWebView; this.javaScript = javaScript; } function KeyValue(key, value) { this.key = key; this.value = value; } function Output(cellDesing, orientation, defaultLayout, paging, section, layout, data) { this.cellDesing = cellDesing; this.orientation = orientation; this.defaultLayout = defaultLayout; this.paging = paging; this.section = section; this.layout = layout; this.data = data; } function Section(sectionName, separator) { this.sectionName = sectionName; this.separator = separator; } function Data(image, title, description, field1, field2, field3, field4, isChapter, link,openInWebView) { this.image = image; this.title = title; this.description = description; this.field1 = field1; this.field2 = field2; this.field3 = field3; this.field4 = field4; this.isChapter = isChapter; this.link = link; this.openInWebView = openInWebView; } function getValueFromKey(keys, key) { for (var x = 0; x < keys.length; x++) { let tKey = keys[x]; if (tKey.key == key) { return tKey.value; } } return ''; } var savedData = document.getElementById('ketsu-final-data'); var parsedJson = JSON.parse(savedData.innerHTML); let emptyKeyValue = [new KeyValue('','')]; var extraInfo = parsedJson.extra.extraInfo; var count = parseInt(getValueFromKey(extraInfo, 'count')); var layouts = [ { title: 'Dernières mises à jour' },{ title: 'Nouveau' } ]; let output = parsedJson.output; var dataArray = []; var mangas = document.querySelector('.leftbox').querySelectorAll('li'); for (manga of mangas) { var image = manga.querySelector('img').src; image = new ModuleRequest(image, 'get', emptyKeyValue, null); var title = manga.querySelector('.bookname').innerHTML; var link = manga.querySelector('a').href + '?waring=1'; link = new ModuleRequest(link, 'get', emptyKeyValue, null); dataArray.push(new Data(image, title, '', '', '', '', '', false, link)); } output.push(new Output(CellDesings.normal1, Orientation.horizontal, DefaultLayouts.longTripletsDoubleConstant, Paging.leading, new Section(layouts[count].title, true), null, dataArray)); count++; extraInfo[0].value = ''+count; var nextRequest = getValueFromKey(extraInfo, ''+count); let MainPageObject = new MainPage(new ModuleRequest(nextRequest, 'get', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], extraInfo), new JavascriptConfig(true, false, ''), output); var finalJson = JSON.stringify(MainPageObject); savedData.innerHTML = finalJson;"
-      },
-      "output": [
-        {
-          "cellDesing": "normal1",
-          "orientation": "vertical",
-          "defaultLayout": "wide",
-          "paging": "",
-          "section": {
-            "sectionName": "",
-            "separator": false
-          },
-          "layout": {
-            "insets": {
-              "top": 0,
-              "bottom": 0,
-              "left": 0,
-              "right": 0
-            },
-            "visibleCellsWidthS": 2,
-            "visibleCellsWidthM": 2,
-            "visibleCellsWidthL": 2,
-            "visibleCellsHeight": 2,
-            "heightForVisibleCells": 400,
-            "cellSize": {
-              "width": 300,
-              "height": 300
-            },
-            "ratio": {
-              "inRelation": "width",
-              "number1": 1,
-              "number2": 2
-            },
-            "constant": {
-              "width": 1,
-              "height": 2
-            },
-            "horizontalSpacing": 0,
-            "verticalSpacing": 0
-          },
-          "data": [
-            {
-              "image": {
-                "url": "https://jkanime.net/",
-                "method": "get",
-                "headers": [
-                  {
-                    "key": "",
-                    "value": ""
-                  }
-                ],
-                "httpBody": null
-              },
-              "title": "",
-              "description": "",
-              "field1": "",
-              "field2": "",
-              "field3": "",
-              "field4": "",
-              "isChapter": false,
-              "link": {
-                "url": "empty",
-                "method": "get",
-                "headers": [
-                  {
-                    "key": "key",
-                    "value": "value"
-                  }
-                ],
-                "httpBody": null
-              }
-            }
-          ]
-        }
-      ]
-    }
-  ],
-  "search": [
-    {
-      "request": {
-        "url": "https://fr.ninemanga.com/search/?wd=<searched>&page=<page>.html",
+      "link": {
+        "url": "",
         "method": "get",
-        "headers": [
-          {
-            "key": "key",
-            "value": "value"
-          }
-        ],
+        "headers": [],
         "httpBody": null
       },
-      "separator": "+",
-      "extra": {
-        "commands": [
-          {
-            "commandName": "",
-            "params": [
-              {
-                "key": "",
-                "value": ""
-              }
-            ]
-          }
-        ],
-        "extraInfo": [
-          {
-            "key": "",
-            "value": ""
-          }
-        ]
-      },
-      "javascriptConfig": {
-        "removeJavascript": true,
-        "loadInWebView": false,
-        "javaScript": "const DefaultLayouts = { ultraWideFull : 'ultraWideFull', ultraWide : 'ultraWide', wideFull : 'wideFull', wide : 'wide', wideStrechedFull : 'wideStrechedFull', wideStrechedFullDouble : 'WideStrechedFullDouble', wideStreched : 'wideStreched', wideStrechedDouble : 'wideStrechedDouble', wideStrechedFullList : 'wideStrechedFullList', wideStrechedList : 'wideStrechedList', doublets : 'doublets', doubletsDouble : 'doubletsDouble', doubletsFull : 'doubletsFull', doubletsFullDouble : 'doubletsFullDouble', doubletsConstant : 'doubletsConstant', doubletsDoubleConstant : 'doubletsDoubleConstant', doubletsFullConstant : 'doubletsFullConstant', doubletsFullDoubleConstant : 'doubletsFullDoubleConstant', longDoublets : 'longDoublets', longDoubletsDouble : 'longDoubletsDouble', longDoubletsFull : 'longDoubletsFull', longDoubletsFullDouble : 'longDoubletsFullDouble', longDoubletsConstant : 'longDoubletsConstant', longDoubletsDoubleConstant : 'longDoubletsDoubleConstant', longDoubletsFullConstant : 'longDoubletsFullConstant', longDoubletsFullDoubleConstant : 'longDoubletsFullDoubleConstant', triplets : 'triplets', tripletsDouble : 'tripletsDouble', tripletsFull : 'tripletsFull', tripletsFullDouble : 'tripletsFullDouble', tripletsConstant : 'tripletsConstant', tripletsDoubleConstant : 'tripletsDoubleConstant', tripletsFullConstant : 'tripletsFullConstant', tripletsFullDoubleConstant : 'tripletsFullDoubleConstant', longTriplets : 'longTriplets', longTripletsDouble : 'longTripletsDouble', longTripletsFull : 'longTripletsFull', longTripletsFullDouble : 'longTripletsFullDouble', longTripletsConstant : 'longTripletsConstant', longTripletsDoubleConstant : 'longTripletsDoubleConstant', longTripletsFullConstant : 'longTripletsFullConstant', longTripletsFullDoubleConstant : 'longTripletsFullDoubleConstant', none: '' }; const CellDesings = { Special1 : 'Special1', Special2 : 'Special2', Special3 : 'Special3', CELLHelperText : 'CELLHelperText', small1 : 'small1', small2 : 'small2', normal1 : 'normal1', normal2 : 'normal2', normal3 : 'normal3', normal4 : 'normal4', normal5 : 'normal5', normal7 : 'normal7', wide1 : 'wide1', wide2 : 'wide2', wide3 : 'wide3', wide4 : 'wide4', wide5 : 'wide5', wide6 : 'wide6', wide7 : 'wide7', wide8 : 'wide8', wide9 : 'wide9', wide10 : 'wide10', wide11 : 'wide11' }; const Paging = { leading : 'leading', centered : 'centered', none : '' }; const Orientation = { horizontal : 'horizontal', vertical : 'vertical' }; function Search(request,extra,separator,javascriptConfig,output) { this.request = request; this.extra = extra; this.separator = separator; this.javascriptConfig = javascriptConfig; this.output = output; } function ModuleRequest(url,method,headers,httpBody) { this.url = url; this.method = method; this.headers = headers; this.httpBody = httpBody; } function Extra(commands,extraInfo) { this.commands = commands; this.extraInfo = extraInfo; } function Commands(commandName,params) { this.commandName = commandName; this.params = params; } function JavascriptConfig(removeJavascript,loadInWebView,javaScript) { this.removeJavascript = removeJavascript; this.loadInWebView = loadInWebView; this.javaScript = javaScript; } function KeyValue(key,value) { this.key = key; this.value = value; } function Output(cellDesing,orientation,defaultLayout,paging,section,layout,data) { this.cellDesing = cellDesing; this.orientation = orientation; this.defaultLayout = defaultLayout; this.paging = paging; this.section = section; this.layout = layout; this.data = data; } function Section(sectionName,separator) { this.sectionName = sectionName; this.separator = separator; } function Layout(insets, visibleCellsWidthS,visibleCellsWidthM,visibleCellsWidthL, visibleCellsHeight, heightForVisibleCells, cellSize, ratio, constant, horizontalSpacing, verticalSpacing) { this.insets = insets; this.visibleCellsWidthS = visibleCellsWidthS; this.visibleCellsWidthM = visibleCellsWidthM; this.visibleCellsWidthL = visibleCellsWidthL; this.visibleCellsHeight = visibleCellsHeight; this.heightForVisibleCells = heightForVisibleCells; this.cellSize = cellSize; this.ratio = ratio; this.constant = constant; this.horizontalSpacing = horizontalSpacing; this.verticalSpacing = verticalSpacing; } function Insets(top,bottom,left,right) { this.top = top; this.bottom = bottom; this.left = left; this.right = right; } function Size(width,height) { this.width = width; this.height = height; } function Ratio(inRelation,number1,number2) { this.inRelation = inRelation; this.number1 = number1; this.number2 = number2; } function Data(image,title,description,field1,field2,field3,field4,isChapter,link,openInWebView) { this.image = image; this.title = title; this.description = description; this.field1 = field1; this.field2 = field2; this.field3 = field3; this.field4 = field4; this.isChapter = isChapter; this.link = link; this.openInWebView = openInWebView; } var savedData = document.getElementById('ketsu-final-data'); var parsedJson = JSON.parse(savedData.innerHTML); let emptyKeyValue = [new KeyValue('','')]; let output = []; let searchArray = []; var mangas = document.querySelectorAll('.bookinfo'); for (manga of mangas) { var image = manga.querySelector('img').src; image = new ModuleRequest(image, 'get', emptyKeyValue, null); var title = manga.querySelector('.bookname').textContent; var desc = manga.querySelector('dd > p').textContent; var chapName = manga.querySelector('.chaptername').textContent; var views = manga.querySelector('span').textContent; var link = manga.querySelector('a').href + '?waring=1'; link = new ModuleRequest(link, 'get', emptyKeyValue, null); searchArray.push( new Data(image, title, desc, chapName, views,'','', false, link)); } var layout = new Layout(new Insets(10, 10, 10, 10), 1, 2, 3, 1, 500, new Size(400, 400), new Ratio('width', 4, 11),new Size(0, 0), 10, 10);output.push(new Output(CellDesings.wide11, Orientation.vertical, DefaultLayouts.none, Paging.none, new Section('',false), layout, searchArray)); let searchPageObject = new Search(new ModuleRequest('', '', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), '', new JavascriptConfig(false, false, ''), output); var finalJson = JSON.stringify(searchPageObject); savedData.innerHTML = finalJson;"
-      },
-      "output": [
-        {
-          "cellDesing": "normal1",
-          "orientation": "vertical",
-          "defaultLayout": "wide",
-          "paging": "",
-          "section": {
-            "sectionName": "",
-            "separator": false
-          },
-          "layout": {
-            "insets": {
-              "top": 0,
-              "bottom": 0,
-              "left": 0,
-              "right": 0
-            },
-            "visibleCellsWidthS": 2,
-            "visibleCellsWidthM": 2,
-            "visibleCellsWidthL": 2,
-            "visibleCellsHeight": 2,
-            "heightForVisibleCells": 400,
-            "cellSize": {
-              "width": 300,
-              "height": 300
-            },
-            "ratio": {
-              "inRelation": "width",
-              "number1": 1,
-              "number2": 2
-            },
-            "constant": {
-              "width": 1,
-              "height": 2
-            },
-            "horizontalSpacing": 0,
-            "verticalSpacing": 0
-          },
-          "data": [
-            {
-              "image": {
-                "url": "https://jkanime.net/",
-                "method": "get",
-                "headers": [
-                  {
-                    "key": "",
-                    "value": ""
-                  }
-                ],
-                "httpBody": null
-              },
-              "title": "",
-              "description": "",
-              "field1": "",
-              "field2": "",
-              "field3": "",
-              "field4": "",
-              "isChapter": false,
-              "link": {
-                "url": "empty",
-                "method": "get",
-                "headers": [
-                  {
-                    "key": "key",
-                    "value": "value"
-                  }
-                ],
-                "httpBody": null
-              }
-            }
-          ]
-        }
-      ]
+      "title": "",
+      "description": "",
+      "genres": [],
+      "field1": "",
+      "field2": "",
+      "field3": "",
+      "field4": "",
+      "chapters": []
     }
-  ],
-  "info": [
-    {
-      "request": {
-        "url": "empty",
-        "method": "get",
-        "headers": [
-          {
-            "key": "key",
-            "value": "value"
-          }
-        ],
-        "httpBody": null
-      },
-      "extra": {
-        "commands": [
-          {
-            "commandName": "",
-            "params": [
-              {
-                "key": "",
-                "value": ""
-              }
-            ]
-          }
-        ],
-        "extraInfo": [
-          {
-            "key": "",
-            "value": ""
-          }
-        ]
-      },
-      "javascriptConfig": {
-        "removeJavascript": true,
-        "loadInWebView": false,
-        "javaScript": "function Info(request, extra, javascriptConfig, output) { this.request = request; this.extra = extra; this.javascriptConfig = javascriptConfig; this.output = output; } function ModuleRequest(url, method, headers, httpBody) { this.url = url; this.method = method; this.headers = headers; this.httpBody = httpBody; } function Extra(commands, extraInfo) { this.commands = commands; this.extraInfo = extraInfo; } function Commands(commandName, params) { this.commandName = commandName; this.params = params; } function JavascriptConfig(removeJavascript, loadInWebView, javaScript) { this.removeJavascript = removeJavascript; this.loadInWebView = loadInWebView; this.javaScript = javaScript; } function KeyValue(key, value) { this.key = key; this.value = value; } function Chapter(chapName, link,openInWebView) { this.chapName = chapName; this.link = link; this.openInWebView = openInWebView; } function Output(image, title, link, description, genres, field1, field2, field3, field4, chapters) { this.image = image; this.link = link; this.title = title; this.description = description; this.genres = genres; this.field1 = field1; this.field2 = field2; this.field3 = field3; this.field4 = field4; this.chapters = chapters; } var savedData = document.getElementById('ketsu-final-data'); var parsedJson = JSON.parse(savedData.innerHTML); let emptyKeyValue = [new KeyValue('', '')]; var image = document.querySelector('.bookface > img').src; image = new ModuleRequest(image,'get',emptyKeyValue,null); var title = document.querySelector('[itemprop=\"name').textContent; var desc = ''; var genres = []; var status = ''; var author = ''; var chapters = []; try { var genreList = document.querySelector('[itemprop=\"genre').querySelectorAll('a'); for (genre of genreList) { genres.push(genre.textContent); } } catch { genres.push('Manga', title); } try { desc = document.querySelector('p[itemprop=\"depion\"]').textContent.replace('Résumé: ', ''); status = document.querySelector('.red').textContent; author = document.querySelector('a[itemprop=\"author\"]').textContent; } catch {} var chaptersList = document.querySelector('.silde').querySelectorAll('li > a'); for (chapter of chaptersList) { var chapName = chapter.title; var chapLink = chapter.href.replace('.html', '-10-1.html'); chapters.push(new Chapter(chapName,new ModuleRequest(chapLink,'get',emptyKeyValue,null),false)); } chapters.reverse(); let infoPageObject = new Info(new ModuleRequest('', '', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(false, false, ''), new Output(image, title, parsedJson.request, desc, genres, status, 'Chaps: ' + chapters.length, author, '', chapters)); var finalJson = JSON.stringify(infoPageObject); savedData.innerHTML = finalJson;"
-      },
-      "output": {
-        "image": {
-          "url": "https://jkanime.net/",
-          "method": "get",
-          "headers": [
-            {
-              "key": "",
-              "value": ""
-            }
-          ],
-          "httpBody": null
-        },
-        "link": {
-          "url": "https://jkanime.net/",
-          "method": "get",
-          "headers": [
-            {
-              "key": "",
-              "value": ""
-            }
-          ],
-          "httpBody": null
-        },
-        "title": "",
-        "description": "",
-        "genres": [
-          ""
-        ],
-        "field1": "",
-        "field2": "",
-        "field3": "",
-        "field4": "",
-        "chapters": [
-          {
-            "chapName": "",
-            "openInWebView": false,
-            "link": {
-              "url": "empty",
-              "method": "get",
-              "headers": [
-                {
-                  "key": "key",
-                  "value": "value"
-                }
-              ],
-              "httpBody": null
-            }
-          }
-        ]
-      }
+  } ],
+  "chapters": [ {
+    "request": {
+      "url": "",
+      "method": "get",
+      "headers": [],
+      "httpBody": null
+    },
+    "extra": {
+      "commands": [],
+      "extraInfo": [ {
+        "key": "count",
+        "value": "1"
+      } ]
+    },
+    "javascriptConfig": {
+      "removeJavascript": true,
+      "loadInWebView": false,
+      "javaScript": "function Chapters(request, extra, javascriptConfig, output) { this.request = request; this.extra = extra; this.javascriptConfig = javascriptConfig; this.output = output;}function ModuleRequest(url, method, headers, httpBody) { this.url = url; this.method = method; this.headers = headers; this.httpBody = httpBody;}function Extra(commands, extraInfo) { this.commands = commands; this.extraInfo = extraInfo;}function Commands(commandName, params) { this.commandName = commandName; this.params = params;}function JavascriptConfig(removeJavascript, loadInWebView, javaScript) { this.removeJavascript = removeJavascript; this.loadInWebView = loadInWebView; this.javaScript = javaScript;}function KeyValue(key, value) { this.key = key; this.value = value;}function Output( videos, images, text) { this.videos = videos; this.images = images; this.text = text;}function getValueFromKey(keys,key) { for (var x = 0; x < keys.length; x++) { let tKey = keys[x]; if (tKey.key == key) { return tKey.value; } } return '';} var savedData = document.getElementById('ketsu-final-data');const parsedJson = JSON.parse(savedData.innerHTML);const emptyKeyValue = [new KeyValue('', '')];const imgsHeaders = [new KeyValue('Referer', parsedJson.request.url)];var extraInfo = parsedJson.extra.extraInfo;const count = parseInt(getValueFromKey(extraInfo,'count')) + 1;var output = [];if (count > 2) { output = parsedJson.output.images; }var newRequest = parsedJson.request.url.replace((count -1)+'.html', count+'.html');extraInfo[0].value = ''+count;var images = document.querySelectorAll('.pic_box');for (image of images) { let img = image.querySelector('img').src; output.push(new ModuleRequest(img, 'get', imgsHeaders, null));}if (images.length < 10) { newRequest = ''; }const chaptersPageObject = new Chapters(new ModuleRequest(newRequest, 'get', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], extraInfo), new JavascriptConfig(true, false, ''), new Output(null, output, null));savedData.innerHTML = JSON.stringify(chaptersPageObject);"
+    },
+    "output": {
+      "videos": { "needsResolver": [], "rawVideo": [] },
+      "images": [],
+      "text": { "text": "" }
     }
-  ],
-  "chapters": [
-    {
-      "request": {
-        "url": "empty",
-        "method": "get",
-        "headers": [
-          {
-            "key": "key",
-            "value": "value"
-          }
-        ],
-        "httpBody": null
-      },
-      "extra": {
-        "commands": [
-          {
-            "commandName": "",
-            "params": [
-              {
-                "key": "",
-                "value": ""
-              }
-            ]
-          }
-        ],
-        "extraInfo": [
-          {
-            "key": "count",
-            "value": "1"
-          }
-        ]
-      },
-      "javascriptConfig": {
-        "removeJavascript": true,
-        "loadInWebView": false,
-        "javaScript": "function Chapters(request, extra, javascriptConfig, output) { this.request = request; this.extra = extra; this.javascriptConfig = javascriptConfig; this.output = output; } function ModuleRequest(url, method, headers, httpBody) { this.url = url; this.method = method; this.headers = headers; this.httpBody = httpBody; } function Extra(commands, extraInfo) { this.commands = commands; this.extraInfo = extraInfo; } function Commands(commandName, params) { this.commandName = commandName; this.params = params; } function JavascriptConfig(removeJavascript, loadInWebView, javaScript) { this.removeJavascript = removeJavascript; this.loadInWebView = loadInWebView; this.javaScript = javaScript; } function KeyValue(key, value) { this.key = key; this.value = value; } function Output( videos, images, text) { this.videos = videos; this.images = images; this.text = text; } function getValueFromKey(keys, key) { for (var x = 0; x < keys.length; x++) { let tKey = keys[x]; if (tKey.key == key) { return tKey.value; } } return ''; } var savedData = document.getElementById('ketsu-final-data'); var parsedJson = JSON.parse(savedData.innerHTML); var emptyKeyValue = [new KeyValue('', '')]; var imgsHeaders = [new KeyValue('Referer', parsedJson.request.url)]; var extraInfo = parsedJson.extra.extraInfo; var count = parseInt(getValueFromKey(extraInfo,'count')) + 1; var output = []; if (count > 2) { output = parsedJson.output.images; } var newRequest = parsedJson.request.url.replace((count -1)+'.html', count+'.html'); extraInfo[0].value = ''+count; var images = document.querySelectorAll('.pic_box'); for (image of images) { var img = image.querySelector('img').src; output.push(new ModuleRequest(img, 'get', imgsHeaders, null)); } if (images.length < 10) { newRequest = ''; } let emptyExtra = new Extra([new Commands('', emptyKeyValue)], extraInfo); var chaptersObject = new Chapters(new ModuleRequest(newRequest, 'get', emptyKeyValue, null), emptyExtra, new JavascriptConfig(true, false, ''), new Output(null, output, null)); var finalJson = JSON.stringify(chaptersObject); savedData.innerHTML = finalJson;"
-      },
-      "output": {
-        "videos": {
-          "needsResolver": [
-            {
-              "resolverIdentifier": "",
-              "link": {
-                "url": "",
-                "method": "get",
-                "headers": [
-                  {
-                    "key": "key",
-                    "value": "value"
-                  }
-                ],
-                "httpBody": null
-              }
-            }
-          ],
-          "rawVideo": [
-            {
-              "video": [
-                {
-                  "videoQuality": "",
-                  "videoLink": {
-                    "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-                    "method": "get",
-                    "headers": [
-                      {
-                        "key": "key",
-                        "value": "value"
-                      }
-                    ],
-                    "httpBody": null
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        "images": [
-          {
-            "url": "empty",
-            "method": "get",
-            "headers": [
-              {
-                "key": "key",
-                "value": "value"
-              }
-            ],
-            "httpBody": null
-          }
-        ],
-        "text": {
-          "text": ""
-        }
-      }
-    }
-  ],
-  "moduleResolvers": [
-    {
-      "resolverInfo": {
-        "resolverName": "",
-        "nameMatches": [
-          ""
-        ],
-        "developer": "",
-        "moduleID": "",
-        "resolverVersion": 1.0,
-        "baseURL": ""
-      },
-      "resolver": [
-        {
-          "request": {
-            "url": "empty",
-            "method": "get",
-            "headers": [
-              {
-                "key": "key",
-                "value": "value"
-              }
-            ],
-            "httpBody": null
-          },
-          "extra": {
-            "commands": [
-              {
-                "commandName": "",
-                "params": [
-                  {
-                    "key": "",
-                    "value": ""
-                  }
-                ]
-              }
-            ],
-            "extraInfo": [
-              {
-                "key": "",
-                "value": ""
-              }
-            ]
-          },
-          "javascriptConfig": {
-            "removeJavascript": false,
-            "loadInWebView": false,
-            "javaScript": ""
-          },
-          "output": {
-            "moduleID": "",
-            "video": [
-              {
-                "videoQuality": "720",
-                "videoLink": {
-                  "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-                  "method": "get",
-                  "headers": [
-                    {
-                      "key": "key",
-                      "value": "value"
-                    }
-                  ],
-                  "httpBody": null
-                }
-              }
-            ]
-          }
-        }
-      ]
-    }
-  ],
-  "responseCodeFunctions": [
-    {
-      "code": 0,
-      "msgTitle": "",
-      "msgBody": "",
-      "type": "normal",
-      "functions": [
-        {
-          "request": {
-            "url": "empty",
-            "method": "get",
-            "headers": [
-              {
-                "key": "key",
-                "value": "value"
-              }
-            ],
-            "httpBody": null
-          },
-          "extra": {
-            "commands": [
-              {
-                "commandName": "",
-                "params": [
-                  {
-                    "key": "",
-                    "value": ""
-                  }
-                ]
-              }
-            ],
-            "extraInfo": [
-              {
-                "key": "",
-                "value": ""
-              }
-            ]
-          },
-          "javascriptConfig": {
-            "removeJavascript": true,
-            "loadInWebView": false,
-            "javaScript": ""
-          }
-        }
-      ]
-    }
-  ],
-  "helperFunctions": [
-    {
-      "functionName": "example",
-      "msgTitle": "",
-      "msgBody": "",
-      "type": "normal",
-      "functions": [
-        {
-          "request": {
-            "url": "empty",
-            "method": "get",
-            "headers": [
-              {
-                "key": "key",
-                "value": "value"
-              }
-            ],
-            "httpBody": null
-          },
-          "extra": {
-            "commands": [
-              {
-                "commandName": "",
-                "params": [
-                  {
-                    "key": "",
-                    "value": ""
-                  }
-                ]
-              }
-            ],
-            "extraInfo": [
-              {
-                "key": "",
-                "value": ""
-              }
-            ]
-          },
-          "javascriptConfig": {
-            "removeJavascript": true,
-            "loadInWebView": false,
-            "javaScript": ""
-          }
-        }
-      ]
-    }
-  ]
+  } ],
+  "moduleResolvers": [],
+  "responseCodeFunctions": [],
+  "helperFunctions": []
 }

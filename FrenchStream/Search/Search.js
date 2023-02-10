@@ -134,35 +134,6 @@ function Data(image,title,description,field1,field2,field3,field4,isChapter,link
     this.link = link;
     this.openInWebView = openInWebView;
 }
-    
-function Layout(insets, visibleCellsWidthS,visibleCellsWidthM,visibleCellsWidthL, visibleCellsHeight, heightForVisibleCells, cellSize, ratio, constant, horizontalSpacing, verticalSpacing) {
-    this.insets = insets;
-    this.visibleCellsWidthS = visibleCellsWidthS;
-    this.visibleCellsWidthM = visibleCellsWidthM;
-    this.visibleCellsWidthL = visibleCellsWidthL;
-    this.visibleCellsHeight = visibleCellsHeight;
-    this.heightForVisibleCells = heightForVisibleCells;
-    this.cellSize = cellSize;
-    this.ratio = ratio;
-    this.constant = constant;
-    this.horizontalSpacing = horizontalSpacing;
-    this.verticalSpacing = verticalSpacing;
-}
-function Insets(top,bottom,left,right) {
-    this.top = top;
-    this.bottom = bottom;
-    this.left = left;
-    this.right = right;
-}
-function Size(width,height) {
-    this.width = width;
-    this.height = height;
-}
-function Ratio(inRelation,number1,number2) {
-    this.inRelation  = inRelation;
-    this.number1 = number1;
-    this.number2 = number2;
-}
 
 var savedData = document.getElementById('ketsu-final-data');
 const parsedJson = JSON.parse(savedData.innerHTML); 
@@ -171,18 +142,20 @@ const emptyKeyValue = [new KeyValue('','')];
 var output = [];
 var searchArray = [];
 
-var shorts = document.querySelectorAll('.short-in');
-for (short of shorts) {
-    var image = short.querySelector('img').src;
-    image = new ModuleRequest(image, 'get', emptyKeyValue, null);
-    var title = short.querySelector('.short-title').textContent.trim();
-    var field1='';
-    try {field1 = short.querySelector('.film-ripz').textContent.trim()} catch{}
-    try {field1 = short.querySelector('.mli-eps').textContent.trim()} catch{}
-    var language = short.querySelector('.film-verz').textContent.trim();
-    var link = short.querySelector('.short-poster').href;
+for (short of document.querySelectorAll('.short-in')) {
+    let img = short.querySelector('img').src;
+    if (!img.includes('https://')) { img = parsedJson.request.url.split('/index')[0] + img}
+    img = new ModuleRequest(img, 'get', emptyKeyValue, null);
+    let title = short.querySelector('.short-title').textContent.trim();
+
+    let field1 = '';
+    try { field1 = short.querySelector('.short-qual').textContent.trim(); } catch{}
+    let language = '';
+    try { language = short.querySelector('.short-label').textContent.trim(); } catch{}
+    
+    let link = short.querySelector('.short-poster').href;
     link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-    searchArray.push(new Data(image, title, '', field1, language, '', '', false, link));
+    searchArray.push(new Data(img, title, '', field1, language, '', '', false, link));
 }
 output.push(new Output(CellDesings.normal1,Orientation.vertical,DefaultLayouts.longDoubletsFullConstant,Paging.leading, new Section('', true), null, searchArray));
 

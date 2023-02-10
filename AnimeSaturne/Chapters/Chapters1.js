@@ -33,17 +33,12 @@ function Output( videos, images, text) {
     this.text = text;
 }
     
-function Videos(needsResolver, rawVideo) {
-    this.needsResolver = needsResolver;
-    this.rawVideo = rawVideo;
-}
-    
 var savedData = document.getElementById('ketsu-final-data');
 const parsedJson = JSON.parse(savedData.innerHTML);
 const emptyKeyValue = [new KeyValue('', '')];
 
 var link = document.querySelector('.card-body a').href;
 
-const episodesObject = new Chapters(new ModuleRequest(link, 'get', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(true, false, ''), new Output( new Videos(null, null), null, null));
+const episodesObject = new Chapters(new ModuleRequest(link, 'get', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(true, false, ''), new Output( null, null, null));
 
 savedData.innerHTML = JSON.stringify(episodesObject);

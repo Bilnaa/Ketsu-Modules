@@ -1,0 +1,58 @@
+{
+    "request": {
+        "url": "https://filemoon.sx/e/z4t8jpv72ha4?autostart=true",
+        "method": "get",
+        "headers": [{
+            "key": "User-Agent",
+            "value": "Mozilla/5.0 (platform; rv:geckoversion) Gecko/geckotrail Firefox/firefoxversion",
+            "moduleCreatorHeaderisActive": true
+        }, {
+            "key": "",
+            "value": "",
+            "moduleCreatorHeaderisActive": true
+        }]
+    },
+    "extra": {
+        "commands": [{
+            "commandName": "",
+            "params": [{
+                "key": "",
+                "value": ""
+            }]
+        }],
+        "extraInfo": [{
+            "key": "",
+            "value": ""
+        }]
+    },
+    "javascriptConfig": {
+        "removeJavascript": false,
+        "loadInWebView": false,
+        "javaScript": "\n        try {\n\n            /* JAVASCRIPT STARTS */ function Resolver(request, extra, javascriptConfig, output) {\n    this.request = request;\n    this.extra = extra;\n    this.javascriptConfig = javascriptConfig;\n    this.output = output;\n}\n\nfunction ModuleRequest(url, method, headers, httpBody) {\n    this.url = url;\n    this.method = method;\n    this.headers = headers;\n    this.httpBody = httpBody;\n}\n\nfunction Extra(commands, extraInfo) {\n    this.commands = commands;\n    this.extraInfo = extraInfo;\n}\n\nfunction Commands(commandName, params) {\n    this.commandName = commandName;\n    this.params = params;\n}\n\nfunction JavascriptConfig(removeJavascript, loadInWebView, javaScript) {\n    this.removeJavascript = removeJavascript;\n    this.loadInWebView = loadInWebView;\n    this.javaScript = javaScript;\n}\n\nfunction KeyValue(key, value) {\n    this.key = key;\n    this.value = value;\n}\n\nfunction Output(video) {\n    this.video = video;\n}\n\nfunction Video(videoQuality, videoLink) {\n    this.videoQuality = videoQuality;\n    this.videoLink = videoLink;\n}\n\nfunction getNext(match, array) {\n    for (var x = 0; x < array.length; x++) {\n        let mMatch = array[x];\n        if (mMatch.includes(match)) {\n            return array[x + 1];\n        }\n    }\n}\nvar savedData = document.getElementById('ketsu-final-data');\nvar parsedJson = JSON.parse(savedData.innerHTML);\nvar emptyKeyValue = [new KeyValue('Referer', 'https://filemoon.to/'),\n    new KeyValue('User-Agent', 'Mozilla/5.0 (platform; rv:geckoversion) Gecko/geckotrail Firefox/firefoxversion'),\n];\n\nvar videos = [];\nvar src = '';\nlet scripts = document.querySelectorAll('script');\nlet found = '';\nfor (let script of scripts) {\n    if (script.innerHTML.includes('p,a,c,k,e,d')) {\n        found = script.innerHTML;\n        break;\n    }\n}\n\nlet regex = /eval(?<eval>.+)\\)/g;\nlet regRes = regex.exec(found).groups.eval + ')';\nconsole.log(regRes)\nlet data = eval(regRes);\nconsole.log(data);\n\nregex = /player\\.setup\\((?<sources>.+?)\\)/g;\nregRes = regex.exec(data).groups.sources;\nconsole.log(regRes)\neval(\"var parsed = \" + regRes)\nconsole.log(parsed)\n\nfor (let source of parsed.sources) {\n    console.log(source.file)\n    videos.push(new Video('Auto', new ModuleRequest(source.file, 'get', emptyKeyValue, null)));\n}\n\nlet emptyExtra = new Extra([new Commands('', emptyKeyValue)], emptyKeyValue);\nvar chaptersObject = new Resolver(new ModuleRequest('', '', emptyKeyValue, null), emptyExtra, new JavascriptConfig(false, false, ''), new Output(videos));\nvar finalJson = JSON.stringify(chaptersObject);\nsavedData.innerHTML = finalJson; /* JAVASCRIPT ENDS */\n\n        } catch (e) {\n            console.error(e.message);\n\n            if (typeof KETSU_ASYNC !== 'undefined') {\n                window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');\n            }\n\n        }\n        \n        "
+    },
+    "output": {
+        "moduleID": "",
+        "video": [{
+            "videoQuality": "720",
+            "videoLink": {
+                "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+                "method": "get",
+                "headers": [{
+                    "key": "key",
+                    "value": "value"
+                }],
+                "httpBody": null
+            }
+        }]
+    },
+    "moduleCreatorIdxhAGLuMFHwsXBtYFIdtN": {
+        "path": "lTaZj",
+        "id": "moduleResolvers,1,resolver,0cell",
+        "sectionsHidden": [],
+        "options": {
+            "name": "Request"
+        },
+        "cellsHidden": false,
+        "openedMenu": "Javascript"
+    }
+}

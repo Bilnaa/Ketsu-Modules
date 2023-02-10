@@ -55,6 +55,8 @@ var savedData = document.getElementById('ketsu-final-data');
 const parsedJson = JSON.parse(savedData.innerHTML);
 const emptyKeyValue = [new KeyValue('', '')];
 
+var nextRequest = '';
+
 if (!parsedJson.request.url.includes('server=')) {
     var output = new Videos([],[]);
     var extraInfo = [new KeyValue('count','0')];
@@ -62,7 +64,7 @@ if (!parsedJson.request.url.includes('server=')) {
     var servers = document.querySelectorAll('.dropdown-item');
     for (var x = 0; x<servers.length; x++) {
         var server = servers[x].href.replace('amp;', '');
-        if (x==0) { var nextRequest = server }
+        if (x==0) { nextRequest = server }
         else { extraInfo.push(new KeyValue(''+(x-1), server )); }
     }
 } else {
@@ -70,7 +72,7 @@ if (!parsedJson.request.url.includes('server=')) {
     var extraInfo = parsedJson.extra.extraInfo;
     var count = getValueFromKey(extraInfo,'count');
     
-    var nextRequest = getValueFromKey(extraInfo,''+count);
+    nextRequest = getValueFromKey(extraInfo,''+count);
     extraInfo[0].value = ''+(parseInt(count) +1);
 }
 
