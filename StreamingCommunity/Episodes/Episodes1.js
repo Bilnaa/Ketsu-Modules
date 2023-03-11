@@ -47,16 +47,23 @@ var parsedJson = JSON.parse(savedData.innerHTML);
 var emptyKeyValue = [new KeyValue('', '')];
 
 var output = [];
-var embeds = document.querySelectorAll('.mirrors span');
-for (let embed of embeds) {
-    var link = embed.getAttribute('data-link').replace('tape.com', 'ta.pe');
-    if (!link.includes('https:')) { link = 'https:' + link; }
-    output.push(new NeedsResolver('', new ModuleRequest(link, 'get', emptyKeyValue, null)));
-}
-
 var nextRequest = '';
-const guardahd = document.querySelector('.guardahd-player');
-if (guardahd != null) { nextRequest = guardahd.querySelector('iframe').src; }
+if (parsedJson.request.url.includes('.io')) {
+    for (let resolver of document.querySelectorAll('.mirrors span')) {
+        var link = resolver.getAttribute('data-link').replace('tape.com', 'ta.pe');
+        if (!link.includes('https:')) { link = 'https:' + link; }
+        output.push(new NeedsResolver('', new ModuleRequest(link, 'get', emptyKeyValue, null)));
+    }
+    
+    const guardahd = document.querySelector('.guardahd-player');
+    if (guardahd != null) { nextRequest = guardahd.querySelector('iframe').src; }
+} else {
+    for (let resolver of document.querySelectorAll(`[title=\"${decodeURI(parsedJson.request.url.split('?ep=')[1])}\"] a`)) {
+        var link = resolver.getAttribute('data-link');
+        link = link == null ? resolver.href:link;
+        output.push(new NeedsResolver('', new ModuleRequest(link.replace('tape.com', 'ta.pe'), 'get', emptyKeyValue, null)));
+    }
+}
 
 const episodesPageObject = new Chapters(new ModuleRequest(nextRequest, 'get', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(false, false, ''), new Output( new Videos(output, null), null, null));
 

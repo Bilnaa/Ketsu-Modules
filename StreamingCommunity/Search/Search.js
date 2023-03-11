@@ -139,26 +139,40 @@ var savedData = document.getElementById('ketsu-final-data');
 const parsedJson = JSON.parse(savedData.innerHTML); 
 const emptyKeyValue = [new KeyValue('','')];
 
-var output = [];
+const type = parsedJson.request.url.includes('.io') ? 'Film':'Serie';
+const filmSerie = {
+    'Film': {
+        'title': '.title-name > a',
+        'link': '.title-name > a',
+        'field1': '.title-desc > span:nth-child(2)',
+        'defaultLayouts': DefaultLayouts.doubletsFullDouble,
+    },
+    'Serie': {
+        'title': '.title-2',
+        'link': 'a',
+        'field1': '.enum',
+        'defaultLayouts': DefaultLayouts.longDoubletsFullDouble,
+    }
+}[type];
+
+var output = parsedJson.output;
 var searchArray = [];
 
 var elements = document.querySelectorAll('.slider-tile');
 for (let el of elements) {
-    var img = 'https://streamingcommunity.stream' + el.querySelector('img').getAttribute('data-src');
+    var img = parsedJson.request.url.split('/index')[0] + el.querySelector('img').getAttribute('data-src');
     img = new ModuleRequest(img, 'get', emptyKeyValue, null);
-    
-    const titleName = el.querySelector('.title-name > a');
-    var title = titleName.textContent;
+        
+    let title = el.querySelector(filmSerie['title']).textContent.trim();
 
-    const titleDesc = el.querySelectorAll('.title-desc span');
-    var year = titleDesc[0].textContent;
-    var time = titleDesc[1].textContent;
+    let field1 = el.querySelector(filmSerie['field1']).textContent.trim();
 
-    var link = new ModuleRequest(titleName.href, 'get', emptyKeyValue, null);
-    searchArray.push(new Data(img,title,'',year,time,'','',false,link));
+    let link = el.querySelector(filmSerie['link']).href;
+    link = new ModuleRequest(link, 'get', emptyKeyValue, null);
+    searchArray.push(new Data(img,title,'',field1,'','','',false,link));
 }
-output.push(new Output(CellDesings.normal1,Orientation.vertical,DefaultLayouts.doubletsFullDoubleConstant,Paging.leading, new Section('', true), null, searchArray));
+output.push(new Output(CellDesings.normal1,Orientation.vertical,filmSerie['defaultLayouts'],Paging.leading, new Section(type, true), null, searchArray));
 
-const searchPageObject = new Search(new ModuleRequest('','',emptyKeyValue,null),new Extra([new Commands('',emptyKeyValue)],emptyKeyValue),'',new JavascriptConfig(true,false,''), output);
+const searchPageObject = new Search(new ModuleRequest(parsedJson.request.url.replace('.io', '.gratis'),'get',emptyKeyValue,null),new Extra([new Commands('',emptyKeyValue)],emptyKeyValue),'%20',new JavascriptConfig(true,false,''), output);
 
 savedData.innerHTML = JSON.stringify(searchPageObject);

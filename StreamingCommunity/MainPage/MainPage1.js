@@ -139,29 +139,41 @@ var savedData = document.getElementById('ketsu-final-data');
 const parsedJson = JSON.parse(savedData.innerHTML); 
 const emptyKeyValue = [new KeyValue('','')];
 
-var output = [];
+const filmSerie = {
+    'Film': {
+        'title': '.title-name > a',
+        'link': '.title-name > a',
+        'field1': '.title-desc > span:nth-child(2)',
+        'defaultLayouts': DefaultLayouts.doubletsDouble,
+    },
+    'Serie': {
+        'title': '.title-2',
+        'link': 'a',
+        'field1': '.enum',
+        'defaultLayouts': DefaultLayouts.longDoubletsDouble,
+    }
+}[parsedJson.request.url.includes('.io') ? 'Film':'Serie'];
+
+var output = parsedJson.output;
 
 var sliders = document.querySelectorAll('.slider-title');
 for (let slider of sliders) {
     var dataArray = [];
-    var sectionName = slider.querySelector('.row-title').textContent;
-    var elements = slider.querySelectorAll('.slider-tile-inner');
-    for (let el of elements) {
-        var img = parsedJson.request.url + el.querySelector('img').getAttribute('data-src').replace('/', '');
+    for (let el of slider.querySelectorAll('.slider-tile-inner')) {
+        let img = parsedJson.request.url + el.querySelector('img').getAttribute('data-src').replace('/', '');
         img = new ModuleRequest(img, 'get', emptyKeyValue, null);
+        
+        let title = el.querySelector(filmSerie['title']).textContent;
 
-        const titleName = el.querySelector('.title-name > a');
-        var title = titleName.textContent;
+        let field1 = el.querySelector(filmSerie['field1']).textContent.trim();
 
-        const titleDesc = el.querySelectorAll('.title-desc span');
-        var year = titleDesc[0].textContent;
-        var time = titleDesc[1].textContent;
-        var link = new ModuleRequest(titleName.href, 'get', emptyKeyValue, null);
-        dataArray.push(new Data(img,title,'',year,time,'','',false,link));
+        let link = el.querySelector(filmSerie['link']).href;
+        link = new ModuleRequest(link, 'get', emptyKeyValue, null);
+        dataArray.push(new Data(img,title,'',field1,'','','',false,link));
     }
-    output.push(new Output(CellDesings.normal1, Orientation.horizontal, DefaultLayouts.doubletsDouble, Paging.leading, new Section(sectionName, true), null, dataArray));
+    output.push(new Output(CellDesings.normal1, Orientation.horizontal, filmSerie['defaultLayouts'], Paging.leading, new Section(slider.querySelector('.row-title').textContent, true), null, dataArray));
 }
 
-const mainPageObject = new MainPage(new ModuleRequest('','get',emptyKeyValue,null),new Extra([new Commands('',emptyKeyValue)],emptyKeyValue),new JavascriptConfig(true,false,''),output);
+const mainPageObject = new MainPage(new ModuleRequest('https://streamingcommunity.gratis/','get',emptyKeyValue,null),new Extra([new Commands('',emptyKeyValue)],emptyKeyValue),new JavascriptConfig(true,false,''),output);
 
 savedData.innerHTML = JSON.stringify(mainPageObject);
