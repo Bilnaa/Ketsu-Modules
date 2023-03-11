@@ -49,19 +49,27 @@ var savedData = document.getElementById('ketsu-final-data');
 const parsedJson = JSON.parse(savedData.innerHTML);
 const emptyKeyValue = [new KeyValue('', '')];
 
-var img = 'https://streamingcommunity.stream' + document.querySelector('.title-wrap').style.backgroundImage.split('\"')[1];
+const type = parsedJson.request.url.includes('.io') ? 'Film':'Serie';
+
+var img = parsedJson.request.url.split('/titles')[0].split('/serie')[0] + document.querySelector('.title-wrap').style.backgroundImage.split('\"')[1];
 img = new ModuleRequest(img,'get',emptyKeyValue,null);
 var title = document.querySelector('h1.title').textContent;
 var desc = document.querySelector('.plot').textContent.trim();
 
 var genres = document.querySelector('.category').textContent.trim().split(' ');
-var year = document.querySelector('.info-span > .desc').textContent.split(' -')[0];
-var time = document.querySelector('.info-span').querySelectorAll('.desc')[1].textContent;
+var year = document.querySelector('.info-span > .desc').textContent.split(' -')[0].split(': ').slice(-1)[0];
+var time = document.querySelector('.info-span').querySelectorAll('.desc')[1].textContent.split(': ').slice(-1)[0];
 
-var link = document.querySelector('.play-hitzone').href;
-var episodes = [new Chapter(title, new ModuleRequest(link, 'get', emptyKeyValue, null), false)];
+var episodes = [];
+if (type == 'Film') {
+    var link = document.querySelector('.play-hitzone').href;
+    episodes.push(new Chapter(title, new ModuleRequest(link, 'get', emptyKeyValue, null), false));
+} else {
+    for (let ep of document.querySelectorAll('.slider-tile')) {
+        episodes.push(new Chapter(ep.title, new ModuleRequest(`${parsedJson.request.url}?ep=${encodeURI(ep.title)}`, 'get', emptyKeyValue, null), false));
+    }
+}
 
-const infoPageObject = new Info(new ModuleRequest('', '', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(false, false, ''), new Output(img, title, parsedJson.request, desc, genres, year, time, 'Film', 'Eps: '+ episodes.length, episodes));
-console.log(infoPageObject);
+const infoPageObject = new Info(new ModuleRequest('', '', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(false, false, ''), new Output(img, title, parsedJson.request, desc, genres, year, time, type, 'Eps: '+ episodes.length, episodes));
 
 savedData.innerHTML = JSON.stringify(infoPageObject);
