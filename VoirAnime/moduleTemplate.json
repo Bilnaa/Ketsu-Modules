@@ -6,10 +6,10 @@
         "developer": "ナビル",
         "moduleID": "090102",
         "moduleImage": "https://1.bp.blogspot.com/-tnOKXWZFR2E/YCZWXHBmzjI/AAAAAAAAACQ/5u3_g7cC6D40AQxnX39AK9TkXo0VVejogCLcBGAsYHQ/s320/Untitled.png",
-        "moduleVersion": 2.8,
+        "moduleVersion": 2.81,
         "moduleLenguage": "FR",
         "moduleType": "Video",
-        "changelog": "2.76 - Ajout du lecteur SB pour la vérification de la vidéo avec Stape,VOE et YU",
+        "changelog": "2.81 - Le type n'était pas dynamique pour le match dans la page info",
         "baseURL": "https://voiranime.com/",
         "moduleDeveloperSite": "https://bilnaa.github.io/main/",
         "UpdateSite": "https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/VoirAnime/moduleTemplate.json",
@@ -152,8 +152,8 @@
                 "name": "Request"
             },
             "cellsHidden": false,
-            "javascriptEditorScroll": 0,
-            "openedMenu": "Javascript"
+            "javascriptEditorScroll": 10002.22265625,
+            "openedMenu": "Request"
         }
     }, {
         "request": {
@@ -472,7 +472,7 @@
     }],
     "info": [{
         "request": {
-            "url": "https://v2.voiranime.com/anime/mahoutsukai-no-yome-2/",
+            "url": "https://v2.voiranime.com/anime/kobayashi-san-chi-no-maidragon-vf/",
             "method": "get",
             "headers": [{
                 "key": "",
@@ -496,7 +496,7 @@
         "javascriptConfig": {
             "removeJavascript": true,
             "loadInWebView": false,
-            "javaScript": "\n        try {\n\n            /* JAVASCRIPT STARTS */  function Info ( request, extra, javascriptConfig, output ) {\n         this.request = request;\n         this.extra = extra;\n         this.javascriptConfig = javascriptConfig;\n         this.output = output;\n }\n\n function ModuleRequest ( url, method, headers, httpBody ) {\n         this.url = url;\n         this.method = method;\n         this.headers = headers;\n         this.httpBody = httpBody;\n }\n\n function Extra ( commands, extraInfo ) {\n         this.commands = commands;\n         this.extraInfo = extraInfo;\n }\n\n function Commands ( commandName, params ) {\n         this.commandName = commandName;\n         this.params = params;\n }\n\n function JavascriptConfig ( removeJavascript, loadInWebView, javaScript ) {\n         this.removeJavascript = removeJavascript;\n         this.loadInWebView = loadInWebView;\n         this.javaScript = javaScript;\n }\n\n function KeyValue ( key, value ) {\n         this.key = key;\n         this.value = value;\n }\n\n function Chapter ( chapName, link, openInWebView ) {\n         this.chapName = chapName;\n         this.link = link;\n         this.openInWebView = openInWebView;\n }\n\n function Output ( image, title, link, description, genres, field1, field2, field3, field4, chapters ) {\n         this.image = image;\n         this.link = link;\n         this.title = title;\n         this.description = description;\n         this.genres = genres;\n         this.field1 = field1;\n         this.field2 = field2;\n         this.field3 = field3;\n         this.field4 = field4;\n         this.chapters = chapters;\n }\n\n function getStuff ( array, match ) {\n         for ( var x = 0; x < array.length; x++ ) {\n                 let data = array[ x ].innerText;\n                 if ( data.includes( match ) ) {\n                         return data.replace( match, '' ).trim( );\n                 }\n         }\n }\n\n function getHtmlStuff ( array, match ) {\n         for ( var x = 0; x < array.length; x++ ) {\n                 let data = array[ x ].innerText;\n                 if ( data.includes( match ) ) {\n                         return array[ x ];\n                 }\n         }\n }\n var savedData = document.getElementById( 'ketsu-final-data' );\n var parsedJson = JSON.parse( savedData.innerHTML );\n let emptyKeyValue = [ new KeyValue( '', '' ) ];\n var episodes = [ ];\n var type = '';\n var status = document.querySelector( 'div.post-content > div:nth-child(7) > div.summary-content' ).innerText;\n var genres = [ ];\n genres = Array.from( document.querySelectorAll( '.genres-content a' ) ).map( g => g.textContent );\n let desc = document.querySelector( '.depion-summary' ).textContent.trim( );\n let title = document.querySelector( '.post-title h1' ).textContent.trim( );\n if ( title.includes( 'VF' ) ) {\n         type = 'VF';\n } else {\n         type = 'VOSTFR'\n }\nlet image = document.querySelector( '.summary_image img' ).src;\n image = new ModuleRequest( image, 'get', emptyKeyValue, null );\n var chapters = document.querySelector( '.listing-chapters_wrap .main.version-chap' ).querySelectorAll( 'li' );\n for ( let i = chapters.length - 1; i >= 0; i-- ) {\n         var element = chapters[ i ];\n         var fixedLink = element.querySelector( 'a' ).href;\n          var episodeName = `Episode ${element.querySelector('a').textContent.match(/(-)+(.[0-9]+.)+(VOSTFR)/)[2]} ${type}`;\n         let chapter = new Chapter( episodeName, new ModuleRequest( fixedLink, 'get', emptyKeyValue, null ), false );\n         episodes.push( chapter );\n }\n let infoPageObject = new Info( new ModuleRequest( '', '', emptyKeyValue, null ), new Extra( [ new Commands( '', emptyKeyValue ) ], emptyKeyValue ), new JavascriptConfig( false, false, '' ), new Output( image, title, parsedJson.request, desc, genres, status, 'Anime', type, 'Eps: ' + episodes.length, episodes ) );\n var finalJson = JSON.stringify( infoPageObject );\n savedData.innerHTML = finalJson;\n /* JAVASCRIPT ENDS */\n\n        } catch (e) {\n            console.error(e.message);\n\n            if (typeof KETSU_ASYNC !== 'undefined') {\n                window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');\n            }\n\n        }\n        \n        "
+            "javaScript": "\n        try {\n\n            /* JAVASCRIPT STARTS */  function Info ( request, extra, javascriptConfig, output ) {\n         this.request = request;\n         this.extra = extra;\n         this.javascriptConfig = javascriptConfig;\n         this.output = output;\n }\n\n function ModuleRequest ( url, method, headers, httpBody ) {\n         this.url = url;\n         this.method = method;\n         this.headers = headers;\n         this.httpBody = httpBody;\n }\n\n function Extra ( commands, extraInfo ) {\n         this.commands = commands;\n         this.extraInfo = extraInfo;\n }\n\n function Commands ( commandName, params ) {\n         this.commandName = commandName;\n         this.params = params;\n }\n\n function JavascriptConfig ( removeJavascript, loadInWebView, javaScript ) {\n         this.removeJavascript = removeJavascript;\n         this.loadInWebView = loadInWebView;\n         this.javaScript = javaScript;\n }\n\n function KeyValue ( key, value ) {\n         this.key = key;\n         this.value = value;\n }\n\n function Chapter ( chapName, link, openInWebView ) {\n         this.chapName = chapName;\n         this.link = link;\n         this.openInWebView = openInWebView;\n }\n\n function Output ( image, title, link, description, genres, field1, field2, field3, field4, chapters ) {\n         this.image = image;\n         this.link = link;\n         this.title = title;\n         this.description = description;\n         this.genres = genres;\n         this.field1 = field1;\n         this.field2 = field2;\n         this.field3 = field3;\n         this.field4 = field4;\n         this.chapters = chapters;\n }\n\n function getStuff ( array, match ) {\n         for ( var x = 0; x < array.length; x++ ) {\n                 let data = array[ x ].innerText;\n                 if ( data.includes( match ) ) {\n                         return data.replace( match, '' ).trim( );\n                 }\n         }\n }\n\n function getHtmlStuff ( array, match ) {\n         for ( var x = 0; x < array.length; x++ ) {\n                 let data = array[ x ].innerText;\n                 if ( data.includes( match ) ) {\n                         return array[ x ];\n                 }\n         }\n }\n var savedData = document.getElementById( 'ketsu-final-data' );\n var parsedJson = JSON.parse( savedData.innerHTML );\n let emptyKeyValue = [ new KeyValue( '', '' ) ];\n var episodes = [ ];\n var type = '';\n var status = document.querySelector( 'div.post-content > div:nth-child(7) > div.summary-content' ).innerText;\n var genres = [ ];\n genres = Array.from( document.querySelectorAll( '.genres-content a' ) ).map( g => g.textContent );\n let desc = document.querySelector( '.depion-summary' ).textContent.trim( );\n let title = document.querySelector( '.post-title h1' ).textContent.trim( );\n if ( title.includes( 'VF' ) ) {\n         type = 'VF';\n } else {\n         type = 'VOSTFR'\n }\nlet image = document.querySelector( '.summary_image img' ).src;\n image = new ModuleRequest( image, 'get', emptyKeyValue, null );\n var chapters = document.querySelector( '.listing-chapters_wrap .main.version-chap' ).querySelectorAll( 'li' );\n for ( let i = chapters.length - 1; i >= 0; i-- ) {\n         var element = chapters[ i ];\n         var fixedLink = element.querySelector( 'a' ).href;\n          var episodeName = `Episode ${element.querySelector('a').textContent.match(`(-)+(.[0-9]+.)+(${type})`)[2]} ${type}`;\n         let chapter = new Chapter( episodeName, new ModuleRequest( fixedLink, 'get', emptyKeyValue, null ), false );\n         episodes.push( chapter );\n }\n let infoPageObject = new Info( new ModuleRequest( '', '', emptyKeyValue, null ), new Extra( [ new Commands( '', emptyKeyValue ) ], emptyKeyValue ), new JavascriptConfig( false, false, '' ), new Output( image, title, parsedJson.request, desc, genres, status, 'Anime', type, 'Eps: ' + episodes.length, episodes ) );\n var finalJson = JSON.stringify( infoPageObject );\n savedData.innerHTML = finalJson;\n /* JAVASCRIPT ENDS */\n\n        } catch (e) {\n            console.error(e.message);\n\n            if (typeof KETSU_ASYNC !== 'undefined') {\n                window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');\n            }\n\n        }\n        \n        "
         },
         "output": {
             "image": {
@@ -546,8 +546,8 @@
                 "name": "Request"
             },
             "cellsHidden": false,
-            "javascriptEditorScroll": 1522.2222900390625,
-            "openedMenu": "Javascript"
+            "javascriptEditorScroll": 6742.22216796875,
+            "openedMenu": "Request"
         }
     }],
     "chapters": [{
@@ -1321,7 +1321,7 @@
         }
     }],
     "moduleCreatorGlobalOptions": {
-        "selected": "moduleCreatorIdOLplcFSGBuHRtZXUUREp",
+        "selected": "moduleCreatorIdspYUMaiTPeqWCKNSHWAL",
         "notes": {},
         "hideViews": [],
         "id": "JLJIujxwZiupHvD",
