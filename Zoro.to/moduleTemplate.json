@@ -363,7 +363,7 @@
     }],
     "search": [{
         "request": {
-            "url": "https://zoro.to/search?keyword=my+star",
+            "url": "https://zoro.to/search?keyword=<searched>&page=<page>",
             "method": "get",
             "headers": [{
                 "key": "",
