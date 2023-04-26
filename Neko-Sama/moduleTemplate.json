@@ -6,7 +6,7 @@
         "developer": "ナビル",
         "moduleID": "0062062056",
         "moduleImage": "https://zupimages.net/up/21/12/303j.png",
-        "moduleVersion": 1.12,
+        "moduleVersion": 1.13,
         "moduleLenguage": "FR",
         "moduleType": "Video",
         "baseURL": "https://neko-sama.fr/",
@@ -75,7 +75,7 @@
         "javascriptConfig": {
             "removeJavascript": true,
             "loadInWebView": false,
-            "javaScript": "\n        try {\n\n            /* JAVASCRIPT STARTS */  const DefaultLayouts = {\n         ultraWideFull: 'ultraWideFull',\n         ultraWide: 'ultraWide',\n         wideFull: 'wideFull',\n         wide: 'wide',\n         wideStrechedFull: 'wideStrechedFull',\n         wideStrechedFullDouble: 'WideStrechedFullDouble',\n         wideStreched: 'wideStreched',\n         wideStrechedDouble: 'wideStrechedDouble',\n         wideStrechedFullList: 'wideStrechedFullList',\n         wideStrechedList: 'wideStrechedList',\n         doublets: 'doublets',\n         doubletsDouble: 'doubletsDouble',\n         doubletsFull: 'doubletsFull',\n         doubletsFullDouble: 'doubletsFullDouble',\n         doubletsConstant: 'doubletsConstant',\n         doubletsDoubleConstant: 'doubletsDoubleConstant',\n         doubletsFullConstant: 'doubletsFullConstant',\n         doubletsFullDoubleConstant: 'doubletsFullDoubleConstant',\n         longDoublets: 'longDoublets',\n         longDoubletsDouble: 'longDoubletsDouble',\n         longDoubletsFull: 'longDoubletsFull',\n         longDoubletsFullDouble: 'longDoubletsFullDouble',\n         longDoubletsConstant: 'longDoubletsConstant',\n         longDoubletsDoubleConstant: 'longDoubletsDoubleConstant',\n         longDoubletsFullConstant: 'longDoubletsFullConstant',\n         longDoubletsFullDoubleConstant: 'longDoubletsFullDoubleConstant',\n         triplets: 'triplets',\n         tripletsDouble: 'tripletsDouble',\n         tripletsFull: 'tripletsFull',\n         tripletsFullDouble: 'tripletsFullDouble',\n         tripletsConstant: 'tripletsConstant',\n         tripletsDoubleConstant: 'tripletsDoubleConstant',\n         tripletsFullConstant: 'tripletsFullConstant',\n         tripletsFullDoubleConstant: 'tripletsFullDoubleConstant',\n         longTriplets: 'longTriplets',\n         longTripletsDouble: 'longTripletsDouble',\n         longTripletsFull: 'longTripletsFull',\n         longTripletsFullDouble: 'longTripletsFullDouble',\n         longTripletsConstant: 'longTripletsConstant',\n         longTripletsDoubleConstant: 'longTripletsDoubleConstant',\n         longTripletsFullConstant: 'longTripletsFullConstant',\n         longTripletsFullDoubleConstant: 'longTripletsFullDoubleConstant',\n         none: ''\n };\n const CellDesings = {\n         Special1: 'Special1',\n         Special2: 'Special2',\n         Special3: 'Special3',\n         CELLHelperText: 'CELLHelperText',\n         small1: 'small1',\n         small2: 'small2',\n         normal1: 'normal1',\n         normal2: 'normal2',\n         normal3: 'normal3',\n         normal4: 'normal4',\n         normal5: 'normal5',\n         normal6: 'normal6',\n         normal7: 'normal7',\n         wide1: 'wide1',\n         wide2: 'wide2',\n         wide3: 'wide3',\n         wide4: 'wide4',\n         wide5: 'wide5',\n         wide6: 'wide6',\n         wide7: 'wide7',\n         wide8: 'wide8',\n         wide9: 'wide9',\n         wide10: 'wide10',\n         wide11: 'wide11'\n };\n const Paging = {\n         leading: 'leading',\n         centered: 'centered',\n         none: ''\n };\n const Orientation = {\n         horizontal: 'horizontal',\n         vertical: 'vertical'\n };\n\n function MainPage ( request, extra, javascriptConfig, output ) {\n         this.request = request;\n         this.extra = extra;\n         this.javascriptConfig = javascriptConfig;\n         this.output = output;\n }\n\n function ModuleRequest ( url, method, headers, httpBody ) {\n         this.url = url;\n         this.method = method;\n         this.headers = headers;\n         this.httpBody = httpBody;\n }\n\n function Extra ( commands, extraInfo ) {\n         this.commands = commands;\n         this.extraInfo = extraInfo;\n }\n\n function Commands ( commandName, params ) {\n         this.commandName = commandName;\n         this.params = params;\n }\n\n function JavascriptConfig ( removeJavascript, loadInWebView, javaScript ) {\n         this.removeJavascript = removeJavascript;\n         this.loadInWebView = loadInWebView;\n         this.javaScript = javaScript;\n }\n\n function KeyValue ( key, value ) {\n         this.key = key;\n         this.value = value;\n }\n\n function Output ( cellDesing, orientation, defaultLayout, paging, section, layout, data ) {\n         this.cellDesing = cellDesing;\n         this.orientation = orientation;\n         this.defaultLayout = defaultLayout;\n         this.paging = paging;\n         this.section = section;\n         this.layout = layout;\n         this.data = data;\n }\n\n function Section ( sectionName, separator ) {\n         this.sectionName = sectionName;\n         this.separator = separator;\n }\n\n function Layout ( insets, visibleCellsWidthS, visibleCellsWidthM, visibleCellsWidthL, visibleCellsHeight, heightForVisibleCells, cellSize, ratio, constant, horizontalSpacing, verticalSpacing ) {\n         this.insets = insets;\n         this.visibleCellsWidthS = visibleCellsWidthS;\n         this.visibleCellsWidthM = visibleCellsWidthM;\n         this.visibleCellsWidthL = visibleCellsWidthL;\n         this.visibleCellsHeight = visibleCellsHeight;\n         this.heightForVisibleCells = heightForVisibleCells;\n         this.cellSize = cellSize;\n         this.ratio = ratio;\n         this.constant = constant;\n         this.horizontalSpacing = horizontalSpacing;\n         this.verticalSpacing = verticalSpacing;\n }\n\n function Insets ( top, bottom, left, right ) {\n         this.top = top;\n         this.bottom = bottom;\n         this.left = left;\n         this.right = right;\n }\n\n function Size ( width, height ) {\n         this.width = width;\n         this.height = height;\n }\n\n function Ratio ( inRelation, number1, number2 ) {\n         this.inRelation = inRelation;\n         this.number1 = number1;\n         this.number2 = number2;\n }\n\n function Data ( image, title, description, field1, field2, field3, field4, isChapter, link, openInWebView ) {\n         this.image = image;\n         this.title = title;\n         this.description = description;\n         this.field1 = field1;\n         this.field2 = field2;\n         this.field3 = field3;\n         this.field4 = field4;\n         this.isChapter = isChapter;\n         this.link = link;\n         this.openInWebView = openInWebView;\n }\n var savedData = document.getElementById( 'ketsu-final-data' );\n var parsedJson = JSON.parse( savedData.innerHTML );\n let output = [ ];\n let emptyKeyValue = [ new KeyValue( '', '' ) ];\n var baseURL = 'https://neko-sama.fr';\n var dataArray = [ ];\n var dataArray2 = [ ];\n var total = [ ];\n const topList = document.querySelectorAll( '.row.no-gutters.js-last-episode-container .col-lg-3.col-md-4.col-xs-6' );\n for ( var x = 0; x < topList.length; x++ ) {\n         let list = topList[ x ];\n         let title = list.querySelector( '.text a .limit' ).textContent.trim( );\n         var link = baseURL + list.querySelector( '.text a ' ).href;\n         link = new ModuleRequest( link, 'get', emptyKeyValue, null );\n         var image = list.querySelector( 'div.holder > img:nth-of-type(1)' ).src;\n         image = new ModuleRequest( image, 'get', emptyKeyValue, null );\n         var ep = list.querySelector( '.text .episode' ).textContent;\n         var finalData = new Data( image, title, 'unknown', ep, 'unknown', 'unknown', 'unknown', false, link );\n         dataArray2.push( finalData );\n }\n var rows = document.querySelectorAll( '.row.no-gutters' );\n for ( var x = 1; x < rows.length; x++ ) {\n         total = [ ];\n         let row = rows[ x ];\n         let title_row = row.querySelector( '.nekosama.header' ).textContent.trim( );\n         let anime = row.querySelectorAll( '.text-left.col-6.col-sm-4.col-md-2' );\n         for ( list of anime ) {\n                 let title = list.querySelector( 'a' ).title;\n                 var link = baseURL + list.querySelector( 'a' ).href;\n                 link = new ModuleRequest( link, 'get', emptyKeyValue, null );\n                 var image = list.querySelector( 'img.lazy' ).dataset.src;\n                 image = new ModuleRequest( image, 'get', emptyKeyValue, null );\n                 var ep = list.querySelector( '.episode' ).textContent.trim( ).split( ' - ' )[ 1 ];\n                 var date = list.querySelector( '.episode' ).textContent.trim( ).split( ' - ' )[ 0 ];\n                 var finalData = new Data( image, title, date, ep, 'unknown ', 'unknown', 'unknown', false, link );\n                 total.push( finalData );\n         }\n         output.push( new Output( CellDesings.normal2, Orientation.vertical, DefaultLayouts.longTripletsDouble, Paging.leading, new Section( title_row, true ), null, total ) );\n }\n output.push( new Output( CellDesings.normal2, Orientation.horizontal, DefaultLayouts.longTripletsDouble, Paging.leading, new Section( 'Dernières sorties :', true ), null, dataArray2 ) );\n let MainPageObject = new MainPage( new ModuleRequest( '', 'get ', emptyKeyValue, null ), new Extra( [ new Commands( '', emptyKeyValue ) ], emptyKeyValue ), new JavascriptConfig( true, false, '' ), output.reverse( ) );\n var finalJson = JSON.stringify( MainPageObject );\n savedData.innerHTML = finalJson;\n /* JAVASCRIPT ENDS */\n\n        } catch (e) {\n            console.error(e.message);\n\n            if (typeof KETSU_ASYNC !== 'undefined') {\n                window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');\n            }\n\n        }\n        \n        "
+            "javaScript": "\n        try {\n\n            /* JAVASCRIPT STARTS */   const DefaultLayouts = {\n         ultraWideFull: 'ultraWideFull',\n         ultraWide: 'ultraWide',\n         wideFull: 'wideFull',\n         wide: 'wide',\n         wideStrechedFull: 'wideStrechedFull',\n         wideStrechedFullDouble: 'WideStrechedFullDouble',\n         wideStreched: 'wideStreched',\n         wideStrechedDouble: 'wideStrechedDouble',\n         wideStrechedFullList: 'wideStrechedFullList',\n         wideStrechedList: 'wideStrechedList',\n         doublets: 'doublets',\n         doubletsDouble: 'doubletsDouble',\n         doubletsFull: 'doubletsFull',\n         doubletsFullDouble: 'doubletsFullDouble',\n         doubletsConstant: 'doubletsConstant',\n         doubletsDoubleConstant: 'doubletsDoubleConstant',\n         doubletsFullConstant: 'doubletsFullConstant',\n         doubletsFullDoubleConstant: 'doubletsFullDoubleConstant',\n         longDoublets: 'longDoublets',\n         longDoubletsDouble: 'longDoubletsDouble',\n         longDoubletsFull: 'longDoubletsFull',\n         longDoubletsFullDouble: 'longDoubletsFullDouble',\n         longDoubletsConstant: 'longDoubletsConstant',\n         longDoubletsDoubleConstant: 'longDoubletsDoubleConstant',\n         longDoubletsFullConstant: 'longDoubletsFullConstant',\n         longDoubletsFullDoubleConstant: 'longDoubletsFullDoubleConstant',\n         triplets: 'triplets',\n         tripletsDouble: 'tripletsDouble',\n         tripletsFull: 'tripletsFull',\n         tripletsFullDouble: 'tripletsFullDouble',\n         tripletsConstant: 'tripletsConstant',\n         tripletsDoubleConstant: 'tripletsDoubleConstant',\n         tripletsFullConstant: 'tripletsFullConstant',\n         tripletsFullDoubleConstant: 'tripletsFullDoubleConstant',\n         longTriplets: 'longTriplets',\n         longTripletsDouble: 'longTripletsDouble',\n         longTripletsFull: 'longTripletsFull',\n         longTripletsFullDouble: 'longTripletsFullDouble',\n         longTripletsConstant: 'longTripletsConstant',\n         longTripletsDoubleConstant: 'longTripletsDoubleConstant',\n         longTripletsFullConstant: 'longTripletsFullConstant',\n         longTripletsFullDoubleConstant: 'longTripletsFullDoubleConstant',\n         none: ''\n };\n const CellDesings = {\n         Special1: 'Special1',\n         Special2: 'Special2',\n         Special3: 'Special3',\n         CELLHelperText: 'CELLHelperText',\n         small1: 'small1',\n         small2: 'small2',\n         normal1: 'normal1',\n         normal2: 'normal2',\n         normal3: 'normal3',\n         normal4: 'normal4',\n         normal5: 'normal5',\n         normal6: 'normal6',\n         normal7: 'normal7',\n         wide1: 'wide1',\n         wide2: 'wide2',\n         wide3: 'wide3',\n         wide4: 'wide4',\n         wide5: 'wide5',\n         wide6: 'wide6',\n         wide7: 'wide7',\n         wide8: 'wide8',\n         wide9: 'wide9',\n         wide10: 'wide10',\n         wide11: 'wide11'\n };\n const Paging = {\n         leading: 'leading',\n         centered: 'centered',\n         none: ''\n };\n const Orientation = {\n         horizontal: 'horizontal',\n         vertical: 'vertical'\n };\n\n function MainPage ( request, extra, javascriptConfig, output ) {\n         this.request = request;\n         this.extra = extra;\n         this.javascriptConfig = javascriptConfig;\n         this.output = output;\n }\n\n function ModuleRequest ( url, method, headers, httpBody ) {\n         this.url = url;\n         this.method = method;\n         this.headers = headers;\n         this.httpBody = httpBody;\n }\n\n function Extra ( commands, extraInfo ) {\n         this.commands = commands;\n         this.extraInfo = extraInfo;\n }\n\n function Commands ( commandName, params ) {\n         this.commandName = commandName;\n         this.params = params;\n }\n\n function JavascriptConfig ( removeJavascript, loadInWebView, javaScript ) {\n         this.removeJavascript = removeJavascript;\n         this.loadInWebView = loadInWebView;\n         this.javaScript = javaScript;\n }\n\n function KeyValue ( key, value ) {\n         this.key = key;\n         this.value = value;\n }\n\n function Output ( cellDesing, orientation, defaultLayout, paging, section, layout, data ) {\n         this.cellDesing = cellDesing;\n         this.orientation = orientation;\n         this.defaultLayout = defaultLayout;\n         this.paging = paging;\n         this.section = section;\n         this.layout = layout;\n         this.data = data;\n }\n\n function Section ( sectionName, separator ) {\n         this.sectionName = sectionName;\n         this.separator = separator;\n }\n\n function Layout ( insets, visibleCellsWidthS, visibleCellsWidthM, visibleCellsWidthL, visibleCellsHeight, heightForVisibleCells, cellSize, ratio, constant, horizontalSpacing, verticalSpacing ) {\n         this.insets = insets;\n         this.visibleCellsWidthS = visibleCellsWidthS;\n         this.visibleCellsWidthM = visibleCellsWidthM;\n         this.visibleCellsWidthL = visibleCellsWidthL;\n         this.visibleCellsHeight = visibleCellsHeight;\n         this.heightForVisibleCells = heightForVisibleCells;\n         this.cellSize = cellSize;\n         this.ratio = ratio;\n         this.constant = constant;\n         this.horizontalSpacing = horizontalSpacing;\n         this.verticalSpacing = verticalSpacing;\n }\n\n function Insets ( top, bottom, left, right ) {\n         this.top = top;\n         this.bottom = bottom;\n         this.left = left;\n         this.right = right;\n }\n\n function Size ( width, height ) {\n         this.width = width;\n         this.height = height;\n }\n\n function Ratio ( inRelation, number1, number2 ) {\n         this.inRelation = inRelation;\n         this.number1 = number1;\n         this.number2 = number2;\n }\n\n function Data ( image, title, description, field1, field2, field3, field4, isChapter, link, openInWebView ) {\n         this.image = image;\n         this.title = title;\n         this.description = description;\n         this.field1 = field1;\n         this.field2 = field2;\n         this.field3 = field3;\n         this.field4 = field4;\n         this.isChapter = isChapter;\n         this.link = link;\n         this.openInWebView = openInWebView;\n }\n var savedData = document.getElementById( 'ketsu-final-data' );\n var parsedJson = JSON.parse( savedData.innerHTML );\n let output = [ ];\n let emptyKeyValue = [ new KeyValue( '', '' ) ];\n var baseURL = 'https://neko-sama.fr';\n var dataArray = [ ];\n var dataArray2 = [ ];\n var total = [ ];\n const topList = document.querySelectorAll( '.row.no-gutters.js-last-episode-container .col-lg-3.col-md-4.col-xs-6' );\n for ( var x = 0; x < topList.length; x++ ) {\n         let list = topList[ x ];\n         let title = list.querySelector( '.text a .limit' ).textContent.trim( );\n         var link = baseURL + list.querySelector( '.text a ' ).href;\n         link = new ModuleRequest( link, 'get', emptyKeyValue, null );\n         var image = list.querySelector( 'div.holder > img:nth-of-type(1)' ).src;\n         image = new ModuleRequest( image, 'get', emptyKeyValue, null );\n         var ep = list.querySelector( '.text .episode' ).textContent;\n         var finalData = new Data( image, title, 'unknown', ep, 'unknown', 'unknown', 'unknown', false, link );\n         dataArray2.push( finalData );\n }\n var rows = document.querySelectorAll( '.row.no-gutters' );\n for ( var x = 1; x < rows.length; x++ ) {\n         total = [ ];\n         let row = rows[ x ];\n         let title_row = row.querySelector( '.nekosama.header' ).textContent.trim( );\n         let anime = row.querySelectorAll( '.text-left.col-6.col-sm-4.col-md-2' );\n         for ( list of anime ) {\n                 let title = list.querySelector( 'a' ).title;\n                 var link = baseURL + list.querySelector( 'a' ).href;\n                 link = new ModuleRequest( link, 'get', emptyKeyValue, null );\n                 var image = list.querySelector( 'img.lazy' ).dataset.src;\n                 image = new ModuleRequest( image, 'get', emptyKeyValue, null );\n                 var ep = list.querySelector( '.episode' ).textContent.trim( ).split( ' - ' )[ 1 ];\n                 var date = list.querySelector( '.episode' ).textContent.trim( ).split( ' - ' )[ 0 ];\n                 var finalData = new Data( image, title, date, ep, 'unknown ', 'unknown', 'unknown', false, link );\n                 total.push( finalData );\n         }\n         output.push( new Output( CellDesings.normal2, Orientation.vertical, DefaultLayouts.longTripletsDouble, Paging.leading, new Section( title_row, true ), null, total ) );\n }\n output.push( new Output( CellDesings.normal2, Orientation.horizontal, DefaultLayouts.longTripletsDouble, Paging.leading, new Section( 'Dernières sorties :', true ), null, dataArray2 ) );\n let MainPageObject = new MainPage( new ModuleRequest( '', 'get ', emptyKeyValue, null ), new Extra( [ new Commands( '', emptyKeyValue ) ], emptyKeyValue ), new JavascriptConfig( true, false, '' ), output.reverse( ) );\n var finalJson = JSON.stringify( MainPageObject );\n savedData.innerHTML = finalJson;\n  /* JAVASCRIPT ENDS */\n\n        } catch (e) {\n            console.error(e.message);\n\n            if (typeof KETSU_ASYNC !== 'undefined') {\n                window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');\n            }\n\n        }\n        \n        "
         },
         "output": [{
             "cellDesing": "normal1",
@@ -181,7 +181,7 @@
         "javascriptConfig": {
             "removeJavascript": false,
             "loadInWebView": true,
-            "javaScript": "\n        try {\n\n            /* JAVASCRIPT STARTS */ const DefaultLayouts = {\n        ultraWideFull: 'ultraWideFull',\n        ultraWide: 'ultraWide',\n        wideFull: 'wideFull',\n        wide: 'wide',\n        wideStrechedFull: 'wideStrechedFull',\n        wideStrechedFullDouble: 'WideStrechedFullDouble',\n        wideStreched: 'wideStreched',\n        wideStrechedDouble: 'wideStrechedDouble',\n        wideStrechedFullList: 'wideStrechedFullList',\n        wideStrechedList: 'wideStrechedList',\n        doublets: 'doublets',\n        doubletsDouble: 'doubletsDouble',\n        doubletsFull: 'doubletsFull',\n        doubletsFullDouble: 'doubletsFullDouble',\n        doubletsConstant: 'doubletsConstant',\n        doubletsDoubleConstant: 'doubletsDoubleConstant',\n        doubletsFullConstant: 'doubletsFullConstant',\n        doubletsFullDoubleConstant: 'doubletsFullDoubleConstant',\n        longDoublets: 'longDoublets',\n        longDoubletsDouble: 'longDoubletsDouble',\n        longDoubletsFull: 'longDoubletsFull',\n        longDoubletsFullDouble: 'longDoubletsFullDouble',\n        longDoubletsConstant: 'longDoubletsConstant',\n        longDoubletsDoubleConstant: 'longDoubletsDoubleConstant',\n        longDoubletsFullConstant: 'longDoubletsFullConstant',\n        longDoubletsFullDoubleConstant: 'longDoubletsFullDoubleConstant',\n        triplets: 'triplets',\n        tripletsDouble: 'tripletsDouble',\n        tripletsFull: 'tripletsFull',\n        tripletsFullDouble: 'tripletsFullDouble',\n        tripletsConstant: 'tripletsConstant',\n        tripletsDoubleConstant: 'tripletsDoubleConstant',\n        tripletsFullConstant: 'tripletsFullConstant',\n        tripletsFullDoubleConstant: 'tripletsFullDoubleConstant',\n        longTriplets: 'longTriplets',\n        longTripletsDouble: 'longTripletsDouble',\n        longTripletsFull: 'longTripletsFull',\n        longTripletsFullDouble: 'longTripletsFullDouble',\n        longTripletsConstant: 'longTripletsConstant',\n        longTripletsDoubleConstant: 'longTripletsDoubleConstant',\n        longTripletsFullConstant: 'longTripletsFullConstant',\n        longTripletsFullDoubleConstant: 'longTripletsFullDoubleConstant',\n        none: ''\n};\nconst CellDesings = {\n        Special1: 'Special1',\n        Special2: 'Special2',\n        Special3: 'Special3',\n        CELLHelperText: 'CELLHelperText',\n        small1: 'small1',\n        small2: 'small2',\n        normal1: 'normal1',\n        normal2: 'normal2',\n        normal3: 'normal3',\n        normal4: 'normal4',\n        normal5: 'normal5',\n        normal6: 'normal6',\n        normal7: 'normal7',\n        wide1: 'wide1',\n        wide2: 'wide2',\n        wide3: 'wide3',\n        wide4: 'wide4',\n        wide5: 'wide5',\n        wide6: 'wide6',\n        wide7: 'wide7',\n        wide8: 'wide8',\n        wide9: 'wide9',\n        wide10: 'wide10',\n        wide11: 'wide11'\n};\nconst Paging = {\n        leading: 'leading',\n        centered: 'centered',\n        none: ''\n};\nconst Orientation = {\n        horizontal: 'horizontal',\n        vertical: 'vertical'\n};\n\nfunction Search ( request, extra, separator, javascriptConfig, output ) {\n        this.request = request;\n        this.extra = extra;\n        this.separator = separator;\n        this.javascriptConfig = javascriptConfig;\n        this.output = output;\n}\n\nfunction ModuleRequest ( url, method, headers, httpBody ) {\n        this.url = url;\n        this.method = method;\n        this.headers = headers;\n        this.httpBody = httpBody;\n}\n\nfunction Extra ( commands, extraInfo ) {\n        this.commands = commands;\n        this.extraInfo = extraInfo;\n}\n\nfunction Commands ( commandName, params ) {\n        this.commandName = commandName;\n        this.params = params;\n}\n\nfunction JavascriptConfig ( removeJavascript, loadInWebView, javaScript ) {\n        this.removeJavascript = removeJavascript;\n        this.loadInWebView = loadInWebView;\n        this.javaScript = javaScript;\n}\n\nfunction KeyValue ( key, value ) {\n        this.key = key;\n        this.value = value;\n}\n\nfunction Output ( cellDesing, orientation, defaultLayout, paging, section, layout, data ) {\n        this.cellDesing = cellDesing;\n        this.orientation = orientation;\n        this.defaultLayout = defaultLayout;\n        this.paging = paging;\n        this.section = section;\n        this.layout = layout;\n        this.data = data;\n}\n\nfunction Section ( sectionName, separator ) {\n        this.sectionName = sectionName;\n        this.separator = separator;\n}\n\nfunction Layout ( insets, visibleCellsWidthS, visibleCellsWidthM, visibleCellsWidthL, visibleCellsHeight, heightForVisibleCells, cellSize, ratio, constant, horizontalSpacing, verticalSpacing ) {\n        this.insets = insets;\n        this.visibleCellsWidthS = visibleCellsWidthS;\n        this.visibleCellsWidthM = visibleCellsWidthM;\n        this.visibleCellsWidthL = visibleCellsWidthL;\n        this.visibleCellsHeight = visibleCellsHeight;\n        this.heightForVisibleCells = heightForVisibleCells;\n        this.cellSize = cellSize;\n        this.ratio = ratio;\n        this.constant = constant;\n        this.horizontalSpacing = horizontalSpacing;\n        this.verticalSpacing = verticalSpacing;\n}\n\nfunction Insets ( top, bottom, left, right ) {\n        this.top = top;\n        this.bottom = bottom;\n        this.left = left;\n        this.right = right;\n}\n\nfunction Size ( width, height ) {\n        this.width = width;\n        this.height = height;\n}\n\nfunction Ratio ( inRelation, number1, number2 ) {\n        this.inRelation = inRelation;\n        this.number1 = number1;\n        this.number2 = number2;\n}\n\nfunction Data ( image, title, description, field1, field2, field3, field4, isChapter, link, openInWebView ) {\n        this.image = image;\n        this.title = title;\n        this.description = description;\n        this.field1 = field1;\n        this.field2 = field2;\n        this.field3 = field3;\n        this.field4 = field4;\n        this.isChapter = isChapter;\n        this.link = link;\n        this.openInWebView = openInWebView;\n}\n\nfunction quickData ( link, image, title, field1 ) {\n        return new Data( image, title, 'unknown', field1, 'unknown', 'unknown', 'unknown', false, link );\n}\n\nfunction shuffle ( a ) {\n        var j, x, i;\n        for ( i = a.length - 1; i > 0; i-- ) {\n                j = Math.floor( Math.random( ) * ( i + 1 ) );\n                x = a[ i ];\n                a[ i ] = a[ j ];\n                a[ j ] = x;\n        }\n        return a;\n}\n\nfunction getFile ( url ) {\n        var xhr = new XMLHttpRequest( );\n        xhr.open( 'GET', url, false );\n        xhr.send( null );\n        return xhr.responseText;\n}\nlet output = [ ];\nvar savedData = document.getElementById( 'ketsu-final-data' );\nvar parsedJson = JSON.parse( savedData.innerHTML );\nlet searchArray = [ ];\nlet emptyKeyValue = [ new KeyValue( '', '' ) ];\nvar keyword = parsedJson.request.url.split( 'keyword=' )[ 1 ].replace( '+', ' ' );\nvar scripts = document.getElementsByTagName( 'script' );\nfor ( script of scripts ) {\n        if ( script.innerHTML.includes( 'urlsearch' ) ) {\n                var urlsearch = script.innerHTML.match( /urlsearch =+.+;$/gm ).pop( ).replace( 'urlsearch = \"', '' ).replace( /\";$/, '' );\n                var search_link_vostfr = window.location.origin + urlsearch;\n                var search_link_vf = window.location.origin + urlsearch.replace( 'vostfr', 'vf' );\n        }\n}\nvar vostfr = [ ];\nvar vostfr_content = JSON.parse( getFile( search_link_vostfr ) );\nvar vf_content = JSON.parse( getFile( search_link_vf ) );\nfor ( anime of vostfr_content ) {\n        if ( anime.title.toLowerCase( ).includes( keyword.toLowerCase( ) ) || anime.title_english.toLowerCase( ).includes( keyword.toLowerCase( ) ) ) {\n                var image = anime.url_image;\n                image = new ModuleRequest( image, 'get', emptyKeyValue, null );\n                var title = anime.title;\n                var date = anime.start_date_year;\n                var type = anime.type.toUpperCase( ) + ' VOSTFR';\n                var link = window.location.origin + anime.url;\n                link = new ModuleRequest( link, 'get', emptyKeyValue, null );\n                vostfr.push( new Data( image, title, '', type, date, '', '', false, link, false ) );\n        }\n}\nvar vf = [ ];\nfor ( anime of vf_content ) {\n        if ( anime.title.toLowerCase( ).includes( keyword.toLowerCase( ) ) || anime.title_english.toLowerCase( ).includes( keyword.toLowerCase( ) ) ) {\n                var image = anime.url_image;\n                image = new ModuleRequest( image, 'get', emptyKeyValue, null );\n                var title = anime.title;\n                var date = anime.start_date_year;\n                var type = anime.type.toUpperCase( ) + ' VF';\n                var link = window.location.origin + anime.url;\n                link = new ModuleRequest( link, 'get', emptyKeyValue, null );\n                vf.push( new Data( image, title, '', type, date, '', '', false, link, false ) );\n        }\n}\nfor ( var i = 0; i < vostfr.length; i++ ) {\n        for ( var j = 0; j < vf.length; j++ ) {\n                if ( vostfr[ i ].title == vf[ j ].title ) {\n                        searchArray.push( vostfr[ i ] );\n                        vostfr.splice( i, 1 );\n                        searchArray.push( vf[ j ] );\n                        vf.splice( j, 1 );\n                }\n        }\n}\nsearchArray = searchArray.concat( vostfr, vf );\noutput.push( new Output( CellDesings.normal1, Orientation.vertical, DefaultLayouts.longTripletsFullConstant, Paging.none, new Section( '', true ), null, searchArray ) );\nlet searchPageObject = new Search( new ModuleRequest( '', '', emptyKeyValue, null ), new Extra( [ new Commands( '', emptyKeyValue ) ], emptyKeyValue ), '', new JavascriptConfig( true, false, '' ), output );\nvar finalJson = JSON.stringify( searchPageObject );\nsavedData.innerHTML = finalJson;\n /* JAVASCRIPT ENDS */\n\n        } catch (e) {\n            console.error(e.message);\n\n            if (typeof KETSU_ASYNC !== 'undefined') {\n                window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');\n            }\n\n        }\n        \n        "
+            "javaScript": "\n        try {\n\n            /* JAVASCRIPT STARTS */  const DefaultLayouts = {\n        ultraWideFull: 'ultraWideFull',\n        ultraWide: 'ultraWide',\n        wideFull: 'wideFull',\n        wide: 'wide',\n        wideStrechedFull: 'wideStrechedFull',\n        wideStrechedFullDouble: 'WideStrechedFullDouble',\n        wideStreched: 'wideStreched',\n        wideStrechedDouble: 'wideStrechedDouble',\n        wideStrechedFullList: 'wideStrechedFullList',\n        wideStrechedList: 'wideStrechedList',\n        doublets: 'doublets',\n        doubletsDouble: 'doubletsDouble',\n        doubletsFull: 'doubletsFull',\n        doubletsFullDouble: 'doubletsFullDouble',\n        doubletsConstant: 'doubletsConstant',\n        doubletsDoubleConstant: 'doubletsDoubleConstant',\n        doubletsFullConstant: 'doubletsFullConstant',\n        doubletsFullDoubleConstant: 'doubletsFullDoubleConstant',\n        longDoublets: 'longDoublets',\n        longDoubletsDouble: 'longDoubletsDouble',\n        longDoubletsFull: 'longDoubletsFull',\n        longDoubletsFullDouble: 'longDoubletsFullDouble',\n        longDoubletsConstant: 'longDoubletsConstant',\n        longDoubletsDoubleConstant: 'longDoubletsDoubleConstant',\n        longDoubletsFullConstant: 'longDoubletsFullConstant',\n        longDoubletsFullDoubleConstant: 'longDoubletsFullDoubleConstant',\n        triplets: 'triplets',\n        tripletsDouble: 'tripletsDouble',\n        tripletsFull: 'tripletsFull',\n        tripletsFullDouble: 'tripletsFullDouble',\n        tripletsConstant: 'tripletsConstant',\n        tripletsDoubleConstant: 'tripletsDoubleConstant',\n        tripletsFullConstant: 'tripletsFullConstant',\n        tripletsFullDoubleConstant: 'tripletsFullDoubleConstant',\n        longTriplets: 'longTriplets',\n        longTripletsDouble: 'longTripletsDouble',\n        longTripletsFull: 'longTripletsFull',\n        longTripletsFullDouble: 'longTripletsFullDouble',\n        longTripletsConstant: 'longTripletsConstant',\n        longTripletsDoubleConstant: 'longTripletsDoubleConstant',\n        longTripletsFullConstant: 'longTripletsFullConstant',\n        longTripletsFullDoubleConstant: 'longTripletsFullDoubleConstant',\n        none: ''\n};\nconst CellDesings = {\n        Special1: 'Special1',\n        Special2: 'Special2',\n        Special3: 'Special3',\n        CELLHelperText: 'CELLHelperText',\n        small1: 'small1',\n        small2: 'small2',\n        normal1: 'normal1',\n        normal2: 'normal2',\n        normal3: 'normal3',\n        normal4: 'normal4',\n        normal5: 'normal5',\n        normal6: 'normal6',\n        normal7: 'normal7',\n        wide1: 'wide1',\n        wide2: 'wide2',\n        wide3: 'wide3',\n        wide4: 'wide4',\n        wide5: 'wide5',\n        wide6: 'wide6',\n        wide7: 'wide7',\n        wide8: 'wide8',\n        wide9: 'wide9',\n        wide10: 'wide10',\n        wide11: 'wide11'\n};\nconst Paging = {\n        leading: 'leading',\n        centered: 'centered',\n        none: ''\n};\nconst Orientation = {\n        horizontal: 'horizontal',\n        vertical: 'vertical'\n};\n\nfunction Search ( request, extra, separator, javascriptConfig, output ) {\n        this.request = request;\n        this.extra = extra;\n        this.separator = separator;\n        this.javascriptConfig = javascriptConfig;\n        this.output = output;\n}\n\nfunction ModuleRequest ( url, method, headers, httpBody ) {\n        this.url = url;\n        this.method = method;\n        this.headers = headers;\n        this.httpBody = httpBody;\n}\n\nfunction Extra ( commands, extraInfo ) {\n        this.commands = commands;\n        this.extraInfo = extraInfo;\n}\n\nfunction Commands ( commandName, params ) {\n        this.commandName = commandName;\n        this.params = params;\n}\n\nfunction JavascriptConfig ( removeJavascript, loadInWebView, javaScript ) {\n        this.removeJavascript = removeJavascript;\n        this.loadInWebView = loadInWebView;\n        this.javaScript = javaScript;\n}\n\nfunction KeyValue ( key, value ) {\n        this.key = key;\n        this.value = value;\n}\n\nfunction Output ( cellDesing, orientation, defaultLayout, paging, section, layout, data ) {\n        this.cellDesing = cellDesing;\n        this.orientation = orientation;\n        this.defaultLayout = defaultLayout;\n        this.paging = paging;\n        this.section = section;\n        this.layout = layout;\n        this.data = data;\n}\n\nfunction Section ( sectionName, separator ) {\n        this.sectionName = sectionName;\n        this.separator = separator;\n}\n\nfunction Layout ( insets, visibleCellsWidthS, visibleCellsWidthM, visibleCellsWidthL, visibleCellsHeight, heightForVisibleCells, cellSize, ratio, constant, horizontalSpacing, verticalSpacing ) {\n        this.insets = insets;\n        this.visibleCellsWidthS = visibleCellsWidthS;\n        this.visibleCellsWidthM = visibleCellsWidthM;\n        this.visibleCellsWidthL = visibleCellsWidthL;\n        this.visibleCellsHeight = visibleCellsHeight;\n        this.heightForVisibleCells = heightForVisibleCells;\n        this.cellSize = cellSize;\n        this.ratio = ratio;\n        this.constant = constant;\n        this.horizontalSpacing = horizontalSpacing;\n        this.verticalSpacing = verticalSpacing;\n}\n\nfunction Insets ( top, bottom, left, right ) {\n        this.top = top;\n        this.bottom = bottom;\n        this.left = left;\n        this.right = right;\n}\n\nfunction Size ( width, height ) {\n        this.width = width;\n        this.height = height;\n}\n\nfunction Ratio ( inRelation, number1, number2 ) {\n        this.inRelation = inRelation;\n        this.number1 = number1;\n        this.number2 = number2;\n}\n\nfunction Data ( image, title, description, field1, field2, field3, field4, isChapter, link, openInWebView ) {\n        this.image = image;\n        this.title = title;\n        this.description = description;\n        this.field1 = field1;\n        this.field2 = field2;\n        this.field3 = field3;\n        this.field4 = field4;\n        this.isChapter = isChapter;\n        this.link = link;\n        this.openInWebView = openInWebView;\n}\n\nfunction quickData ( link, image, title, field1 ) {\n        return new Data( image, title, 'unknown', field1, 'unknown', 'unknown', 'unknown', false, link );\n}\n\nfunction shuffle ( a ) {\n        var j, x, i;\n        for ( i = a.length - 1; i > 0; i-- ) {\n                j = Math.floor( Math.random( ) * ( i + 1 ) );\n                x = a[ i ];\n                a[ i ] = a[ j ];\n                a[ j ] = x;\n        }\n        return a;\n}\n\nfunction getFile ( url ) {\n        var xhr = new XMLHttpRequest( );\n        xhr.open( 'GET', url, false );\n        xhr.send( null );\n        return xhr.responseText;\n}\nlet output = [ ];\nvar savedData = document.getElementById( 'ketsu-final-data' );\nvar parsedJson = JSON.parse( savedData.innerHTML );\nlet searchArray = [ ];\nlet emptyKeyValue = [ new KeyValue( '', '' ) ];\nvar keyword = parsedJson.request.url.split( 'keyword=' )[ 1 ].replace( '+', ' ' );\nvar scripts = document.getElementsByTagName( 'script' );\nfor ( script of scripts ) {\n        if ( script.innerHTML.includes( 'urlsearch' ) ) {\n                var urlsearch = script.innerHTML.match( /urlsearch =+.+;$/gm ).pop( ).replace( 'urlsearch = \"', '' ).replace( /\";$/, '' );\n                var search_link_vostfr = window.location.origin + urlsearch;\n                var search_link_vf = window.location.origin + urlsearch.replace( 'vostfr', 'vf' );\n        }\n}\nvar vostfr = [ ];\nvar vostfr_content = JSON.parse( getFile( search_link_vostfr ) );\nvar vf_content = JSON.parse( getFile( search_link_vf ) );\nfor ( anime of vostfr_content ) {\n        if ( anime.title.toLowerCase( ).includes( keyword.toLowerCase( ) ) || anime.title_english.toLowerCase( ).includes( keyword.toLowerCase( ) ) ) {\n                var image = anime.url_image;\n                image = new ModuleRequest( image, 'get', emptyKeyValue, null );\n                var title = anime.title;\n                var date = anime.start_date_year;\n                var type = anime.type.toUpperCase( ) + ' VOSTFR';\n                var link = window.location.origin + anime.url;\n                link = new ModuleRequest( link, 'get', emptyKeyValue, null );\n                vostfr.push( new Data( image, title, '', type, date, '', '', false, link, false ) );\n        }\n}\nvar vf = [ ];\nfor ( anime of vf_content ) {\n        if ( anime.title.toLowerCase( ).includes( keyword.toLowerCase( ) ) || anime.title_english.toLowerCase( ).includes( keyword.toLowerCase( ) ) ) {\n                var image = anime.url_image;\n                image = new ModuleRequest( image, 'get', emptyKeyValue, null );\n                var title = anime.title;\n                var date = anime.start_date_year;\n                var type = anime.type.toUpperCase( ) + ' VF';\n                var link = window.location.origin + anime.url;\n                link = new ModuleRequest( link, 'get', emptyKeyValue, null );\n                vf.push( new Data( image, title, '', type, date, '', '', false, link, false ) );\n        }\n}\nfor ( var i = 0; i < vostfr.length; i++ ) {\n        for ( var j = 0; j < vf.length; j++ ) {\n                if ( vostfr[ i ].title == vf[ j ].title ) {\n                        searchArray.push( vostfr[ i ] );\n                        vostfr.splice( i, 1 );\n                        searchArray.push( vf[ j ] );\n                        vf.splice( j, 1 );\n                }\n        }\n}\nsearchArray = searchArray.concat( vostfr, vf );\noutput.push( new Output( CellDesings.normal1, Orientation.vertical, DefaultLayouts.longTripletsFullConstant, Paging.none, new Section( '', true ), null, searchArray ) );\nlet searchPageObject = new Search( new ModuleRequest( '', '', emptyKeyValue, null ), new Extra( [ new Commands( '', emptyKeyValue ) ], emptyKeyValue ), '', new JavascriptConfig( true, false, '' ), output );\nvar finalJson = JSON.stringify( searchPageObject );\nsavedData.innerHTML = finalJson;\n  /* JAVASCRIPT ENDS */\n\n        } catch (e) {\n            console.error(e.message);\n\n            if (typeof KETSU_ASYNC !== 'undefined') {\n                window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');\n            }\n\n        }\n        \n        "
         },
         "output": [{
             "cellDesing": "normal1",
@@ -262,13 +262,13 @@
     }],
     "info": [{
         "request": {
-            "url": "empty",
+            "url": "https://neko-sama.fr/anime/info/18806-the-idolmatster-cinderella-girls-u149_vostfr",
             "method": "get",
             "headers": [{
                 "key": "",
-                "value": ""
-            }],
-            "httpBody": null
+                "value": "",
+                "moduleCreatorHeaderisActive": true
+            }]
         },
         "extra": {
             "commands": [{
@@ -286,7 +286,7 @@
         "javascriptConfig": {
             "removeJavascript": true,
             "loadInWebView": false,
-            "javaScript": "\n        try {\n\n            /* JAVASCRIPT STARTS */ function Info(request, extra, javascriptConfig, output) {this.request = request;this.extra = extra;this.javascriptConfig = javascriptConfig;this.output = output;}function ModuleRequest(url, method, headers, httpBody) {this.url = url;this.method = method;this.headers = headers;this.httpBody = httpBody;}function Extra(commands, extraInfo) {this.commands = commands;this.extraInfo = extraInfo;}function Commands(commandName, params) {this.commandName = commandName;this.params = params;}function JavascriptConfig(removeJavascript, loadInWebView, javaScript) {this.removeJavascript = removeJavascript;this.loadInWebView = loadInWebView;this.javaScript = javaScript;}function KeyValue(key, value) {this.key = key;this.value = value;}function Chapter(chapName, link, openInWebView) {this.chapName = chapName;this.link = link;this.openInWebView = openInWebView;}function Output(image, title, link, description, genres, field1, field2, field3, field4, chapters) {this.image = image;this.link = link;this.title = title;this.description = description;this.genres = genres;this.field1 = field1;this.field2 = field2;this.field3 = field3;this.field4 = field4;this.chapters = chapters;}function getStuff(array, match) {for (var x = 0; x < array.length; x++) {let data = array[x].innerText;if (data.includes(match)) {return data.replace(match, '').trim();}}}function getHtmlStuff(array, match) {for (var x = 0; x < array.length; x++) {let data = array[x].innerText;if (data.includes(match)) {return array[x];}}}var savedData = document.getElementById('ketsu-final-data');var parsedJson = JSON.parse(savedData.innerHTML);let emptyKeyValue = [new KeyValue('', '')];var baseUrl = 'https://neko-sama.fr';var episodes = [];var type = 'Anime';var status = 'Unknown';var genres = [];genres = Array.from(document.querySelectorAll('.ui.tag.horizontal.list a')).map(g => g.innerText);var desc = '';desc = document.querySelector('.synopsis p').textContent.trim();var image = '';var title = '';title = document.querySelector('h1').textContent.replace('VF', '').replace('VOSTFR', '').trim();image = document.querySelector('.cover img').src;image = new ModuleRequest(image, 'get', emptyKeyValue, null);var scripts = document.querySelectorAll('p');for (script of scripts) {if (script.innerHTML.includes('var episodes =')) {let regex = /var episodes = (.*);/;let match = regex.exec(script.innerHTML);let json = JSON.parse(match[1].split(';')[0]);for (episode of json) {let fixedLink = baseUrl + episode.url;let chapter = new Chapter(episode.episode + ' - ' + episode.title, new ModuleRequest(fixedLink, 'get',emptyKeyValue, null), false);episodes.push(chapter);}}}let infoPageObject = new Info(new ModuleRequest('', '', emptyKeyValue, null), new Extra([new Commands('',emptyKeyValue)], emptyKeyValue), new JavascriptConfig(false, false, ''), new Output(image, title,parsedJson.request, desc, genres, status, '', type, 'Eps: ' + episodes.length, episodes));var finalJson = JSON.stringify(infoPageObject);savedData.innerHTML = finalJson; /* JAVASCRIPT ENDS */\n\n        } catch (e) {\n            console.error(e.message);\n\n            if (typeof KETSU_ASYNC !== 'undefined') {\n                window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');\n            }\n\n        }\n        \n        "
+            "javaScript": "\n        try {\n\n            /* JAVASCRIPT STARTS */  function Info ( request, extra, javascriptConfig, output ) {\n         this.request = request;\n         this.extra = extra;\n         this.javascriptConfig = javascriptConfig;\n         this.output = output;\n }\n\n function ModuleRequest ( url, method, headers, httpBody ) {\n         this.url = url;\n         this.method = method;\n         this.headers = headers;\n         this.httpBody = httpBody;\n }\n\n function Extra ( commands, extraInfo ) {\n         this.commands = commands;\n         this.extraInfo = extraInfo;\n }\n\n function Commands ( commandName, params ) {\n         this.commandName = commandName;\n         this.params = params;\n }\n\n function JavascriptConfig ( removeJavascript, loadInWebView, javaScript ) {\n         this.removeJavascript = removeJavascript;\n         this.loadInWebView = loadInWebView;\n         this.javaScript = javaScript;\n }\n\n function KeyValue ( key, value ) {\n         this.key = key;\n         this.value = value;\n }\n\n function Chapter ( chapName, link, openInWebView ) {\n         this.chapName = chapName;\n         this.link = link;\n         this.openInWebView = openInWebView;\n }\n\n function Output ( image, title, link, description, genres, field1, field2, field3, field4, chapters ) {\n         this.image = image;\n         this.link = link;\n         this.title = title;\n         this.description = description;\n         this.genres = genres;\n         this.field1 = field1;\n         this.field2 = field2;\n         this.field3 = field3;\n         this.field4 = field4;\n         this.chapters = chapters;\n }\n\n function getStuff ( array, match ) {\n         for ( var x = 0; x < array.length; x++ ) {\n                 let data = array[ x ].innerText;\n                 if ( data.includes( match ) ) {\n                         return data.replace( match, '' ).trim( );\n                 }\n         }\n }\n\n function getHtmlStuff ( array, match ) {\n         for ( var x = 0; x < array.length; x++ ) {\n                 let data = array[ x ].innerText;\n                 if ( data.includes( match ) ) {\n                         return array[ x ];\n                 }\n         }\n }\n var savedData = document.getElementById( 'ketsu-final-data' );\n var parsedJson = JSON.parse( savedData.innerHTML );\n let emptyKeyValue = [ new KeyValue( '', '' ) ];\n var baseUrl = 'https://neko-sama.fr';\n var episodes = [ ];\n var type = 'Anime';\n var status = 'Unknown';\n var genres = [ ];\n genres = Array.from( document.querySelectorAll( '.ui.tag.horizontal.list a' ) ).map( g => g.innerText );\n var desc = '';\n desc = document.querySelector( '.synopsis p' ).textContent.trim( );\n var image = '';\n var title = '';\n title = document.querySelector( 'h1' ).textContent.replace( 'VF', '' ).replace( 'VOSTFR', '' ).trim( );\n image = document.querySelector( '.cover img' ).src;\n image = new ModuleRequest( image, 'get', emptyKeyValue, null );\n var scripts = document.querySelectorAll( 'p' );\n for ( script of scripts ) {\n         if ( script.innerHTML.includes( 'var episodes =' ) ) {\n                 let regex = /var episodes = (.*);/;\n                 let match = regex.exec( script.innerHTML );\n                 let json = JSON.parse( match[ 1 ].split( ';' )[ 0 ] );\n                 for ( episode of json ) {\n                         let fixedLink = baseUrl + episode.url;\n                         let chapter = new Chapter( episode.episode + ' - ' + episode.title, new ModuleRequest( fixedLink, 'get', emptyKeyValue, null ), false );\n                         episodes.push( chapter );\n                 }\n         }\n }\n let infoPageObject = new Info( new ModuleRequest( '', '', emptyKeyValue, null ), new Extra( [ new Commands( '', emptyKeyValue ) ], emptyKeyValue ), new JavascriptConfig( false, false, '' ), new Output( image, title, parsedJson.request, desc, genres, status, '', type, 'Eps: ' + episodes.length, episodes ) );\n var finalJson = JSON.stringify( infoPageObject );\n savedData.innerHTML = finalJson;\n /* JAVASCRIPT ENDS */\n\n        } catch (e) {\n            console.error(e.message);\n\n            if (typeof KETSU_ASYNC !== 'undefined') {\n                window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');\n            }\n\n        }\n        \n        "
         },
         "output": {
             "image": {
@@ -335,12 +335,14 @@
             "options": {
                 "name": "Request"
             },
-            "cellsHidden": false
+            "cellsHidden": false,
+            "openedMenu": "Request",
+            "javascriptEditorScroll": 104
         }
     }],
     "chapters": [{
         "request": {
-            "url": "https://neko-sama.fr/anime/episode/18938-kubo-san-wa-mob-wo-yurusanai-01-vostfr",
+            "url": "https://neko-sama.fr/anime/episode/18806-the-idolmatster-cinderella-girls-u149-01_vostfr",
             "method": "get",
             "headers": [{
                 "key": "key",
@@ -368,7 +370,7 @@
         "javascriptConfig": {
             "removeJavascript": true,
             "loadInWebView": false,
-            "javaScript": "\n        try {\n\n            /* JAVASCRIPT STARTS */ function Chapters ( request, extra, javascriptConfig, output ) {\n        this.request = request;\n        this.extra = extra;\n        this.javascriptConfig = javascriptConfig;\n        this.output = output;\n}\n\nfunction ModuleRequest ( url, method, headers, httpBody ) {\n        this.url = url;\n        this.method = method;\n        this.headers = headers;\n        this.httpBody = httpBody;\n}\n\nfunction Extra ( commands, extraInfo ) {\n        this.commands = commands;\n        this.extraInfo = extraInfo;\n}\n\nfunction Commands ( commandName, params ) {\n        this.commandName = commandName;\n        this.params = params;\n}\n\nfunction JavascriptConfig ( removeJavascript, loadInWebView, javaScript ) {\n        this.removeJavascript = removeJavascript;\n        this.loadInWebView = loadInWebView;\n        this.javaScript = javaScript;\n}\n\nfunction KeyValue ( key, value ) {\n        this.key = key;\n        this.value = value;\n}\n\nfunction Output ( videos, images, text ) {\n        this.videos = videos;\n        this.images = images;\n        this.text = text;\n}\n\nfunction Videos ( needsResolver, rawVideo ) {\n        this.needsResolver = needsResolver;\n        this.rawVideo = rawVideo;\n}\n\nfunction NeedsResolver ( resolverIdentifier, link ) {\n        this.resolverIdentifier = resolverIdentifier;\n        this.link = link;\n}\n\nfunction RawVideo ( video ) {\n        this.video = video;\n}\n\nfunction Video ( videoQuality, videoLink ) {\n        this.videoQuality = videoQuality;\n        this.videoLink = videoLink;\n}\n\nfunction Text ( text ) {\n        this.text = text;\n}\nvar output = [ ];\nvar savedData = document.getElementById( 'ketsu-final-data' );\nvar parsedJson = JSON.parse( savedData.innerHTML );\nvar emptyKeyValue = [ new KeyValue( '', '' ) ];\nlet scripts = document.querySelectorAll( 'p' );\nfor ( var x = 0; x < scripts.length; x++ ) {\n        let script = scripts[ x ].textContent;\n        if ( script.includes( 'video[0]' ) ) {\n                let splits = script.split( '\\'' );\n                for ( split of splits ) {\n                        if ( split.includes( 'http' ) && !split.includes( 'var ' ) && !split.includes( 'streamtape' ) && split.match( /^(http|https):\\/\\//i ) ) {\n                                console.log(split);\n                                output.push( new NeedsResolver( '', new ModuleRequest( split, 'get', emptyKeyValue, null ) ) );\n                        }\n                }\n        }\n}\nlet emptyExtra = new Extra( [ new Commands( '', emptyKeyValue ) ], emptyKeyValue );\nvar chaptersObject = new Chapters( new ModuleRequest( '', '', emptyKeyValue, null ), emptyExtra, new JavascriptConfig( false, false, '' ), new Output( new Videos( output, null ), null, null ) );\nvar finalJson = JSON.stringify( chaptersObject );\nsavedData.innerHTML = finalJson;\n /* JAVASCRIPT ENDS */\n\n        } catch (e) {\n            console.error(e.message);\n\n            if (typeof KETSU_ASYNC !== 'undefined') {\n                window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');\n            }\n\n        }\n        \n        "
+            "javaScript": "\n        try {\n\n            /* JAVASCRIPT STARTS */  function Chapters ( request, extra, javascriptConfig, output ) {\n        this.request = request;\n        this.extra = extra;\n        this.javascriptConfig = javascriptConfig;\n        this.output = output;\n}\n\nfunction ModuleRequest ( url, method, headers, httpBody ) {\n        this.url = url;\n        this.method = method;\n        this.headers = headers;\n        this.httpBody = httpBody;\n}\n\nfunction Extra ( commands, extraInfo ) {\n        this.commands = commands;\n        this.extraInfo = extraInfo;\n}\n\nfunction Commands ( commandName, params ) {\n        this.commandName = commandName;\n        this.params = params;\n}\n\nfunction JavascriptConfig ( removeJavascript, loadInWebView, javaScript ) {\n        this.removeJavascript = removeJavascript;\n        this.loadInWebView = loadInWebView;\n        this.javaScript = javaScript;\n}\n\nfunction KeyValue ( key, value ) {\n        this.key = key;\n        this.value = value;\n}\n\nfunction Output ( videos, images, text ) {\n        this.videos = videos;\n        this.images = images;\n        this.text = text;\n}\n\nfunction Videos ( needsResolver, rawVideo ) {\n        this.needsResolver = needsResolver;\n        this.rawVideo = rawVideo;\n}\n\nfunction NeedsResolver ( resolverIdentifier, link ) {\n        this.resolverIdentifier = resolverIdentifier;\n        this.link = link;\n}\n\nfunction RawVideo ( video ) {\n        this.video = video;\n}\n\nfunction Video ( videoQuality, videoLink ) {\n        this.videoQuality = videoQuality;\n        this.videoLink = videoLink;\n}\n\nfunction Text ( text ) {\n        this.text = text;\n}\nvar output = [ ];\nvar savedData = document.getElementById( 'ketsu-final-data' );\nvar parsedJson = JSON.parse( savedData.innerHTML );\nvar emptyKeyValue = [ new KeyValue( '', '' ) ];\nlet scripts = document.querySelectorAll( 'p' );\nfor ( var x = 0; x < scripts.length; x++ ) {\n        let script = scripts[ x ].textContent;\n        if ( script.includes( 'video[0]' ) ) {\n                let splits = script.split( '\\'' );\n                for ( split of splits ) {\n                        if ( split.includes( 'http' ) && !split.includes( 'var ' ) && !split.includes( 'streamtape' ) && split.match( /^(http|https):\\/\\//i ) ) {\n                                console.log(split);\n                                output.push( new NeedsResolver( '', new ModuleRequest( split, 'get', emptyKeyValue, null ) ) );\n                        }\n                }\n        }\n}\nlet emptyExtra = new Extra( [ new Commands( '', emptyKeyValue ) ], emptyKeyValue );\nvar chaptersObject = new Chapters( new ModuleRequest( '', '', emptyKeyValue, null ), emptyExtra, new JavascriptConfig( false, false, '' ), new Output( new Videos( output, null ), null, null ) );\nvar finalJson = JSON.stringify( chaptersObject );\nsavedData.innerHTML = finalJson;\n  /* JAVASCRIPT ENDS */\n\n        } catch (e) {\n            console.error(e.message);\n\n            if (typeof KETSU_ASYNC !== 'undefined') {\n                window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');\n            }\n\n        }\n        \n        "
         },
         "output": {
             "videos": {
@@ -420,116 +422,11 @@
                 "name": "Request"
             },
             "cellsHidden": false,
-            "openedMenu": "Javascript",
-            "javascriptEditorScroll": 1182.2222900390625
+            "openedMenu": "Request",
+            "javascriptEditorScroll": 85
         }
     }],
     "moduleResolvers": [{
-        "resolverInfo": {
-            "resolverName": "",
-            "nameMatches": [""],
-            "developer": "",
-            "moduleID": "",
-            "resolverVersion": 1,
-            "baseURL": "",
-            "moduleCreatorIdYukcKWZYXXFoDkpfiLdD": {
-                "path": "taSca",
-                "id": "moduleResolvers,0,resolverInfosection",
-                "sectionsHidden": [],
-                "options": {
-                    "name": "Resolver Parameters",
-                    "listName": "parameters"
-                },
-                "cellsHidden": false
-            },
-            "moduleCreatorIdHiIODrXvWtARIuETPUBc": {
-                "path": "fekUG",
-                "id": "moduleResolvers,0,resolverInfocell",
-                "sectionsHidden": [],
-                "options": {
-                    "name": "parameters"
-                },
-                "cellsHidden": false
-            }
-        },
-        "resolver": [{
-            "request": {
-                "url": "",
-                "method": "get",
-                "headers": [{
-                    "key": "key",
-                    "value": "value",
-                    "moduleCreatorHeaderisActive": true
-                }, {
-                    "key": "",
-                    "value": "",
-                    "moduleCreatorHeaderisActive": true
-                }]
-            },
-            "extra": {
-                "commands": [{
-                    "commandName": "",
-                    "params": [{
-                        "key": "",
-                        "value": ""
-                    }]
-                }],
-                "extraInfo": [{
-                    "key": "",
-                    "value": ""
-                }]
-            },
-            "javascriptConfig": {
-                "removeJavascript": false,
-                "loadInWebView": false,
-                "javaScript": "\n        try {\n\n            /* JAVASCRIPT STARTS */ \n /* JAVASCRIPT ENDS */\n\n        } catch (e) {\n            console.error(e.message);\n\n            if (typeof KETSU_ASYNC !== 'undefined') {\n                window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');\n            }\n\n        }\n        \n        "
-            },
-            "output": {
-                "moduleID": "",
-                "video": [{
-                    "videoQuality": "720",
-                    "videoLink": {
-                        "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-                        "method": "get",
-                        "headers": [{
-                            "key": "key",
-                            "value": "value"
-                        }],
-                        "httpBody": null
-                    }
-                }]
-            },
-            "moduleCreatorIdlpqXtYJfSHXAFsohogpl": {
-                "path": "YxYrV",
-                "id": "moduleResolvers,0,resolver,0cell",
-                "sectionsHidden": [],
-                "options": {
-                    "name": "Request"
-                },
-                "cellsHidden": false,
-                "javascriptEditorScroll": 0
-            }
-        }],
-        "moduleCreatorIdbxWBCdDYeHLqkddtuDQS": {
-            "path": "FlHPA",
-            "id": "moduleResolvers,0section",
-            "sectionsHidden": [],
-            "options": {
-                "name": "Resolver"
-            },
-            "cellsHidden": false
-        },
-        "moduleCreatorIdhjPIcFHTMMnPmPOvpEHt": {
-            "path": "resolver",
-            "id": "moduleResolvers,0,resolversection",
-            "sectionsHidden": [],
-            "options": {
-                "name": "Resolver Request",
-                "listName": "Request"
-            },
-            "cellsHidden": false
-        }
-    }, {
         "resolverInfo": {
             "resolverName": "PSTREAM",
             "nameMatches": ["PSTREAM", "FUSEVIDEO"],
@@ -539,7 +436,7 @@
             "baseURL": "https://pstream.net/",
             "moduleCreatorIdNkITuPkHrQnRzQFduWtw": {
                 "path": "KBomz",
-                "id": "moduleResolvers,1,resolverInfosection",
+                "id": "moduleResolvers,0,resolverInfosection",
                 "sectionsHidden": [],
                 "options": {
                     "name": "Resolver Parameters",
@@ -549,7 +446,7 @@
             },
             "moduleCreatorIdeQdMkVoOGtAanHxzDdzK": {
                 "path": "TdfOR",
-                "id": "moduleResolvers,1,resolverInfocell",
+                "id": "moduleResolvers,0,resolverInfocell",
                 "sectionsHidden": [],
                 "options": {
                     "name": "parameters"
@@ -587,7 +484,7 @@
             "javascriptConfig": {
                 "removeJavascript": false,
                 "loadInWebView": true,
-                "javaScript": "\n        try {\n\n            /* JAVASCRIPT STARTS */ function Resolver ( request, extra, javascriptConfig, output ) {\n        this.request = request;\n        this.extra = extra;\n        this.javascriptConfig = javascriptConfig;\n        this.output = output;\n}\n\nfunction ModuleRequest ( url, method, headers, httpBody ) {\n        this.url = url;\n        this.method = method;\n        this.headers = headers;\n        this.httpBody = httpBody;\n}\n\nfunction Extra ( commands, extraInfo ) {\n        this.commands = commands;\n        this.extraInfo = extraInfo;\n}\n\nfunction Commands ( commandName, params ) {\n        this.commandName = commandName;\n        this.params = params;\n}\n\nfunction JavascriptConfig ( removeJavascript, loadInWebView, javaScript ) {\n        this.removeJavascript = removeJavascript;\n        this.loadInWebView = loadInWebView;\n        this.javaScript = javaScript;\n}\n\nfunction KeyValue ( key, value ) {\n        this.key = key;\n        this.value = value;\n}\n\nfunction Output ( video ) {\n        this.video = video;\n}\n\nfunction Video ( videoQuality, videoLink ) {\n        this.videoQuality = videoQuality;\n        this.videoLink = videoLink;\n}\n\nfunction getNext ( match, array ) {\n        for ( var x = 0; x < array.length; x++ ) {\n                let mMatch = array[ x ];\n                if ( mMatch.includes( match ) ) {\n                        return array[ x + 1 ];\n                }\n        }\n}\n\nfunction getFile ( url ) {\n        var xhr = new XMLHttpRequest( );\n        xhr.open( 'get', url, false );\n        xhr.send( null );\n        return xhr.responseText;\n}\nvar savedData = document.getElementById( 'ketsu-final-data' );\nvar parsedJson = JSON.parse( savedData.innerHTML );\nvar emptyKeyValue = [ new KeyValue( 'Referer', window.location.href ) ];\nvar videos = [ ];\nvar scripts = document.getElementsByTagName( 'script' );\nfor ( script of scripts ) {\n        if ( script.src.includes( '/u/player-script?v=' ) ) {\n                var content = getFile( script.src );\n        }\n}\nvar encoded = content.split( 'jQuery(document).ready(' )[ 1 ].split( '.setCaptions(' )[ 0 ].split( 'jwplayer(\"main-player\")' )[ 0 ].split( '(\"' )[ 1 ].split( '\")' )[ 0 ];\nif ( encoded ) {\n        var decoded = atob( encoded );\n        decoded = decoded.substring( 2 );\n        var json = JSON.parse( decoded );\n        var link = json.mmmmmmmmmmmmmmmmmmmm;\n}\nvideos.push( new Video( 'Normal', new ModuleRequest( link, 'get', emptyKeyValue, null ) ) );\nlet emptyExtra = new Extra( [ new Commands( '', emptyKeyValue ) ], emptyKeyValue );\nvar chaptersObject = new Resolver( new ModuleRequest( '', 'get', emptyKeyValue, null ), emptyExtra, new JavascriptConfig( false, false, '' ), new Output( videos ) );\nvar finalJson = JSON.stringify( chaptersObject );\nsavedData.innerHTML = finalJson;\n /* JAVASCRIPT ENDS */\n\n        } catch (e) {\n            console.error(e.message);\n\n            if (typeof KETSU_ASYNC !== 'undefined') {\n                window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');\n            }\n\n        }\n        \n        "
+                "javaScript": "\n        try {\n\n            /* JAVASCRIPT STARTS */  function Resolver ( request, extra, javascriptConfig, output ) {\n        this.request = request;\n        this.extra = extra;\n        this.javascriptConfig = javascriptConfig;\n        this.output = output;\n}\n\nfunction ModuleRequest ( url, method, headers, httpBody ) {\n        this.url = url;\n        this.method = method;\n        this.headers = headers;\n        this.httpBody = httpBody;\n}\n\nfunction Extra ( commands, extraInfo ) {\n        this.commands = commands;\n        this.extraInfo = extraInfo;\n}\n\nfunction Commands ( commandName, params ) {\n        this.commandName = commandName;\n        this.params = params;\n}\n\nfunction JavascriptConfig ( removeJavascript, loadInWebView, javaScript ) {\n        this.removeJavascript = removeJavascript;\n        this.loadInWebView = loadInWebView;\n        this.javaScript = javaScript;\n}\n\nfunction KeyValue ( key, value ) {\n        this.key = key;\n        this.value = value;\n}\n\nfunction Output ( video ) {\n        this.video = video;\n}\n\nfunction Video ( videoQuality, videoLink ) {\n        this.videoQuality = videoQuality;\n        this.videoLink = videoLink;\n}\n\nfunction getNext ( match, array ) {\n        for ( var x = 0; x < array.length; x++ ) {\n                let mMatch = array[ x ];\n                if ( mMatch.includes( match ) ) {\n                        return array[ x + 1 ];\n                }\n        }\n}\n\nfunction getFile ( url ) {\n        var xhr = new XMLHttpRequest( );\n        xhr.open( 'get', url, false );\n        xhr.send( null );\n        return xhr.responseText;\n}\nlet savedData = document.getElementById( 'ketsu-final-data' );\nlet parsedJson = JSON.parse( savedData.innerHTML );\nlet emptyKeyValue = [ new KeyValue( 'Referer', window.location.href ) ];\nlet videos = [ ];\nlet content = '';\nlet scripts = document.getElementsByTagName( 'script' );\nfor ( let script of scripts ) {\n        if ( script.src.includes( '?v' ) ) {\n                content = getFile( script.src );\n        }\n}\nlet encoded = content.split( 'jQuery(document).ready(' )[ 1 ].split( '.setCaptions(' )[ 0 ].split( 'jwplayer(\"main-player\")' )[ 0 ].split( '(\"' )[ 1 ].split( '\")' )[ 0 ];\nif ( encoded ) {\n        let decoded = atob( encoded );\n        decoded = decoded.substring( 2 );\n        let json = JSON.parse( decoded.match(/{.*}/)[0] );\n        let link = json.ezofpjbzoiefhzofsdhvuzehfg;\n        videos.push( new Video( 'Normal', new ModuleRequest( link, 'get', emptyKeyValue, null ) ) );\n}\n\nlet emptyExtra = new Extra( [ new Commands( '', emptyKeyValue ) ], emptyKeyValue );\nlet chaptersObject = new Resolver( new ModuleRequest( '', 'get', emptyKeyValue, null ), emptyExtra, new JavascriptConfig( false, false, '' ), new Output( videos ) );\nlet finalJson = JSON.stringify( chaptersObject );\nsavedData.innerHTML = finalJson;\n  /* JAVASCRIPT ENDS */\n\n        } catch (e) {\n            console.error(e.message);\n\n            if (typeof KETSU_ASYNC !== 'undefined') {\n                window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');\n            }\n\n        }\n        \n        "
             },
             "output": {
                 "moduleID": "",
@@ -606,19 +503,19 @@
             },
             "moduleCreatorIdNVxvkAoScEdaWRPdMlcD": {
                 "path": "GmBoc",
-                "id": "moduleResolvers,1,resolver,0cell",
+                "id": "moduleResolvers,0,resolver,0cell",
                 "sectionsHidden": [],
                 "options": {
                     "name": "Request"
                 },
                 "cellsHidden": false,
                 "openedMenu": "Javascript",
-                "javascriptEditorScroll": 1142.2222900390625
+                "javascriptEditorScroll": 73
             }
         }],
         "moduleCreatorIdIZfMxqDvBERjOdMxWfaA": {
             "path": "yVMVP",
-            "id": "moduleResolvers,1section",
+            "id": "moduleResolvers,0section",
             "sectionsHidden": [],
             "options": {
                 "name": "Resolver"
@@ -627,7 +524,7 @@
         },
         "moduleCreatorIdixRdxidVdxZGssuwVDQX": {
             "path": "resolver",
-            "id": "moduleResolvers,1,resolversection",
+            "id": "moduleResolvers,0,resolversection",
             "sectionsHidden": [],
             "options": {
                 "name": "Resolver Request",
@@ -671,12 +568,12 @@
             "javascriptConfig": {
                 "removeJavascript": true,
                 "loadInWebView": false,
-                "javaScript": "\n        try {\n\n            /* JAVASCRIPT STARTS */ \n /* JAVASCRIPT ENDS */\n\n        } catch (e) {\n            console.error(e.message);\n\n            if (typeof KETSU_ASYNC !== 'undefined') {\n                window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');\n            }\n\n        }\n        \n        "
+                "javaScript": "\n        try {\n\n            /* JAVASCRIPT STARTS */  \n  /* JAVASCRIPT ENDS */\n\n        } catch (e) {\n            console.error(e.message);\n\n            if (typeof KETSU_ASYNC !== 'undefined') {\n                window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');\n            }\n\n        }\n        \n        "
             },
             "moduleCreatorIdMFHdPhlKrjpFMtBnQSQJ": {
                 "path": "jHOjY",
                 "id": "responseCodeFunctions,0,functions,0cell",
-                "sectionsHidden": [],
+                "sectionsHidden": ["moduleCreatorIdSlWLysVXPAgvAcLumsWe"],
                 "options": {
                     "name": "Request"
                 },
@@ -687,7 +584,7 @@
         "moduleCreatorIdoLRYJyapShCpFZcXBKHI": {
             "path": "ETSDr",
             "id": "responseCodeFunctions,0section",
-            "sectionsHidden": [],
+            "sectionsHidden": ["moduleCreatorIdSlWLysVXPAgvAcLumsWe"],
             "options": {
                 "name": "Function"
             },
@@ -696,7 +593,7 @@
         "moduleCreatorIdSvXvmMNSDvgspZPaCDpC": {
             "path": "inRCd",
             "id": "responseCodeFunctions,0,section",
-            "sectionsHidden": [],
+            "sectionsHidden": ["moduleCreatorIdSlWLysVXPAgvAcLumsWe"],
             "options": {
                 "name": "Function Parameters",
                 "listName": "Parameters"
@@ -706,7 +603,7 @@
         "moduleCreatorIdPrPSnCJlQRmJnRMFvNgP": {
             "path": "gEUcV",
             "id": "responseCodeFunctions,0,cell",
-            "sectionsHidden": [],
+            "sectionsHidden": ["moduleCreatorIdSlWLysVXPAgvAcLumsWe"],
             "options": {
                 "name": "Parameters"
             },
@@ -715,7 +612,7 @@
         "moduleCreatorIdhQFJMFdQHRPVAxmjUZEZ": {
             "path": "functions",
             "id": "responseCodeFunctions,0,functionssection",
-            "sectionsHidden": [],
+            "sectionsHidden": ["moduleCreatorIdSlWLysVXPAgvAcLumsWe"],
             "options": {
                 "name": "Function Requests",
                 "listName": "Request"
@@ -754,12 +651,12 @@
             "javascriptConfig": {
                 "removeJavascript": true,
                 "loadInWebView": false,
-                "javaScript": "\n        try {\n\n            /* JAVASCRIPT STARTS */  /* JAVASCRIPT ENDS */\n\n        } catch (e) {\n            console.error(e.message);\n\n            if (typeof KETSU_ASYNC !== 'undefined') {\n                window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');\n            }\n\n        }\n        \n        "
+                "javaScript": "\n        try {\n\n            /* JAVASCRIPT STARTS */    /* JAVASCRIPT ENDS */\n\n        } catch (e) {\n            console.error(e.message);\n\n            if (typeof KETSU_ASYNC !== 'undefined') {\n                window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');\n            }\n\n        }\n        \n        "
             },
             "moduleCreatorIdEGamoXUTgFSehtAsBpTp": {
                 "path": "VGUtv",
                 "id": "helperFunctions,0,functions,0cell",
-                "sectionsHidden": [],
+                "sectionsHidden": ["moduleCreatorIdbkinsorcRrnfCaEyPhfF"],
                 "options": {
                     "name": "Request"
                 },
@@ -769,7 +666,7 @@
         "moduleCreatorIdmCyshsCLelIkjThYfupR": {
             "path": "toeMQ",
             "id": "helperFunctions,0section",
-            "sectionsHidden": [],
+            "sectionsHidden": ["moduleCreatorIdbkinsorcRrnfCaEyPhfF"],
             "options": {
                 "name": "Request"
             },
@@ -778,7 +675,7 @@
         "moduleCreatorIdTRXpWgPefMohmmAKGcwB": {
             "path": "aKUHH",
             "id": "helperFunctions,0,section",
-            "sectionsHidden": [],
+            "sectionsHidden": ["moduleCreatorIdbkinsorcRrnfCaEyPhfF"],
             "options": {
                 "name": "Function Parameters",
                 "listName": "Parameters"
@@ -788,7 +685,7 @@
         "moduleCreatorIdpXYyyjiBjmJhWfpRnawV": {
             "path": "ErkRb",
             "id": "helperFunctions,0,cell",
-            "sectionsHidden": [],
+            "sectionsHidden": ["moduleCreatorIdbkinsorcRrnfCaEyPhfF"],
             "options": {
                 "name": "Parameters"
             },
@@ -797,7 +694,7 @@
         "moduleCreatorIdAdLBYVzicQWXwuyZrOhF": {
             "path": "functions",
             "id": "helperFunctions,0,functionssection",
-            "sectionsHidden": [],
+            "sectionsHidden": ["moduleCreatorIdbkinsorcRrnfCaEyPhfF"],
             "options": {
                 "name": "Function Requests",
                 "listName": "Request"
@@ -806,11 +703,16 @@
         }
     }],
     "moduleCreatorGlobalOptions": {
-        "selected": "moduleCreatorIdNVxvkAoScEdaWRPdMlcD",
+        "selected": "moduleCreatorIdKqIagCgpkvXdFbYAlols",
         "notes": {},
         "hideViews": [],
         "id": "RWdBxtxkVhArnTA",
-        "projectName": "New Project"
+        "projectName": "Neko-Sama",
+        "notesData": {
+            "openedNotes": ["oFwjzvDpdfxlaKQrGUwc"],
+            "activeNote": "oFwjzvDpdfxlaKQrGUwc",
+            "notes": {}
+        }
     },
     "moduleCreatorIdmcUviLkOWieCQqMzmFer": {
         "path": "mainPage",
@@ -870,7 +772,7 @@
             "name": "Response Code Funtions",
             "listName": "Function"
         },
-        "cellsHidden": false
+        "cellsHidden": true
     },
     "moduleCreatorIdbkinsorcRrnfCaEyPhfF": {
         "path": "helperFunctions",
@@ -880,6 +782,6 @@
             "name": "Helper Functions",
             "listName": "Request"
         },
-        "cellsHidden": false
+        "cellsHidden": true
     }
 }
