@@ -232,6 +232,22 @@
         "info": "A module for reading mangas weebtoon manhwa",
         "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Danyspb/Modules-Ketsu/main/KumaScan/moduleTemplate.json",
         "Zetsu_link": "zetsuapp://?moduleData=https://raw.githubusercontent.com/Danyspb/Modules-Ketsu/main/KumaScan/moduleTemplate.json "
+    },
+    {
+        "name": "CrunchyScan | FR",
+        "author": "Danyspb",
+        "image": "https://i.postimg.cc/3JRmz3fy/Crunchy-Scan-1.png",
+        "info": "Lisez gratuitement des mangas webtoons avec le module du site CrunchyScan.",
+        "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Danyspb/Modules-Ketsu/main/CrunchyScan/moduleTemplate.json",
+        "Zetsu_link": "zetsuapp://?moduleData=https://raw.githubusercontent.com/Danyspb/Modules-Ketsu/main/CrunchyScan/moduleTemplate.json"
+    },
+    {
+        "name": "MangaHub | ENG",
+        "author": "Danyspb",
+        "image": "https://mangahub.io/logo-small.png",
+        "info": "A module for reading mangas weebtoon manhwa and others",
+        "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Danyspb/Modules-Ketsu/main/Mangahub/moduleTemplate.json",
+        "Zetsu_link": "zetsuapp://?moduleData=https://raw.githubusercontent.com/Danyspb/Modules-Ketsu/main/Mangahub/moduleTemplate.json"
     }],
     "text": [{
         "name": "Livre1 | FR",

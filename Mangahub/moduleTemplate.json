@@ -1,0 +1,760 @@
+{
+    "moduleInfo": {
+        "moduleName": "MangaHub",
+        "moduleInitials": "MH",
+        "moduleDesc": "An module for read mangas, webtoon, manhwa and other",
+        "developer": "Danyspb4ever",
+        "moduleID": "463123489749541",
+        "moduleImage": "https://mangahub.io/logo-small.png",
+        "moduleVersion": 1.11111,
+        "moduleLenguage": "ENG",
+        "moduleType": "Image",
+        "baseURL": "https://mangahub.io/",
+        "moduleDeveloperSite": "https://github.com/Danyspb/Modules-Ketsu/tree/main/Mangahub",
+        "UpdateSite": "https://raw.githubusercontent.com/Danyspb/Modules-Ketsu/main/Mangahub/moduleTemplate.json",
+        "preferedServer": "",
+        "preferedDownloadServer": "",
+        "blackListed": [""],
+        "moduleCreatorIdxBHpxsuFEXBKbBcYsoiQ": {
+            "path": "QPNSL",
+            "id": "moduleInfosection",
+            "sectionsHidden": [],
+            "options": {
+                "name": "Module Info",
+                "listName": "Parameters"
+            },
+            "cellsHidden": false
+        },
+        "moduleCreatorIdYmmDMxmkylLsiCNxgEYy": {
+            "path": "bbXsa",
+            "id": "moduleInfocell",
+            "sectionsHidden": [],
+            "options": {
+                "name": "Parameters"
+            },
+            "cellsHidden": false
+        }
+    },
+    "global": {
+        "variables": [{
+            "key": "",
+            "value": ""
+        }],
+        "cookies": [{
+            "key": "",
+            "value": ""
+        }],
+        "headers": [{
+            "key": "",
+            "value": ""
+        }]
+    },
+    "mainPage": [{
+        "request": {
+            "url": "https://mangahub.io/",
+            "method": "get",
+            "headers": [{
+                "key": "",
+                "value": "",
+                "moduleCreatorHeaderisActive": true
+            }]
+        },
+        "extra": {
+            "commands": [{
+                "commandName": "",
+                "params": [{
+                    "key": "",
+                    "value": ""
+                }]
+            }],
+            "extraInfo": [{
+                "key": "",
+                "value": ""
+            }]
+        },
+        "javascriptConfig": {
+            "removeJavascript": true,
+            "loadInWebView": false,
+            "javaScript": "\n        try {\n\n            /* JAVASCRIPT STARTS */ try {\n\n            /* JAVASCRIPT STARTS */  \n\n// SCROLL TO LINE 277 TO START CODING.\n\n\n/**\n * @enum { string }\n */\nconst DefaultLayouts = {\n        ultraWideFull: 'ultraWideFull',\n        ultraWide: 'ultraWide',\n        wideFull: 'wideFull',\n        wide: 'wide',\n        wideStrechedFull: 'wideStrechedFull',\n        wideStrechedFullDouble: 'WideStrechedFullDouble',\n        wideStreched: 'wideStreched',\n        wideStrechedDouble: 'wideStrechedDouble',\n        wideStrechedFullList: 'wideStrechedFullList',\n        wideStrechedList: 'wideStrechedList',\n        doublets: 'doublets',\n        doubletsDouble: 'doubletsDouble',\n        doubletsFull: 'doubletsFull',\n        doubletsFullDouble: 'doubletsFullDouble',\n        doubletsConstant: 'doubletsConstant',\n        doubletsDoubleConstant: 'doubletsDoubleConstant',\n        doubletsFullConstant: 'doubletsFullConstant',\n        doubletsFullDoubleConstant: 'doubletsFullDoubleConstant',\n        longDoublets: 'longDoublets',\n        longDoubletsDouble: 'longDoubletsDouble',\n        longDoubletsFull: 'longDoubletsFull',\n        longDoubletsFullDouble: 'longDoubletsFullDouble',\n        longDoubletsConstant: 'longDoubletsConstant',\n        longDoubletsDoubleConstant: 'longDoubletsDoubleConstant',\n        longDoubletsFullConstant: 'longDoubletsFullConstant',\n        longDoubletsFullDoubleConstant: 'longDoubletsFullDoubleConstant',\n        triplets: 'triplets',\n        tripletsDouble: 'tripletsDouble',\n        tripletsFull: 'tripletsFull',\n        tripletsFullDouble: 'tripletsFullDouble',\n        tripletsConstant: 'tripletsConstant',\n        tripletsDoubleConstant: 'tripletsDoubleConstant',\n        tripletsFullConstant: 'tripletsFullConstant',\n        tripletsFullDoubleConstant: 'tripletsFullDoubleConstant',\n        longTriplets: 'longTriplets',\n        longTripletsDouble: 'longTripletsDouble',\n        longTripletsFull: 'longTripletsFull',\n        longTripletsFullDouble: 'longTripletsFullDouble',\n        longTripletsConstant: 'longTripletsConstant',\n        longTripletsDoubleConstant: 'longTripletsDoubleConstant',\n        longTripletsFullConstant: 'longTripletsFullConstant',\n        longTripletsFullDoubleConstant: 'longTripletsFullDoubleConstant',\n        none: ''\n};\n\n/**\n * @enum { string }\n */\nconst CellDesings = {\n        Special1: 'Special1',\n        Special2: 'Special2',\n        Special3: 'Special3',\n        CELLHelperText: 'CELLHelperText',\n        small1: 'small1',\n        small2: 'small2',\n        normal1: 'normal1',\n        normal2: 'normal2',\n        normal3: 'normal3',\n        normal4: 'normal4',\n        normal5: 'normal5',\n        normal6: 'normal6',\n        normal7: 'normal7',\n        wide1: 'wide1',\n        wide2: 'wide2',\n        wide3: 'wide3',\n        wide4: 'wide4',\n        wide5: 'wide5',\n        wide6: 'wide6',\n        wide7: 'wide7',\n        wide8: 'wide8',\n        wide9: 'wide9',\n        wide10: 'wide10',\n        wide11: 'wide11'\n};\n\n/**\n * @enum { string }\n */\nconst Paging = {\n        leading: 'leading',\n        centered: 'centered',\n        none: ''\n};\n\n/**\n * @enum { string }\n */\nconst Orientation = {\n        horizontal: 'horizontal',\n        vertical: 'vertical'\n};\n\n/**\n * @param {ModuleRequest} request\n * @param {Extra} extra  \n * @param {JavascriptConfig} javascriptConfig \n * @param {Output[]} output \n */\nfunction MainPage ( request, extra, javascriptConfig, output ) {\n        this.request = request;\n        this.extra = extra;\n        this.javascriptConfig = javascriptConfig;\n        this.output = output;\n}\n/**\n * @param {string} url\n * @param {string} method  \n * @param {KeyValue[]} headers \n * @param {string} [httpBody] \n */\nfunction ModuleRequest ( url, method, headers, httpBody ) {\n        this.url = url;\n        this.method = method;\n        this.headers = headers;\n        this.httpBody = httpBody;\n}\n/**\n * @param {Commands[]} commands\n * @param {KeyValue[]} extraInfo \n */\nfunction Extra ( commands, extraInfo ) {\n        this.commands = commands;\n        this.extraInfo = extraInfo;\n}\n/**\n * @param {string} commandName\n * @param {KeyValue[]} params \n */\nfunction Commands ( commandName, params ) {\n        this.commandName = commandName;\n        this.params = params;\n}\n/**\n * @param {boolean} removeJavascript\n * @param {boolean} loadInWebView \n*/\nfunction JavascriptConfig ( removeJavascript, loadInWebView ) {\n        this.removeJavascript = removeJavascript;\n        this.loadInWebView = loadInWebView;\n        this.javaScript = \"\";\n}\n/**\n * @param {string} key\n * @param {string} value \n\n*/\nfunction KeyValue ( key, value ) {\n        this.key = key;\n        this.value = value;\n}\n/**\n * @param {CellDesings} cellDesing - Example : CellDesings.normal1\n * @param {Orientation} orientation  - Example : Orientation.vertical\n * @param {DefaultLayouts} defaultLayout  - Example : DefaultLayouts.longDoubletsFull\n * @param {Paging} paging  - Example : Paging.centered\n * @param {Section} section\n * @param {Layout} [layout] - If you setted a default layout you can set this parameter to undefined\n * @param {Data[]} data \n */\nfunction Output ( cellDesing, orientation, defaultLayout, paging, section, layout, data ) {\n        this.cellDesing = cellDesing;\n        this.orientation = orientation;\n        this.defaultLayout = defaultLayout;\n        this.paging = paging;\n        this.section = section;\n        this.layout = layout;\n        this.data = data;\n}\n/**\n * @param {string} sectionName\n * @param {boolean} separator \n */\nfunction Section ( sectionName, separator ) {\n        this.sectionName = sectionName;\n        this.separator = separator;\n}\n/**\n * @param {Insets} insets\n * @param {number} [visibleCellsWidthS]\n * @param {number} [visibleCellsWidthM]\n * @param {number} [visibleCellsWidthL]\n * @param {number} [visibleCellsHeight]\n * @param {number} heightForVisibleCells\n * @param {Insets} cellSize\n * @param {Ratio} [ratio]\n * @param {Size} constant\n * @param {number} horizontalSpacing\n * @param {number} verticalSpacing\n */\nfunction Layout ( insets, visibleCellsWidthS, visibleCellsWidthM, visibleCellsWidthL, visibleCellsHeight, heightForVisibleCells, cellSize, ratio, constant, horizontalSpacing, verticalSpacing ) {\n        this.insets = insets;\n        this.visibleCellsWidthS = visibleCellsWidthS;\n        this.visibleCellsWidthM = visibleCellsWidthM;\n        this.visibleCellsWidthL = visibleCellsWidthL;\n        this.visibleCellsHeight = visibleCellsHeight;\n        this.heightForVisibleCells = heightForVisibleCells;\n        this.cellSize = cellSize;\n        this.ratio = ratio;\n        this.constant = constant;\n        this.horizontalSpacing = horizontalSpacing;\n        this.verticalSpacing = verticalSpacing;\n}\n/**\n * @param {number} top\n * @param {number} bottom\n * @param {number} left\n* @param {number} right\n*/\nfunction Insets ( top, bottom, left, right ) {\n        this.top = top;\n        this.bottom = bottom;\n        this.left = left;\n        this.right = right;\n}\n/**\n * @param {number} top\n * @param {number} bottom\n * @param {number} left\n* @param {number} right\n*/\nfunction Size ( width, height ) {\n        this.width = width;\n        this.height = height;\n}\n/**\n * @param {RatioRelation} inRelation\n * @param {number} number1\n * @param {number} number2\n */\nfunction Ratio ( inRelation, number1, number2 ) {\n        this.inRelation = inRelation;\n        this.number1 = number1;\n        this.number2 = number2;\n}\n/**\n * @enum { string }\n */\nconst RatioRelation = {\nwidth: 'width',\nheight: 'height'\n}\n/**\n * @param {ModuleRequest} image\n * @param {string} title\n * @param {string} description\n * @param {string} field1\n * @param {string} field2\n * @param {string} field3\n * @param {string} field4\n * @param {boolean} isChapter\n * @param {ModuleRequest} link\n * @param {boolean} [openInWebView]\n */\nfunction Data ( image, title, description, field1, field2, field3, field4, isChapter, link, openInWebView ) {\n        this.image = image;\n        this.title = title;\n        this.description = description;\n        this.field1 = field1;\n        this.field2 = field2;\n        this.field3 = field3;\n        this.field4 = field4;\n        this.isChapter = isChapter;\n        this.link = link;\n        this.openInWebView = openInWebView;\n}\n\n/*\nCODE STARTS HERE: \n\n- What you need to do is to create a MainPage Object and save it as a json string on the div with the id: ketsu-final-data, to be more precise the one saved on the variable called savedData below this comment.\n\n- Most of the code is already done, you just need to fill the output variable with an array of Output objects.\n*/\n\nvar savedData = document.getElementById( 'ketsu-final-data' );\nvar parsedJson = JSON.parse( savedData.innerHTML );\nlet emptyKeyValue = [ new KeyValue( '', '' ) ];\nlet output = [ ];\nlet sortie = [];\nlet sortie1 = [];\nlet sortie3 = [];\n\nvar donn = document.querySelectorAll('.manga-slide');\nfor( d of donn){\n    let title = d.querySelector('.m-slide-title').textContent;\n    let image = d.querySelector('.m-slide-background').style.backgroundImage.match(/http.*(jpg|png|jpeg)/gm)[0];\n    image = new ModuleRequest(image, 'get', emptyKeyValue, null);\n    var link  = d.querySelector('a').href;\n    link = new ModuleRequest(link, 'get', emptyKeyValue, null);\n    sortie.push(new Data(image, title, 'Popular Update', '', '', '', '', false, link));\n}\nvar hot = document.querySelectorAll('._11E7v .media');\nfor (h of hot){\n    let image = h.querySelector('.media-left a img').src;\n    image = new ModuleRequest(image, 'get', emptyKeyValue, null);\n    let link = h.querySelector('.media-left a').href;\n    link = new ModuleRequest(link, 'get', emptyKeyValue, null);\n    let title = h.querySelector('.media-body .text-secondary').textContent;\n    sortie1.push(new Data(image, title, '', '', '', '', '', false, link));\n}\n\nvar tou = document.querySelectorAll('._2FkQT.list-group .media');\nfor ( t of tou ){\n    let title = t.querySelector('.media-heading a').textContent;\n    let image = t.querySelector('.media-left a img').src;\n    image = new ModuleRequest(image, 'get', emptyKeyValue, null);\n    let link = t.querySelector('.media-left a').href;\n    link = new ModuleRequest(link, 'get', emptyKeyValue, null);\n    let dat = t.querySelector('.media-heading small').textContent;\n    let chap = 'Chapter: '+t.querySelector('.text-secondary ._3D1SJ').textContent.replace('#','').trim();\n    sortie3.push(new Data(image, title, '',chap,'','','',false,link));\n}\n\noutput.push(new Output(CellDesings.wide11, Orientation.horizontal, DefaultLayouts.wideFull, Paging.leading, new Section('', false), null, sortie));\noutput.push(new Output(CellDesings.normal7, Orientation.horizontal, DefaultLayouts.longDoublets, Paging.leading, new Section('Popular Mangas :', true), null, sortie1));\noutput.push(new Output(CellDesings.normal1, Orientation.horizontal, DefaultLayouts.longTripletsDouble, Paging.leading, new Section('Latest Manga :', true), null, sortie3));\nlet mainPageObject = new MainPage( new ModuleRequest( '', 'get', emptyKeyValue, null ), new Extra( [ new Commands( '', emptyKeyValue ) ], emptyKeyValue ), new JavascriptConfig( true, false), output );\nvar finalJson = JSON.stringify( mainPageObject );\nsavedData.innerHTML = finalJson;\n  /* JAVASCRIPT ENDS */\n\n        } catch (e) {\n            console.error(e.message);\n\n            if (typeof KETSU_ASYNC !== 'undefined') {\n                window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');\n            }\n\n        } /* JAVASCRIPT ENDS */\n\n        } catch (e) {\n            console.error(e.message);\n\n            if (typeof KETSU_ASYNC !== 'undefined') {\n                window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');\n            }\n\n        }\n        \n        "
+        },
+        "output": [{
+            "cellDesing": "normal1",
+            "orientation": "vertical",
+            "defaultLayout": "wide",
+            "paging": "",
+            "section": {
+                "sectionName": "",
+                "separator": false
+            },
+            "layout": {
+                "insets": {
+                    "top": 0,
+                    "bottom": 0,
+                    "left": 0,
+                    "right": 0
+                },
+                "visibleCellsWidthS": 2,
+                "visibleCellsWidthM": 2,
+                "visibleCellsWidthL": 2,
+                "visibleCellsHeight": 2,
+                "heightForVisibleCells": 400,
+                "cellSize": {
+                    "width": 300,
+                    "height": 300
+                },
+                "ratio": {
+                    "inRelation": "width",
+                    "number1": 1,
+                    "number2": 2
+                },
+                "constant": {
+                    "width": 1,
+                    "height": 2
+                },
+                "horizontalSpacing": 0,
+                "verticalSpacing": 0
+            },
+            "data": [{
+                "image": {
+                    "url": "",
+                    "method": "get",
+                    "headers": [{
+                        "key": "",
+                        "value": ""
+                    }],
+                    "httpBody": null
+                },
+                "title": "",
+                "description": "",
+                "field1": "",
+                "field2": "",
+                "field3": "",
+                "field4": "",
+                "openInWebView": false,
+                "isChapter": false,
+                "link": {
+                    "url": "",
+                    "method": "",
+                    "headers": [{
+                        "key": "",
+                        "value": ""
+                    }],
+                    "httpBody": null
+                }
+            }]
+        }],
+        "moduleCreatorIdvWyghwjsVxljCSkrbVwP": {
+            "path": "dztjZ",
+            "id": "mainPage,0cell",
+            "sectionsHidden": [],
+            "options": {
+                "name": "Request"
+            },
+            "cellsHidden": false,
+            "openedMenu": "Javascript"
+        }
+    }],
+    "search": [{
+        "request": {
+            "url": "",
+            "method": "get",
+            "headers": [{
+                "key": "",
+                "value": ""
+            }]
+        },
+        "separator": "",
+        "extra": {
+            "commands": [{
+                "commandName": "",
+                "params": [{
+                    "key": "",
+                    "value": ""
+                }]
+            }],
+            "extraInfo": [{
+                "key": "",
+                "value": ""
+            }]
+        },
+        "javascriptConfig": {
+            "removeJavascript": true,
+            "loadInWebView": false,
+            "javaScript": "\n        try {\n\n            /* JAVASCRIPT STARTS */  \n\n// SCROLL TO LINE 274 TO START CODING.\n\n\n/**\n * @enum { string }\n */\nconst DefaultLayouts = {\n        ultraWideFull: 'ultraWideFull',\n        ultraWide: 'ultraWide',\n        wideFull: 'wideFull',\n        wide: 'wide',\n        wideStrechedFull: 'wideStrechedFull',\n        wideStrechedFullDouble: 'WideStrechedFullDouble',\n        wideStreched: 'wideStreched',\n        wideStrechedDouble: 'wideStrechedDouble',\n        wideStrechedFullList: 'wideStrechedFullList',\n        wideStrechedList: 'wideStrechedList',\n        doublets: 'doublets',\n        doubletsDouble: 'doubletsDouble',\n        doubletsFull: 'doubletsFull',\n        doubletsFullDouble: 'doubletsFullDouble',\n        doubletsConstant: 'doubletsConstant',\n        doubletsDoubleConstant: 'doubletsDoubleConstant',\n        doubletsFullConstant: 'doubletsFullConstant',\n        doubletsFullDoubleConstant: 'doubletsFullDoubleConstant',\n        longDoublets: 'longDoublets',\n        longDoubletsDouble: 'longDoubletsDouble',\n        longDoubletsFull: 'longDoubletsFull',\n        longDoubletsFullDouble: 'longDoubletsFullDouble',\n        longDoubletsConstant: 'longDoubletsConstant',\n        longDoubletsDoubleConstant: 'longDoubletsDoubleConstant',\n        longDoubletsFullConstant: 'longDoubletsFullConstant',\n        longDoubletsFullDoubleConstant: 'longDoubletsFullDoubleConstant',\n        triplets: 'triplets',\n        tripletsDouble: 'tripletsDouble',\n        tripletsFull: 'tripletsFull',\n        tripletsFullDouble: 'tripletsFullDouble',\n        tripletsConstant: 'tripletsConstant',\n        tripletsDoubleConstant: 'tripletsDoubleConstant',\n        tripletsFullConstant: 'tripletsFullConstant',\n        tripletsFullDoubleConstant: 'tripletsFullDoubleConstant',\n        longTriplets: 'longTriplets',\n        longTripletsDouble: 'longTripletsDouble',\n        longTripletsFull: 'longTripletsFull',\n        longTripletsFullDouble: 'longTripletsFullDouble',\n        longTripletsConstant: 'longTripletsConstant',\n        longTripletsDoubleConstant: 'longTripletsDoubleConstant',\n        longTripletsFullConstant: 'longTripletsFullConstant',\n        longTripletsFullDoubleConstant: 'longTripletsFullDoubleConstant',\n        none: ''\n};\n/**\n * @enum { string }\n */\nconst CellDesings = {\n        Special1: 'Special1',\n        Special2: 'Special2',\n        Special3: 'Special3',\n        CELLHelperText: 'CELLHelperText',\n        small1: 'small1',\n        small2: 'small2',\n        normal1: 'normal1',\n        normal2: 'normal2',\n        normal3: 'normal3',\n        normal4: 'normal4',\n        normal5: 'normal5',\n        normal6: 'normal6',\n        normal7: 'normal7',\n        wide1: 'wide1',\n        wide2: 'wide2',\n        wide3: 'wide3',\n        wide4: 'wide4',\n        wide5: 'wide5',\n        wide6: 'wide6',\n        wide7: 'wide7',\n        wide8: 'wide8',\n        wide9: 'wide9',\n        wide10: 'wide10',\n        wide11: 'wide11'\n};\n/**\n * @enum { string }\n */\nconst Paging = {\n        leading: 'leading',\n        centered: 'centered',\n        none: ''\n};\n/**\n * @enum { string }\n */\nconst Orientation = {\n        horizontal: 'horizontal',\n        vertical: 'vertical'\n};\n/**\n * @param {string} url\n * @param {string} method  \n * @param {KeyValue[]} headers \n * @param {string} [httpBody] \n */\nfunction ModuleRequest ( url, method, headers, httpBody ) {\n        this.url = url;\n        this.method = method;\n        this.headers = headers;\n        this.httpBody = httpBody;\n}\n/**\n * @param {Commands[]} commands\n * @param {KeyValue[]} extraInfo \n */\nfunction Extra ( commands, extraInfo ) {\n        this.commands = commands;\n        this.extraInfo = extraInfo;\n}\n/**\n * @param {string} commandName\n * @param {KeyValue[]} params \n */\nfunction Commands ( commandName, params ) {\n        this.commandName = commandName;\n        this.params = params;\n}\n/**\n * @param {boolean} removeJavascript\n * @param {boolean} loadInWebView \n*/\nfunction JavascriptConfig ( removeJavascript, loadInWebView ) {\n        this.removeJavascript = removeJavascript;\n        this.loadInWebView = loadInWebView;\n        this.javaScript = \"\";\n}\n/**\n * @param {string} key\n * @param {string} value \n*/\nfunction KeyValue ( key, value ) {\n        this.key = key;\n        this.value = value;\n}\n/**\n * @param {CellDesings} cellDesing - Example : CellDesings.normal1\n * @param {Orientation} orientation  - Example : Orientation.vertical\n * @param {DefaultLayouts} defaultLayout  - Example : DefaultLayouts.longDoubletsFull\n * @param {Paging} paging  - Example : Paging.centered\n * @param {Section} section\n * @param {Layout} [layout] - If you setted a default layout you can set this parameter to undefined\n * @param {Data[]} data \n */\nfunction Output ( cellDesing, orientation, defaultLayout, paging, section, layout, data ) {\n        this.cellDesing = cellDesing;\n        this.orientation = orientation;\n        this.defaultLayout = defaultLayout;\n        this.paging = paging;\n        this.section = section;\n        this.layout = layout;\n        this.data = data;\n}\n/**\n * @param {string} sectionName\n * @param {boolean} separator \n */\nfunction Section ( sectionName, separator ) {\n        this.sectionName = sectionName;\n        this.separator = separator;\n}\n/**\n * @param {Insets} insets\n * @param {number} [visibleCellsWidthS]\n * @param {number} [visibleCellsWidthM]\n * @param {number} [visibleCellsWidthL]\n * @param {number} [visibleCellsHeight]\n * @param {number} heightForVisibleCells\n * @param {Insets} cellSize\n * @param {Ratio} [ratio]\n * @param {Size} constant\n * @param {number} horizontalSpacing\n * @param {number} verticalSpacing\n */\nfunction Layout ( insets, visibleCellsWidthS, visibleCellsWidthM, visibleCellsWidthL, visibleCellsHeight, heightForVisibleCells, cellSize, ratio, constant, horizontalSpacing, verticalSpacing ) {\n        this.insets = insets;\n        this.visibleCellsWidthS = visibleCellsWidthS;\n        this.visibleCellsWidthM = visibleCellsWidthM;\n        this.visibleCellsWidthL = visibleCellsWidthL;\n        this.visibleCellsHeight = visibleCellsHeight;\n        this.heightForVisibleCells = heightForVisibleCells;\n        this.cellSize = cellSize;\n        this.ratio = ratio;\n        this.constant = constant;\n        this.horizontalSpacing = horizontalSpacing;\n        this.verticalSpacing = verticalSpacing;\n}\n/**\n * @param {number} top\n * @param {number} bottom\n * @param {number} left\n* @param {number} right\n*/\nfunction Insets ( top, bottom, left, right ) {\n        this.top = top;\n        this.bottom = bottom;\n        this.left = left;\n        this.right = right;\n}\n/**\n * @param {number} top\n * @param {number} bottom\n * @param {number} left\n* @param {number} right\n*/\nfunction Size ( width, height ) {\n        this.width = width;\n        this.height = height;\n}\n\n/**\n * @param {RatioRelation} inRelation\n * @param {number} number1\n * @param {number} number2\n */\nfunction Ratio ( inRelation, number1, number2 ) {\n        this.inRelation = inRelation;\n        this.number1 = number1;\n        this.number2 = number2;\n}\n/**\n * @enum { string }\n */\nconst RatioRelation = {\nwidth: 'width',\nheight: 'height'\n}\n/**\n * @param {ModuleRequest} image\n * @param {string} title\n * @param {string} description\n * @param {string} field1\n * @param {string} field2\n * @param {string} field3\n * @param {string} field4\n * @param {boolean} isChapter\n * @param {ModuleRequest} link\n * @param {boolean} [openInWebView]\n */\nfunction Data ( image, title, description, field1, field2, field3, field4, isChapter, link, openInWebView ) {\n        this.image = image;\n        this.title = title;\n        this.description = description;\n        this.field1 = field1;\n        this.field2 = field2;\n        this.field3 = field3;\n        this.field4 = field4;\n        this.isChapter = isChapter;\n        this.link = link;\n        this.openInWebView = openInWebView;\n}\n/**\n * @param {ModuleRequest} request\n * @param {Extra} extra  \n * @param {JavascriptConfig} javascriptConfig \n * @param {Output[]} output \n */\nfunction Search ( request, extra, javascriptConfig, output ) {\n        this.request = request;\n        this.extra = extra;\n        this.separator = \"\";\n        this.javascriptConfig = javascriptConfig;\n        this.output = output;\n}\n\n/*\nCODE STARTS HERE: \n\n- What you need to do is to create a Search Object and save it as a json string on the div with the id: ketsu-final-data, to be more precise the one saved on the variable called savedData below this comment.\n\n- Most of the code is already done, you just need to fill the output variable with an array of Output objects.\n*/\n\nvar savedData = document.getElementById( 'ketsu-final-data' );\nvar parsedJson = JSON.parse( savedData.innerHTML );\nlet emptyKeyValue = [ new KeyValue( '', '' ) ];\nlet output = [ ]; // Array of Output Objects\n\n/*\n// Sample Output array, if you uncomment this code and execute you will see the result on the KETSU app.\nlet sampleData = []\n\nfor (var x = 0; x < 20; x++) {\n        sampleData.push(new Data(new ModuleRequest('https://d1fdloi71mui9q.cloudfront.net/1JBIg7XxQ3WqZ8AAZPiz_GydL9KJ3v5AKUN1B','GET',emptyKeyValue,undefined),\n        \"This is the title\",\n        \"Description\",\n        \"Field 1\",\n        \"Field 2\",\n        \"Feild 3\",\n        \"Field 4\",\n        false,\nnew ModuleRequest('https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Example_image.svg/600px-Example_image.svg.png,','GET',emptyKeyValue,undefined),\n        false))\n}\n\n// In this case im are going to use a custom layout for this example so you can see how it works but you can try out default layouts. This design is also great to display search results.\nvar testLayout = new Layout(new Insets(10, 10, 10, 10), 1, 2, 3, 1, 500, new Size(400, 400), new Ratio('width', 4, 11), new Size(0, 0), 10, 10);\n\noutput = [\nnew Output(CellDesings.wide11, Orientation.vertical, DefaultLayouts.wideFull, Paging.none, new Section('', false), testLayout, sampleData)\n]\n*/\n\nlet searchPageObject = new Search( new ModuleRequest( '', '', emptyKeyValue, null ), new Extra( [ new Commands( '', emptyKeyValue ) ], emptyKeyValue ),  new JavascriptConfig( true, false ), output );\nvar finalJson = JSON.stringify( searchPageObject );\nsavedData.innerHTML = finalJson;  /* JAVASCRIPT ENDS */\n\n        } catch (e) {\n            console.error(e.message);\n\n            if (typeof KETSU_ASYNC !== 'undefined') {\n                window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');\n            }\n\n        }\n        \n        "
+        },
+        "output": [{
+            "cellDesing": "normal1",
+            "orientation": "vertical",
+            "defaultLayout": "wide",
+            "paging": "",
+            "section": {
+                "sectionName": "",
+                "separator": false
+            },
+            "layout": {
+                "insets": {
+                    "top": 0,
+                    "bottom": 0,
+                    "left": 0,
+                    "right": 0
+                },
+                "visibleCellsWidthS": 2,
+                "visibleCellsWidthM": 2,
+                "visibleCellsWidthL": 2,
+                "visibleCellsHeight": 2,
+                "heightForVisibleCells": 400,
+                "cellSize": {
+                    "width": 300,
+                    "height": 300
+                },
+                "ratio": {
+                    "inRelation": "width",
+                    "number1": 1,
+                    "number2": 2
+                },
+                "constant": {
+                    "width": 1,
+                    "height": 2
+                },
+                "horizontalSpacing": 0,
+                "verticalSpacing": 0
+            },
+            "data": [{
+                "image": {
+                    "url": "",
+                    "method": "get",
+                    "headers": [{
+                        "key": "",
+                        "value": ""
+                    }],
+                    "httpBody": null
+                },
+                "title": "",
+                "description": "",
+                "field1": "",
+                "field2": "",
+                "field3": "",
+                "field4": "",
+                "openInWebView": false,
+                "isChapter": false,
+                "link": {
+                    "url": "empty",
+                    "method": "get",
+                    "headers": [{
+                        "key": "key",
+                        "value": "value"
+                    }],
+                    "httpBody": null
+                }
+            }]
+        }],
+        "moduleCreatorIdtJFGteUUVKgjxrxuKGjx": {
+            "path": "CpxsW",
+            "id": "search,0cell",
+            "sectionsHidden": [],
+            "options": {
+                "name": "Request"
+            },
+            "cellsHidden": false
+        }
+    }],
+    "info": [{
+        "request": {
+            "url": "",
+            "method": "get",
+            "headers": [{
+                "key": "",
+                "value": ""
+            }]
+        },
+        "extra": {
+            "commands": [{
+                "commandName": "",
+                "params": [{
+                    "key": "",
+                    "value": ""
+                }]
+            }],
+            "extraInfo": [{
+                "key": "",
+                "value": ""
+            }]
+        },
+        "javascriptConfig": {
+            "removeJavascript": true,
+            "loadInWebView": false,
+            "javaScript": "\n        try {\n\n            /* JAVASCRIPT STARTS */  \n\n// SCROLL TO LINE 100 TO START CODING.\n\n\n/**\n * @param {ModuleRequest} request\n * @param {Extra} extra  \n * @param {JavascriptConfig} javascriptConfig \n * @param {Output} output \n */\nfunction Info ( request, extra, javascriptConfig, output ) {\n        this.request = request;\n        this.extra = extra;\n        this.javascriptConfig = javascriptConfig;\n        this.output = output;\n}\n/**\n * @param {string} url\n * @param {string} method  \n * @param {KeyValue[]} headers \n * @param {string} [httpBody] \n */\nfunction ModuleRequest ( url, method, headers, httpBody ) {\n        this.url = url;\n        this.method = method;\n        this.headers = headers;\n        this.httpBody = httpBody;\n}\n/**\n * @param {Commands[]} commands\n * @param {KeyValue[]} extraInfo \n */\nfunction Extra ( commands, extraInfo ) {\n        this.commands = commands;\n        this.extraInfo = extraInfo;\n}\n/**\n * @param {string} commandName\n * @param {KeyValue[]} params \n */\nfunction Commands ( commandName, params ) {\n        this.commandName = commandName;\n        this.params = params;\n}\n/**\n * @param {boolean} removeJavascript\n * @param {boolean} loadInWebView \n\n*/\nfunction JavascriptConfig ( removeJavascript, loadInWebView ) {\n        this.removeJavascript = removeJavascript;\n        this.loadInWebView = loadInWebView;\n        this.javaScript = \"\";\n}\n/**\n * @param {string} key\n * @param {string} value \n*/\nfunction KeyValue ( key, value ) {\n        this.key = key;\n        this.value = value;\n}\n/**\n * @param {string} chapName\n * @param {ModuleRequest} link\n* @param {boolean} openInWebView\n */\nfunction Chapter ( chapName, link, openInWebView ) {\n        this.chapName = chapName;\n        this.link = link;\n        this.openInWebView = openInWebView;\n}\n/**\n * @param {ModuleRequest} image\n * @param {ModuleRequest} link -This needs to be the url of the first request. If you only have one requests you can do parsedJson.request\n * @param {string} title\n * @param {string} description\n * @param {string[]} genres\n * @param {string} field1\n * @param {string} field2\n * @param {string} field3\n * @param {string} field4\n * @param {Chapter[]} chapters\n */\nfunction Output ( image, title, link, description, genres, field1, field2, field3, field4, chapters ) {\n        this.image = image;\n        this.link = link;\n        this.title = title;\n        this.description = description;\n        this.genres = genres;\n        this.field1 = field1;\n        this.field2 = field2;\n        this.field3 = field3;\n        this.field4 = field4;\n        this.chapters = chapters;\n}\n\n/*\nCODE STARTS HERE: \n\n- What you need to do is to create a Info Object and save it as a json string on the div with the id: ketsu-final-data, to be more precise the one saved on the variable called savedData below this comment.\n\n- Most of the code is already done, you just need to fill the output variable with an Output object.\n*/\n\n\nvar savedData = document.getElementById( 'ketsu-final-data' );\nvar parsedJson = JSON.parse( savedData.innerHTML );\nvar emptyKeyValue = [ new KeyValue( '', '' ) ];\nvar output;  // type : Output\n\n\n/*\n// This is an example of code, if you uncomment this and execute it the data needed will be filled and it will display Info page completed on the KETSU app.\n\noutput = new Output(\n        new ModuleRequest('https://d1fdloi71mui9q.cloudfront.net/1JBIg7XxQ3WqZ8AAZPiz_GydL9KJ3v5AKUN1B','GET',[],undefined),\n        'This is the title', \n        parsedJson.request,\n        'This is the description',\n        ['genre','another one'],\n        \"field 1\",\n        'field2',\n        'field 3',\n        'field 4',\n        [new Chapter('Chapter example',new ModuleRequest('','GET',[],undefined),false)])\n*/\n\nlet infoPageObject = new Info( new ModuleRequest( '', '', emptyKeyValue, null ), new Extra( [ new Commands( '', emptyKeyValue ) ], emptyKeyValue ), new JavascriptConfig( false, false),output );\nvar finalJson = JSON.stringify( infoPageObject );\nsavedData.innerHTML = finalJson;\n  /* JAVASCRIPT ENDS */\n\n        } catch (e) {\n            console.error(e.message);\n\n            if (typeof KETSU_ASYNC !== 'undefined') {\n                window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');\n            }\n\n        }\n        \n        "
+        },
+        "output": {
+            "image": {
+                "url": "",
+                "method": "get",
+                "headers": [{
+                    "key": "",
+                    "value": ""
+                }],
+                "httpBody": null
+            },
+            "link": {
+                "url": "",
+                "method": "get",
+                "headers": [{
+                    "key": "",
+                    "value": ""
+                }],
+                "httpBody": null
+            },
+            "title": "",
+            "description": "",
+            "genres": [""],
+            "field1": "",
+            "field2": "",
+            "field3": "",
+            "field4": "",
+            "chapters": [{
+                "chapName": "",
+                "openInWebView": false,
+                "link": {
+                    "url": "empty",
+                    "method": "get",
+                    "headers": [{
+                        "key": "key",
+                        "value": "value"
+                    }],
+                    "httpBody": null
+                }
+            }]
+        },
+        "moduleCreatorIdBmOBNGKEsOEHVkrdcuGG": {
+            "path": "iFKbN",
+            "id": "info,0cell",
+            "sectionsHidden": [],
+            "options": {
+                "name": "Request"
+            },
+            "cellsHidden": false
+        }
+    }],
+    "chapters": [{
+        "request": {
+            "url": "",
+            "method": "get",
+            "headers": [{
+                "key": "",
+                "value": ""
+            }]
+        },
+        "extra": {
+            "commands": [{
+                "commandName": "",
+                "params": [{
+                    "key": "",
+                    "value": ""
+                }]
+            }],
+            "extraInfo": [{
+                "key": "",
+                "value": ""
+            }]
+        },
+        "javascriptConfig": {
+            "removeJavascript": true,
+            "loadInWebView": false,
+            "javaScript": "\n        try {\n\n            /* JAVASCRIPT STARTS */  \n\n// SCROLL TO LINE 123 TO START CODING.\n\n\n/**\n * @param {ModuleRequest} request\n * @param {Extra} extra  \n * @param {JavascriptConfig} javascriptConfig \n * @param {Output} output \n */\nfunction Chapters ( request, extra, javascriptConfig, output ) {\n        this.request = request;\n        this.extra = extra;\n        this.javascriptConfig = javascriptConfig;\n        this.output = output;\n}\n/**\n * @param {string} url\n * @param {string} method  \n * @param {KeyValue[]} headers \n * @param {string} [httpBody] \n */\nfunction ModuleRequest ( url, method, headers, httpBody ) {\n        this.url = url;\n        this.method = method;\n        this.headers = headers;\n        this.httpBody = httpBody;\n}\n/**\n * @param {Commands[]} commands\n * @param {KeyValue[]} extraInfo \n */\nfunction Extra ( commands, extraInfo ) {\n        this.commands = commands;\n        this.extraInfo = extraInfo;\n}\n/**\n * @param {string} commandName\n * @param {KeyValue[]} params \n */\nfunction Commands ( commandName, params ) {\n        this.commandName = commandName;\n        this.params = params;\n}\n/**\n * @param {boolean} removeJavascript\n * @param {boolean} loadInWebView \n\n*/\nfunction JavascriptConfig ( removeJavascript, loadInWebView ) {\n        this.removeJavascript = removeJavascript;\n        this.loadInWebView = loadInWebView;\n        this.javaScript = \"\";\n}\n/**\n * @param {string} key\n * @param {string} value \n\n*/\nfunction KeyValue ( key, value ) {\n        this.key = key;\n        this.value = value;\n}\n/**\n * @param {Videos} [videos]\n * @param {ModuleRequest[]} [images] \n * @param {Text} [text]\n*/\nfunction Output ( videos, images, text ) {\n        this.videos = videos;\n        this.images = images;\n        this.text = text;\n}\n/**\n * @param {NeedsResolver[]} [needsResolver]\n * @param {RawVideo[]} [rawVideo] \n*/\nfunction Videos ( needsResolver, rawVideo ) {\n        this.needsResolver = needsResolver;\n        this.rawVideo = rawVideo;\n}\n/**\n * @param {String} resolverIdentifier - You can leave the identifier to \"\" and KETSU will find it through the url. This is used to select the resolver that will be used to get the video.\n * @param {ModuleRequest} link\n*/\nfunction NeedsResolver ( resolverIdentifier, link ) {\n        this.resolverIdentifier = resolverIdentifier;\n        this.link = link;\n}\n/**\n * @param {Video[]} [video]\n * @param {Subtitles[]} [subs]\n*/\nfunction RawVideo ( video,subs ) {\n        this.video = video;\n        this.subs = subs;\n}\n/**\n * @param {ModuleRequest} link\n * @param {String} language\n*/\nfunction Subtitles(link,language) {\n        this.link = link;\n        this.language = language;\n}\n/**\n * @param {ModuleRequest} videoLink\n * @param {String} videoQuality\n*/\nfunction Video ( videoQuality, videoLink ) {\n        this.videoQuality = videoQuality;\n        this.videoLink = videoLink;\n}\n/**\n * @param {String} text\n*/\nfunction Text ( text ) {\n        this.text = text;\n}\n\n/*\nCODE STARTS HERE: \n\n- What you need to do is to create a Chapters Object and save it as a json string on the div with the id: ketsu-final-data, to be more precise the one saved on the variable called savedData below this comment.\n\n- Most of the code is already done, you just need to fill the output variable with an Output object, depending on the type of module you are making you need to fill either the Video, Images or Text part of the Output object.\n*/\n\nvar savedData = document.getElementById( 'ketsu-final-data' );\nvar parsedJson = JSON.parse( savedData.innerHTML );\nvar emptyKeyValue = [ new KeyValue( '', '' ) ];\nlet emptyExtra = new Extra( [ new Commands( '', emptyKeyValue ) ], emptyKeyValue );\n\nvar output;  // Type Output \n\n//This examples of code shows you how to fill the output variable depending on the type of module you are making (Video, Image or Text), if you uncomment any of this code and execute it you will see the result on the module creator of KETSU.\n\n/*\n// Video Module: \noutput = new Output(new Videos([\n        new NeedsResolver(\"\",new ModuleRequest(\"https://streamtape.com/something\",'GET',[],undefined))\n],[\nnew RawVideo([\n        new Video(\"720p\",new ModuleRequest(\"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4\",'GET',[],undefined))\n],undefined)\n]),undefined,undefined)\n*/\n\n/*\n//Image Module:\noutput = new Output(undefined,[\n        new ModuleRequest('https://d1fdloi71mui9q.cloudfront.net/1JBIg7XxQ3WqZ8AAZPiz_GydL9KJ3v5AKUN1B','GET',[],undefined),\n        new ModuleRequest('https://d1fdloi71mui9q.cloudfront.net/1JBIg7XxQ3WqZ8AAZPiz_GydL9KJ3v5AKUN1B','GET',[],undefined)\n])\n*/\n\n/*\n// Text Module:\noutput = new Output(undefined,undefined,new Text(\"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only\"))\n*/\n\nvar chaptersObject = new Chapters( new ModuleRequest( '', '', emptyKeyValue, null ), emptyExtra, new JavascriptConfig( false, false ), output);\nvar finalJson = JSON.stringify( chaptersObject );\nsavedData.innerHTML = finalJson;\n  /* JAVASCRIPT ENDS */\n\n        } catch (e) {\n            console.error(e.message);\n\n            if (typeof KETSU_ASYNC !== 'undefined') {\n                window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');\n            }\n\n        }\n        \n        "
+        },
+        "output": {
+            "videos": {
+                "needsResolver": [{
+                    "resolverIdentifier": "",
+                    "link": {
+                        "url": "",
+                        "method": "get",
+                        "headers": [{
+                            "key": "key",
+                            "value": "value"
+                        }],
+                        "httpBody": null
+                    }
+                }],
+                "rawVideo": [{
+                    "video": [{
+                        "videoQuality": "",
+                        "videoLink": {
+                            "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+                            "method": "get",
+                            "headers": [{
+                                "key": "key",
+                                "value": "value"
+                            }],
+                            "httpBody": null
+                        }
+                    }]
+                }]
+            },
+            "images": [{
+                "url": "empty",
+                "method": "get",
+                "headers": [{
+                    "key": "key",
+                    "value": "value"
+                }],
+                "httpBody": null
+            }],
+            "text": {
+                "text": ""
+            }
+        },
+        "moduleCreatorIdtInsMqgZeYkSUVHGGPwy": {
+            "path": "IgrvR",
+            "id": "chapters,0cell",
+            "sectionsHidden": [],
+            "options": {
+                "name": "Request"
+            },
+            "cellsHidden": false
+        }
+    }],
+    "moduleResolvers": [{
+        "resolverInfo": {
+            "resolverName": "",
+            "nameMatches": [""],
+            "developer": "",
+            "moduleID": "",
+            "resolverVersion": 1,
+            "baseURL": "",
+            "moduleCreatorIdXmSxdkbBcPcbqvaLlOVc": {
+                "path": "DOvQU",
+                "id": "moduleResolvers,0,resolverInfosection",
+                "sectionsHidden": [],
+                "options": {
+                    "name": "Resolver Parameters",
+                    "listName": "parameters"
+                },
+                "cellsHidden": false
+            },
+            "moduleCreatorIdHqtxBsnYawBxVuZwxnGX": {
+                "path": "KgLwW",
+                "id": "moduleResolvers,0,resolverInfocell",
+                "sectionsHidden": [],
+                "options": {
+                    "name": "parameters"
+                },
+                "cellsHidden": false
+            }
+        },
+        "resolver": [{
+            "request": {
+                "url": "",
+                "method": "get",
+                "headers": [{
+                    "key": "",
+                    "value": ""
+                }]
+            },
+            "extra": {
+                "commands": [{
+                    "commandName": "",
+                    "params": [{
+                        "key": "",
+                        "value": ""
+                    }]
+                }],
+                "extraInfo": [{
+                    "key": "",
+                    "value": ""
+                }]
+            },
+            "javascriptConfig": {
+                "removeJavascript": false,
+                "loadInWebView": false,
+                "javaScript": "\n        try {\n\n            /* JAVASCRIPT STARTS */  \n\n// SCROLL TO LINE 89 TO START CODING.\n\n\n/**\n * @param {ModuleRequest} request\n * @param {Extra} extra  \n * @param {JavascriptConfig} javascriptConfig \n * @param {Output} output \n */\nfunction Resolver ( request, extra, javascriptConfig, output ) {\n        this.request = request;\n        this.extra = extra;\n        this.javascriptConfig = javascriptConfig;\n        this.output = output;\n}\n/**\n * @param {string} url\n * @param {string} method  \n * @param {KeyValue[]} headers \n * @param {string} [httpBody] \n */\nfunction ModuleRequest ( url, method, headers, httpBody ) {\n        this.url = url;\n        this.method = method;\n        this.headers = headers;\n        this.httpBody = httpBody;\n}\n/**\n * @param {Commands[]} commands\n * @param {KeyValue[]} extraInfo \n */\nfunction Extra ( commands, extraInfo ) {\n        this.commands = commands;\n        this.extraInfo = extraInfo;\n}\n/**\n * @param {string} commandName\n * @param {KeyValue[]} params \n */\nfunction Commands ( commandName, params ) {\n        this.commandName = commandName;\n        this.params = params;\n}\n/**\n * @param {boolean} removeJavascript\n * @param {boolean} loadInWebView \n*/\nfunction JavascriptConfig ( removeJavascript, loadInWebView ) {\n        this.removeJavascript = removeJavascript;\n        this.loadInWebView = loadInWebView;\n        this.javaScript = \"\";\n}\n/**\n * @param {string} key\n * @param {string} value \n*/\nfunction KeyValue ( key, value ) {\n        this.key = key;\n        this.value = value;\n}\n/**\n * @param {ModuleRequest} link\n * @param {String} language\n*/\nfunction Subtitles(link,language) {\n        this.link = link;\n        this.language = language;\n}\n/**\n * @param {Video[]} [video]\n * @param {Subtitles[]} [subs]\n*/\nfunction Output ( video,subs ) {\n        this.video = video;\n        this.subs = subs;\n}\n/**\n * @param {ModuleRequest} videoLink\n * @param {String} videoQuality\n*/\nfunction Video ( videoQuality, videoLink ) {\n        this.videoQuality = videoQuality;\n        this.videoLink = videoLink;\n}\n\n/*\nCODE STARTS HERE: \n\n- What you need to do is to create a Resolver Object and save it as a json string on the div with the id: ketsu-final-data, to be more precise the one saved on the variable called savedData below this comment.\n\n- Most of the code is already done, you just need to fill the output variable with an Output object.\n*/\n\nvar savedData = document.getElementById( 'ketsu-final-data' );\nvar parsedJson = JSON.parse( savedData.innerHTML );\nvar emptyKeyValue = [ new KeyValue( 'Referer', parsedJson.request.url ) ];\nlet output; // Type  Output\n\n/* \n\n// Sample code that you can uncomment to see what happens when you feed a filled output object when you execute it. \n\noutput = new Output([\n         new Video(\"720p\",new ModuleRequest(\"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4\",'GET',[],undefined)),\n        new Video(\"480p\",new ModuleRequest(\"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4\",'GET',[],undefined))\n],undefined)\n*/\n \nlet emptyExtra = new Extra( [ new Commands( '', emptyKeyValue ) ], emptyKeyValue );\nvar chaptersObject = new Resolver( new ModuleRequest( '', '', emptyKeyValue, null ), emptyExtra, new JavascriptConfig( false, false ), output );\nvar finalJson = JSON.stringify( chaptersObject );\nsavedData.innerHTML = finalJson;\n  /* JAVASCRIPT ENDS */\n\n        } catch (e) {\n            console.error(e.message);\n\n            if (typeof KETSU_ASYNC !== 'undefined') {\n                window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');\n            }\n\n        }\n        \n        "
+            },
+            "output": {
+                "moduleID": "",
+                "video": [{
+                    "videoQuality": "720",
+                    "videoLink": {
+                        "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+                        "method": "get",
+                        "headers": [{
+                            "key": "key",
+                            "value": "value"
+                        }],
+                        "httpBody": null
+                    }
+                }]
+            },
+            "moduleCreatorIdujkxxNiaitlBDsUrVUNj": {
+                "path": "AEVNH",
+                "id": "moduleResolvers,0,resolver,0cell",
+                "sectionsHidden": [],
+                "options": {
+                    "name": "Request"
+                },
+                "cellsHidden": false
+            }
+        }],
+        "moduleCreatorIdURqbAOLNeKYPWRqoPiCO": {
+            "path": "cLekN",
+            "id": "moduleResolvers,0section",
+            "sectionsHidden": [],
+            "options": {
+                "name": "Resolver"
+            },
+            "cellsHidden": false
+        },
+        "moduleCreatorIdtKUHCxsnzwUcxQWPjhJX": {
+            "path": "resolver",
+            "id": "moduleResolvers,0,resolversection",
+            "sectionsHidden": [],
+            "options": {
+                "name": "Resolver Request",
+                "listName": "Request"
+            },
+            "cellsHidden": false
+        }
+    }],
+    "responseCodeFunctions": [{
+        "code": 0,
+        "msgTitle": "",
+        "msgBody": "",
+        "type": "normal",
+        "functions": [{
+            "request": {
+                "url": "empty",
+                "method": "get",
+                "headers": [{
+                    "key": "",
+                    "value": ""
+                }]
+            },
+            "extra": {
+                "commands": [{
+                    "commandName": "",
+                    "params": [{
+                        "key": "",
+                        "value": ""
+                    }]
+                }],
+                "extraInfo": [{
+                    "key": "",
+                    "value": ""
+                }]
+            },
+            "javascriptConfig": {
+                "removeJavascript": true,
+                "loadInWebView": false,
+                "javaScript": "\n        try {\n\n            /* JAVASCRIPT STARTS */  \n  /* JAVASCRIPT ENDS */\n\n        } catch (e) {\n            console.error(e.message);\n\n            if (typeof KETSU_ASYNC !== 'undefined') {\n                window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');\n            }\n\n        }\n        \n        "
+            },
+            "moduleCreatorIdOMHxgYyZBMvaDTKXrOgA": {
+                "path": "uYsVY",
+                "id": "responseCodeFunctions,0,functions,0cell",
+                "sectionsHidden": [],
+                "options": {
+                    "name": "Request"
+                },
+                "cellsHidden": false
+            }
+        }],
+        "moduleCreatorIdyvBUcNpxKbGwKxNPUDxX": {
+            "path": "KqdcT",
+            "id": "responseCodeFunctions,0section",
+            "sectionsHidden": [],
+            "options": {
+                "name": "Function"
+            },
+            "cellsHidden": false
+        },
+        "moduleCreatorIdvvCzNWpLSOaynOfXjoFi": {
+            "path": "pFjAW",
+            "id": "responseCodeFunctions,0,section",
+            "sectionsHidden": [],
+            "options": {
+                "name": "Function Parameters",
+                "listName": "Parameters"
+            },
+            "cellsHidden": false
+        },
+        "moduleCreatorIdFzlQzyybzPrOzHUvnFFF": {
+            "path": "htcOP",
+            "id": "responseCodeFunctions,0,cell",
+            "sectionsHidden": [],
+            "options": {
+                "name": "Parameters"
+            },
+            "cellsHidden": false
+        },
+        "moduleCreatorIdMRkSCFoVSjxuqnpQYRPr": {
+            "path": "functions",
+            "id": "responseCodeFunctions,0,functionssection",
+            "sectionsHidden": [],
+            "options": {
+                "name": "Function Requests",
+                "listName": "Request"
+            },
+            "cellsHidden": false
+        }
+    }],
+    "helperFunctions": [{
+        "functionName": "example",
+        "msgTitle": "",
+        "msgBody": "",
+        "type": "normal",
+        "functions": [{
+            "request": {
+                "url": "empty",
+                "method": "get",
+                "headers": [{
+                    "key": "",
+                    "value": ""
+                }]
+            },
+            "extra": {
+                "commands": [{
+                    "commandName": "",
+                    "params": [{
+                        "key": "",
+                        "value": ""
+                    }]
+                }],
+                "extraInfo": [{
+                    "key": "",
+                    "value": ""
+                }]
+            },
+            "javascriptConfig": {
+                "removeJavascript": true,
+                "loadInWebView": false,
+                "javaScript": "\n        try {\n\n            /* JAVASCRIPT STARTS */  \n  /* JAVASCRIPT ENDS */\n\n        } catch (e) {\n            console.error(e.message);\n\n            if (typeof KETSU_ASYNC !== 'undefined') {\n                window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');\n            }\n\n        }\n        \n        "
+            },
+            "moduleCreatorIdtCQqQqSMOYHjtydZrhWP": {
+                "path": "HTmgX",
+                "id": "helperFunctions,0,functions,0cell",
+                "sectionsHidden": [],
+                "options": {
+                    "name": "Request"
+                },
+                "cellsHidden": false
+            }
+        }],
+        "moduleCreatorIdhqYQhBDOzsfiRxqVhAbm": {
+            "path": "yszSh",
+            "id": "helperFunctions,0section",
+            "sectionsHidden": [],
+            "options": {
+                "name": "Request"
+            },
+            "cellsHidden": false
+        },
+        "moduleCreatorIdKfnASEjBippYkIxSgvXN": {
+            "path": "HbYvm",
+            "id": "helperFunctions,0,section",
+            "sectionsHidden": [],
+            "options": {
+                "name": "Function Parameters",
+                "listName": "Parameters"
+            },
+            "cellsHidden": false
+        },
+        "moduleCreatorIdHspCzTmqzDJTxAvrmFre": {
+            "path": "YziNr",
+            "id": "helperFunctions,0,cell",
+            "sectionsHidden": [],
+            "options": {
+                "name": "Parameters"
+            },
+            "cellsHidden": false
+        },
+        "moduleCreatorIdrWcjFpGGcDLypKiWcxwQ": {
+            "path": "functions",
+            "id": "helperFunctions,0,functionssection",
+            "sectionsHidden": [],
+            "options": {
+                "name": "Function Requests",
+                "listName": "Request"
+            },
+            "cellsHidden": false
+        }
+    }],
+    "moduleCreatorGlobalOptions": {
+        "selected": "moduleCreatorIdvWyghwjsVxljCSkrbVwP",
+        "notesData": {
+            "openedNotes": [],
+            "activeNote": "oFwjzvDpdfxlaKQrGUwc",
+            "notes": {}
+        },
+        "hideViews": [],
+        "id": "fJotimOdSMXGUWH",
+        "projectName": "MangaHub"
+    },
+    "moduleCreatorIdmsUPUlaYBSAUSHeMcFOO": {
+        "path": "mainPage",
+        "id": "mainPagesection",
+        "sectionsHidden": [],
+        "options": {
+            "name": "Main Page",
+            "listName": "Request"
+        },
+        "cellsHidden": false
+    },
+    "moduleCreatorIdvuXKAvWzrfIXQElcWqzl": {
+        "path": "search",
+        "id": "searchsection",
+        "sectionsHidden": [],
+        "options": {
+            "name": "Search Page",
+            "listName": "Request"
+        },
+        "cellsHidden": false
+    },
+    "moduleCreatorIdpGxVxPejbSGyPHguPbMl": {
+        "path": "info",
+        "id": "infosection",
+        "sectionsHidden": [],
+        "options": {
+            "name": "Info Page",
+            "listName": "Request"
+        },
+        "cellsHidden": false
+    },
+    "moduleCreatorIdwHqmNFlmWiPfRwpChhFq": {
+        "path": "chapters",
+        "id": "chapterssection",
+        "sectionsHidden": [],
+        "options": {
+            "name": "Chapters",
+            "listName": "Request"
+        },
+        "cellsHidden": false
+    },
+    "moduleCreatorIdHimYqXZtqRTNkyWtdFyX": {
+        "path": "moduleResolvers",
+        "id": "moduleResolverssection",
+        "sectionsHidden": [],
+        "options": {
+            "name": "Resolvers",
+            "listName": "Resolver"
+        },
+        "cellsHidden": false
+    },
+    "moduleCreatorIdifUmjUvyNxGgAFrJXmWV": {
+        "path": "responseCodeFunctions",
+        "id": "responseCodeFunctionssection",
+        "sectionsHidden": [],
+        "options": {
+            "name": "Response Code Funtions",
+            "listName": "Function"
+        },
+        "cellsHidden": false
+    },
+    "moduleCreatorIdmhTixbdTSBzMUgDfsdrl": {
+        "path": "helperFunctions",
+        "id": "helperFunctionssection",
+        "sectionsHidden": [],
+        "options": {
+            "name": "Helper Functions",
+            "listName": "Request"
+        },
+        "cellsHidden": false
+    }
+}
