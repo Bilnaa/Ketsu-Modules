@@ -48,9 +48,10 @@ function Output(image, title, link, description, genres, field1, field2, field3,
 var savedData = document.getElementById('ketsu-final-data');
 const parsedJson = JSON.parse(savedData.innerHTML);
 const emptyKeyValue = [new KeyValue('', '')];
+const imgsHeaders = [new KeyValue('Referer', parsedJson.request.url.split('/manga')[0])];
 
 var image = document.querySelector('.bigcover > .ime > img').src;
-image = new ModuleRequest(image, 'get', emptyKeyValue, null);
+image = new ModuleRequest(image, 'get', imgsHeaders, null);
 var title = document.querySelector('.infox > h1').textContent;
 var desc = '';
 try { desc = document.querySelector('.entry-content-single').textContent.trim(); } catch{}
@@ -58,25 +59,15 @@ var genres = [];
 var sortie = '';
 var statut = '';
 
-var infos = document.querySelector('.spe').querySelectorAll('span');
-for (info of infos) {
-    if (info.textContent.includes('Statut')) {
-        statut = info.textContent.split(': ')[1];
-    } else if (info.textContent.includes('Sortie')) {
-        sortie = info.textContent.split(': ')[1];
-    } else if (info.textContent.includes('Genre')) {
-        genreList = info.querySelectorAll('a');
-        for (genre of genreList) {
-            genres.push(genre.textContent);
-        }
-    }
+for (let info of document.querySelector('.spe').querySelectorAll('span')) {
+    if (info.textContent.includes('Statut')) { statut = info.textContent.split(': ')[1]; }
+    else if (info.textContent.includes('Sortie')) { sortie = info.textContent.split(': ')[1]; }
+    else if (info.textContent.includes('Genre')) { genres = Array.from(info.querySelectorAll('a')).map(g => g.textContent); }
 }
 
-var chapters = [];
-var chapArray = document.querySelectorAll('.lchx.mobile > a');
-for (chap of chapArray) {
-    chapters.push(new Chapter(chap.textContent.trim(), new ModuleRequest(chap.href, 'get', emptyKeyValue, null), false));
-}
+var chapters = Array.from(document.querySelectorAll('.lchx.mobile > a')).map(chap => 
+    new Chapter(chap.textContent.trim(), new ModuleRequest(chap.href, 'get', emptyKeyValue, null), false)
+);
 chapters.reverse();
 
 const infoPageObject = new Info(new ModuleRequest('', '', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(false, false, ''), new Output(image, title, parsedJson.request, desc, genres, sortie, statut, 'Scans: ' + chapters.length, '', chapters));
