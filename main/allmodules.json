@@ -231,7 +231,15 @@
         "image": "https://i.postimg.cc/26PWWsJ8/kmsa.png",
         "info": "A module for reading mangas weebtoon manhwa",
         "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Danyspb/Modules-Ketsu/main/KumaScan/moduleTemplate.json",
-        "Zetsu_link": "zetsuapp://?moduleData=https://raw.githubusercontent.com/Danyspb/Modules-Ketsu/main/KumaScan/moduleTemplate.json"
+        "Zetsu_link": "zetsuapp://?moduleData=https://raw.githubusercontent.com/Danyspb/Modules-Ketsu/main/KumaScan/moduleTemplate.json "
+    },
+    {
+        "name": "CrunchyScan | FR",
+        "author": "Danyspb",
+        "image": "https://i.postimg.cc/3JRmz3fy/Crunchy-Scan-1.png",
+        "info": "Lisez gratuitement des mangas webtoons avec le module du site CrunchyScan.",
+        "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Danyspb/Modules-Ketsu/main/CrunchyScan/moduleTemplate.json",
+        "Zetsu_link": "zetsuapp://?moduleData=https://raw.githubusercontent.com/Danyspb/Modules-Ketsu/main/CrunchyScan/moduleTemplate.json"
     }],
     "text": [{
         "name": "Livre1 | FR",
