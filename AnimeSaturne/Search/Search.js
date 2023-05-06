@@ -134,55 +134,23 @@ function Data(image,title,description,field1,field2,field3,field4,isChapter,link
     this.link = link;
     this.openInWebView = openInWebView;
 }
-    
-function Layout(insets, visibleCellsWidthS,visibleCellsWidthM,visibleCellsWidthL, visibleCellsHeight, heightForVisibleCells, cellSize, ratio, constant, horizontalSpacing, verticalSpacing) {
-    this.insets = insets;
-    this.visibleCellsWidthS = visibleCellsWidthS;
-    this.visibleCellsWidthM = visibleCellsWidthM;
-    this.visibleCellsWidthL = visibleCellsWidthL;
-    this.visibleCellsHeight = visibleCellsHeight;
-    this.heightForVisibleCells = heightForVisibleCells;
-    this.cellSize = cellSize;
-    this.ratio = ratio;
-    this.constant = constant;
-    this.horizontalSpacing = horizontalSpacing;
-    this.verticalSpacing = verticalSpacing;
-}
-function Insets(top,bottom,left,right) {
-    this.top = top;
-    this.bottom = bottom;
-    this.left = left;
-    this.right = right;
-}
-function Size(width,height) {
-    this.width = width;
-    this.height = height;
-}
-function Ratio(inRelation,number1,number2) {
-    this.inRelation  = inRelation;
-    this.number1 = number1;
-    this.number2 = number2;
-}
 
-var savedData = document.getElementById('ketsu-final-data');
+let savedData = document.getElementById('ketsu-final-data');
 const parsedJson = JSON.parse(savedData.innerHTML); 
 const emptyKeyValue = [new KeyValue('','')];
 
-var output = [];
-var searchArray = [];
+let output = [];
+let searchArray = [];
 
 for (anime of document.querySelectorAll('.item-archivio')) {
-    var image = anime.querySelector('img').src;
+    let image = anime.querySelector('img').src;
     image = new ModuleRequest(image, 'get', emptyKeyValue, null);
-    var title = anime.querySelector('h3').textContent;
-    var desc = anime.querySelector('p').textContent;
-    var link = anime.querySelector('a').href;
+    let title = anime.querySelector('h3').textContent;
+    let desc = anime.querySelector('p').textContent;
+    let link = anime.querySelector('a').href;
     link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-    searchArray.push(new Data(image, title, desc, '', title, '', '', false, link));
+    searchArray.push(new Data(image, title, '', desc,'','','', false, link));
 }
-var layout = new Layout(new Insets(10,10,10,10), 1,2,3,1,500, new Size(400,400), new Ratio('width',4, 11), new Size(0,0), 10,10);
-output.push(new Output(CellDesings.wide11, Orientation.vertical, DefaultLayouts.none, Paging.none, new Section('',false), layout, searchArray));
+output.push(new Output(CellDesings.wide6, Orientation.vertical, DefaultLayouts.wide, Paging.centered, new Section('', true), null, searchArray));
 
-const searchPageObject = new Search(new ModuleRequest('','',emptyKeyValue,null),new Extra([new Commands('',emptyKeyValue)],emptyKeyValue),'',new JavascriptConfig(true,false,''),output);
-
-savedData.innerHTML = JSON.stringify(searchPageObject);
+savedData.innerHTML = JSON.stringify(new Search(new ModuleRequest('','',emptyKeyValue,null),new Extra([new Commands('',emptyKeyValue)],emptyKeyValue),'',new JavascriptConfig(true,false,''),output));
