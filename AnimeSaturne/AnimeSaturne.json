@@ -1,13 +1,13 @@
 {
   "moduleInfo": {
-    "moduleName": "AnimeSaturne",
+    "moduleName": "AnimeSaturn",
     "moduleInitials": "AS",
-    "moduleDesc": "Ketsu module for animesaturne website",
+    "moduleDesc": "Ketsu module for animesaturn website",
     "developer": "Frizrat",
     "moduleID": "21270222",
-    "moduleImage": "https://www.animesaturn.in/faviconAS.png",
-    "moduleVersion": 1.1,
-    "changelog": "Change domain name, repare Chapters",
+    "moduleImage": "https://i.postimg.cc/PrJjYwf8/Anime-Saturn-logo.png",
+    "moduleVersion": 1.2,
+    "changelog": "Change module img, repare mainPage, change searchPage",
     "moduleLenguage": "ITA",
     "moduleType": "Video",
     "nsfw": false,
@@ -16,117 +16,31 @@
     "UpdateSite": "https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/AnimeSaturne/AnimeSaturne.json",
     "preferedServer": "",
     "preferedDownloadServer": "",
-    "blackListed": [ "" ]
+    "blackListed": []
   },
   "global": {
-    "variables": [{
-      "key": "",
-      "value": ""
-    }],
-    "cookies": [{
-      "key": "",
-      "value": ""
-    }],
-    "headers": [{
-      "key": "",
-      "value": ""
-    }]
+    "variables": [],
+    "cookies": [],
+    "headers": []
   },
   "mainPage": [
     {
       "request": {
         "url": "https://www.animesaturn.in",
         "method": "get",
-        "headers": [{
-          "key": "",
-          "value": ""
-        }],
+        "headers": [],
         "httpBody": null
       },
       "extra": {
-        "commands": [{
-          "commandName": "",
-          "params": [{
-            "key": "",
-            "value": ""
-          }]
-        }],
-        "extraInfo": [{
-          "key": "",
-          "value": ""
-        }]
+        "commands": [],
+        "extraInfo": []
       },
       "javascriptConfig": {
         "removeJavascript": true,
         "loadInWebView": false,
-        "javaScript": "const DefaultLayouts = { ultraWideFull : 'ultraWideFull', ultraWide : 'ultraWide', wideFull : 'wideFull', wide : 'wide', wideStrechedFull : 'wideStrechedFull', wideStrechedFullDouble : 'WideStrechedFullDouble', wideStreched : 'wideStreched', wideStrechedDouble : 'wideStrechedDouble', wideStrechedFullList : 'wideStrechedFullList', wideStrechedList : 'wideStrechedList', doublets : 'doublets', doubletsDouble : 'doubletsDouble', doubletsFull : 'doubletsFull', doubletsFullDouble : 'doubletsFullDouble', doubletsConstant : 'doubletsConstant', doubletsDoubleConstant : 'doubletsDoubleConstant', doubletsFullConstant : 'doubletsFullConstant', doubletsFullDoubleConstant : 'doubletsFullDoubleConstant', longDoublets : 'longDoublets', longDoubletsDouble : 'longDoubletsDouble', longDoubletsFull : 'longDoubletsFull', longDoubletsFullDouble : 'longDoubletsFullDouble', longDoubletsConstant : 'longDoubletsConstant', longDoubletsDoubleConstant : 'longDoubletsDoubleConstant', longDoubletsFullConstant : 'longDoubletsFullConstant', longDoubletsFullDoubleConstant : 'longDoubletsFullDoubleConstant', triplets : 'triplets', tripletsDouble : 'tripletsDouble', tripletsFull : 'tripletsFull', tripletsFullDouble : 'tripletsFullDouble', tripletsConstant : 'tripletsConstant', tripletsDoubleConstant : 'tripletsDoubleConstant', tripletsFullConstant : 'tripletsFullConstant', tripletsFullDoubleConstant : 'tripletsFullDoubleConstant', longTriplets : 'longTriplets', longTripletsDouble : 'longTripletsDouble', longTripletsFull : 'longTripletsFull', longTripletsFullDouble : 'longTripletsFullDouble', longTripletsConstant : 'longTripletsConstant', longTripletsDoubleConstant : 'longTripletsDoubleConstant', longTripletsFullConstant : 'longTripletsFullConstant', longTripletsFullDoubleConstant : 'longTripletsFullDoubleConstant', none: ''}; const CellDesings = { Special1 : 'Special1', Special2 : 'Special2', Special3 : 'Special3', CELLHelperText : 'CELLHelperText', small1 : 'small1', small2 : 'small2', normal1 : 'normal1', normal2 : 'normal2', normal3 : 'normal3', normal4 : 'normal4', normal5 : 'normal5', normal7 : 'normal7', wide1 : 'wide1', wide2 : 'wide2', wide3 : 'wide3', wide4 : 'wide4', wide5 : 'wide5', wide6 : 'wide6', wide7 : 'wide7', wide8 : 'wide8', wide9 : 'wide9', wide10 : 'wide10', wide11 : 'wide11' }; const Paging = { leading : 'leading', centered : 'centered', none : '' };const Orientation = { horizontal : 'horizontal', vertical : 'vertical' }; function MainPage(request, extra, javascriptConfig, output) { this.request = request; this.extra = extra; this.javascriptConfig = javascriptConfig; this.output = output;}function ModuleRequest(url, method, headers, httpBody) { this.url = url; this.method = method; this.headers = headers; this.httpBody = httpBody;}function Extra(commands, extraInfo) { this.commands = commands; this.extraInfo = extraInfo;}function Commands(commandName, params) { this.commandName = commandName; this.params = params;}function JavascriptConfig(removeJavascript, loadInWebView, javaScript) { this.removeJavascript = removeJavascript; this.loadInWebView = loadInWebView; this.javaScript = javaScript;}function KeyValue(key, value) { this.key = key; this.value = value;}function Output(cellDesing, orientation, defaultLayout, paging, section, layout, data) { this.cellDesing = cellDesing; this.orientation = orientation; this.defaultLayout = defaultLayout; this.paging = paging; this.section = section; this.layout = layout; this.data = data;}function Section(sectionName, separator) { this.sectionName = sectionName; this.separator = separator;}function Data(image, title, description, field1, field2, field3, field4, isChapter, link,openInWebView) { this.image = image; this.title = title; this.description = description; this.field1 = field1; this.field2 = field2; this.field3 = field3; this.field4 = field4; this.isChapter = isChapter; this.link = link; this.openInWebView = openInWebView;} function Layout(insets, visibleCellsWidthS,visibleCellsWidthM,visibleCellsWidthL, visibleCellsHeight, heightForVisibleCells, cellSize, ratio, constant, horizontalSpacing, verticalSpacing) { this.insets = insets; this.visibleCellsWidthS = visibleCellsWidthS; this.visibleCellsWidthM = visibleCellsWidthM; this.visibleCellsWidthL = visibleCellsWidthL; this.visibleCellsHeight = visibleCellsHeight; this.heightForVisibleCells = heightForVisibleCells; this.cellSize = cellSize; this.ratio = ratio; this.constant = constant; this.horizontalSpacing = horizontalSpacing; this.verticalSpacing = verticalSpacing;}function Insets(top, bottom, left, right) { this.top = top; this.bottom = bottom; this.left = left; this.right = right;}function Size(width, height) { this.width = width; this.height = height;}function Ratio(inRelation, number1, number2) { this.inRelation = inRelation; this.number1 = number1; this.number2 = number2;} function shuffle(a) { var j, x, i; for (i = a.length - 1; i > 0; i--) { j = Math.floor(Math.random() * (i + 1)); x = a[i]; a[i] = a[j]; a[j] = x; } return a;} var savedData = document.getElementById('ketsu-final-data');const parsedJson = JSON.parse(savedData.innerHTML); const emptyKeyValue = [new KeyValue('','')]; var output = [];var dataArray = [];for (slide of document.querySelectorAll('.carousel-item')) { let image = slide.querySelector('img').src; image = new ModuleRequest(image, 'get', emptyKeyValue, null); let title = slide.textContent.trim(); let link = parsedJson.request.url+slide.querySelector('a').href; link = new ModuleRequest(link, 'get', emptyKeyValue, null); dataArray.push(new Data(image, title, '', '', '', '', '', false, link));}const sliderLayout = new Layout(new Insets(0,0,0,0),1,2,3,1,500, new Size(400,400), new Ratio('width',1.2, 3), new Size(0,0),0,0);output.push(new Output(CellDesings.normal1, Orientation.horizontal, DefaultLayouts.none, Paging.centered, new Section('', false), sliderLayout, shuffle(dataArray.slice())));for (section of document.querySelectorAll('.container.p-3')) { var dataArray = []; let animes = section.querySelectorAll('.card > a'); if (animes.length != 0) { let sectionName = section.querySelector('h3').textContent; for (anime of animes) { let image = anime.querySelector('img').src; image = new ModuleRequest(image, 'get', emptyKeyValue, null); let title = anime.title; let link = anime.href; link = new ModuleRequest(link, 'get', emptyKeyValue, null); dataArray.push(new Data(image, title, '', '', '', '', '', false, link)); } output.push(new Output(CellDesings.normal1, Orientation.horizontal, DefaultLayouts.longDoubletsDouble, Paging.leading, new Section(sectionName, true), null, dataArray)); }} const mainPageObject = new MainPage(new ModuleRequest('','',emptyKeyValue,null),new Extra([new Commands('',emptyKeyValue)],emptyKeyValue),new JavascriptConfig(true,false,''),output);savedData.innerHTML = JSON.stringify(mainPageObject);"
+        "javaScript": "const DefaultLayouts = { ultraWideFull : 'ultraWideFull', ultraWide : 'ultraWide', wideFull : 'wideFull', wide : 'wide', wideStrechedFull : 'wideStrechedFull', wideStrechedFullDouble : 'WideStrechedFullDouble', wideStreched : 'wideStreched', wideStrechedDouble : 'wideStrechedDouble', wideStrechedFullList : 'wideStrechedFullList', wideStrechedList : 'wideStrechedList', doublets : 'doublets', doubletsDouble : 'doubletsDouble', doubletsFull : 'doubletsFull', doubletsFullDouble : 'doubletsFullDouble', doubletsConstant : 'doubletsConstant', doubletsDoubleConstant : 'doubletsDoubleConstant', doubletsFullConstant : 'doubletsFullConstant', doubletsFullDoubleConstant : 'doubletsFullDoubleConstant', longDoublets : 'longDoublets', longDoubletsDouble : 'longDoubletsDouble', longDoubletsFull : 'longDoubletsFull', longDoubletsFullDouble : 'longDoubletsFullDouble', longDoubletsConstant : 'longDoubletsConstant', longDoubletsDoubleConstant : 'longDoubletsDoubleConstant', longDoubletsFullConstant : 'longDoubletsFullConstant', longDoubletsFullDoubleConstant : 'longDoubletsFullDoubleConstant', triplets : 'triplets', tripletsDouble : 'tripletsDouble', tripletsFull : 'tripletsFull', tripletsFullDouble : 'tripletsFullDouble', tripletsConstant : 'tripletsConstant', tripletsDoubleConstant : 'tripletsDoubleConstant', tripletsFullConstant : 'tripletsFullConstant', tripletsFullDoubleConstant : 'tripletsFullDoubleConstant', longTriplets : 'longTriplets', longTripletsDouble : 'longTripletsDouble', longTripletsFull : 'longTripletsFull', longTripletsFullDouble : 'longTripletsFullDouble', longTripletsConstant : 'longTripletsConstant', longTripletsDoubleConstant : 'longTripletsDoubleConstant', longTripletsFullConstant : 'longTripletsFullConstant', longTripletsFullDoubleConstant : 'longTripletsFullDoubleConstant', none: ''}; const CellDesings = { Special1 : 'Special1', Special2 : 'Special2', Special3 : 'Special3', CELLHelperText : 'CELLHelperText', small1 : 'small1', small2 : 'small2', normal1 : 'normal1', normal2 : 'normal2', normal3 : 'normal3', normal4 : 'normal4', normal5 : 'normal5', normal7 : 'normal7', wide1 : 'wide1', wide2 : 'wide2', wide3 : 'wide3', wide4 : 'wide4', wide5 : 'wide5', wide6 : 'wide6', wide7 : 'wide7', wide8 : 'wide8', wide9 : 'wide9', wide10 : 'wide10', wide11 : 'wide11' }; const Paging = { leading : 'leading', centered : 'centered', none : '' };const Orientation = { horizontal : 'horizontal', vertical : 'vertical' }; function MainPage(request, extra, javascriptConfig, output) { this.request = request; this.extra = extra; this.javascriptConfig = javascriptConfig; this.output = output;}function ModuleRequest(url, method, headers, httpBody) { this.url = url; this.method = method; this.headers = headers; this.httpBody = httpBody;}function Extra(commands, extraInfo) { this.commands = commands; this.extraInfo = extraInfo;}function Commands(commandName, params) { this.commandName = commandName; this.params = params;}function JavascriptConfig(removeJavascript, loadInWebView, javaScript) { this.removeJavascript = removeJavascript; this.loadInWebView = loadInWebView; this.javaScript = javaScript;}function KeyValue(key, value) { this.key = key; this.value = value;}function Output(cellDesing, orientation, defaultLayout, paging, section, layout, data) { this.cellDesing = cellDesing; this.orientation = orientation; this.defaultLayout = defaultLayout; this.paging = paging; this.section = section; this.layout = layout; this.data = data;}function Section(sectionName, separator) { this.sectionName = sectionName; this.separator = separator;}function Data(image, title, description, field1, field2, field3, field4, isChapter, link,openInWebView) { this.image = image; this.title = title; this.description = description; this.field1 = field1; this.field2 = field2; this.field3 = field3; this.field4 = field4; this.isChapter = isChapter; this.link = link; this.openInWebView = openInWebView;} function Layout(insets, visibleCellsWidthS,visibleCellsWidthM,visibleCellsWidthL, visibleCellsHeight, heightForVisibleCells, cellSize, ratio, constant, horizontalSpacing, verticalSpacing) { this.insets = insets; this.visibleCellsWidthS = visibleCellsWidthS; this.visibleCellsWidthM = visibleCellsWidthM; this.visibleCellsWidthL = visibleCellsWidthL; this.visibleCellsHeight = visibleCellsHeight; this.heightForVisibleCells = heightForVisibleCells; this.cellSize = cellSize; this.ratio = ratio; this.constant = constant; this.horizontalSpacing = horizontalSpacing; this.verticalSpacing = verticalSpacing;}function Insets(top, bottom, left, right) { this.top = top; this.bottom = bottom; this.left = left; this.right = right;}function Size(width, height) { this.width = width; this.height = height;}function Ratio(inRelation, number1, number2) { this.inRelation = inRelation; this.number1 = number1; this.number2 = number2;} function shuffle(a) { var j, x, i; for (i = a.length - 1; i > 0; i--) { j = Math.floor(Math.random() * (i + 1)); x = a[i]; a[i] = a[j]; a[j] = x; } return a;} let savedData = document.getElementById('ketsu-final-data');const parsedJson = JSON.parse(savedData.innerHTML); const emptyKeyValue = [new KeyValue('','')]; let output = [];let dataArray = [];for (slide of document.querySelectorAll('.carousel-item')) { let image = slide.querySelector('img').src; image = new ModuleRequest(image, 'get', emptyKeyValue, null); let title = slide.textContent.trim(); let link = parsedJson.request.url+slide.querySelector('a').href; link = new ModuleRequest(link, 'get', emptyKeyValue, null); dataArray.push(new Data(image, title, '', '', '', '', '', false, link));}const sliderLayout = new Layout(new Insets(0,0,0,0),1,2,3,1,500, new Size(400,400), new Ratio('width',1.2, 3), new Size(0,0),0,0);output.push(new Output(CellDesings.normal1, Orientation.horizontal, DefaultLayouts.none, Paging.centered, new Section('', false), sliderLayout, shuffle(dataArray.slice())));for (let section of document.querySelectorAll('.container.p-3')) { dataArray = []; let animes = section.querySelectorAll('.card > a'); if (animes.length != 0) { for (let anime of animes) { let image = anime.querySelector('img').src; image = new ModuleRequest(image, 'get', emptyKeyValue, null); let link = anime.href; link = new ModuleRequest(link, 'get', emptyKeyValue, null); dataArray.push(new Data(image, anime.title, '', '', '', '', '', false, link)); } output.push(new Output(CellDesings.normal1, Orientation.horizontal, DefaultLayouts.longDoubletsDouble, Paging.leading, new Section(section.querySelector('h4').textContent, true), null, dataArray)); }}savedData.innerHTML = JSON.stringify(new MainPage(new ModuleRequest('','',emptyKeyValue,null),new Extra([new Commands('',emptyKeyValue)],emptyKeyValue),new JavascriptConfig(true,false,''),output));"
       },
-      "output": [{
-        "cellDesing": "normal1",
-        "orientation": "vertical",
-        "defaultLayout": "wide",
-        "paging": "",
-        "section": {
-          "sectionName": "",
-          "separator": false
-        },
-        "layout": {
-          "insets": {
-            "top": 0,
-            "bottom": 0,
-            "left": 0,
-            "right": 0
-          },
-          "visibleCellsWidthS": 2,
-          "visibleCellsWidthM": 2,
-          "visibleCellsWidthL": 2,
-          "visibleCellsHeight": 2,
-          "heightForVisibleCells": 400,
-          "cellSize": {
-            "width": 300,
-            "height": 300
-          },
-          "ratio": {
-            "inRelation": "width",
-            "number1": 1,
-            "number2": 2
-          },
-          "constant": {
-            "width": 1,
-            "height": 2
-          },
-          "horizontalSpacing": 0,
-          "verticalSpacing": 0
-        },
-        "data": [{
-          "image": {
-            "url": "",
-            "method": "get",
-            "headers": [{
-              "key": "",
-              "value": ""
-            }],
-            "httpBody": null
-          },
-          "title": "",
-          "description": "",
-          "field1": "",
-          "field2": "",
-          "field3": "",
-          "field4": "",
-          "openInWebView" : false,
-          "isChapter": false,
-          "link": {
-            "url": "",
-            "method": "",
-            "headers": [{
-              "key": "",
-              "value": ""
-            }],
-            "httpBody": null
-          }
-        }]
-      }]
+      "output": []
     }
   ],
   "search": [
@@ -134,97 +48,20 @@
       "request": {
         "url": "https://www.animesaturn.in/animelist?search=<searched>",
         "method": "get",
-        "headers": [{
-          "key": "",
-          "value": ""
-        }],
+        "headers": [],
         "httpBody": null
       },
       "separator": "%20",
       "extra": {
-        "commands": [{
-          "commandName": "",
-          "params": [{
-            "key": "",
-            "value": ""
-          }]
-        }],
-        "extraInfo": [{
-          "key": "",
-          "value": ""
-        }]
+        "commands": [],
+        "extraInfo": []
       },
       "javascriptConfig": {
         "removeJavascript": true,
         "loadInWebView": false,
-        "javaScript": "const DefaultLayouts = { ultraWideFull : 'ultraWideFull', ultraWide : 'ultraWide', wideFull : 'wideFull', wide : 'wide', wideStrechedFull : 'wideStrechedFull', wideStrechedFullDouble : 'WideStrechedFullDouble', wideStreched : 'wideStreched', wideStrechedDouble : 'wideStrechedDouble', wideStrechedFullList : 'wideStrechedFullList', wideStrechedList : 'wideStrechedList', doublets : 'doublets', doubletsDouble : 'doubletsDouble', doubletsFull : 'doubletsFull', doubletsFullDouble : 'doubletsFullDouble', doubletsConstant : 'doubletsConstant', doubletsDoubleConstant : 'doubletsDoubleConstant', doubletsFullConstant : 'doubletsFullConstant', doubletsFullDoubleConstant : 'doubletsFullDoubleConstant', longDoublets : 'longDoublets', longDoubletsDouble : 'longDoubletsDouble', longDoubletsFull : 'longDoubletsFull', longDoubletsFullDouble : 'longDoubletsFullDouble', longDoubletsConstant : 'longDoubletsConstant', longDoubletsDoubleConstant : 'longDoubletsDoubleConstant', longDoubletsFullConstant : 'longDoubletsFullConstant', longDoubletsFullDoubleConstant : 'longDoubletsFullDoubleConstant', triplets : 'triplets', tripletsDouble : 'tripletsDouble', tripletsFull : 'tripletsFull', tripletsFullDouble : 'tripletsFullDouble', tripletsConstant : 'tripletsConstant', tripletsDoubleConstant : 'tripletsDoubleConstant', tripletsFullConstant : 'tripletsFullConstant', tripletsFullDoubleConstant : 'tripletsFullDoubleConstant', longTriplets : 'longTriplets', longTripletsDouble : 'longTripletsDouble', longTripletsFull : 'longTripletsFull', longTripletsFullDouble : 'longTripletsFullDouble', longTripletsConstant : 'longTripletsConstant', longTripletsDoubleConstant : 'longTripletsDoubleConstant', longTripletsFullConstant : 'longTripletsFullConstant', longTripletsFullDoubleConstant : 'longTripletsFullDoubleConstant', none: ''}; const CellDesings = { Special1 : 'Special1', Special2 : 'Special2', Special3 : 'Special3', CELLHelperText : 'CELLHelperText', small1 : 'small1', small2 : 'small2', normal1 : 'normal1', normal2 : 'normal2', normal3 : 'normal3', normal4 : 'normal4', normal5 : 'normal5', normal7 : 'normal7', wide1 : 'wide1', wide2 : 'wide2', wide3 : 'wide3', wide4 : 'wide4', wide5 : 'wide5', wide6 : 'wide6', wide7 : 'wide7', wide8 : 'wide8', wide9 : 'wide9', wide10 : 'wide10', wide11 : 'wide11'}; const Paging = { leading : 'leading', centered : 'centered', none : '' };const Orientation = { horizontal : 'horizontal', vertical : 'vertical' };function Search(request,extra,separator,javascriptConfig,output) { this.request = request; this.extra = extra; this.separator = separator; this.javascriptConfig = javascriptConfig; this.output = output;}function ModuleRequest(url,method,headers,httpBody) { this.url = url; this.method = method; this.headers = headers; this.httpBody = httpBody;}function Extra(commands,extraInfo) { this.commands = commands; this.extraInfo = extraInfo;}function Commands(commandName,params) { this.commandName = commandName; this.params = params;}function JavascriptConfig(removeJavascript,loadInWebView,javaScript) { this.removeJavascript = removeJavascript; this.loadInWebView = loadInWebView; this.javaScript = javaScript;}function KeyValue(key,value) { this.key = key; this.value = value;}function Output(cellDesing,orientation,defaultLayout,paging,section,layout,data) { this.cellDesing = cellDesing; this.orientation = orientation; this.defaultLayout = defaultLayout; this.paging = paging; this.section = section; this.layout = layout; this.data = data;}function Section(sectionName,separator) { this.sectionName = sectionName; this.separator = separator;}function Data(image,title,description,field1,field2,field3,field4,isChapter,link,openInWebView) { this.image = image; this.title = title; this.description = description; this.field1 = field1; this.field2 = field2; this.field3 = field3; this.field4 = field4; this.isChapter = isChapter; this.link = link; this.openInWebView = openInWebView;} function Layout(insets, visibleCellsWidthS,visibleCellsWidthM,visibleCellsWidthL, visibleCellsHeight, heightForVisibleCells, cellSize, ratio, constant, horizontalSpacing, verticalSpacing) { this.insets = insets; this.visibleCellsWidthS = visibleCellsWidthS; this.visibleCellsWidthM = visibleCellsWidthM; this.visibleCellsWidthL = visibleCellsWidthL; this.visibleCellsHeight = visibleCellsHeight; this.heightForVisibleCells = heightForVisibleCells; this.cellSize = cellSize; this.ratio = ratio; this.constant = constant; this.horizontalSpacing = horizontalSpacing; this.verticalSpacing = verticalSpacing;}function Insets(top,bottom,left,right) { this.top = top; this.bottom = bottom; this.left = left; this.right = right;}function Size(width,height) { this.width = width; this.height = height;}function Ratio(inRelation,number1,number2) { this.inRelation = inRelation; this.number1 = number1; this.number2 = number2;}var savedData = document.getElementById('ketsu-final-data');const parsedJson = JSON.parse(savedData.innerHTML); const emptyKeyValue = [new KeyValue('','')];var output = [];var searchArray = [];for (anime of document.querySelectorAll('.item-archivio')) { var image = anime.querySelector('img').src; image = new ModuleRequest(image, 'get', emptyKeyValue, null); var title = anime.querySelector('h3').textContent; var desc = anime.querySelector('p').textContent; var link = anime.querySelector('a').href; link = new ModuleRequest(link, 'get', emptyKeyValue, null); searchArray.push(new Data(image, title, desc, '', title, '', '', false, link));}var layout = new Layout(new Insets(10,10,10,10), 1,2,3,1,500, new Size(400,400), new Ratio('width',4, 11), new Size(0,0), 10,10);output.push(new Output(CellDesings.wide11, Orientation.vertical, DefaultLayouts.none, Paging.none, new Section('',false), layout, searchArray));const searchPageObject = new Search(new ModuleRequest('','',emptyKeyValue,null),new Extra([new Commands('',emptyKeyValue)],emptyKeyValue),'',new JavascriptConfig(true,false,''),output);savedData.innerHTML = JSON.stringify(searchPageObject);"
+        "javaScript": "const DefaultLayouts = { ultraWideFull : 'ultraWideFull', ultraWide : 'ultraWide', wideFull : 'wideFull', wide : 'wide', wideStrechedFull : 'wideStrechedFull', wideStrechedFullDouble : 'WideStrechedFullDouble', wideStreched : 'wideStreched', wideStrechedDouble : 'wideStrechedDouble', wideStrechedFullList : 'wideStrechedFullList', wideStrechedList : 'wideStrechedList', doublets : 'doublets', doubletsDouble : 'doubletsDouble', doubletsFull : 'doubletsFull', doubletsFullDouble : 'doubletsFullDouble', doubletsConstant : 'doubletsConstant', doubletsDoubleConstant : 'doubletsDoubleConstant', doubletsFullConstant : 'doubletsFullConstant', doubletsFullDoubleConstant : 'doubletsFullDoubleConstant', longDoublets : 'longDoublets', longDoubletsDouble : 'longDoubletsDouble', longDoubletsFull : 'longDoubletsFull', longDoubletsFullDouble : 'longDoubletsFullDouble', longDoubletsConstant : 'longDoubletsConstant', longDoubletsDoubleConstant : 'longDoubletsDoubleConstant', longDoubletsFullConstant : 'longDoubletsFullConstant', longDoubletsFullDoubleConstant : 'longDoubletsFullDoubleConstant', triplets : 'triplets', tripletsDouble : 'tripletsDouble', tripletsFull : 'tripletsFull', tripletsFullDouble : 'tripletsFullDouble', tripletsConstant : 'tripletsConstant', tripletsDoubleConstant : 'tripletsDoubleConstant', tripletsFullConstant : 'tripletsFullConstant', tripletsFullDoubleConstant : 'tripletsFullDoubleConstant', longTriplets : 'longTriplets', longTripletsDouble : 'longTripletsDouble', longTripletsFull : 'longTripletsFull', longTripletsFullDouble : 'longTripletsFullDouble', longTripletsConstant : 'longTripletsConstant', longTripletsDoubleConstant : 'longTripletsDoubleConstant', longTripletsFullConstant : 'longTripletsFullConstant', longTripletsFullDoubleConstant : 'longTripletsFullDoubleConstant', none: ''}; const CellDesings = { Special1 : 'Special1', Special2 : 'Special2', Special3 : 'Special3', CELLHelperText : 'CELLHelperText', small1 : 'small1', small2 : 'small2', normal1 : 'normal1', normal2 : 'normal2', normal3 : 'normal3', normal4 : 'normal4', normal5 : 'normal5', normal7 : 'normal7', wide1 : 'wide1', wide2 : 'wide2', wide3 : 'wide3', wide4 : 'wide4', wide5 : 'wide5', wide6 : 'wide6', wide7 : 'wide7', wide8 : 'wide8', wide9 : 'wide9', wide10 : 'wide10', wide11 : 'wide11'}; const Paging = { leading : 'leading', centered : 'centered', none : '' };const Orientation = { horizontal : 'horizontal', vertical : 'vertical' };function Search(request,extra,separator,javascriptConfig,output) { this.request = request; this.extra = extra; this.separator = separator; this.javascriptConfig = javascriptConfig; this.output = output;}function ModuleRequest(url,method,headers,httpBody) { this.url = url; this.method = method; this.headers = headers; this.httpBody = httpBody;}function Extra(commands,extraInfo) { this.commands = commands; this.extraInfo = extraInfo;}function Commands(commandName,params) { this.commandName = commandName; this.params = params;}function JavascriptConfig(removeJavascript,loadInWebView,javaScript) { this.removeJavascript = removeJavascript; this.loadInWebView = loadInWebView; this.javaScript = javaScript;}function KeyValue(key,value) { this.key = key; this.value = value;}function Output(cellDesing,orientation,defaultLayout,paging,section,layout,data) { this.cellDesing = cellDesing; this.orientation = orientation; this.defaultLayout = defaultLayout; this.paging = paging; this.section = section; this.layout = layout; this.data = data;}function Section(sectionName,separator) { this.sectionName = sectionName; this.separator = separator;}function Data(image,title,description,field1,field2,field3,field4,isChapter,link,openInWebView) { this.image = image; this.title = title; this.description = description; this.field1 = field1; this.field2 = field2; this.field3 = field3; this.field4 = field4; this.isChapter = isChapter; this.link = link; this.openInWebView = openInWebView;}let savedData = document.getElementById('ketsu-final-data');const parsedJson = JSON.parse(savedData.innerHTML); const emptyKeyValue = [new KeyValue('','')];let output = [];let searchArray = [];for (anime of document.querySelectorAll('.item-archivio')) { let image = anime.querySelector('img').src; image = new ModuleRequest(image, 'get', emptyKeyValue, null); let title = anime.querySelector('h3').textContent; let desc = anime.querySelector('p').textContent; let link = anime.querySelector('a').href; link = new ModuleRequest(link, 'get', emptyKeyValue, null); searchArray.push(new Data(image, title, '', desc,'','','', false, link));}output.push(new Output(CellDesings.wide6, Orientation.vertical, DefaultLayouts.wide, Paging.centered, new Section('', true), null, searchArray));savedData.innerHTML = JSON.stringify(new Search(new ModuleRequest('','',emptyKeyValue,null),new Extra([new Commands('',emptyKeyValue)],emptyKeyValue),'',new JavascriptConfig(true,false,''),output));"
       },
-      "output": [{
-        "cellDesing": "normal1",
-        "orientation": "vertical",
-        "defaultLayout": "wide",
-        "paging": "",
-        "section": {
-          "sectionName": "",
-          "separator": false
-        },
-        "layout": {
-          "insets": {
-            "top": 0,
-            "bottom": 0,
-            "left": 0,
-            "right": 0
-          },
-          "visibleCellsWidthS": 2,
-          "visibleCellsWidthM": 2,
-          "visibleCellsWidthL": 2,
-          "visibleCellsHeight": 2,
-          "heightForVisibleCells": 400,
-          "cellSize": {
-            "width": 300,
-            "height": 300
-          },
-          "ratio": {
-            "inRelation": "width",
-            "number1": 1,
-            "number2": 2
-          },
-          "constant": {
-            "width": 1,
-            "height": 2
-          },
-          "horizontalSpacing": 0,
-          "verticalSpacing": 0
-        },
-        "data": [{
-          "image": {
-            "url": "",
-            "method": "get",
-            "headers": [{
-              "key": "",
-              "value": ""
-            }],
-            "httpBody": null
-          },
-          "title": "",
-          "description": "",
-          "field1": "",
-          "field2": "",
-          "field3": "",
-          "field4": "",
-          "openInWebView" : false,
-          "isChapter": false,
-          "link": {
-            "url": "empty",
-            "method": "get",
-            "headers": [{
-              "key": "key",
-              "value": "value"
-            }],
-            "httpBody": null
-          }
-        }]
-      }]
+      "output": []
     }
   ],
   "info": [
@@ -232,69 +69,39 @@
       "request": {
         "url": "",
         "method": "get",
-        "headers": [{
-          "key": "",
-          "value": ""
-        }],
+        "headers": [],
         "httpBody": null
       },
       "extra": {
-        "commands": [{
-          "commandName": "",
-          "params": [{
-            "key": "",
-            "value": ""
-          }]
-        }],
-        "extraInfo": [{
-          "key": "",
-          "value": ""
-        }]
+        "commands": [],
+        "extraInfo": []
       },
       "javascriptConfig": {
         "removeJavascript": true,
         "loadInWebView": false,
-        "javaScript": "function Info(request, extra, javascriptConfig, output) { this.request = request; this.extra = extra; this.javascriptConfig = javascriptConfig; this.output = output;}function ModuleRequest(url, method, headers, httpBody) { this.url = url; this.method = method; this.headers = headers; this.httpBody = httpBody;}function Extra(commands, extraInfo) { this.commands = commands; this.extraInfo = extraInfo;}function Commands(commandName, params) { this.commandName = commandName; this.params = params;}function JavascriptConfig(removeJavascript, loadInWebView, javaScript) { this.removeJavascript = removeJavascript; this.loadInWebView = loadInWebView; this.javaScript = javaScript;}function KeyValue(key, value) { this.key = key; this.value = value;}function Chapter(chapName, link,openInWebView) { this.chapName = chapName; this.link = link; this.openInWebView = openInWebView;}function Output(image, title, link, description, genres, field1, field2, field3, field4, chapters) { this.image = image; this.link = link; this.title = title; this.description = description; this.genres = genres; this.field1 = field1; this.field2 = field2; this.field3 = field3; this.field4 = field4; this.chapters = chapters;}var savedData = document.getElementById('ketsu-final-data');const parsedJson = JSON.parse(savedData.innerHTML);const emptyKeyValue = [new KeyValue('', '')];var image = document.querySelector('.cover-anime').src;image = new ModuleRequest(image,'get',emptyKeyValue,null);var title = document.querySelector('.anime-title-as b').textContent;var desc = document.querySelector('#shown-trama').textContent.trim();var genres = Array.from(document.querySelectorAll('.badge-dark')).map(genre => genre.textContent);var statut = document.querySelector('.w-100.text-white').textContent.split('Stato:')[1].split('\\n')[0].trim();var time = document.querySelector('.w-100.text-white').textContent.split('Durata episodi:')[1].split('\\n')[0].trim();var episodes = [];for (ep of document.querySelectorAll('.bottone-ep')) { episodes.push(new Chapter(ep.textContent, new ModuleRequest(ep.href, 'get',emptyKeyValue,null),false));}const infoPageObject = new Info(new ModuleRequest('', '', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(false, false, ''), new Output(image, title, parsedJson.request, desc, genres, statut, '', time, 'Eps: '+episodes.length, episodes));savedData.innerHTML = JSON.stringify(infoPageObject);"
+        "javaScript": "function Info(request, extra, javascriptConfig, output) { this.request = request; this.extra = extra; this.javascriptConfig = javascriptConfig; this.output = output;}function ModuleRequest(url, method, headers, httpBody) { this.url = url; this.method = method; this.headers = headers; this.httpBody = httpBody;}function Extra(commands, extraInfo) { this.commands = commands; this.extraInfo = extraInfo;}function Commands(commandName, params) { this.commandName = commandName; this.params = params;}function JavascriptConfig(removeJavascript, loadInWebView, javaScript) { this.removeJavascript = removeJavascript; this.loadInWebView = loadInWebView; this.javaScript = javaScript;}function KeyValue(key, value) { this.key = key; this.value = value;}function Chapter(chapName, link,openInWebView) { this.chapName = chapName; this.link = link; this.openInWebView = openInWebView;}function Output(image, title, link, description, genres, field1, field2, field3, field4, chapters) { this.image = image; this.link = link; this.title = title; this.description = description; this.genres = genres; this.field1 = field1; this.field2 = field2; this.field3 = field3; this.field4 = field4; this.chapters = chapters;}let savedData = document.getElementById('ketsu-final-data');const parsedJson = JSON.parse(savedData.innerHTML);const emptyKeyValue = [new KeyValue('', '')];let image = document.querySelector('.cover-anime').src;image = new ModuleRequest(image,'get',emptyKeyValue,null);let title = document.querySelector('.anime-title-as b').textContent;let desc = document.querySelector('#shown-trama').textContent.trim();let genres = Array.from(document.querySelectorAll('.badge-dark')).map(genre => genre.textContent);let statut = document.querySelector('.w-100.text-white').textContent.split('Stato:')[1].split('\\n')[0].trim();let time = document.querySelector('.w-100.text-white').textContent.split('Durata episodi:')[1].split('\\n')[0].trim();let episodes = Array.from(document.querySelectorAll('.bottone-ep')).map(ep => new Chapter(ep.textContent, new ModuleRequest(ep.href, 'get',emptyKeyValue,null),false));savedData.innerHTML = JSON.stringify(new Info(new ModuleRequest('', '', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(false, false, ''), new Output(image, title, parsedJson.request, desc, genres, statut, '', time, 'Eps: '+episodes.length, episodes)));"
       },
       "output": {
         "image": {
           "url": "",
           "method": "get",
-          "headers": [{
-            "key": "",
-            "value": ""
-          }],
+          "headers": [],
           "httpBody": null
         },
         "link": {
           "url": "",
           "method": "get",
-          "headers": [{
-            "key": "",
-            "value": ""
-          }],
+          "headers": [],
           "httpBody": null
         },
         "title": "",
         "description": "",
-        "genres": [ "" ],
+        "genres": [],
         "field1": "",
         "field2": "",
         "field3": "",
         "field4": "",
-        "chapters": [{
-          "chapName": "",
-          "openInWebView": false,
-          "link": {
-            "url": "empty",
-            "method": "get",
-            "headers": [{
-              "key": "",
-              "value": ""
-            }],
-            "httpBody": null
-          }
-        }]
+        "chapters": []
       }
     }
   ],
@@ -303,24 +110,12 @@
       "request": {
         "url": "",
         "method": "get",
-        "headers": [{
-          "key": "",
-          "value": ""
-        }],
+        "headers": [],
         "httpBody": null
       },
       "extra": {
-        "commands": [{
-          "commandName": "",
-          "params": [{
-            "key": "",
-            "value": ""
-          }]
-        }],
-        "extraInfo": [{
-          "key": "",
-          "value": ""
-        }]
+        "commands": [],
+        "extraInfo": []
       },
       "javascriptConfig": {
         "removeJavascript": true,
@@ -329,66 +124,32 @@
       },
       "output": {
         "videos": {
-          "needsResolver": [{
-            "resolverIdentifier": "",
-            "link": {
-              "url": "",
-              "method": "get",
-              "headers": [{
-                "key": "",
-                "value": ""
-              }],
-              "httpBody": null
-            }
-          }],
+          "needsResolver": [],
           "rawVideo": [{
             "video": [{
               "videoQuality": "",
               "videoLink": {
                 "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
                 "method": "get",
-                "headers": [{
-                  "key": "",
-                  "value": ""
-                }],
+                "headers": [],
                 "httpBody": null
               }
             }]
           }]
         },
-        "images": [{
-          "url": "empty",
-          "method": "get",
-          "headers": [{
-            "key": "",
-            "value": ""
-          }],
-          "httpBody": null
-        }],
+        "images": [],
         "text": { "text": "" }
       }
     },{
       "request": {
         "url": "",
         "method": "get",
-        "headers": [{
-          "key": "",
-          "value": ""
-        }],
+        "headers": [],
         "httpBody": null
       },
       "extra": {
-        "commands": [{
-          "commandName": "",
-          "params": [{
-            "key": "",
-            "value": ""
-          }]
-        }],
-        "extraInfo": [{
-          "key": "",
-          "value": ""
-        }]
+        "commands": [],
+        "extraInfo": []
       },
       "javascriptConfig": {
         "removeJavascript": true,
@@ -397,42 +158,20 @@
       },
       "output": {
         "videos": {
-          "needsResolver": [{
-            "resolverIdentifier": "",
-            "link": {
-              "url": "",
-              "method": "get",
-              "headers": [{
-                "key": "",
-                "value": ""
-              }],
-              "httpBody": null
-            }
-          }],
+          "needsResolver": [],
           "rawVideo": [{
             "video": [{
               "videoQuality": "",
               "videoLink": {
                 "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
                 "method": "get",
-                "headers": [{
-                  "key": "",
-                  "value": ""
-                }],
+                "headers": [],
                 "httpBody": null
               }
             }]
           }]
         },
-        "images": [{
-          "url": "empty",
-          "method": "get",
-          "headers": [{
-            "key": "",
-            "value": ""
-          }],
-          "httpBody": null
-        }],
+        "images": [],
         "text": { "text": "" }
       }
     }
@@ -493,78 +232,6 @@
       }]
     }
   ],
-  "responseCodeFunctions": [
-    {
-      "code": 0,
-      "msgTitle": "",
-      "msgBody": "",
-      "type": "normal",
-      "functions": [{
-        "request": {
-          "url": "empty",
-          "method": "get",
-          "headers": [{
-            "key": "",
-            "value": ""
-          }],
-          "httpBody": null
-        },
-        "extra": {
-          "commands": [{
-            "commandName": "",
-            "params": [{
-              "key": "",
-              "value": ""
-            }]
-          }],
-          "extraInfo": [{
-            "key": "",
-            "value": ""
-          }]
-        },
-        "javascriptConfig": {
-          "removeJavascript": true,
-          "loadInWebView": false,
-          "javaScript": ""
-        }
-      }]
-    }
-  ],
-  "helperFunctions": [
-    {
-      "functionName": "example",
-      "msgTitle": "",
-      "msgBody": "",
-      "type": "normal",
-      "functions": [{
-        "request": {
-          "url": "empty",
-          "method": "get",
-          "headers": [{
-            "key": "",
-            "value": ""
-          }],
-          "httpBody": null
-        },
-        "extra": {
-          "commands": [{
-            "commandName": "",
-            "params": [{
-              "key": "",
-              "value": ""
-            }]
-          }],
-          "extraInfo": [{
-            "key": "",
-            "value": ""
-          }]
-        },
-        "javascriptConfig": {
-          "removeJavascript": true,
-          "loadInWebView": false,
-          "javaScript": ""
-        }
-      }]
-    }
-  ]
+  "responseCodeFunctions": [],
+  "helperFunctions": []
 }
