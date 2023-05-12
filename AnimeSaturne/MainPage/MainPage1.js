@@ -174,12 +174,12 @@ function shuffle(a) {
     } return a;
 }
     
-var savedData = document.getElementById('ketsu-final-data');
+let savedData = document.getElementById('ketsu-final-data');
 const parsedJson = JSON.parse(savedData.innerHTML); 
 const emptyKeyValue = [new KeyValue('','')];
     
-var output = [];
-var dataArray = [];
+let output = [];
+let dataArray = [];
 
 for (slide of document.querySelectorAll('.carousel-item')) {
     let image = slide.querySelector('img').src;
@@ -192,23 +192,20 @@ for (slide of document.querySelectorAll('.carousel-item')) {
 const sliderLayout = new Layout(new Insets(0,0,0,0),1,2,3,1,500, new Size(400,400), new Ratio('width',1.2, 3), new Size(0,0),0,0);
 output.push(new Output(CellDesings.normal1, Orientation.horizontal, DefaultLayouts.none, Paging.centered, new Section('', false), sliderLayout, shuffle(dataArray.slice())));
 
-for (section of document.querySelectorAll('.container.p-3')) {
-    var dataArray = [];
+for (let section of document.querySelectorAll('.container.p-3')) {
+    dataArray = [];
     let animes = section.querySelectorAll('.card > a');
     if (animes.length != 0) {
-        let sectionName = section.querySelector('h3').textContent;
-        for (anime of animes) {
+        for (let anime of animes) {
             let image = anime.querySelector('img').src;
             image = new ModuleRequest(image, 'get', emptyKeyValue, null);
-            let title = anime.title;
+
             let link = anime.href;
             link = new ModuleRequest(link, 'get', emptyKeyValue, null);
-            dataArray.push(new Data(image, title, '', '', '', '', '', false, link));
+            dataArray.push(new Data(image, anime.title, '', '', '', '', '', false, link));
         }
-        output.push(new Output(CellDesings.normal1, Orientation.horizontal, DefaultLayouts.longDoubletsDouble, Paging.leading, new Section(sectionName, true), null, dataArray));
+        output.push(new Output(CellDesings.normal1, Orientation.horizontal, DefaultLayouts.longDoubletsDouble, Paging.leading, new Section(section.querySelector('h4').textContent, true), null, dataArray));
     }
 }
-    
-const mainPageObject = new MainPage(new ModuleRequest('','',emptyKeyValue,null),new Extra([new Commands('',emptyKeyValue)],emptyKeyValue),new JavascriptConfig(true,false,''),output);
 
-savedData.innerHTML = JSON.stringify(mainPageObject);
+savedData.innerHTML = JSON.stringify(new MainPage(new ModuleRequest('','',emptyKeyValue,null),new Extra([new Commands('',emptyKeyValue)],emptyKeyValue),new JavascriptConfig(true,false,''),output));
