@@ -1,0 +1,107 @@
+{
+    "resolverInfo": {
+        "resolverName": "StreamHide",
+        "nameMatches": ["GUCCIHIDE"],
+        "developer": "Danyspb4ever",
+        "moduleID": "451365463121",
+        "resolverVersion": 1.11,
+        "baseURL": "https://streamhide.com/",
+        "moduleCreatorIdSphXnPFLFKiHsMvgNhyf": {
+            "path": "dMETB",
+            "id": "moduleResolvers,0,resolverInfosection",
+            "sectionsHidden": ["moduleCreatorIdEmJUMvSYiRWcjzZClEpP", "moduleCreatorIdKobCbryjyQzOxsdhGWSR"],
+            "options": {
+                "name": "Resolver Parameters",
+                "listName": "parameters"
+            },
+            "cellsHidden": false
+        },
+        "moduleCreatorIdADQdEHNZIysbrQdEyESo": {
+            "path": "sukIF",
+            "id": "moduleResolvers,0,resolverInfocell",
+            "sectionsHidden": ["moduleCreatorIdEmJUMvSYiRWcjzZClEpP", "moduleCreatorIdKobCbryjyQzOxsdhGWSR"],
+            "options": {
+                "name": "parameters"
+            },
+            "cellsHidden": false
+        }
+    },
+    "resolver": [{
+        "request": {
+            "url": "https://guccihide.com/e/th8312g0jyjm",
+            "method": "get",
+            "headers": [{
+                "key": "key",
+                "value": "value",
+                "moduleCreatorHeaderisActive": true
+            }, {
+                "key": "",
+                "value": "",
+                "moduleCreatorHeaderisActive": true
+            }]
+        },
+        "extra": {
+            "commands": [{
+                "commandName": "",
+                "params": [{
+                    "key": "",
+                    "value": ""
+                }]
+            }],
+            "extraInfo": [{
+                "key": "",
+                "value": ""
+            }]
+        },
+        "javascriptConfig": {
+            "removeJavascript": false,
+            "loadInWebView": false,
+            "javaScript": "\n        try {\n\n            /* JAVASCRIPT STARTS */ try {\n\n            /* JAVASCRIPT STARTS */ \n      function Resolver ( request, extra, javascriptConfig, output ) {\n              this.request = request;\n              this.extra = extra;\n              this.javascriptConfig = javascriptConfig;\n              this.output = output;\n      }\n\n      function ModuleRequest ( url, method, headers, httpBody ) {\n              this.url = url;\n              this.method = method;\n              this.headers = headers;\n              this.httpBody = httpBody;\n      }\n\n      function Extra ( commands, extraInfo ) {\n              this.commands = commands;\n              this.extraInfo = extraInfo;\n      }\n\n      function Commands ( commandName, params ) {\n              this.commandName = commandName;\n              this.params = params;\n      }\n\n      function JavascriptConfig ( removeJavascript, loadInWebView, javaScript ) {\n              this.removeJavascript = removeJavascript;\n              this.loadInWebView = loadInWebView;\n              this.javaScript = javaScript;\n      }\n\n      function KeyValue ( key, value ) {\n              this.key = key;\n              this.value = value;\n      }\n\n      function Output ( video ) {\n              this.video = video;\n      }\n\n      function Video ( videoQuality, videoLink ) {\n              this.videoQuality = videoQuality;\n              this.videoLink = videoLink;\n      }\n\n      function getNext ( match, array ) {\n              for ( var x = 0; x < array.length; x++ ) {\n                      let mMatch = array[ x ];\n                      if ( mMatch.includes( match ) ) {\n                              return array[ x + 1 ];\n                      }\n              }\n      }\n            function unPack(code) {\n            function indent(code) {\n                try {\n                    var tabs = 0,\n                        old = -1,\n                        add = '';\n                    for (var i = 0; i < code.length; i++) {\n                        if (code[i].indexOf('{') != -1) tabs++;\n                        if (code[i].indexOf('}') != -1) tabs--;\n                        if (old != tabs) {\n                            old = tabs;\n                            add = '';\n                            while (old > 0) {\n                                add += '\\\\t';\n                                old--;\n                            }\n                            old = tabs;\n                        }\n                        code[i] = add + code[i];\n                    }\n                } finally {\n                    tabs = null;\n                    old = null;\n                    add = null;\n                }\n                return code;\n            }\n            var env = {\n                eval: function (c) {\n                    code = c;\n                },\n                window: {},\n                document: {}\n            };\n            eval('with(env) {' + code + '}');\n            code = (code + '').replace(/;/g, ';\\\\n').replace(/{/g, '\\\\n{\\\\n').replace(/}/g, '\\\\n}\\\\n').replace(/\\\\n;\\\\n/g, ';\\\\n').replace(/\\\\n\\\\n/g, '\\\\n');\n            code = code.split('\\\\n');\n            code = indent(code);\n            code = code.join('\\\\n');\n            return code;\n        }\n        var savedData = document.getElementById('ketsu-final-data');\n        var parsedJson = JSON.parse(savedData.innerHTML);\n        var emptyKeyValue = [new KeyValue('Referer', parsedJson.request.url)];\n        var videos = [];\n        var scripts = document.querySelectorAll('script');\n        for (script of scripts) {\n            if (script.innerHTML.includes('eval(function(p,a,c,k,e,d)')) {\n                var unpack = unPack(script.innerText);\n                break;\n            }\n        }\n      var videoLink = unpack.match(/(http.*?\\\\)/gm)[0];\n      var link = videoLink.substring(0, videoLink.length - 2);\n      videos.push( new Video( 'normal', new ModuleRequest( link, 'get', emptyKeyValue, null ) ) );\n      let emptyExtra = new Extra( [ new Commands( '', emptyKeyValue ) ], emptyKeyValue );\n      var chaptersObject = new Resolver( new ModuleRequest( '', 'get', emptyKeyValue, null ), emptyExtra, new JavascriptConfig( false, false, '' ), new Output( videos ) );\n      var finalJson = JSON.stringify( chaptersObject );\n      savedData.innerHTML = finalJson;\n /* JAVASCRIPT ENDS */\n\n        } catch (e) {\n            console.error(e.message);\n\n            if (typeof KETSU_ASYNC !== 'undefined') {\n                window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');\n            }\n\n        } /* JAVASCRIPT ENDS */\n\n        } catch (e) {\n            console.error(e.message);\n\n            if (typeof KETSU_ASYNC !== 'undefined') {\n                window.webkit.messageHandlers.EXECUTE_KETSU_ASYNC.postMessage('');\n            }\n\n        }\n        \n        "
+        },
+        "output": {
+            "moduleID": "",
+            "video": [{
+                "videoQuality": "720",
+                "videoLink": {
+                    "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+                    "method": "get",
+                    "headers": [{
+                        "key": "key",
+                        "value": "value"
+                    }],
+                    "httpBody": null
+                }
+            }]
+        },
+        "moduleCreatorIdZmziwkPXYwWtgdocNDUb": {
+            "path": "QyQqA",
+            "id": "moduleResolvers,0,resolver,0cell",
+            "sectionsHidden": ["moduleCreatorIdEmJUMvSYiRWcjzZClEpP", "moduleCreatorIdKobCbryjyQzOxsdhGWSR"],
+            "options": {
+                "name": "Request"
+            },
+            "cellsHidden": false,
+            "javascriptEditorScroll": 124,
+            "openedMenu": "Javascript"
+        }
+    }],
+    "moduleCreatorIdEmJUMvSYiRWcjzZClEpP": {
+        "path": "psUkh",
+        "id": "moduleResolvers,0section",
+        "sectionsHidden": ["moduleCreatorIdKobCbryjyQzOxsdhGWSR"],
+        "options": {
+            "name": "Resolver"
+        },
+        "cellsHidden": true
+    },
+    "moduleCreatorIdjzGbAxVuVbTvhrxHbktO": {
+        "path": "resolver",
+        "id": "moduleResolvers,0,resolversection",
+        "sectionsHidden": ["moduleCreatorIdEmJUMvSYiRWcjzZClEpP", "moduleCreatorIdKobCbryjyQzOxsdhGWSR"],
+        "options": {
+            "name": "Resolver Request",
+            "listName": "Request"
+        },
+        "cellsHidden": false
+    }
+}
