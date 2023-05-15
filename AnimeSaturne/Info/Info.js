@@ -45,24 +45,20 @@ function Output(image, title, link, description, genres, field1, field2, field3,
     this.chapters = chapters;
 }
 
-var savedData = document.getElementById('ketsu-final-data');
+let savedData = document.getElementById('ketsu-final-data');
 const parsedJson = JSON.parse(savedData.innerHTML);
 const emptyKeyValue = [new KeyValue('', '')];
 
-var image = document.querySelector('.cover-anime').src;
+let image = document.querySelector('.cover-anime').src;
 image = new ModuleRequest(image,'get',emptyKeyValue,null);
-var title = document.querySelector('.anime-title-as b').textContent;
-var desc = document.querySelector('#shown-trama').textContent.trim();
+let title = document.querySelector('.anime-title-as b').textContent;
+let desc = document.querySelector('#shown-trama').textContent.trim();
 
-var genres = Array.from(document.querySelectorAll('.badge-dark')).map(genre => genre.textContent);
-var statut = document.querySelector('.w-100.text-white').textContent.split('Stato:')[1].split('\n')[0].trim();
-var time = document.querySelector('.w-100.text-white').textContent.split('Durata episodi:')[1].split('\n')[0].trim();
+let genres = Array.from(document.querySelectorAll('.badge-dark')).map(genre => genre.textContent);
+let statut = document.querySelector('.w-100.text-white').textContent.split('Stato:')[1].split('\n')[0].trim();
+let time = document.querySelector('.w-100.text-white').textContent.split('Durata episodi:')[1].split('\n')[0].trim();
 
-var episodes = [];
-for (ep of document.querySelectorAll('.bottone-ep')) {
-    episodes.push(new Chapter(ep.textContent, new ModuleRequest(ep.href, 'get',emptyKeyValue,null),false));
-}
+let episodes = Array.from(document.querySelectorAll('.bottone-ep')).map(ep => new Chapter(ep.textContent, new ModuleRequest(ep.href, 'get',emptyKeyValue,null),false));
+console.log(episodes);
 
-const infoPageObject = new Info(new ModuleRequest('', '', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(false, false, ''), new Output(image, title, parsedJson.request, desc, genres, statut, '', time, 'Eps: '+episodes.length, episodes));
-
-savedData.innerHTML = JSON.stringify(infoPageObject);
+savedData.innerHTML = JSON.stringify(new Info(new ModuleRequest('', '', emptyKeyValue, null), new Extra([new Commands('', emptyKeyValue)], emptyKeyValue), new JavascriptConfig(false, false, ''), new Output(image, title, parsedJson.request, desc, genres, statut, '', time, 'Eps: '+episodes.length, episodes)));
