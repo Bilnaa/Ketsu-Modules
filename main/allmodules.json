@@ -18,17 +18,11 @@
         "info": "Regardez gratuitement des animes avec le module du site VoirAnime.",
         "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/VoirAnime/moduleTemplate.json"
     }, {
-        "name": "Zoro | ENG",
+        "name": "Aniwatch | ENG",
         "author": "Nabil",
         "image": "https://i.postimg.cc/QC5gQWG6/zoro-logo.png",
         "info": "Watch subbed and dubbed animes with the module of Zoro.",
         "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/bilnaa.github.io/main/Zoro.to/moduleTemplate.json"
-    }, {
-        "name": "Zoro (App Store version) | ENG",
-        "author": "Nabil",
-        "image": "https://i.postimg.cc/QC5gQWG6/zoro-logo.png",
-        "info": "If you got the app through the App Store, you must add this module.",
-        "link": "ketsuapp://?moduleData=https://raw.githubusercontent.com/Bilnaa/beta-ketsu/main/zoro.json"
     }, {
         "name": "Wiflix | FR",
         "author": "Nabil",
