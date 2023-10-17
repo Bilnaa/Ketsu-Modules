@@ -1,3 +1,6 @@
+| :warning: WARNING          |
+|:---------------------------|
+| This repo will no longer be actively updated.     
 # Ketsu-Modules
 These are the modules created by the Katsu/Ketsu/Zetsu community.
 # What is Ketsu ?
